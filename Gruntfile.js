@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						cwd: 'css/theme/source',
-						src: ['*.scss'],
+						src: ['black.scss'],
 						dest: 'css/theme',
 						ext: '.css'
 					}
