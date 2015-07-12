@@ -287,24 +287,36 @@ body {
  * NAVIGATION CONTROLS
  *********************************************/
 
+.reveal .controls div {
+  background: $arrowBGColor;
+}
+
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-	border-right-color: $linkColor;
+  &:before {
+  	border-right-color: $arrowColor;
+  }
 }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-	border-left-color: $linkColor;
+  &:before {
+    border-left-color: $arrowColor;
+  }
 }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-	border-bottom-color: $linkColor;
+  &:before {
+    border-bottom-color: $arrowColor;
+  }
 }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-	border-top-color: $linkColor;
+  &:before {
+    border-top-color: $arrowColor;
+  }
 }
 
 .reveal .controls div.navigate-left.enabled:hover {
