@@ -1,5 +1,7 @@
 // Base theme template for reveal.js
 
+@import "../../partials/custom-utilities";
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -254,39 +256,6 @@ section {
 	vertical-align: top;
 }
 
-.reveal .file-list {
-  min-width: 40%;
-  text-align: left;
-  margin: 0;
-  padding: 0;
-
-  li {
-    margin: 0 0 .2em;
-    padding: .1em .3em;
-    list-style: none;
-
-    &:before {
-      content: "\f07b";
-      display: inline-block;
-      padding: 0 .3em 0 0;
-      font: normal normal normal 1em/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      color: lighten($linkColor, 5);
-    }
-
-  }
-
-}
-
-.fa-folder,
-.fa-file {
-  color: lighten($linkColor, 5);
-}
-
 /*********************************************
  * LINKS
  *********************************************/
@@ -369,4 +338,10 @@ section {
 	color: $linkColor;
 }
 
+/*********************************************
+ * PRISM OVERRIDES
+ *********************************************/
 
+.reveal .token {
+  background: transparent;
+}

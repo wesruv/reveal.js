@@ -1,0 +1,54 @@
+/**
+ * Add flex-wrapper to a container and it will make the children elements into
+ * Equal width columns, works up to 8 columns, update scss @for to add more
+ */
+.flex-wrapper {
+  display: flex;
+
+  // Auto add column widths based on how many child elements are in the flex wrapper
+  // see: http://alistapart.com/article/quantity-queries-for-css
+  @for $i from 1 through 8 {
+    > #{':nth-last-child(' + $i + '):first-child'},
+    > #{':nth-last-child(' + $i + '):first-child'} ~ :nth-child(n) {
+      width: 100% / $i;
+    }
+  }
+
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+.reveal .file-list {
+  min-width: 40%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0 0 .2em;
+    padding: .1em .3em;
+    list-style: none;
+
+    &:before {
+      content: "\f07b";
+      display: inline-block;
+      padding: 0 .3em 0 0;
+      font: normal normal normal 1em/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      color: lighten($linkColor, 5);
+    }
+
+  }
+
+}
+
+.fa-folder,
+.fa-file {
+  color: lighten($linkColor, 5);
+}

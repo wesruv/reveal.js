@@ -7,6 +7,56 @@
 .has-dark-background, .has-dark-background h1, .has-dark-background h2, .has-dark-background h3, .has-dark-background h4, .has-dark-background h5, .has-dark-background h6 {
   color: #fff; }
 
+/**
+ * Add flex-wrapper to a container and it will make the children elements into
+ * Equal width columns, works up to 8 columns, update scss @for to add more
+ */
+.flex-wrapper {
+  display: flex; }
+  .flex-wrapper > :nth-last-child(1):first-child, .flex-wrapper > :nth-last-child(1):first-child ~ :nth-child(n) {
+    width: 100%; }
+  .flex-wrapper > :nth-last-child(2):first-child, .flex-wrapper > :nth-last-child(2):first-child ~ :nth-child(n) {
+    width: 50%; }
+  .flex-wrapper > :nth-last-child(3):first-child, .flex-wrapper > :nth-last-child(3):first-child ~ :nth-child(n) {
+    width: 33.3333333333%; }
+  .flex-wrapper > :nth-last-child(4):first-child, .flex-wrapper > :nth-last-child(4):first-child ~ :nth-child(n) {
+    width: 25%; }
+  .flex-wrapper > :nth-last-child(5):first-child, .flex-wrapper > :nth-last-child(5):first-child ~ :nth-child(n) {
+    width: 20%; }
+  .flex-wrapper > :nth-last-child(6):first-child, .flex-wrapper > :nth-last-child(6):first-child ~ :nth-child(n) {
+    width: 16.6666666667%; }
+  .flex-wrapper > :nth-last-child(7):first-child, .flex-wrapper > :nth-last-child(7):first-child ~ :nth-child(n) {
+    width: 14.2857142857%; }
+  .flex-wrapper > :nth-last-child(8):first-child, .flex-wrapper > :nth-last-child(8):first-child ~ :nth-child(n) {
+    width: 12.5%; }
+
+.reveal small * {
+  vertical-align: top; }
+
+.reveal .file-list {
+  min-width: 40%;
+  text-align: left;
+  margin: 0;
+  padding: 0; }
+  .reveal .file-list li {
+    margin: 0 0 0.2em;
+    padding: 0.1em 0.3em;
+    list-style: none; }
+    .reveal .file-list li:before {
+      content: "\f07b";
+      display: inline-block;
+      padding: 0 0.3em 0 0;
+      font: normal normal normal 1em/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      color: #159799; }
+
+.fa-folder, .fa-file {
+  color: #159799; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -184,30 +234,6 @@ section h1:first-child, section h2:first-child, section h3:first-child, section 
 .reveal small * {
   vertical-align: top; }
 
-.reveal .file-list {
-  min-width: 40%;
-  text-align: left;
-  margin: 0;
-  padding: 0; }
-  .reveal .file-list li {
-    margin: 0 0 0.2em;
-    padding: 0.1em 0.3em;
-    list-style: none; }
-    .reveal .file-list li:before {
-      content: "\f07b";
-      display: inline-block;
-      padding: 0 0.3em 0 0;
-      font: normal normal normal 1em/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      color: #159799; }
-
-.fa-folder, .fa-file {
-  color: #159799; }
-
 /*********************************************
  * LINKS
  *********************************************/
@@ -269,5 +295,11 @@ section h1:first-child, section h2:first-child, section h3:first-child, section 
  *********************************************/
 .reveal .slide-number {
   color: #128083; }
+
+/*********************************************
+ * PRISM OVERRIDES
+ *********************************************/
+.reveal .token {
+  background: transparent; }
 
 /*# sourceMappingURL=wes-light.css.map */
