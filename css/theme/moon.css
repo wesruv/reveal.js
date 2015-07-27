@@ -43,9 +43,11 @@ body {
   font-weight: normal;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
   text-shadow: none;
   word-wrap: break-word; }
+
+section h1:first-child, section h2:first-child, section h3:first-child, section h4:first-child, section h5:first-child, section h6:first-child {
+  text-transform: uppercase; }
 
 .reveal h1 {
   font-size: 3.77em; }
@@ -228,30 +230,55 @@ body {
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
-.reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
-  border-right-color: #268bd2; }
+/*
+.reveal .controls div {
+  background: $arrowBGColor;
+}
 
-.reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
-  border-left-color: #268bd2; }
+.reveal .controls div.navigate-left,
+.reveal .controls div.navigate-left.enabled {
+  &:before {
+  	border-right-color: $arrowColor;
+  }
+}
 
-.reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #268bd2; }
+.reveal .controls div.navigate-right,
+.reveal .controls div.navigate-right.enabled {
+  &:before {
+    border-left-color: $arrowColor;
+  }
+}
 
-.reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
-  border-top-color: #268bd2; }
+.reveal .controls div.navigate-up,
+.reveal .controls div.navigate-up.enabled {
+  &:before {
+    border-bottom-color: $arrowColor;
+  }
+}
+
+.reveal .controls div.navigate-down,
+.reveal .controls div.navigate-down.enabled {
+  &:before {
+    border-top-color: $arrowColor;
+  }
+}
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #78bae6; }
+	border-right-color: $linkColorHover;
+}
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #78bae6; }
+	border-left-color: $linkColorHover;
+}
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #78bae6; }
+	border-bottom-color: $linkColorHover;
+}
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #78bae6; }
-
+	border-top-color: $linkColorHover;
+}
+*/
 /*********************************************
  * PROGRESS BAR
  *********************************************/
@@ -269,3 +296,5 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #268bd2; }
+
+/*# sourceMappingURL=moon.css.map */

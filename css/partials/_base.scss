@@ -17,14 +17,12 @@ h5,
 h6,
 p,
 blockquote,
-pre,
 a,
 abbr,
 acronym,
 address,
 big,
 cite,
-code,
 del,
 dfn,
 em,
@@ -121,6 +119,11 @@ body {
   background-color: #fff;
   color: #000;
 }
+
+li {
+  margin: 0 0 .5em;
+}
+
 
 /*********************************************
  * DEFAULT ELEMENT STYLES

@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="plugin/prism/prism.css">
+    <link rel="stylesheet" href="plugin/fontawesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/theme/wes-light.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+<section class="center">
+  <h1 id="drupal-8-theming">Drupal 8 Theming</h1>
+  <p>A thorough crash course</p>
+</section>
+
+
+<section style="text-align: left;">
+  <h2 id="who-am-i" style="font-weight: 200">About Me...</h2>
+  <img src="assets/d8/me.jpg" alt="" style="width: 35%; float: right;">
+  <div style="box-sizing: border-box; width: calc(65% - 0.6em);">
+    <h3 id="wes-ruvalcaba">Wes Ruvalcaba</h3>
+    <ul>
+      <li>Front End Dev at Lullabot</li>
+      <li>Worked with Drupal since version 6</li>
+      <li>Markup Snob, CSS &amp; Sass Dork</li>
+      <li>Write custom code More than repurpose existing</li>
+    </ul>
+  </div>
+  <p style="margin-top: 1em;"><a href="https://twitter.com/wesruv"><i class="fa fa-twitter" style="font-size: 2em; line-height: .5em; padding: 0 .2em 0 0; transform: translateY(.15em);"></i>@wesruv</a></p>
+</section>
+
+
+<section data-background-color="#fff">
+  <img src="assets/d8/lullabot-slide.jpg" alt="Lullabot" />
+</section>
+
+
+<section>
+  <h1 id="what-we-ll-go-over">What We&#39;ll Go Over</h1>
+  <ul>
+    <li>File Organization</li>
+    <li>Very Lean Core Markup</li>
+    <li>CEM Class Syntax</li>
+    <li>Twig</li>
+    <li>YAML and Beefed up Config Functionality</li>
+    <li>and more!!!</li>
+  </ul>
+</section>
+
+
+<section class="center">
+  <h1 id="file-organization">File Organization</h1>
+</section>
+
+
+<section>
+  <h2 id="core-is-in-it-s-own-folder">Core is in it&#39;s own folder</h2>
+  <ul class="file-list">
+    <li>Drupal Root
+      <ul>
+        <li style="background: #ffec99"><strong>core</strong>
+          <ul>
+            <li>assets</li>
+            <li>config</li>
+            <li>...</li>
+          </ul>
+        </li>
+        <li>modules</li>
+        <li>profiles</li>
+        <li>sites</li>
+        <li>themes</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+<section>
+  <h3 id="your-stuff-is-in-the-root">Your stuff is easier to get to!</h3>
+  <ul class="file-list">
+    <li>Drupal Root
+      <ul>
+        <li>core</li>
+        <li>modules
+          <ul>
+            <li style="background: #ffec99">mymodule</li>
+          </ul>
+        </li>
+        <li>profiles</li>
+        <li>sites</li>
+        <li>themes
+          <ul>
+            <li style="background: #ffec99">mytheme</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+<section>
+  <h2 id="template-php-has-a-new-name">Template.php has a new name</h2>
+  <div style="font-size: 1.4em; margin: 1em 0 1.5em">
+    <p><i class="fa fa-file"></i>&nbsp;<s>template.php</s></p>
+    <p><i class="fa fa-long-arrow-down" style="font-size: 2em;"></i></p>
+    <p><i class="fa fa-file"></i>&nbsp;mytheme.theme</p>
+  </div>
+  <p>The theme's name with a ".theme" extension.</p>
+  <p class="small" style="margin-top: 2em"><a href="https://www.drupal.org/node/2349803">drupal.org/node/2349803</a></p>
+</section>
+
+
+<section>
+  <h2 id="themename-info-is-now-themename-info-yaml">The Info File has a new name</h2>
+  <div style="font-size: 1.4em; margin: 1em 0 1.5em">
+    <p><i class="fa fa-file"></i>&nbsp;<s>mytheme.info</s></p>
+    <p><i class="fa fa-long-arrow-down" style="font-size: 2em;"></i></p>
+    <p><i class="fa fa-file"></i>&nbsp;mytheme.info.yaml</p>
+  </div>
+  <p>The theme's name with a ".info.yml" extension.</p>
+  <p><a href="https://www.drupal.org/node/2349803">drupal.org/node/2349803</a></p>
+</section>
+
+
+<section class="center">
+  <h1 id="cem-class-syntax">CEM Class Syntax</h1>
+  <p>aka (BEM)</p>
+  <p class="small"><a href="https://www.drupal.org/coding-standards/css/architecture">drupal.org/coding-standards/css/architecture</a></p>
+</section>
+
+
+<section>
+  <section>
+  <h2 id="the-rules">The Rules</h2>
+  <ul>
+    <li><strong>We use classes</strong>; ID&#39;s are the devil</li>
+    <li><strong>Components</strong> (The C in CEM) are a body of markup that works together;
+      <br>e.g. a menu, a teaser, a who&#39;s online widget, a social share widget, an article.</li>
+    <li>An <strong>element</strong> (the E in CEM) is a piece of the whole.
+      <br>e.g. a title, chunk of text, an image, call to action link.</li>
+    <li>A <strong>modifier</strong> is a suffix that can denote a slightly different version of a Component or Element</li>
+  </ul>
+  </section>
+  <section>
+    <ul>
+    <li>Names are &#39;-&#39; delimited (this goes for a C, E or M)
+      <pre><code class="language-css pseudo-code">.component-name {}</code></pre>
+    </li>
+    <li>Element classes have the component&#39;s name, then their name with a double underscore separator
+      <pre><code class="language-css pseudo-code">.component-name__element-name {}</code></pre>
+    </li>
+    <li>Modifiers are added to the end of a component or an element and are separated by a dash.
+      <pre><code class="language-css pseudo-code">
+.component-name--modifier-name {}
+.component-name__element-name--modifier-name {}</code></pre>
+    </li>
+  </ul>
+  </section>
+</section>
+
+
+<section>
+  <h2 id="menu-example">Menu Example</h2>
+  <pre><code class="language-txt pseudo-code">
+.menu__wrapper {}
+.menu {}
+  .menu__list {}
+    .menu__list-item {}
+    .menu__link {}
+    .menu__link.menu__link--active {}
+    .menu__link {}
+      .menu.menu--sub-menu {}
+        .menu__list {}
+  </code></pre>
+</section>
+
+
+<section>
+  <h2 id="js-prefix">JS Prefix</h2>
+  <p>If a class is coming from JS, it gets a "js-" prefix.</p>
+  <pre><code class="language-css pseudo-code">
+.js-open {}
+.js-accordion {}
+.js-best-thing-you-ever-saw {}</code></pre>
+</section>
+
+
+<section>
+  <h3 id="pro-tip-utility-classes">Pro-tip*: Utility classes</h3>
+  <pre><code class="language-css pseudo-code">
+.u-button {}
+.u-clearfix {}
+.u-text-replace {}
+.u-element-invisible {}</code></pre>
+<p class="small" style="text-align: left">* This is something we do at Lullabot on our BEM projects,<br>and not something core is doing.</p>
+<aside class="notes">
+When you're using BEM, sometimes you end up having great use cases for a few utility classes, instead of repeating styles.
+Prefix them with a "u-" so they're easy to spot.
+</aside>
+</section>
+
+
+<section class="center">
+  <h1 id="very-lean-core-markup-and-styles">Very Lean Core Markup and Styles</h1>
+</section>
+
+<section>
+  <p>This is D8 with a new base theme</p>
+  <img src="assets/d8/unthemed-d8.png" alt="A very bare looking web site" />
+</section>
+
+<section>
+  <h2 id="classy-theme">Classy Theme</h2>
+  <div class="flex-wrapper">
+    <div>Classy</div>
+    <div>
+      <div style="color: #aaa; font-size: 3em; line-height: 1.2; font-weight: 800;">?</div>
+      <div style="color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0 auto;">⊙﹏⊙</div>
+    </div>
+    <div>From Scratch</div>
+  </div>
+  <p>If you liked having the default markup, classes, styles that Drupal 7 provided, Classy is the base theme for you.</p>
+  <p>If you don&#39;t, make your own base theme, and you&#39;ll have very very clean markup to build upon.</p>
+</section>
+
+
+<section>
+  <h1 id="twig-basics">Twig Basics</h1>
+  <p>If you&#39;ve used Mustache/Handlebars, Angular, Templated in Blogger or Tumblr, this is very similar</p>
+  <p>Screenshot</p>
+</section>
+
+
+<section>
+  <h2 id="basic-twig-syntax">Basic Twig Syntax</h2>
+  <p>Print something</p>
+  <pre><code class="language-twig">Hi {{ name }}</code></pre>
+  <p>Run code</p>
+  <pre><code class="language-twig">{% set class = &#39;my-cool-class&#39; %}</code></pre>
+  <p>Comment</p>
+  <pre><code class="language-twig">{# My awesome comment #}</code></pre>
+</section>
+
+
+<section>
+  <h2 id="drilling-for-data-in-d7">Drilling for Data in D7</h2>
+  <pre><code class="language-php">
+$title
+$content[&#39;field_body&#39;]
+$myvar[&#39;has&#39;]-&gt;alot[&#39;of&#39;][&#39;nesting&#39;][&#39;und&#39;][0]-&gt;var
+  </code></pre>
+</section>
+
+
+<section>
+  <h2 id="drilling-for-data-in-d8">Drilling for Data in D8</h2>
+  <pre><code class="language-twig">
+{{ title }}
+{{ content.field_body }}
+{{ myvar.has.alot.of.nesting.var }}
+</code></pre>
+</section>
+
+
+<section>
+  <h3 id="or-sometimes-you-need-array-notation">Or sometimes you need array notation</h3>
+  <p>When there&#39;s a special character, or your index is a variable, you can use array notation:</p>
+  <pre><code class="language-twig">
+{{ element[&#39;#id&#39;] }}
+{{ my_array[index] }}
+  </code></pre>
+</section>
+
+
+<section>
+  <h3 id="the-blessing-and-curse-of-twig-s-dot-notation">The blessing and curse of Twig&#39;s dot notation</h3>
+  <p>Dot notation on twig vars will check the following things, in this order, and give you back the result of the first on it hits:</p>
+  <pre><code class="language-php">
+  /**
+   * If you have {{ sandwhich.cheese }} in your twig, it checks:
+   */
+  // Array key.
+  $sandwich[&#39;cheese&#39;];
+  // Object property.
+  $sandwich-&gt;cheese;
+  // Also works for magic get (provided you implement magic isset).
+  $sandwich-&gt;__isset(&#39;cheese&#39;); &amp;&amp; $sandwich-&gt;__get(&#39;cheese&#39;);
+  // Object method.
+  $sandwich-&gt;cheese();
+  // Object get method convention.
+  $sandwich-&gt;getCheese();
+  // Object is method convention.
+  $sandwich-&gt;isCheese();
+  // Method doesn&#39;t exist/dynamic method.
+  $sandwich-&gt;__call(&#39;cheese&#39;);
+  </code></pre>
+  <p>In other words, it could be getting data, or performing functionality. I find this to be helpful AND confusing at the same time. Helpful if you know what it’s doing, confusing if you’re not sure what’s going on.</p>
+  <p><a href="http://twig.sensiolabs.org/doc/templates.html#variables">http://twig.sensiolabs.org/doc/templates.html#variables</a></p>
+</section>
+
+
+<section>
+  <h2 id="filters">Filters</h2>
+</section>
+
+
+<section>
+  <h3 id="string-filters">String Filters</h3>
+  <pre><code>
+  {# Escaping a string (aka check_plain) #}
+  {{unfiltered_string|e}}
+
+  {# Send translatable string through t function #}
+  {{&#39;Translatable String&#39;|t}}
+
+  {# Make a string fit to be a HTML Class #}
+  {{node.bundle|clean_class}}
+  </code></pre>
+  <p>There are plenty more:
+    <br><a href="http://twig.sensiolabs.org/doc/filters/index.html">http://twig.sensiolabs.org/doc/filters/index.html</a>
+    <br><a href="https://www.drupal.org/node/2357633">https://www.drupal.org/node/2357633</a></p>
+</section>
+
+
+<section>
+  <h4 id="apply-a-string-filter-to-a-block-of-text">Apply a string filter to a block of text</h4>
+  <pre><code>
+  {% filter upper %}
+    This text becomes uppercase lorem ipsum dolor sit amet
+  {% endfilter %}
+  </code></pre>
+</section>
+
+
+<section>
+  <h3 id="array-filters">Array Filters</h3>
+  <pre><code>
+  {# Without will omit part of the array, this is being used instead of hide()/show() #}
+  {{ node|without(&#39;comments&#39;) }}
+
+  {# Get the keys of an array (as an array) #}
+  {% set my_array_keys = my_array|keys %}
+
+  {# Append an array&#39;s values to another #}
+  {% set fruits_and_veggies_array = fruits_array|merge(veggies_array) %}
+
+  {# Reverse the values %}
+  {% set countdown = [1, 2, 3, 4, 5]|reverse %}
+  </code></pre>
+  <p>There are plenty more: <a href="http://twig.sensiolabs.org/doc/filters/index.html">http://twig.sensiolabs.org/doc/filters/index.html</a></p>
+</section>
+
+
+<section>
+  <h2 id="if-else">If/Else</h2>
+  <pre><code>
+  {% if not page %}
+    {# Stuff #}
+  {% endif %}
+  </code></pre>
+  <pre><code>
+  {% if not page %}
+    {# Stuff #}
+  {% else if page and awesome %}
+    {# Awesome Stuff #}
+  {% else %}
+    {# Other Stuff #}
+  {% endif %}
+  </code></pre>
+  <p><a href="http://twig.sensiolabs.org/doc/tags/if.html">http://twig.sensiolabs.org/doc/tags/if.html</a></p>
+</section>
+
+
+<section>
+  <h2 id="for-loops">For Loops</h2>
+  <pre><code>
+  {% for i in 0..10 %}
+    This is number {{ i }}!
+  {% endfor %}
+  </code></pre>
+  <pre><code>
+  {% for user in users %}
+    User number {{ loop.index }} is {{ user.username }}.
+  {% endfor %}
+  </code></pre>
+  <p><a href="http://twig.sensiolabs.org/doc/tags/for.html">http://twig.sensiolabs.org/doc/tags/for.html</a></p>
+</section>
+
+
+<section>
+  <h1 id="yaml-and-beefed-up-config-functionality">YAML and Beefed up Config Functionality</h1>
+  <h2 id="info-yaml">Info.Yaml</h2>
+  <pre><code>
+  name: Fluffiness
+  type: theme
+  description: &#39;A cuddly theme that offers extra fluffiness.&#39;
+  package: Custom
+  core: 8.x
+  libraries:
+    - fluffiness/global-styling
+  stylesheets-remove:
+    - &#39;@classy/css/layout.css&#39;
+    - core/assets/vendor/normalize-css/normalize.css
+  regions:
+    header: Header
+    content: Content
+    sidebar_first: &#39;Sidebar first&#39;
+    footer: Footer
+  </code></pre>
+  <p><a href="https://www.drupal.org/node/2349827">https://www.drupal.org/node/2349827</a></p>
+</section>
+
+
+<section>
+  <h3 id="make-it-a-sub-theme">Make it a sub theme</h3>
+  <pre><code>
+  name: Fluffiness
+  type: theme
+  description: &#39;A cuddly theme that offers extra fluffiness.&#39;
+  package: Custom
+  core: 8.x
+  base theme: classy
+  </code></pre>
+  <p><a href="https://www.drupal.org/node/2165673">https://www.drupal.org/node/2165673</a></p>
+</section>
+
+
+<section>
+  <h3 id="remove-css-files">Remove CSS files</h3>
+  <pre><code>
+  stylesheets-remove:
+  - &#39;@classy/css/layout.css&#39;
+  - core/assets/vendor/normalize-css/normalize.css
+  </code></pre>
+</section>
+
+
+<section>
+  <h3 id="add-libraries">Add Libraries</h3>
+  <p>Just like Drupal 7, this will add that code on every page across the site</p>
+  <p>And then you say... but where can I define libraries?</p>
+  <h2 id="libraries-yml">Libraries.YML</h2>
+  <pre><code>
+  global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/layout.css: {}
+      css/style.css: {}
+      css/colors.css: {}
+      css/print.css: { media: print }
+  </code></pre>
+  <p><a href="https://www.drupal.org/theme-guide/8/assets">https://www.drupal.org/theme-guide/8/assets</a></p>
+</section>
+
+
+<section>
+  <h3 id="define-libraries-that-can-consist-of-js-and-css">Define Libraries that can consist of JS and CSS</h3>
+  <pre><code>
+  cuddly-slider:
+  version: 1.x
+  css:
+    theme:
+      css/cuddly-slider.css: {}
+  js:
+    js/cuddly-slider.js: {}
+  dependencies:
+    - core/jquery
+  </code></pre>
+  <p><a href="https://www.drupal.org/theme-guide/8/assets">https://www.drupal.org/theme-guide/8/assets</a></p>
+</section>
+
+
+<section>
+  <h3 id="declare-dependencies-on-other-libraries">Declare dependencies on other libraries</h3>
+  <pre><code>
+  cuddly-slider:
+  version: 1.x
+  css:
+    theme:
+      css/cuddly-slider.css: {}
+  js:
+    js/cuddly-slider.js: {}
+  </code></pre>
+  <p><a href="https://www.drupal.org/theme-guide/8/assets">https://www.drupal.org/theme-guide/8/assets</a></p>
+</section>
+
+
+<section>
+  <h3 id="can-use-the-attached-method-to-add-libraries-using-php-in-theme-file-for-example-">Can use the #attached method to add Libraries using PHP (in .theme file, for example)</h3>
+  <p>You can use <code>#attached</code> in PHP to add the library only to specific pages </p>
+  <pre><code>
+  &lt;?php
+  function fluffiness_preprocess_maintenance_page(&amp;$variables) {
+    $variables[&#39;#attached&#39;][&#39;library&#39;][] = &#39;fluffiness/cuddly-slider&#39;;
+  }
+  </code></pre>
+</section>
+
+
+<section>
+  <h2 id="breakpoints-yml">Breakpoints.YML</h2>
+</section>
+
+
+<section>
+  <h1 id="setting-up-your-local-for-theme-dev">Setting Up Your Local for Theme Dev</h1>
+  <h2 id="dumping-vars">Dumping vars</h2>
+  <pre><code>
+  {# Will dump all vars available to the template #}
+  {{ dump() }}
+  </code></pre>
+  <pre><code>
+  {# Or dump a specific variable #}
+  {{ dump(specific.var }}
+  </code></pre>
+  <p>But this is ugly... and why do plain text when we have Devel?</p>
+</section>
+
+
+<section>
+  <h2 id="devel-amp-kint">Devel &amp; Kint</h2>
+  <p>Last I&#39;ve checked dpm, dsm, kpr aren&#39;t the best go to when dumping vars. They can hit some recursion and peak out your memory.</p>
+  <p>8.x.x Devel has a new submodule called Devel Kint, enable Kint and use <code>kint()</code> instead.</p>
+  <pre><code>
+  {{ kint(var) }}
+  </code></pre>
+</section>
+
+
+<section>
+  <h2 id="services-yml-updates">Services.yml updates</h2>
+  <ul>
+    <li>Set up Twig Config so it’ll be easier to theme
+      <ol>
+        <li>Go into the appropriate settings.yml* (e.g. <code>sites/default</code>)</li>
+        <li>Find <code>twig.config</code> and change these values:
+        <pre><code>
+        debug: true
+        auto_reload: true
+        cache: false
+        </code></pre>
+        </li>
+      </ol>
+    </li>
+  </ul>
+  <p><a href="https://www.drupal.org/node/1903374">https://www.drupal.org/node/1903374</a></p>
+  <p>(* You can set up custom settings.yml files, see &#39;container_yamls&#39; on this page: <a href="https://www.drupal.org/node/2133171">https://www.drupal.org/node/2133171</a>)</p>
+</section>
+
+
+<section>
+  <h2 id="template-debug-in-d8">Template Debug in D8</h2>
+  <p>Once you&#39;ve turned on twig debug, you&#39;ll get this:</p>
+  <pre><code>
+  &lt;!-- THEME DEBUG --&gt;
+  &lt;!-- CALL: theme(&#39;block&#39;) --&gt;
+  &lt;!-- FILE NAME SUGGESTIONS:
+     * block--system.html.twig
+     * block--system-menu-block.html.twig
+     * block--system-menu-block--tools.html.twig
+     * block--bartik-tools.html.twig
+     x block.html.twig
+  --&gt;
+  &lt;!-- BEGIN OUTPUT from &#39;core/modules/block/templates/block.html.twig&#39; --&gt;
+  &lt;div class=&quot;block block-system contextual-region block-menu&quot; id=&quot;block-bartik-tools&quot; role=&quot;navigation&quot;&gt;
+    ... HTML stuff was here ...
+  &lt;!-- END OUTPUT from &#39;core/modules/block/templates/block.html.twig&#39; --&gt;
+  </code></pre>
+</section>
+
+
+<section>
+  <h3 id="pro-tip-template-debug-was-added-to-d7-33-">PRO TIP! Template Debug was added to D7.33+</h3>
+  <p>Add this to your settings.php of choice:</p>
+  <pre><code>
+  $conf[&#39;theme_debug&#39;] = TRUE;
+  </code></pre>
+</section>
+
+
+<section>
+  <h1 id="getting-into-the-weeds">Getting into the weeds</h1>
+</section>
+
+
+<section>
+  <h2 id="no-theme-functions-">No Theme Functions*</h2>
+  <p>(*)There are a few. Link is one of them, I&#39;m having a hard time tracking down the others. </p>
+  <p>This is for performance reasons, the few are very tiny and commonly used elements with a lot of logic. The Drupal Twig peoples don&#39;t think we&#39;ll be able to get rid of them in Core.</p>
+  <p>BUT you can get around using them in your theme templates. (example?)</p>
+</section>
+
+
+<section>
+  <h2 id="but-still-render-arrays">But still Render Arrays</h2>
+  <p>Because the render array&#39;s theme hook (aka <code>#theme</code>) now render with twig templates, instead of theme functions.</p>
+  <pre><code>
+  // In Preprocess
+  $variables[&#39;table&#39;] = array(
+    &#39;#theme&#39; =&gt; &#39;table&#39;,
+    &#39;#header&#39; =&gt; $header,
+    &#39;#rows&#39; =&gt; $rows,
+  );
+  </code></pre>
+  <p>By default will render using the <code>table.html.twig</code> template file (<code>theme_suggestions</code> can override this).</p>
+</section>
+
+
+<section>
+  <h2 id="speaking-of-theme_suggestions-">Speaking of <code>theme_suggestions</code>...</h2>
+  <p>They&#39;re all done in one place, instead of in whatever preprocessor happens to preprocess them!</p>
+  <p>See <code>hook_theme_suggestions_alter(array &amp;$suggestions, array $variables, $hook)</code></p>
+  <p><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/function/hook_theme_suggestions_alter/8">https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/function/hook_theme_suggestions_alter/8</a></p>
+</section>
+
+
+<section>
+  <h2 id="attribues-object-your-new-friend-">Attribues Object, your new friend!</h2>
+  <pre><code>
+  &lt;div{{ attributes }}&gt;
+  </code></pre>
+  <p>No extra space needed!</p>
+  <pre><code>
+  {#  ▼ Don&#39;t do this #}
+  &lt;div {{ attributes }}&gt;
+  </code></pre>
+  <p><a href="https://www.drupal.org/node/2513632">https://www.drupal.org/node/2513632</a></p>
+</section>
+
+
+<section>
+  <h3 id="has-all-these-cool-methods-">Has all these cool methods!</h3>
+  <pre><code>
+  {# Add or Remove Classes #}
+  &lt;div{{attributes.addClass(&#39;my-class&#39;)}}&gt;
+  &lt;div{{attributes.removeClass(&#39;their-class&#39;)}}&gt;
+
+  {# Set any attribute #}
+  &lt;div{{ attributes.setAttribute(&#39;id&#39;, &#39;myID&#39;) }}&gt;
+  &lt;div{{ attributes.setAttribute(&#39;data-bundle&#39;, node.bundle) }}&gt;
+
+  {# Remove any attribute #}
+  &lt;div{{ attributes.removeAttribute(&#39;id&#39;) }}&gt;
+
+  {# hasClass boolean! #}
+  {% if attribute.hasClass(‘myClass&#39;) %}
+   {# do stuff #}
+  {% endif %}
+  </code></pre>
+  <p><a href="https://www.drupal.org/node/2513632">https://www.drupal.org/node/2513632</a></p>
+</section>
+
+
+<section>
+  <h3 id="attributes-methods-can-be-chained">Attributes methods can be chained</h3>
+  <pre><code>
+  &lt;div{{ attributes.addClass(&#39;hello&#39;).removeClass(&#39;goodbye&#39;)}}&gt;
+  </code></pre>
+</section>
+
+
+<section>
+  <h2 id="best-practices-encourage-a-bit-more-logic-in-the-template-files">Best practices encourage a bit more logic in the template files</h2>
+  <p>My favorite update is setting more classes in the template</p>
+  <pre><code>
+  {%
+    set classes = [
+      &#39;node--&#39;  ~ node.bundle|clean_class,
+      &#39;node--my-custom-modifier&#39;,
+    ]
+  %}
+
+  &lt;article{{ attributes.addClass(classes) }}&gt;
+  </code></pre>
+</section>
+
+
+<section>
+  <h2 id="there-are-twig-extends-11">There are Twig Extends!!!11</h2>
+  <p>Which excite me as much as extends in Sass
+    <br>(which is to say: &#39;Not at all, they give me a rash&#39;)</p>
+  <p>They also seem like DRY at the expense of intuitive.</p>
+  <p>If you want make confusing over-engineered templates:
+    <br><a href="http://twig.sensiolabs.org/doc/tags/extends.html">http://twig.sensiolabs.org/doc/tags/extends.html</a></p>
+</section>
+
+
+<section>
+  <h1 id="questions">Questions</h1>
+</section>
+
+
+<section>
+  <h1 id="sources">Sources</h1>
+  <p><strong>Drupal 8 Theme System: hook_theme() to Twig template</strong> - Cottser and Joel Pittet
+    <br><a href="https://events.drupal.org/losangeles2015/sessions/drupal-8-theme-system-hooktheme-twig-template">https://events.drupal.org/losangeles2015/sessions/drupal-8-theme-system-hooktheme-twig-template</a></p>
+  <p><strong>Drupal 8 Theming with &lt;3</strong> - Morten DK - DrupalCon LA
+    <br><a href="https://events.drupal.org/losangeles2015/sessions/drupal-8-theming">https://events.drupal.org/losangeles2015/sessions/drupal-8-theming</a></p>
+  <p><strong>Theming in Drupal 8</strong> - Drupal.org (<a href="https://www.drupal.org/theme-guide/8">https://www.drupal.org/theme-guide/8</a>)
+    <br><a href="https://www.drupal.org/coding-standards/css/architecture">https://www.drupal.org/coding-standards/css/architecture</a></p>
+  <p><strong>Twig Official Documentation</strong> - twig.sensiolabs.org
+    <br><a href="http://twig.sensiolabs.org/documentation">http://twig.sensiolabs.org/documentation</a></p>
+</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+    <script src="plugin/prism/prism.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

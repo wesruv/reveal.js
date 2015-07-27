@@ -10,8 +10,10 @@
 
 @import 'partials/mixin';
 @import 'partials/base';
+@import 'partials/slides';
 @import 'partials/view-fragments';
-@import 'partials/controls';
+// @import 'partials/controls';
+@import 'partials/wes-controls';
 @import 'partials/progress';
 @import 'partials/transitions';
 @import 'partials/slide-background';
