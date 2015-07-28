@@ -197,15 +197,17 @@
 
 <section>
   <h2 id="menu-example">Menu Example</h2>
-  <pre><code class="language-scss pseudo-code">.menu__wrapper {}
-  .menu {}
-    .menu__list {}
-      .menu__list-item {}
-      .menu__link {}
-      .menu__link.menu__link--active {}
-      .menu__link {}
-        .menu.menu--sub-menu {}
-          .menu__list {}</code></pre>
+  <pre><code class="language-scss pseudo-code">div.menu__wrapper {}
+  nav.menu {}
+    ul.menu__list {}
+      li.menu__list-item {}
+        a.menu__link {}
+      li.menu__list-item {}
+        a.menu__link.menu__link--active {}
+      li.menu__list-item {}
+        a.menu__link {}
+          ul.menu.menu--sub-menu {}
+            .menu__list {}</code></pre>
 </section>
 
 
