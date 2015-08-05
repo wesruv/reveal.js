@@ -44,6 +44,7 @@
 			<div class="slides">
 
 <section class="center">
+	<p class="small" style="position: relative; top: -6em;"><strong>Pro-tip:</strong> Press <span style="display: inline-block; padding: .2em .6em; border: 1px solid #777; border-radius: .3em; background: #fff; box-shadow: 0 1px 0 #555, 0 2px 0 #555, 0 3px 0 #555, 0 4px 0 #555; position: relative; top: -.1em;">space bar</span> to make sure you don't skip slides</p>
   <h1 id="drupal-8-theming">Drupal 8 Theming</h1>
   <p>A thorough crash course</p>
 </section>
@@ -77,7 +78,7 @@
     <li>Very Lean Core Markup</li>
     <li>CEM Class Syntax</li>
     <li>Twig</li>
-    <li>YAML and Beefed up Config Functionality</li>
+    <li>YML and Beefed up Config Functionality</li>
     <li>and more!!!</li>
   </ul>
 </section>
@@ -151,10 +152,10 @@
   <div style="font-size: 1.4em; margin: 1em 0 1.5em">
     <p><i class="fa fa-file"></i>&nbsp;<s>mytheme.info</s></p>
     <p><i class="fa fa-long-arrow-down" style="font-size: 2em;"></i></p>
-    <p><i class="fa fa-file"></i>&nbsp;mytheme.info.yaml</p>
+    <p><i class="fa fa-file"></i>&nbsp;mytheme.info.yml</p>
   </div>
   <p>The theme's name with a ".info.yml" extension.</p>
-  <p><a href="https://www.drupal.org/node/2349803">drupal.org/node/2349803</a></p>
+  <p class="small"><a href="https://www.drupal.org/node/2349803">drupal.org/node/2349803</a></p>
 </section>
 
 
@@ -228,7 +229,7 @@
 .u-clearfix {}
 .u-text-replace {}
 .u-element-invisible {}</code></pre>
-<p class="small" style="text-align: left">* This is something we do at Lullabot on our BEM projects,<br>and not something core is doing.</p>
+<p class="small" style="position: relative; text-align: left; width: 75%; margin: 2em auto 0"><span style="position: absolute; left: -1em;">*</span> This is something we do at Lullabot on our BEM projects, and not something core is doing.</p>
 <aside class="notes">
 When you're using BEM, sometimes you end up having great use cases for a few utility classes, instead of repeating styles.
 Prefix them with a "u-" so they're easy to spot.
@@ -352,8 +353,10 @@ $myvar['has']-&gt;alot['of']['nesting']['und'][0]-&gt;var</code></pre>
 <section>
   <h3 id="or-sometimes-you-need-array-notation">Or sometimes you need array notation</h3>
   <p>When there's a special character, or your index is a variable, use array notation:</p>
-  <pre><code class="language-twig">
+  <pre><code class="language-twig">{# Since this index starts with a hash #}
 {{ element['#id'] }}
+
+{# Since I want to use a variable called index #}
 {{ my_array[index] }}</code></pre>
 </section>
 
@@ -395,13 +398,13 @@ $sandwich-&gt;__call('cheese');</code></pre>
 
 <section>
   <h2 id="filters">Twig Filters</h2>
-  <p>Filters modify variables, and are denoted by a pipe&nbsp;|&nbsp;symbol.</p>
+  <p>Filters modify and then return variables, <br>and are denoted by a pipe&nbsp;|&nbsp;symbol.</p>
 </section>
 
 
 <section>
   <section>
-    <h3 id="string-filters">String Filters</h3>
+    <h3 id="string-filters">Filter strings!</h3>
     <pre><code class="language-twig">
 {# Send translatable string through t function #}
 {{'Translatable String'|t}}
@@ -427,7 +430,7 @@ $sandwich-&gt;__call('cheese');</code></pre>
 
 
 <section>
-  <h3 id="array-filters">Array Filters</h3>
+  <h3 id="array-filters">Filter arrays!</h3>
   <pre><code class="language-twig" style="max-height: 9999em;">
 {# Without will omit part of the array,
    this is being used instead of hide()/show() #}
@@ -462,11 +465,11 @@ $sandwich-&gt;__call('cheese');</code></pre>
 
 <section>
   <h2 id="for-loops">For Loops</h2>
-  <pre><code class="language-twig">
+  <pre><code class="language-twig">{# A for loop that counts to 10 #}
 {% for i in 0..10 %}
   This is number {{ i }}!
 {% endfor %}</code></pre>
-  <pre><code class="language-twig">
+  <pre><code class="language-twig">{# A for loop that iterates through an array#}
 {% for user in users %}
   {{ loop.index }} {{ user.username }}
 {% endfor %}</code></pre>
@@ -475,13 +478,13 @@ $sandwich-&gt;__call('cheese');</code></pre>
 
 
 <section class="center">
-  <h1 id="yaml-and-beefed-up-config-functionality">YAML and Beefed up Config Functionality</h1>
+  <h1 id="yaml-and-beefed-up-config-functionality">YML and Beefed up Config Functionality</h1>
 </section>
 
 
 <section>
-  <h2 id="info-yaml">Info.Yaml</h2>
-  <pre><code class="language-yaml"># fluffiness.info.yaml
+  <h2 id="info-yaml">Info.Yml</h2>
+  <pre><code class="language-yaml"># fluffiness.info.yml
 name: Fluffiness
 type: theme
 description: 'A cuddly theme.'
@@ -503,7 +506,7 @@ regions:
 
 <section class="slide30">
   <h3 id="creating-a-sub-theme">Creating a sub theme</h3>
-  <pre data-line="8, 1"><code class="language-yaml"># fluffiness.info.yaml
+  <pre data-line="8, 1"><code class="language-yaml"># fluffiness.info.yml
 name: Fluffiness
 type: theme
 description: 'A cuddly theme.'
@@ -531,7 +534,7 @@ global:
 
 <section>
   <h3 id="define-libraries-that-can-consist-of-js-and-css">Define Libraries that can consist of JS and CSS</h3>
-  <pre><code class="language-yaml"># fluffiness.libraries.yml (further down)
+  <pre><code class="language-yaml"># Further down in fluffiness.libraries.yml
 cuddly-slider:
   version: 1.x
   css:
@@ -545,7 +548,7 @@ cuddly-slider:
 
 <section>
   <h3 id="declare-dependencies-on-other-libraries">Declare dependencies on other libraries</h3>
-  <pre><code class="language-yaml"># fluffiness.libraries.yml (further down)
+  <pre><code class="language-yaml"># We forgot our jquery dependency!
 cuddly-slider:
   version: 1.x
   css:
@@ -668,7 +671,7 @@ twig.config:
 
 
 <section>
-  <h3 id="pro-tip-template-debug-was-added-to-d7-33-">PRO TIP! Template Debug was added to D7.33+</h3>
+  <h3 id="pro-tip-template-debug-was-added-to-d7-33-">Pro Tip: Template Debug was added to D7.33+</h3>
   <p>Add this to your settings.php of choice:</p>
   <pre><code class="language-php">$conf['theme_debug'] = TRUE;</code></pre>
 </section>
@@ -681,7 +684,7 @@ twig.config:
 
 <section>
   <h2 id="no-theme-functions-">No Theme Functions*</h2>
-  <p>(*)There are a few. Link is one of them, I'm having a hard time tracking down the others. </p>
+  <p>(*)There are a few. Link is one of them, I'm having a hard time tracking down the others.</p>
   <aside class="notes">
     <p>This is for performance reasons, the few are very tiny and commonly used elements with a lot of logic.</p>
     <p>The Drupal Twig initiative leads don't think we'll be able to get rid of them in Core.</p>
@@ -715,17 +718,23 @@ twig.config:
 
 
 <section>
-  <h2 id="speaking-of-theme_suggestions-">Speaking of <code>theme_suggestions</code>...</h2>
-  <div style="text-align: left">
-    <p>They're all done in one place, instead of in whatever preprocessor happens to preprocess them!</p>
-    <pre style="width: 100%;"><code class="language-php" style="font-size: .8em;">hook_theme_suggestions_alter(array &amp;$suggestions, array $variables, $hook)</code></pre>
-    <p class="small"><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/function/hook_theme_suggestions_alter/8">api.drupal.org docs for theme_suggestions</a></p>
-  </div>
+	<section>
+	  <h2 id="speaking-of-theme_suggestions-">Speaking of <code>theme_suggestions</code>...</h2>
+	  <div style="text-align: left">
+	    <p>They're all done in one place, no longer buried in preprocessor code!</p>
+	    <pre style="width: 100%;"><code class="language-php" style="font-size: .8em;">hook_theme_suggestions_alter(array &amp;$suggestions, array $variables, $hook)</code></pre>
+	    <p class="small" style="text-align: center"><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/function/hook_theme_suggestions_alter/8">api.drupal.org docs for theme_suggestions</a></p>
+	  </div>
+	</section>
+	<section>
+		<h3>I see less <code>hook_form_alter()</code> in your future...</h3>
+		<p style="text-align: left;">Instead of using <code style="display: inline-block; padding: 0 .3em; color: #225378">hook_form_alter()</code> to add a bit of presentation to a form you can suggest a specific template for the form or any of it's fields!</p>
+	</section>
 </section>
 
 
 <section>
-  <h2 id="attribues-object-your-new-friend-">Attribues Object, your new friend!</h2>
+  <h2 id="attribues-object-your-new-friend-">Attributes Object, your new friend!</h2>
   <pre><code class="language-twig">&lt;div{{ attributes }}&gt;</code></pre>
   <p style="margin-top: 2em; text-align: left">No extra space needed</p>
   <pre><code class="language-twig">{#  ↓ Don't need this space #}
@@ -776,12 +785,12 @@ twig.config:
 
 <section>
   <h2 id="there-are-twig-extends-11">FYI: There are Twig Extends!!!11</h2>
-  <p>Which excite me as much as extends in Sass!!!11</p>
-  <div style="position: relative; width: 4em; margin: 0 auto; font-size: 2em">
-    <div style="color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0;">̵˃﹏☉</div>
+  <div style="position: relative; width: 4em; margin: 0 auto; font-size: 2em; font-size: ">
+    <div style="color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0;">&gt;﹏☉</div>
     <div style="position: absolute; left: 100%; top: .0; width: 75%; text-align: left; transform: translateX(-.4em);"><span style="color: #128083">ヾ</span> <span style="font-size: .3em; position: relative; top: -.6em;">twitch...</span></div>
   </div>
-  <p style="padding-top: 1em">IMO, they seem DRY at the expense of intuitive.</p>
+	<p>No me gusta.</p>
+  <p style="padding-top: .5em">These make sense for Symfony applications, but in the context of Drupal I think they're going to give you DRY code at the expensive of being intuitive.</p>
   <p class="small"><a href="http://twig.sensiolabs.org/doc/tags/extends.html">http://twig.sensiolabs.org/doc/tags/extends.html</a></p>
 </section>
 
@@ -802,6 +811,8 @@ twig.config:
       <a style="font-size: .5em; display: block;" href="https://www.drupal.org/coding-standards/css/architecture">drupal.org/coding-standards/css/architecture</a></p>
     <p><strong><a href="http://twig.sensiolabs.org/documentation">Twig Official Documentation</a></strong> - twig.sensiolabs.org
       <a style="font-size: .5em; display: block;" href="http://twig.sensiolabs.org/documentation">http://twig.sensiolabs.org/documentation</a></p>
+		<p><strong><a href="https://www.lullabot.com/articles/drupal-8-theming-fundamentals-part-1">Drupal 8 Theming Fundamentals</a></strong> - John Hannah<br>
+			<a style="font-size: .5em; display: block;" href="https://www.lullabot.com/articles/drupal-8-theming-fundamentals-part-1">lullabot.com/articles/drupal-8-theming-fundamentals-part-1</a></p>
   </div>
 </section>
 
