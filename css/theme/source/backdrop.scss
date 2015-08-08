@@ -27,12 +27,14 @@ $headingFont: 'Source Sans Pro', 'Open Sans', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
 $headingTextTransform: none;
-$headingFontWeight: 200;
+$headingFontWeight: 400;
+$headingH1FontWeight: 200;
 $linkColor: #0074bd;
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );
 $arrow-color: #eee;
-$arrow-background: #000;
+$arrow-background: #555;
+$highlighter-color: #ffec99;
 
 $heading1Size: 2.5em;
 $heading2Size: 1.6em;
@@ -47,5 +49,5 @@ section.has-dark-background {
 
 
 // Theme template ------------------------------
-@import "../template/theme";
+@import "../template/wes-theme";
 // ---------------------------------------------
