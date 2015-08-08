@@ -7,56 +7,6 @@
 .has-dark-background, .has-dark-background h1, .has-dark-background h2, .has-dark-background h3, .has-dark-background h4, .has-dark-background h5, .has-dark-background h6 {
   color: #fff; }
 
-/**
- * Add flex-wrapper to a container and it will make the children elements into
- * Equal width columns, works up to 8 columns, update scss @for to add more
- */
-.flex-wrapper {
-  display: flex; }
-  .flex-wrapper > :nth-last-child(1):first-child, .flex-wrapper > :nth-last-child(1):first-child ~ :nth-child(n) {
-    width: 100%; }
-  .flex-wrapper > :nth-last-child(2):first-child, .flex-wrapper > :nth-last-child(2):first-child ~ :nth-child(n) {
-    width: 50%; }
-  .flex-wrapper > :nth-last-child(3):first-child, .flex-wrapper > :nth-last-child(3):first-child ~ :nth-child(n) {
-    width: 33.3333333333%; }
-  .flex-wrapper > :nth-last-child(4):first-child, .flex-wrapper > :nth-last-child(4):first-child ~ :nth-child(n) {
-    width: 25%; }
-  .flex-wrapper > :nth-last-child(5):first-child, .flex-wrapper > :nth-last-child(5):first-child ~ :nth-child(n) {
-    width: 20%; }
-  .flex-wrapper > :nth-last-child(6):first-child, .flex-wrapper > :nth-last-child(6):first-child ~ :nth-child(n) {
-    width: 16.6666666667%; }
-  .flex-wrapper > :nth-last-child(7):first-child, .flex-wrapper > :nth-last-child(7):first-child ~ :nth-child(n) {
-    width: 14.2857142857%; }
-  .flex-wrapper > :nth-last-child(8):first-child, .flex-wrapper > :nth-last-child(8):first-child ~ :nth-child(n) {
-    width: 12.5%; }
-
-.reveal small * {
-  vertical-align: top; }
-
-.reveal .file-list {
-  min-width: 40%;
-  text-align: left;
-  margin: 0;
-  padding: 0; }
-  .reveal .file-list li {
-    margin: 0 0 0.2em;
-    padding: 0.1em 0.3em;
-    list-style: none; }
-    .reveal .file-list li:before {
-      content: "\f07b";
-      display: inline-block;
-      padding: 0 0.3em 0 0;
-      font: normal normal normal 1em/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      color: #159799; }
-
-.fa-folder, .fa-file {
-  color: #159799; }
-
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -72,7 +22,7 @@ body {
 
 ::selection {
   color: #fff;
-  background: #32e0e3;
+  background: #49c9cb;
   text-shadow: none; }
 
 .reveal .slides > section, .reveal .slides > section > section {
@@ -163,25 +113,39 @@ section h1:first-child, section h2:first-child, section h3:first-child, section 
   quotes: none; }
 
 .reveal blockquote {
+  position: relative;
   display: block;
+  margin: 0.55em auto;
+  text-align: left;
   position: relative;
   width: 70%;
   margin: 20px auto;
   padding: 5px;
-  font-style: italic;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
-
-.reveal blockquote p:first-child, .reveal blockquote p:last-child {
-  display: inline-block; }
+  z-index: 1;
+  font-style: italic; }
+  .reveal blockquote p:first-child, .reveal blockquote p:last-child {
+    display: inline-block; }
+  .reveal blockquote:before, .reveal blockquote:after {
+    font-family: Georgia, serif;
+    font-weight: bold; }
+  .reveal blockquote:before {
+    content: "“";
+    position: absolute;
+    top: 0.2em;
+    left: -0.6em;
+    z-index: 0;
+    font-size: 3em;
+    line-height: 0.333em;
+    opacity: 0.5; }
+  .reveal blockquote:after {
+    content: "”"; }
 
 .reveal q {
   font-style: italic; }
 
-.reveal pre {
+pre {
   display: block;
   position: relative;
-  width: 90%;
   text-align: left;
   font-size: 0.7em;
   font-family: monospace;
@@ -297,9 +261,45 @@ section h1:first-child, section h2:first-child, section h3:first-child, section 
   color: #128083; }
 
 /*********************************************
+ * THEME UTILITY CLASSES
+ *********************************************/
+.color-link {
+  color: #128083; }
+
+.bg-link {
+  background: #128083; }
+
+.color-slide-bg {
+  color: #fafafa; }
+
+.bg-slide-bg {
+  background: #fafafa; }
+
+.color-headline {
+  color: #225378; }
+
+.bg-headline {
+  color: #225378; }
+
+.color-highlighter {
+  color: #ffec99; }
+
+.bg-highlighter, .highlight {
+  background: #ffec99; }
+
+/*********************************************
  * PRISM OVERRIDES
  *********************************************/
 .reveal .token {
   background: transparent; }
+
+/**********************************************
+ * CUSTOM UTILITIES THEMING
+ **********************************************/
+.reveal .file-list :before {
+  color: #159799; }
+
+.fa-folder, .fa-file {
+  color: #159799; }
 
 /*# sourceMappingURL=wes-light.css.map */

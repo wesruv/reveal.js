@@ -1,50 +1,47 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+    <title>reveal.js - The HTML Presentation Framework</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
     <link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="plugin/prism/prism.css">
+    <link rel="stylesheet" href="plugin/prism/prism.css">
     <link rel="stylesheet" href="plugin/fontawesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/theme/wes-light.css" id="theme">
+    <link rel="stylesheet" href="css/theme/wes-light.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+  <body>
 
-	<body>
+    <div class="reveal">
 
-		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
 
 <section class="center">
-	<p class="small" style="position: relative; top: -6em;"><strong>Pro-tip:</strong> Press <span style="display: inline-block; padding: .2em .6em; border: 1px solid #777; border-radius: .3em; background: #fff; box-shadow: 0 1px 0 #555, 0 2px 0 #555, 0 3px 0 #555, 0 4px 0 #555; position: relative; top: -.1em;">space bar</span> to progress and it won't skip any slides</p>
+  <p class="small" style="position: relative; top: -6em;"><strong>Pro-tip:</strong> Press <span style="display: inline-block; padding: .2em .6em; border: 1px solid #777; border-radius: .3em; background: #fff; box-shadow: 0 1px 0 #555, 0 2px 0 #555, 0 3px 0 #555, 0 4px 0 #555; position: relative; top: -.1em;">space bar</span> to progress and it won't skip any slides</p>
   <h1 id="drupal-8-theming">Drupal 8 Theming</h1>
   <p>A thorough crash course</p>
 </section>
@@ -256,7 +253,7 @@ Prefix them with a "u-" so they're easy to spot.
     </ul>
   </section>
   <section class="center">
-    <div class="flex-wrapper" style="justify-content: center; align-items: flex-end; font-weight: 600; margin-top: -4em;">
+    <div class="column-wrapper" style="justify-content: center; align-items: flex-end; font-weight: 600; margin-top: -4em;">
       <div style="text-align: right; padding: 0 0 1em;">Classy</div>
       <div style="width: 6em;">
         <div style="color: #aaa; font-size: 3em; line-height: 1.2; font-weight: 800;">?</div>
@@ -267,7 +264,7 @@ Prefix them with a "u-" so they're easy to spot.
     <p style="padding: 2em 15% 0;">Starting your theming project, which is right for you?</p>
   </section>
   <section>
-    <div class="flex-wrapper" style="justify-content: center; align-items: flex-end; font-weight: 600;">
+    <div class="column-wrapper" style="justify-content: center; align-items: flex-end; font-weight: 600;">
       <div style="text-align: right; padding: 0 0 1em;">Classy</div>
       <div style="width: 6em;">
         <div style="color: #aaa; font-size: 3em; line-height: 1.2; font-weight: 800; transform: translateX(-.3em);">!</div>
@@ -283,7 +280,7 @@ Prefix them with a "u-" so they're easy to spot.
     </div>
   </section>
   <section>
-    <div class="flex-wrapper" style="justify-content: center; align-items: flex-end; font-weight: 600;">
+    <div class="column-wrapper" style="justify-content: center; align-items: flex-end; font-weight: 600;">
       <div style="text-align: right; padding: 0 0 1em;">Classy</div>
       <div style="width: 6em;">
         <div style="color: #aaa; font-size: 3em; line-height: 1.2; font-weight: 800; transform: translateX(.3em);">!</div>
@@ -293,7 +290,7 @@ Prefix them with a "u-" so they're easy to spot.
       </div>
       <div style="text-align: left; padding: 0 0 1em;">From Scratch</div>
     </div>
-    <div class="flex-wrapper">
+    <div class="column-wrapper">
       <div style="padding: 2em 0 0;"><p><strong>Frustrated by Drupal 7 defaults and want more control?</strong></p> <em stlye="display: block">Start from scratch,<br>or copy Classy and remove parts you don't like.</em></div>
     </div>
   </section>
@@ -697,7 +694,7 @@ twig.config:
   <h2 id="but-still-render-arrays">But still Render Arrays</h2>
   <div style="text-align: left;">
     <p>Because <code>#theme</code> now indicates what twig file to use!</p>
-    <div class="flex-wrapper" style="align-items: stretch; margin: 1em;">
+    <div class="column-wrapper" style="align-items: stretch; margin: 1em;">
     <pre style="margin: 0;"><code class="language-php" style="font-size: .8em;">// In Preprocess
   $variables['table'] = array(
     '#theme' =&gt; 'table',
@@ -718,18 +715,18 @@ twig.config:
 
 
 <section>
-	<section>
-	  <h2 id="speaking-of-theme_suggestions-">Speaking of <code>theme_suggestions</code>...</h2>
-	  <div style="text-align: left">
-	    <p>They're all done in one place, no longer buried in preprocessor code!</p>
-	    <pre style="width: 100%;"><code class="language-php" style="font-size: .8em;">hook_theme_suggestions_alter(array &amp;$suggestions, array $variables, $hook)</code></pre>
-	    <p class="small" style="text-align: center"><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/function/hook_theme_suggestions_alter/8">api.drupal.org docs for theme_suggestions</a></p>
-	  </div>
-	</section>
-	<section>
-		<h3>I see less <code>hook_form_alter()</code> in your future...</h3>
-		<p style="text-align: left;">Instead of using <code style="display: inline-block; padding: 0 .3em; color: #225378">hook_form_alter()</code> to add a bit of presentation to a form you can suggest a specific template for the form or any of it's fields!</p>
-	</section>
+  <section>
+    <h2 id="speaking-of-theme_suggestions-">Speaking of <code>theme_suggestions</code>...</h2>
+    <div style="text-align: left">
+      <p>They're all done in one place, no longer buried in preprocessor code!</p>
+      <pre style="width: 100%;"><code class="language-php" style="font-size: .8em;">hook_theme_suggestions_alter(array &amp;$suggestions, array $variables, $hook)</code></pre>
+      <p class="small" style="text-align: center"><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/function/hook_theme_suggestions_alter/8">api.drupal.org docs for theme_suggestions</a></p>
+    </div>
+  </section>
+  <section>
+    <h3>I see less <code>hook_form_alter()</code> in your future...</h3>
+    <p style="text-align: left;">Instead of using <code style="display: inline-block; padding: 0 .3em; color: #225378">hook_form_alter()</code> to add a bit of presentation to a form you can suggest a specific template for the form or any of it's fields!</p>
+  </section>
 </section>
 
 
@@ -789,7 +786,7 @@ twig.config:
     <div style="color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0;">&gt;﹏☉</div>
     <div style="position: absolute; left: 100%; top: .0; width: 75%; text-align: left; transform: translateX(-.4em);"><span style="color: #128083">ヾ</span> <span style="font-size: .3em; position: relative; top: -.6em;">twitch...</span></div>
   </div>
-	<p>No me gusta.</p>
+  <p>No me gusta.</p>
   <p style="padding-top: .5em">These make sense for Symfony applications, but in the context of Drupal I think they're going to give you DRY code at the expensive of being intuitive.</p>
   <p class="small"><a href="http://twig.sensiolabs.org/doc/tags/extends.html">http://twig.sensiolabs.org/doc/tags/extends.html</a></p>
 </section>
@@ -811,42 +808,42 @@ twig.config:
       <a style="font-size: .5em; display: block;" href="https://www.drupal.org/coding-standards/css/architecture">drupal.org/coding-standards/css/architecture</a></p>
     <p><strong><a href="http://twig.sensiolabs.org/documentation">Twig Official Documentation</a></strong> - twig.sensiolabs.org
       <a style="font-size: .5em; display: block;" href="http://twig.sensiolabs.org/documentation">http://twig.sensiolabs.org/documentation</a></p>
-		<p><strong><a href="https://www.lullabot.com/articles/drupal-8-theming-fundamentals-part-1">Drupal 8 Theming Fundamentals</a></strong> - John Hannah<br>
-			<a style="font-size: .5em; display: block;" href="https://www.lullabot.com/articles/drupal-8-theming-fundamentals-part-1">lullabot.com/articles/drupal-8-theming-fundamentals-part-1</a></p>
+    <p><strong><a href="https://www.lullabot.com/articles/drupal-8-theming-fundamentals-part-1">Drupal 8 Theming Fundamentals</a></strong> - John Hannah<br>
+      <a style="font-size: .5em; display: block;" href="https://www.lullabot.com/articles/drupal-8-theming-fundamentals-part-1">lullabot.com/articles/drupal-8-theming-fundamentals-part-1</a></p>
   </div>
 </section>
 
 
-			</div>
+      </div>
 
-		</div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
     <script src="plugin/prism/prism.js"></script>
 
-		<script>
+    <script>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: false,
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: false,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
 
-		</script>
+    </script>
 
-	</body>
+  </body>
 </html>

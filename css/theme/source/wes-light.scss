@@ -30,10 +30,11 @@ $headingTextTransform: none;
 $headingFontWeight: 600;
 $headingH1FontWeight: 200;
 $linkColor: #128083;
-$linkColorHover: lighten( $linkColor, 15% );
-$selectionBackgroundColor: lighten( $linkColor, 25% );
+$linkColorHover: lighten( $linkColor, 15 );
+$selectionBackgroundColor: desaturate(lighten( $linkColor, 25 ), 20);
 $arrow-color: #fff;
 $arrow-background: #128083;
+$highlighter-color: #ffec99;
 
 $heading1Size: 2.5em;
 $heading2Size: 1.6em;

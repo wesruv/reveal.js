@@ -1149,3 +1149,66 @@ body:hover .controls {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+
+.column-wrapper {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-bottom: 1em; }
+  .column-wrapper > * {
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
+    .reveal .column-wrapper > * {
+      margin-top: 0;
+      margin-bottom: 0; }
+
+.reveal small * {
+  vertical-align: top; }
+
+.reveal .file-list, .reveal .file-list ul {
+  min-width: 40%;
+  text-align: left;
+  margin: 0;
+  padding: 0; }
+.reveal .file-list ul {
+  position: relative; }
+  .reveal .file-list ul:before {
+    content: '';
+    position: absolute;
+    left: -0.8em;
+    width: 0.3em;
+    height: calc(100% - .8em);
+    border: 1px solid #999;
+    border-right: 0;
+    border-top: 0; }
+.reveal .file-list li {
+  position: relative;
+  margin: 0.3em 0;
+  padding: 0 0 0 1.2em;
+  list-style: none;
+  line-height: 1.2em; }
+  .reveal .file-list li:before {
+    content: "\f07b";
+    position: absolute;
+    top: 0.1em;
+    left: 0;
+    display: block;
+    padding: 0 0.3em 0 0;
+    font: normal normal normal 1.2em FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  .reveal .file-list li.file:before {
+    content: "\f016";
+    top: 0; }
