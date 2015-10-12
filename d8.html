@@ -56,7 +56,7 @@
       <li>Front End Dev at Lullabot</li>
       <li>Worked with Drupal since version 6</li>
       <li>Markup Snob, CSS &amp; Sass Dork</li>
-      <li>Write custom code More than repurpose existing</li>
+      <li>Write custom code, more than repurpose existing</li>
     </ul>
   </div>
   <p style="margin-top: 1em;"><a href="https://twitter.com/wesruv"><i class="fa fa-twitter" style="font-size: 2em; line-height: .5em; padding: 0 .2em 0 0; transform: translateY(.15em);"></i>@wesruv</a></p>
@@ -89,7 +89,7 @@
 <section>
   <h2 id="core-is-in-it-s-own-folder">Core is in its own folder</h2>
   <ul class="file-list">
-    <li>Drupal Root
+    <li><i class="fa fa-drupal" style="color: #0c76ab; font-size: 1.5em; margin-top: -.3em"></i> <span class="element-invisible">Drupal</span>
       <ul>
         <li style="background: #ffec99"><strong>core</strong>
           <ul>
@@ -111,7 +111,7 @@
 <section>
   <h3 id="your-stuff-is-in-the-root">Your stuff is easier to get to!</h3>
   <ul class="file-list">
-    <li>Drupal Root
+    <li><i class="fa fa-drupal" style="color: #0c76ab; font-size: 1.5em; margin-top: -.3em"></i> <span class="element-invisible">Drupal</span>
       <ul>
         <li>core</li>
         <li>modules
@@ -168,10 +168,10 @@
   <h2 id="the-rules">The Rules</h2>
   <ul>
     <li><strong>We use classes</strong>; ID's are the devil</li>
-    <li><strong>Components</strong> (The C in CEM) are a body of markup that works together;
+    <li><strong>Components</strong> (The C in CEM) are a chunk of markup that works together;
       <br>e.g. a menu, a teaser, a who's online widget, a social share widget, an article.</li>
     <li>An <strong>element</strong> (the E in CEM) is a piece of the whole.
-      <br>e.g. a title, chunk of text, an image, call to action link.</li>
+      <br>e.g. a title, some text, an image, call to action link.</li>
     <li>A <strong>modifier</strong> is a suffix that can denote a slightly different version of a Component or Element</li>
   </ul>
   </section>
@@ -245,12 +245,21 @@ Prefix them with a "u-" so they're easy to spot.
 
 <section>
   <section>
-    <h2 id="classy-theme">Classy Base Theme</h2>
-    <ul>
-      <li>Is the base theme for Seven and Bartik.</li>
-      <li>Has all of the default styles and markup that 7 had in core.</li>
-      <li>Has really well organized files, and all of the templates from core with it's added markup.</li>
-    </ul>
+    <h2 id="two-base-themes">Core's Base Themes</h2>
+    <div style="display: flex; text-align: left;">
+      <div style="padding: 0 1em 0 0;">
+        <h3 id="classy-theme" style="font-weight: 200">Classy</h3>
+        <ul>
+          <li>Base theme for Seven and Bartik.</li>
+          <li>Has default theming D7 had in core.</li>
+          <li>Well organized files, and all of the templates from core with it's added markup.</li>
+        </ul>
+      </div>
+      <div style="padding: 0 0 0 1em;">
+        <h3 id="stable-theme" style="font-weight: 200">Stable</h3>
+        <p>Has bare minimum markup/styles needed for things to function.</p>
+      </div>
+    </div>
   </section>
   <section class="center">
     <div class="column-wrapper" style="justify-content: center; align-items: flex-end; font-weight: 600; margin-top: -4em;">
@@ -259,7 +268,7 @@ Prefix them with a "u-" so they're easy to spot.
         <div style="color: #aaa; font-size: 3em; line-height: 1.2; font-weight: 800;">?</div>
         <div style="color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0 auto;">⊙﹏⊙</div>
       </div>
-      <div style="text-align: left; padding: 0 0 1em;">From Scratch</div>
+      <div style="text-align: left; padding: 0 0 1em;">Stable</div>
     </div>
     <p style="padding: 2em 15% 0;">Starting your theming project, which is right for you?</p>
   </section>
@@ -269,13 +278,13 @@ Prefix them with a "u-" so they're easy to spot.
       <div style="width: 6em;">
         <div style="color: #aaa; font-size: 3em; line-height: 1.2; font-weight: 800; transform: translateX(-.3em);">!</div>
         <div style="position: relative; color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0 auto;">
-          <span style="font-size: .6em; display: inline-block; transform: translateX(-1em)">｡◕ ‿ ◕｡</span>
+          <span style="font-size: .6em; display: inline-block; transform: translateX(-1em)"><sup style="display: inline-block; transform: translate(0.3em, 0);">´</sup>◕ ᴗ ◕<sup style="display: inline-block; transform: translate(-0.3em, 0);">`</sup></span>
         </div>
       </div>
-      <div style="text-align: left; padding: 0 0 1em;">From Scratch</div>
+      <div style="text-align: left; padding: 0 0 1em;">Stable</div>
     </div>
     <div style="padding: 2em 0 0;">
-      <p><strong>Liked having the default markup, classes, styles that Drupal 7 provided?</strong></p>
+      <p><strong>Liked D7's default markup and styles?</strong></p>
       <em stlye="display: block">Classy is the base theme for you.</em>
     </div>
   </section>
@@ -285,13 +294,16 @@ Prefix them with a "u-" so they're easy to spot.
       <div style="width: 6em;">
         <div style="color: #aaa; font-size: 3em; line-height: 1.2; font-weight: 800; transform: translateX(.3em);">!</div>
         <div style="position: relative; color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0 auto;">
-          <span style="font-size: .6em; display: inline-block; transform: translateX(1em)">｡◕ ‿ ◕｡</span>
+          <span style="font-family: arial; font-size: .6em; display: inline-block; transform: translateX(1em)"><sup style="display: inline-block; transform: translate(0.3em, 0);">´</sup>◕ ᴗ ◕<sup style="display: inline-block; transform: translate(-0.3em, 0);">`</sup></span>
         </div>
       </div>
-      <div style="text-align: left; padding: 0 0 1em;">From Scratch</div>
+      <div style="text-align: left; padding: 0 0 1em;">Stable</div>
     </div>
     <div class="column-wrapper">
-      <div style="padding: 2em 0 0;"><p><strong>Frustrated by Drupal 7 defaults and want more control?</strong></p> <em stlye="display: block">Start from scratch,<br>or copy Classy and remove parts you don't like.</em></div>
+      <div style="padding: 2em 0 0;">
+        <p><strong>Frustrated by D7 defaults and want more control?</strong></p>
+        <em stlye="display: block">Use Stable,<br>or copy Classy and remove parts you don't like.</em>
+      </div>
     </div>
   </section>
 </section>
@@ -332,31 +344,38 @@ Prefix them with a "u-" so they're easy to spot.
 
 
 <section>
-  <h2 id="drilling-for-data">Drilling for Data in Templates</h2>
-  <h3>Drupal 7</h3>
-  <pre><code class="language-php">
-$title
+  <section class="center">
+    <h2 id="drilling-for-data">Drilling for Data in Templates</h2>
+    <h3 style="font-weight: 200">D7 vs. D8</h3>
+  </section>
+
+  <section>
+    <h3>Simple, Static Data</h3>
+    <h4 style="font-size: 1.2em">Drupal 7</h4>
+    <pre><code class="language-php">$title
 $content['field_body']
-$myvar['has']-&gt;alot['of']['nesting']['und'][0]-&gt;var</code></pre>
-  <h3>Drupal 8</h3>
-  <pre><code class="language-twig">
-{{ title }}
+$myvar['has']-&gt;alot['of']['nesting']['und'][0]-&gt;safe_value</code></pre>
+    <h4 style="font-size: 1.2em; margin-bottom: 0;">Drupal 8</h4>
+    <p style="margin: 0;">Dot notation</p>
+    <pre><code class="language-twig">{{ title }}
 {{ content.field_body }}
-{{ myvar.has.alot.of.nesting.var }}
-</code></pre>
+{{ myvar.has.alot.of.nesting.safe_value }}</code></pre>
+  </section>
+
+
+  <section>
+    <h3 id="or-sometimes-you-need-array-notation">Tricksy Datas</h3>
+    <h4>Drupal 7</h4>
+    <pre><code class="language-php">$my_array[$index]
+$element['#id']</code></pre>
+    <h4>Drupal 8</h4>
+    <pre><code class="language-twig">{# Since I want to use a variable called index #}
+{{ my_array[index] }}
+
+{# Since this index starts with a hash #}
+{{ element['#id'] }}</code></pre>
+  </section>
 </section>
-
-
-<section>
-  <h3 id="or-sometimes-you-need-array-notation">Or sometimes you need array notation</h3>
-  <p>When there's a special character, or your index is a variable, use array notation:</p>
-  <pre><code class="language-twig">{# Since this index starts with a hash #}
-{{ element['#id'] }}
-
-{# Since I want to use a variable called index #}
-{{ my_array[index] }}</code></pre>
-</section>
-
 
 <section>
   <section>
@@ -379,7 +398,7 @@ $sandwich-&gt;getCheese();
 $sandwich-&gt;isCheese();
 // Method doesn't exist/dynamic method.
 $sandwich-&gt;__call('cheese');</code></pre>
-    <p class="small"><a href="http://twig.sensiolabs.org/doc/templates.html#variables">http://twig.sensiolabs.org/doc/templates.html#variables</a></p>
+    <p class="small"><a href="http://twig.sensiolabs.org/doc/templates.html#variables">twig.sensiolabs.org/doc/templates.html#variables</a></p>
   </section>
   <section>
     <h4>In other words...</h4>
@@ -402,8 +421,7 @@ $sandwich-&gt;__call('cheese');</code></pre>
 <section>
   <section>
     <h3 id="string-filters">Filter strings!</h3>
-    <pre><code class="language-twig">
-{# Send translatable string through t function #}
+    <pre><code class="language-twig">{# Send translatable string through t function #}
 {{'Translatable String'|t}}
 
 {# Make a string fit to be a HTML Class #}
@@ -412,8 +430,8 @@ $sandwich-&gt;__call('cheese');</code></pre>
 {# Get the string length #}
 {% set title_length = title|length %}</code></pre>
     <p class="small">There are plenty more:
-      <br><a href="http://twig.sensiolabs.org/doc/filters/index.html">http://twig.sensiolabs.org/doc/filters/index.html</a>
-      <br><a href="https://www.drupal.org/node/2357633">https://www.drupal.org/node/2357633</a></p>
+      <br><a href="http://twig.sensiolabs.org/doc/filters/index.html">twig.sensiolabs.org/doc/filters/index.html</a>
+      <br><a href="https://www.drupal.org/node/2357633">drupal.org/node/2357633</a></p>
   </section>
 
   <section>
@@ -436,9 +454,9 @@ $sandwich-&gt;__call('cheese');</code></pre>
 {# Get the keys of an array (as an array) #}
 {% set my_array_keys = my_array|keys %}
 
-{# Reverse the values %}
+{# Reverse the values #}
 {% set countdown = [1, 2, 3, 4, 5]|reverse %}</code></pre>
-  <p class="small">There are plenty more: <a href="http://twig.sensiolabs.org/doc/filters/index.html">http://twig.sensiolabs.org/doc/filters/index.html</a></p>
+  <p class="small">There are plenty more: <a href="http://twig.sensiolabs.org/doc/filters/index.html">twig.sensiolabs.org/doc/filters/index.html</a></p>
 </section>
 
 
@@ -456,7 +474,7 @@ $sandwich-&gt;__call('cheese');</code></pre>
 {% else %}
   {# Other Stuff #}
 {% endif %}</code></pre>
-  <p class="small"><a href="http://twig.sensiolabs.org/doc/tags/if.html">http://twig.sensiolabs.org/doc/tags/if.html</a></p>
+  <p class="small"><a href="http://twig.sensiolabs.org/doc/tags/if.html">twig.sensiolabs.org/doc/tags/if.html</a></p>
 </section>
 
 
@@ -468,9 +486,9 @@ $sandwich-&gt;__call('cheese');</code></pre>
 {% endfor %}</code></pre>
   <pre><code class="language-twig">{# A for loop that iterates through an array#}
 {% for user in users %}
-  {{ loop.index }} {{ user.username }}
+  User #{{ loop.index }} is {{ user.username }}
 {% endfor %}</code></pre>
-  <p class="small"><a href="http://twig.sensiolabs.org/doc/tags/for.html">http://twig.sensiolabs.org/doc/tags/for.html</a></p>
+  <p class="small"><a href="http://twig.sensiolabs.org/doc/tags/for.html">twig.sensiolabs.org/doc/tags/for.html</a></p>
 </section>
 
 
@@ -480,7 +498,7 @@ $sandwich-&gt;__call('cheese');</code></pre>
 
 
 <section>
-  <h2 id="info-yaml">Info.Yml</h2>
+  <h2 id="info-yaml">Info.yml</h2>
   <pre><code class="language-yaml"># fluffiness.info.yml
 name: Fluffiness
 type: theme
@@ -490,32 +508,32 @@ core: 8.x
 libraries:
   - fluffiness/global-styling
 stylesheets-remove:
-  - '@classy/css/layout.css'
+  - '@classy/css/components/tabs.css'
   - core/assets/vendor/normalize-css/normalize.css
 regions:
   header: Header
   content: Content
   sidebar_first: 'Sidebar first'
   footer: Footer</code></pre>
-  <p class="small"><a href="https://www.drupal.org/node/2349827">https://www.drupal.org/node/2349827</a></p>
+  <p class="small"><a href="https://www.drupal.org/node/2349827">drupal.org/node/2349827</a></p>
 </section>
 
 
 <section class="slide30">
   <h3 id="creating-a-sub-theme">Creating a sub theme</h3>
-  <pre data-line="8, 1"><code class="language-yaml"># fluffiness.info.yml
+  <pre data-line="8"><code class="language-yaml"># fluffiness.info.yml
 name: Fluffiness
 type: theme
 description: 'A cuddly theme.'
 package: Custom
 core: 8.x
 base theme: classy</code></pre>
-  <p class="small"><a href="https://www.drupal.org/node/2165673">https://www.drupal.org/node/2165673</a></p>
-  <style>.slide30 .line-highlight[data-start="8"] {transform: translateY(15px);}</style>
+  <p class="small"><a href="https://www.drupal.org/node/2165673">drupal.org/node/2165673</a></p>
+  <style>.slide30 .line-highlight[data-start="8"] {transform: translateY(-.4em);}</style>
 </section>
 
 <section>
-  <h2 id="libraries-yml">Libraries.YML</h2>
+  <h2 id="libraries-yml">Libraries.yml</h2>
   <pre><code class="language-yaml"># fluffiness.libraries.yml
 global:
   version: 1.x
@@ -525,7 +543,7 @@ global:
       css/style.css: {}
       css/colors.css: {}
       css/print.css: { media: print }</code></pre>
-  <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">https://www.drupal.org/theme-guide/8/assets</a></p>
+  <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">drupal.org/theme-guide/8/assets</a></p>
 </section>
 
 
@@ -539,7 +557,7 @@ cuddly-slider:
       css/cuddly-slider.css: {}
   js:
     js/cuddly-slider.js: {}</code></pre>
-  <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">https://www.drupal.org/theme-guide/8/assets</a></p>
+  <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">drupal.org/theme-guide/8/assets</a></p>
 </section>
 
 
@@ -555,18 +573,35 @@ cuddly-slider:
     js/cuddly-slider.js: {}
   dependencies:
     - core/jquery</code></pre>
-  <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">https://www.drupal.org/theme-guide/8/assets</a></p>
+  <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">drupal.org/theme-guide/8/assets</a></p>
 </section>
 
-
 <section>
-  <h3 id="can-use-the-attached-method-to-add-libraries-using-php-in-theme-file-for-example-">Adding libraries only on certain pages...</h3>
-  <p>You can use <code>#attached</code> in PHP to add the library only to specific pages. For a themer this will often happen in the themename.theme file.</p>
-  <pre><code class="language-php" style="font-size: .8em">
-&lt;?php
+  <section class="center">
+    <h3 id="can-use-the-attached-method-to-add-libraries-using-php-in-theme-file-for-example-">Adding Libraries to specific&nbsp;pages</h3>
+  </section>
+  <section>
+    <h4>Using Twig</h4>
+    <p>For most use cases, you can tie a library to markup using <code>attach_library()</code></p>
+    <pre><code class="language-twig">{{ attach_library('fluffiness/cuddly-slider') }}
+&lt;div&gt;Some fluffy markup {{ message }}&lt;/div&gt;</code></pre>
+  <p class="small"><a href="https://www.drupal.org/node/2216195">drupal.org/node/2216195</a></p>
+  </section>
+  <section>
+    <h4>Using PHP</h4>
+    <p>In your <code>.theme</code> file you can use PHP to add the library using whatever logic you'd like.</p>
+    <pre><code class="language-php" style="font-size: .8em">&lt;?php
 function fluffiness_preprocess_maintenance_page(&amp;$variables) {
   $variables['#attached']['library'][] = 'fluffiness/cuddly-slider';
+}
+
+function fluffiness_preprocess_page(&amp;$variables) {
+  if ($variables['fluffiness'] >= 5000) {
+    $variables['#attached']['library'][] = 'fluffiness/cuddly-slider';
+  }
 }</code></pre>
+  <p class="small"><a href="https://www.drupal.org/node/2216195">drupal.org/node/2216195</a></p>
+  </section>
 </section>
 
 
@@ -593,6 +628,7 @@ fluffiness.wide:
   weight: 0
   multipliers:
     - 1x</code></pre>
+    <p class="small"><a href="https://www.drupal.org/documentation/modules/breakpoint">drupal.org/documentation/modules/breakpoint</a></p>
 </section>
 
 
@@ -640,13 +676,13 @@ twig.config:
     </li>
   </ol>
   <div class="small" style="text-align: left">
-    <p><a href="https://www.drupal.org/node/1903374">https://www.drupal.org/node/1903374</a></p>
-    <p>(* You can set up custom settings.yml files, see 'container_yamls' on this page: <a href="https://www.drupal.org/node/2133171">https://www.drupal.org/node/2133171</a>)</p>
+    <p><a href="https://www.drupal.org/node/1903374">drupal.org/node/1903374</a></p>
+    <p>(* You can set up custom settings.yml files, see 'container_yamls' on this page: <a href="https://www.drupal.org/node/2133171">drupal.org/node/2133171</a>)</p>
   </div>
 </section>
 
 
-<section>
+<section class="slide39">
   <h2 id="template-debug-in-d8">Template Debug in D8</h2>
   <p>Once you've turned on twig debug, you'll get this:</p>
   <pre data-line="1,2,3-9,10, 14"><code class="language-markup" style="font-size: .8em;">&lt;!-- THEME DEBUG --&gt;
@@ -660,10 +696,14 @@ twig.config:
 --&gt;
 &lt;!-- BEGIN OUTPUT from 'core/modules/block/templates/block.html.twig' --&gt;
 &lt;div class=&quot;block block-system contextual-region block-menu&quot; id=&quot;block-bartik-tools&quot; role=&quot;navigation&quot;&gt;
-  ... HTML stuff was here ...
+  &lt;!-- HTML stuff was here --&gt;
 &lt;/div&gt;
 &lt;!-- END OUTPUT from 'core/modules/block/templates/block.html.twig' --&gt;
   </code></pre>
+<style>
+  .slide39 .line-highlight[data-start="10"] {transform: translateY(-1.1em);}
+  .slide39 .line-highlight[data-start="14"] {transform: translateY(-1.8em);}
+</style>
 </section>
 
 
@@ -678,22 +718,31 @@ twig.config:
   <h1 id="getting-into-the-weeds">Getting into the weeds</h1>
 </section>
 
-
 <section>
-  <h2 id="no-theme-functions-">No Theme Functions*</h2>
-  <p>(*)There are a few. Link is one of them, I'm having a hard time tracking down the others.</p>
-  <aside class="notes">
-    <p>This is for performance reasons, the few are very tiny and commonly used elements with a lot of logic.</p>
-    <p>The Drupal Twig initiative leads don't think we'll be able to get rid of them in Core.</p>
-    <p>BUT you can get around using them in your theme templates. (example?)</p>
-  </aside>
+  <section>
+    <h2 id="no-theme-functions-">Code that doesn't render through twig</h2>
+    <div style="text-align: left">
+      <p>There are some patterns of markup that are being rendered outside of twig for performance reasons.</p>
+      <p>Look for <code>#type</code> in render arrays</p>
+    </div>
+    <pre data-line="2"><code class="language-php">$variables['link'] = array(
+  '#type' => 'link',
+  '#title' => 'Visit Lullabot',
+  '#url' => 'https://lullabot.com'
+);</code></pre>
+  </section>
+  <section>
+    <h3>Modifying Render Elements</h3>
+    @todo this page
+  </section>
 </section>
 
 
 <section>
-  <h2 id="but-still-render-arrays">But still Render Arrays</h2>
+  <h2 id="but-still-render-arrays">Render Array to HTML</h2>
   <div style="text-align: left;">
-    <p>Because <code>#theme</code> now indicates what twig file to use!</p>
+    <p>In most cases, <code>#theme</code> indicates the default twig template name.</p>
+    @todo need a new example
     <div class="column-wrapper" style="align-items: stretch; margin: 1em;">
     <pre style="margin: 0;"><code class="language-php" style="font-size: .8em;">// In Preprocess
   $variables['table'] = array(
@@ -736,7 +785,7 @@ twig.config:
   <p style="margin-top: 2em; text-align: left">No extra space needed</p>
   <pre><code class="language-twig">{#  ↓ Don't need this space #}
 &lt;div {{ attributes }}&gt;</code></pre>
-  <p class="small"><a href="https://www.drupal.org/node/2513632">https://www.drupal.org/node/2513632</a></p>
+  <p class="small"><a href="https://www.drupal.org/node/2513632">drupal.org/node/2513632</a></p>
 </section>
 
 
@@ -753,10 +802,10 @@ twig.config:
 &lt;div{{ attributes.removeAttribute('id') }}&gt;
 
 {# hasClass boolean! #}
-{% if attribute.hasClass(‘myClass') %}
+{% if attribute.hasClass('myClass') %}
  {# do stuff #}
 {% endif %}</code></pre>
-  <p class="small"><a href="https://www.drupal.org/node/2513632">https://www.drupal.org/node/2513632</a></p>
+  <p class="small"><a href="https://www.drupal.org/node/2513632">drupal.org/node/2513632</a></p>
 </section>
 
 
@@ -782,13 +831,14 @@ twig.config:
 
 <section>
   <h2 id="there-are-twig-extends-11">FYI: There are Twig Extends!!!11</h2>
+  @todo redo this
   <div style="position: relative; width: 4em; margin: 0 auto; font-size: 2em; font-size: ">
     <div style="color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0;">&gt;﹏☉</div>
     <div style="position: absolute; left: 100%; top: .0; width: 75%; text-align: left; transform: translateX(-.4em);"><span style="color: #128083">ヾ</span> <span style="font-size: .3em; position: relative; top: -.6em;">twitch...</span></div>
   </div>
   <p>No me gusta.</p>
   <p style="padding-top: .5em">These make sense for Symfony applications, but in the context of Drupal I think they're going to give you DRY code at the expensive of being intuitive.</p>
-  <p class="small"><a href="http://twig.sensiolabs.org/doc/tags/extends.html">http://twig.sensiolabs.org/doc/tags/extends.html</a></p>
+  <p class="small"><a href="http://twig.sensiolabs.org/doc/tags/extends.html">twig.sensiolabs.org/doc/tags/extends.html</a></p>
 </section>
 
 
@@ -807,7 +857,7 @@ twig.config:
     <p><strong><a href="https://www.drupal.org/coding-standards/css/architecture">Theming in Drupal 8</a></strong> - Drupal.org
       <a style="font-size: .5em; display: block;" href="https://www.drupal.org/coding-standards/css/architecture">drupal.org/coding-standards/css/architecture</a></p>
     <p><strong><a href="http://twig.sensiolabs.org/documentation">Twig Official Documentation</a></strong> - twig.sensiolabs.org
-      <a style="font-size: .5em; display: block;" href="http://twig.sensiolabs.org/documentation">http://twig.sensiolabs.org/documentation</a></p>
+      <a style="font-size: .5em; display: block;" href="http://twig.sensiolabs.org/documentation">twig.sensiolabs.org/documentation</a></p>
     <p><strong><a href="https://www.lullabot.com/articles/drupal-8-theming-fundamentals-part-1">Drupal 8 Theming Fundamentals</a></strong> - John Hannah<br>
       <a style="font-size: .5em; display: block;" href="https://www.lullabot.com/articles/drupal-8-theming-fundamentals-part-1">lullabot.com/articles/drupal-8-theming-fundamentals-part-1</a></p>
   </div>

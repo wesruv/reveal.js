@@ -407,7 +407,7 @@ pre {
 /**********************************************
  * CUSTOM UTILITIES THEMING
  **********************************************/
-.reveal .file-list :before {
+.reveal .file-list li:before {
   color: lighten($linkColor, 5);
 }
 

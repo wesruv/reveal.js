@@ -327,7 +327,7 @@ pre {
 /**********************************************
  * CUSTOM UTILITIES THEMING
  **********************************************/
-.reveal .file-list :before {
+.reveal .file-list li:before {
   color: #0084d7; }
 
 .fa-folder,

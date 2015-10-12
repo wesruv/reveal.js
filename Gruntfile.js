@@ -86,7 +86,7 @@ module.exports = function(grunt) {
           exports: false
         }
       },
-      files: [ 'Gruntfile.js', 'js/reveal.js' ]
+      files: ['js/reveal.js']
     },
 
     connect: {
