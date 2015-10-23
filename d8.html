@@ -247,19 +247,22 @@ Prefix them with a "u-" so they're easy to spot.
   <section>
     <h2 id="two-base-themes">Core's Base Themes</h2>
     <div style="display: flex; text-align: left;">
-      <div style="padding: 0 1em 0 0;">
+      <div style="padding: 0 1em 0 0; width: 50%">
         <h3 id="classy-theme" style="font-weight: 200">Classy</h3>
         <ul>
           <li>Base theme for Seven and Bartik.</li>
           <li>Has default theming D7 had in core.</li>
-          <li>Well organized files, and all of the templates from core with it's added markup.</li>
         </ul>
       </div>
-      <div style="padding: 0 0 0 1em;">
+      <div style="padding: 0 0 0 1em; width: 50%">
         <h3 id="stable-theme" style="font-weight: 200">Stable</h3>
-        <p>Has bare minimum markup/styles needed for things to function.</p>
+        <ul>
+          <li>Has bare minimum markup/styles needed for things to function.</li>
+          <li>Will not change after D8 release.</li>
+        </ul>
       </div>
     </div>
+    <p>Both have well organized files, and all of the templates from core.</p>
   </section>
   <section class="center">
     <div class="column-wrapper" style="justify-content: center; align-items: flex-end; font-weight: 600; margin-top: -4em;">
@@ -302,9 +305,34 @@ Prefix them with a "u-" so they're easy to spot.
     <div class="column-wrapper">
       <div style="padding: 2em 0 0;">
         <p><strong>Frustrated by D7 defaults and want more control?</strong></p>
-        <em stlye="display: block">Use Stable,<br>or copy Classy and remove parts you don't like.</em>
+        <em stlye="display: block">Use Stable</em>
+        <p>OR</p>
       </div>
     </div>
+  </section>
+  <section>
+    <div class="column-wrapper" style="justify-content: center; align-items: flex-end; font-weight: 600;">
+      <div style="text-align: right; padding: 0 0 1em; text-decoration: line-through;">Classy</div>
+      <div style="width: 6em;">
+        <div style="color: #aaa; font-size: 3em; line-height: 1.2; font-weight: 800; transform: translateX(.3em);">!</div>
+        <div style="position: relative; color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0 auto;">
+          <span style="font-family: arial; font-size: .6em; display: inline-block; transform: translateX(0)"><sup style="display: inline-block; transform: translate(0.3em, 0);">´</sup>◕ <span style="font-size: 1em; position: relative; bottom: -0.5em; font-weight: 200;">³</span> ◕<sup style="display: inline-block; transform: translate(-0.3em, 0);">`</sup></span>
+        </div>
+      </div>
+      <div style="text-align: left; padding: 0 0 1em;">Stable</div>
+    </div>
+    <div class="column-wrapper">
+      <div style="padding: 2em 0 0;">
+        <p><strong>Want the latest and greatest from core markup? Don't mind keeping up with markup updates?</strong></p>
+        <em stlye="display: block">You can have no base theme...</em>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3>Ride the roller coaster!</h3>
+    <p>In your <code>*.info.yaml</code> add:</p>
+    <pre><code class="language-twig">base theme: false</code></pre>
+    <p>Core markup and classes <em>could</em> change and <em>could</em> affect your site.</p>
   </section>
 </section>
 
@@ -521,7 +549,7 @@ regions:
 
 <section class="slide30">
   <h3 id="creating-a-sub-theme">Creating a sub theme</h3>
-  <pre data-line="8"><code class="language-yaml"># fluffiness.info.yml
+  <pre data-line="7"><code class="language-yaml"># fluffiness.info.yml
 name: Fluffiness
 type: theme
 description: 'A cuddly theme.'
@@ -529,7 +557,7 @@ package: Custom
 core: 8.x
 base theme: classy</code></pre>
   <p class="small"><a href="https://www.drupal.org/node/2165673">drupal.org/node/2165673</a></p>
-  <style>.slide30 .line-highlight[data-start="8"] {transform: translateY(-.4em);}</style>
+  <style>.slide30 .line-highlight[data-start="7"] {transform: translateY(-.2em);}</style>
 </section>
 
 <section>
@@ -665,19 +693,23 @@ fluffiness.wide:
 
 <section>
   <h2 id="services-yml-updates">Setup Twig Developer Settings</h2>
-  <ol>
-    <li>Go into the appropriate settings.yml* (e.g.&nbsp;<code>sites/default</code>)</li>
-    <li>Find <code>twig.config</code> and change these values:
-    <pre><code class="language-yaml"># Will be buried in the file, search for 'twig.config'
-twig.config:
-  debug: true
-  auto_reload: true
-  cache: false</code></pre>
-    </li>
-  </ol>
-  <div class="small" style="text-align: left">
-    <p><a href="https://www.drupal.org/node/1903374">drupal.org/node/1903374</a></p>
-    <p>(* You can set up custom settings.yml files, see 'container_yamls' on this page: <a href="https://www.drupal.org/node/2133171">drupal.org/node/2133171</a>)</p>
+  <div style="font-size: 0.9em">
+    <ol>
+      <li>Find <code>twig.config</code> and change these values:
+      <pre><code class="language-yaml"># Will be buried in the file, search for 'twig.config'
+  twig.config:
+    debug: true</code></pre>
+      </li>
+      <li>In your <code>settings.php</code> add:
+        <pre><code class="language-php">&lt;?php
+  $settings['cache']['bins']['render'] = 'cache.backend.null';
+  $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';</code></pre>
+      </li>
+    </ol>
+    <div class="small" style="text-align: left">
+      <p><a href="https://www.drupal.org/node/1903374">drupal.org/node/1903374</a></p>
+      <p>(* You can set up custom settings.yml files, see 'container_yamls' on this page: <a href="https://www.drupal.org/node/2133171">drupal.org/node/2133171</a>)</p>
+    </div>
   </div>
 </section>
 
@@ -685,7 +717,7 @@ twig.config:
 <section class="slide39">
   <h2 id="template-debug-in-d8">Template Debug in D8</h2>
   <p>Once you've turned on twig debug, you'll get this:</p>
-  <pre data-line="1,2,3-9,10, 14"><code class="language-markup" style="font-size: .8em;">&lt;!-- THEME DEBUG --&gt;
+  <pre><code class="language-markup" style="font-size: .8em;">&lt;!-- THEME DEBUG --&gt;
 &lt;!-- CALL: theme('block') --&gt;
 &lt;!-- FILE NAME SUGGESTIONS:
    * block--system.html.twig
@@ -700,10 +732,6 @@ twig.config:
 &lt;/div&gt;
 &lt;!-- END OUTPUT from 'core/modules/block/templates/block.html.twig' --&gt;
   </code></pre>
-<style>
-  .slide39 .line-highlight[data-start="10"] {transform: translateY(-1.1em);}
-  .slide39 .line-highlight[data-start="14"] {transform: translateY(-1.8em);}
-</style>
 </section>
 
 
@@ -720,52 +748,39 @@ twig.config:
 
 <section>
   <section>
-    <h2 id="no-theme-functions-">Code that doesn't render through twig</h2>
+    <h2 id="no-theme-functions-">Render Types</h2>
     <div style="text-align: left">
-      <p>There are some patterns of markup that are being rendered outside of twig for performance reasons.</p>
+      <p>The render arrays of tomorrow!</p>
       <p>Look for <code>#type</code> in render arrays</p>
     </div>
-    <pre data-line="2"><code class="language-php">$variables['link'] = array(
+    <pre><code class="language-php">&lt;?php
+$variables['link'] = array(
   '#type' => 'link',
   '#title' => 'Visit Lullabot',
-  '#url' => 'https://lullabot.com'
+  '#url' => 'https://lullabot.com',
+  '#options' => array(
+    'class' => array(
+      'some-class',
+    ),
+  ),
 );</code></pre>
   </section>
   <section>
     <h3>Modifying Render Elements</h3>
-    @todo this page
+    <p>Unfortunately, the easiest way I've found is to modify it in the preprocessor.</p>
+<pre><code style="font-size: 0.8em;" class="language-php">&lt;?php
+/**
+ * Implements template_preprocess_menu_local_task().
+ */
+function frontendrapport_preprocess_menu_local_task(&amp;$variables) {
+  $variables['link']['#options']['attributes']['class'][] = 'admin-tabs__link';
+}</code></pre>
   </section>
 </section>
 
-
-<section>
-  <h2 id="but-still-render-arrays">Render Array to HTML</h2>
-  <div style="text-align: left;">
-    <p>In most cases, <code>#theme</code> indicates the default twig template name.</p>
-    @todo need a new example
-    <div class="column-wrapper" style="align-items: stretch; margin: 1em;">
-    <pre style="margin: 0;"><code class="language-php" style="font-size: .8em;">// In Preprocess
-  $variables['table'] = array(
-    '#theme' =&gt; 'table',
-    '#header' =&gt; $header,
-    '#rows' =&gt; $rows,
-  );</code></pre>
-    <div style="position: relative;">
-      <i class="fa fa-arrow-right" style="color: #225378; font-size: 3em; line-height: 1; position: absolute; top: 50%; transform: translate(-50%, -50%)"></i>
-      <div style=" position: absolute; top: 50%; padding: 0 0 0 2em; transform: translateY(-50%);"><i class="fa fa-file"></i>&nbsp;table.html.twig</div>
-    </div>
-  </div>
-  <aside class="notes">
-    <p>Because the render array's theme hook (aka <code>#theme</code>) now render with twig templates, instead of theme functions.</p>
-    <p>By default will render using the <code>table.html.twig</code> template file*.</p>
-    <p>*Of course this can be overrridden by updating the <code>theme_suggestions</code>.</p>
-  </aside>
-</section>
-
-
 <section>
   <section>
-    <h2 id="speaking-of-theme_suggestions-">Speaking of <code>theme_suggestions</code>...</h2>
+    <h2 id="speaking-of-theme_suggestions-">ALL the <code>theme_suggestions</code></h2>
     <div style="text-align: left">
       <p>They're all done in one place, no longer buried in preprocessor code!</p>
       <pre style="width: 100%;"><code class="language-php" style="font-size: .8em;">hook_theme_suggestions_alter(array &amp;$suggestions, array $variables, $hook)</code></pre>
@@ -819,26 +834,43 @@ twig.config:
   <h2 id="best-practices-encourage-a-bit-more-logic-in-the-template-files">D8 encourages more classes to be set in Twig</h2>
   <pre><code class="language-twig">{%
   set classes = [
-    'node--'  ~ node.bundle|clean_class,
+    'node--' ~ node.bundle|clean_class,
     'node--my-custom-modifier',
   ]
 %}
 
-&lt;article{{ attributes.addClass(classes) }}&gt;</code></pre>
+  &lt;article{{ attributes.addClass(classes) }}&gt;</code></pre>
   <p style="text-align: left">In D7 this would have been done in the preprocessor.</p>
 </section>
 
 
 <section>
-  <h2 id="there-are-twig-extends-11">FYI: There are Twig Extends!!!11</h2>
-  @todo redo this
-  <div style="position: relative; width: 4em; margin: 0 auto; font-size: 2em; font-size: ">
-    <div style="color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0;">&gt;﹏☉</div>
-    <div style="position: absolute; left: 100%; top: .0; width: 75%; text-align: left; transform: translateX(-.4em);"><span style="color: #128083">ヾ</span> <span style="font-size: .3em; position: relative; top: -.6em;">twitch...</span></div>
-  </div>
-  <p>No me gusta.</p>
-  <p style="padding-top: .5em">These make sense for Symfony applications, but in the context of Drupal I think they're going to give you DRY code at the expensive of being intuitive.</p>
-  <p class="small"><a href="http://twig.sensiolabs.org/doc/tags/extends.html">twig.sensiolabs.org/doc/tags/extends.html</a></p>
+  <section>
+    <h2 id="there-are-twig-extends-11">Twig Extends</h2>
+    <pre><code class="language-twig">{# cool.html.twig #}
+{% block foo %}
+  Defaul content
+{% endblock %}</code></pre>
+    <p>Meanwhile...</p>
+  <pre><code class="language-twig">{# cool-er.html.twig #}
+{% block foo %}
+  Alternate Content
+{% endblock %}</code></pre>
+    <p class="small"><a href="http://twig.sensiolabs.org/doc/tags/extends.html">twig.sensiolabs.org/doc/tags/extends.html</a></p>
+  </section>
+  <section>
+    <h3>And you can even...</h3>
+    <pre><code class="language-twig">{# cool-er.html.twig #}
+{% block foo %}
+{{ parent() }}
+  Alternate Content
+{% endblock %}</code></pre>
+  </section>
+  <section>
+    <h3>Editorial time...</h3>
+    <p>Extends make a tonne of sense for custom Symfony applications...</p>
+    <p>But in Drupal land they might make code DRYer at the expense of intuitive.</p>
+  </section>
 </section>
 
 
