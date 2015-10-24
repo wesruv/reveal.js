@@ -330,9 +330,9 @@ Prefix them with a "u-" so they're easy to spot.
   </section>
   <section>
     <h3>Ride the roller coaster!</h3>
-    <p>In your <code>*.info.yaml</code> add:</p>
+    <p>In your <code>*.info.yml</code> add:</p>
     <pre><code class="language-twig">base theme: false</code></pre>
-    <p>Core markup and classes <em>could</em> change and <em>could</em> affect your site.</p>
+    <p>Core markup and classes <em>could</em> change and <em>could</em> effect your site.</p>
   </section>
 </section>
 
@@ -344,7 +344,6 @@ Prefix them with a "u-" so they're easy to spot.
 <section>
   <pre><code class="language-twig" style="max-height: 9999em">
 {# block.html.twig #}
-
 &lt;div{{ attributes }}&gt;
   {{ title_prefix }}
   {% if label %}
@@ -410,7 +409,7 @@ $element['#id']</code></pre>
     <h3 id="the-blessing-and-curse-of-twig-s-dot-notation">Behind the scenes:</h3>
     <pre style="font-size: .5em;"><code class="language-php" style="max-height: 9999em;">
 /**
- * If you have {{ sandwhich.cheese }} in your twig, it checks:
+ * If you have {{ sandwich.cheese }} in your twig, it checks:
  */
 // Array key.
 $sandwich['cheese'];
@@ -440,7 +439,7 @@ $sandwich-&gt;__call('cheese');</code></pre>
 </section>
 
 
-<section>
+<section class="center">
   <h2 id="filters">Twig Filters</h2>
   <p>Filters modify and then return variables, <br>and are denoted by a pipe&nbsp;|&nbsp;symbol.</p>
 </section>
@@ -450,10 +449,10 @@ $sandwich-&gt;__call('cheese');</code></pre>
   <section>
     <h3 id="string-filters">Filter strings!</h3>
     <pre><code class="language-twig">{# Send translatable string through t function #}
-{{'Translatable String'|t}}
+{{ 'Translatable String'|t }}
 
 {# Make a string fit to be a HTML Class #}
-{{node.bundle|clean_class}}
+{{ node.bundle|clean_class }}
 
 {# Get the string length #}
 {% set title_length = title|length %}</code></pre>
@@ -512,7 +511,7 @@ $sandwich-&gt;__call('cheese');</code></pre>
 {% for i in 0..10 %}
   This is number {{ i }}!
 {% endfor %}</code></pre>
-  <pre><code class="language-twig">{# A for loop that iterates through an array#}
+  <pre><code class="language-twig">{# A for loop that iterates through an array #}
 {% for user in users %}
   User #{{ loop.index }} is {{ user.username }}
 {% endfor %}</code></pre>
@@ -524,45 +523,44 @@ $sandwich-&gt;__call('cheese');</code></pre>
   <h1 id="yaml-and-beefed-up-config-functionality">YML and Beefed up Config Functionality</h1>
 </section>
 
-
 <section>
-  <h2 id="info-yaml">Info.yml</h2>
-  <pre><code class="language-yaml"># fluffiness.info.yml
+  <section>
+    <h2 id="info-yaml">Info.yml</h2>
+    <pre><code class="language-yaml"># fluffiness.info.yml
 name: Fluffiness
 type: theme
-description: 'A cuddly theme.'
+description: A cuddly theme.
 package: Custom
 core: 8.x
 libraries:
   - fluffiness/global-styling
-stylesheets-remove:
-  - '@classy/css/components/tabs.css'
-  - core/assets/vendor/normalize-css/normalize.css
 regions:
   header: Header
   content: Content
-  sidebar_first: 'Sidebar first'
+  sidebar_first: Sidebar first
   footer: Footer</code></pre>
-  <p class="small"><a href="https://www.drupal.org/node/2349827">drupal.org/node/2349827</a></p>
-</section>
+    <p class="small"><a href="https://www.drupal.org/node/2349827">drupal.org/node/2349827</a></p>
+  </section>
 
 
-<section class="slide30">
-  <h3 id="creating-a-sub-theme">Creating a sub theme</h3>
-  <pre data-line="7"><code class="language-yaml"># fluffiness.info.yml
+  <section>
+     <h3 id="creating-a-sub-theme">Creating a sub theme</h3>
+    <pre><code class="language-yaml"># fluffiness.info.yml
 name: Fluffiness
 type: theme
-description: 'A cuddly theme.'
+description: A cuddly theme.
 package: Custom
 core: 8.x
 base theme: classy</code></pre>
-  <p class="small"><a href="https://www.drupal.org/node/2165673">drupal.org/node/2165673</a></p>
-  <style>.slide30 .line-highlight[data-start="7"] {transform: translateY(-.2em);}</style>
+    <p class="small"><a href="https://www.drupal.org/node/2165673">drupal.org/node/2165673</a></p>
+  </section>
+
 </section>
 
 <section>
-  <h2 id="libraries-yml">Libraries.yml</h2>
-  <pre><code class="language-yaml"># fluffiness.libraries.yml
+  <section>
+    <h2 id="libraries-yml">Libraries.yml</h2>
+    <pre><code class="language-yaml"># fluffiness.libraries.yml
 global:
   version: 1.x
   css:
@@ -571,13 +569,13 @@ global:
       css/style.css: {}
       css/colors.css: {}
       css/print.css: { media: print }</code></pre>
-  <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">drupal.org/theme-guide/8/assets</a></p>
-</section>
+    <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">drupal.org/theme-guide/8/assets</a></p>
+  </section>
 
 
-<section>
-  <h3 id="define-libraries-that-can-consist-of-js-and-css">Define Libraries that can consist of JS and CSS</h3>
-  <pre><code class="language-yaml"># Further down in fluffiness.libraries.yml
+  <section>
+    <h3 id="define-libraries-that-can-consist-of-js-and-css">Define Libraries that can consist of JS and CSS</h3>
+    <pre><code class="language-yaml"># Further down in fluffiness.libraries.yml
 cuddly-slider:
   version: 1.x
   css:
@@ -585,13 +583,13 @@ cuddly-slider:
       css/cuddly-slider.css: {}
   js:
     js/cuddly-slider.js: {}</code></pre>
-  <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">drupal.org/theme-guide/8/assets</a></p>
-</section>
+    <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">drupal.org/theme-guide/8/assets</a></p>
+  </section>
 
 
-<section>
-  <h3 id="declare-dependencies-on-other-libraries">Declare dependencies on other libraries</h3>
-  <pre><code class="language-yaml"># We forgot our jquery dependency!
+  <section>
+    <h3 id="declare-dependencies-on-other-libraries">Declare dependencies on other libraries</h3>
+    <pre><code class="language-yaml"># We forgot our jquery dependency!
 cuddly-slider:
   version: 1.x
   css:
@@ -601,13 +599,15 @@ cuddly-slider:
     js/cuddly-slider.js: {}
   dependencies:
     - core/jquery</code></pre>
-  <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">drupal.org/theme-guide/8/assets</a></p>
+    <p class="small"><a href="https://www.drupal.org/theme-guide/8/assets">drupal.org/theme-guide/8/assets</a></p>
+  </section>
 </section>
 
 <section>
   <section class="center">
     <h3 id="can-use-the-attached-method-to-add-libraries-using-php-in-theme-file-for-example-">Adding Libraries to specific&nbsp;pages</h3>
   </section>
+
   <section>
     <h4>Using Twig</h4>
     <p>For most use cases, you can tie a library to markup using <code>attach_library()</code></p>
@@ -615,6 +615,7 @@ cuddly-slider:
 &lt;div&gt;Some fluffy markup {{ message }}&lt;/div&gt;</code></pre>
   <p class="small"><a href="https://www.drupal.org/node/2216195">drupal.org/node/2216195</a></p>
   </section>
+
   <section>
     <h4>Using PHP</h4>
     <p>In your <code>.theme</code> file you can use PHP to add the library using whatever logic you'd like.</p>
@@ -632,6 +633,53 @@ function fluffiness_preprocess_page(&amp;$variables) {
   </section>
 </section>
 
+<section>
+  <section class="center">
+    <h2 id="overriding-libraries">Overriding Libraries</h3>
+    <p>Using your theme's *.info.yml</p>
+  </section>
+
+  <section>
+    <h3>Replace a library or asset</h3>
+    <pre><code class="language-yaml"># fluffiness.info.yml cont'd
+libraries-override:
+  # Replace an entire library.
+  core/drupal.collapse: mytheme/collapse
+
+  # Replace an asset with another.
+  subtheme/library:
+    css:
+      theme:
+        css/layout.css: css/my-layout.css</code></pre>
+    <p class="small"><a href="https://www.drupal.org/node/2497313">drupal.org/node/2497313</a></p>
+  </section>
+
+  <section>
+    <h3>Removing an asset or entire&nbsp;library</h3>
+    <pre><code class="language-yaml"># OR in fluffiness.info.yml
+libraries-override:
+  # Remove an asset.
+  drupal/dialog:
+    css:
+      theme:
+        dialog.theme.css: false
+
+  # Remove an entire library.
+  core/modernizr: false</code></pre>
+    <p class="small"><a href="https://www.drupal.org/node/2497313">drupal.org/node/2497313</a></p>
+  </section>
+
+  <section>
+    <h3>Extend a library</h3>
+    <pre><code class="language-yaml"># fluffiness.info.yml cont'd
+# Extend drupal.user: add assets from classy's user libraries.
+libraries-extend:
+  core/drupal.user:
+    - classy/user1
+    - classy/user2</code></pre>
+    <p class="small"><a href="https://www.drupal.org/node/2497313">drupal.org/node/2497313</a></p>
+  </section>
+</section>
 
 <section>
   <h2 id="breakpoints-yml">Breakpoints.YML</h2>
@@ -667,12 +715,11 @@ fluffiness.wide:
 
 <section>
   <h2 id="dumping-vars">Dumping vars</h2>
-  <pre><code class="language-twig">
-  {# Will dump all vars available to the template #}
-  {{ dump() }}</code></pre>
-  <pre><code class="language-twig">
-  {# Or dump a specific variable #}
-  {{ dump(specific.var }}</code></pre>
+  <pre><code class="language-twig">{# Will dump all vars available to the template #}
+{{ dump() }}</code></pre>
+<pre><code class="language-twig">
+{# Or dump a specific variable #}
+{{ dump(specific.var) }}</code></pre>
 </section>
 
 
@@ -682,35 +729,42 @@ fluffiness.wide:
     <p>At this point, don't use <strong>Devel</strong> to dump code unless you enable the <strong>Devel Kint</strong> sub module.</p>
     <p>Kint will replace Krumo, and is usable inside of twig.</p>
   </div>
-  <pre><code class="language-twig">
-  {# Will dump all vars available to the template #}
-  {{ kint() }}</code></pre>
-  <pre><code class="language-twig">
-  {# Or dump a specific variable #}
-  {{ kint(specific.var }}</code></pre>
+  <pre><code class="language-twig">{# Will dump all vars available to the template #}
+{{ kint() }}</code></pre>
+<pre><code class="language-twig">
+{# Or dump a specific variable #}
+{{ kint(specific.var) }}</code></pre>
 </section>
 
-
 <section>
-  <h2 id="services-yml-updates">Setup Twig Developer Settings</h2>
-  <div style="font-size: 0.9em">
-    <ol>
-      <li>Find <code>twig.config</code> and change these values:
-      <pre><code class="language-yaml"># Will be buried in the file, search for 'twig.config'
+  <section>
+    <h2 id="services-yml-updates">Setup Twig Developer Settings</h2>
+    <div style="font-size: 0.9em; text-align: left">
+      <div>1. Find <code>twig.config</code> and change these values:
+        <pre><code class="language-yaml"># Will be buried in the file, search for 'twig.config'
   twig.config:
     debug: true</code></pre>
-      </li>
-      <li>In your <code>settings.php</code> add:
+      </div>
+      <div style="margin-top: 1em">2. In <code>settings.php</code> uncomment:
+          <pre><code class="language-php">&lt;?php
+  if (file_exists(__DIR__ . '/settings.local.php')) {
+    include __DIR__ . '/settings.local.php';
+  }
+  </code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="font-size: 0.9em; text-align: left">
+      <div>3. In <code>settings.local.php</code> add:
         <pre><code class="language-php">&lt;?php
   $settings['cache']['bins']['render'] = 'cache.backend.null';
   $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';</code></pre>
-      </li>
-    </ol>
-    <div class="small" style="text-align: left">
-      <p><a href="https://www.drupal.org/node/1903374">drupal.org/node/1903374</a></p>
-      <p>(* You can set up custom settings.yml files, see 'container_yamls' on this page: <a href="https://www.drupal.org/node/2133171">drupal.org/node/2133171</a>)</p>
+      </div>
     </div>
-  </div>
+    <p class="small"><a href="https://www.drupal.org/node/1903374">drupal.org/node/1903374</a></p>
+  </section>
 </section>
 
 
@@ -806,8 +860,8 @@ function frontendrapport_preprocess_menu_local_task(&amp;$variables) {
 
 <section>
   <pre><code class="language-twig" style="max-height: 9999em; font-size: .9em;">{# Add or Remove Classes #}
-&lt;div{{attributes.addClass('my-class')}}&gt;
-&lt;div{{attributes.removeClass('their-class')}}&gt;
+&lt;div{{ attributes.addClass('my-class') }}&gt;
+&lt;div{{ attributes.removeClass('their-class') }}&gt;
 
 {# Set any attribute #}
 &lt;div{{ attributes.setAttribute('id', 'myID') }}&gt;
@@ -826,7 +880,7 @@ function frontendrapport_preprocess_menu_local_task(&amp;$variables) {
 
 <section>
   <h3 id="attributes-methods-can-be-chained">Attributes methods can be chained</h3>
-  <pre><code class="language-twig" style="font-size: .9em;">&lt;div{{ attributes.addClass('hello').removeClass('goodbye')}}&gt;</code></pre>
+  <pre><code class="language-twig" style="font-size: .9em;">&lt;div{{ attributes.addClass('hello').removeClass('goodbye') }}&gt;</code></pre>
 </section>
 
 
@@ -849,10 +903,11 @@ function frontendrapport_preprocess_menu_local_task(&amp;$variables) {
     <h2 id="there-are-twig-extends-11">Twig Extends</h2>
     <pre><code class="language-twig">{# cool.html.twig #}
 {% block foo %}
-  Defaul content
+  Default content
 {% endblock %}</code></pre>
     <p>Meanwhile...</p>
   <pre><code class="language-twig">{# cool-er.html.twig #}
+{% extends "cool.html.twig" %}
 {% block foo %}
   Alternate Content
 {% endblock %}</code></pre>
@@ -861,6 +916,7 @@ function frontendrapport_preprocess_menu_local_task(&amp;$variables) {
   <section>
     <h3>And you can even...</h3>
     <pre><code class="language-twig">{# cool-er.html.twig #}
+{% extends "cool.html.twig" %}
 {% block foo %}
 {{ parent() }}
   Alternate Content
