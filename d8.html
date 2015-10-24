@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>reveal.js - The HTML Presentation Framework</title>
+    <title>Drupal 8 Theming Crash Course</title>
 
     <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
     <meta name="author" content="Hakim El Hattab">
@@ -35,10 +35,10 @@
 
   <body>
 
-    <div class="reveal">
+<div class="reveal">
 
-      <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides">
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
 
 <section class="center">
   <p class="small" style="position: relative; top: -6em;"><strong>Pro-tip:</strong> Press <span style="display: inline-block; padding: .2em .6em; border: 1px solid #777; border-radius: .3em; background: #fff; box-shadow: 0 1px 0 #555, 0 2px 0 #555, 0 3px 0 #555, 0 4px 0 #555; position: relative; top: -.1em;">space bar</span> to progress and it won't skip any slides</p>
@@ -312,14 +312,14 @@ Prefix them with a "u-" so they're easy to spot.
   </section>
   <section>
     <div class="column-wrapper" style="justify-content: center; align-items: flex-end; font-weight: 600;">
-      <div style="text-align: right; padding: 0 0 1em; text-decoration: line-through;">Classy</div>
+      <div style="text-align: right; padding: 0 0 1em;"><s>Classy</s></div>
       <div style="width: 6em;">
         <div style="color: #aaa; font-size: 3em; line-height: 1.2; font-weight: 800; transform: translateX(.3em);">!</div>
         <div style="position: relative; color: #fff; border-radius: 50%; background: #128083; width: 4em; height: 4em; box-sizing: border-box; padding: 1em 0 0; margin: 0 auto;">
           <span style="font-family: arial; font-size: .6em; display: inline-block; transform: translateX(0)"><sup style="display: inline-block; transform: translate(0.3em, 0);">´</sup>◕ <span style="font-size: 1em; position: relative; bottom: -0.5em; font-weight: 200;">³</span> ◕<sup style="display: inline-block; transform: translate(-0.3em, 0);">`</sup></span>
         </div>
       </div>
-      <div style="text-align: left; padding: 0 0 1em;">Stable</div>
+      <div style="text-align: left; padding: 0 0 1em;"><s>Stable</s></div>
     </div>
     <div class="column-wrapper">
       <div style="padding: 2em 0 0;">
@@ -634,54 +634,6 @@ function fluffiness_preprocess_page(&amp;$variables) {
 </section>
 
 <section>
-  <section class="center">
-    <h2 id="overriding-libraries">Overriding Libraries</h3>
-    <p>Using your theme's *.info.yml</p>
-  </section>
-
-  <section>
-    <h3>Replace a library or asset</h3>
-    <pre><code class="language-yaml"># fluffiness.info.yml cont'd
-libraries-override:
-  # Replace an entire library.
-  core/drupal.collapse: mytheme/collapse
-
-  # Replace an asset with another.
-  subtheme/library:
-    css:
-      theme:
-        css/layout.css: css/my-layout.css</code></pre>
-    <p class="small"><a href="https://www.drupal.org/node/2497313">drupal.org/node/2497313</a></p>
-  </section>
-
-  <section>
-    <h3>Removing an asset or entire&nbsp;library</h3>
-    <pre><code class="language-yaml"># OR in fluffiness.info.yml
-libraries-override:
-  # Remove an asset.
-  drupal/dialog:
-    css:
-      theme:
-        dialog.theme.css: false
-
-  # Remove an entire library.
-  core/modernizr: false</code></pre>
-    <p class="small"><a href="https://www.drupal.org/node/2497313">drupal.org/node/2497313</a></p>
-  </section>
-
-  <section>
-    <h3>Extend a library</h3>
-    <pre><code class="language-yaml"># fluffiness.info.yml cont'd
-# Extend drupal.user: add assets from classy's user libraries.
-libraries-extend:
-  core/drupal.user:
-    - classy/user1
-    - classy/user2</code></pre>
-    <p class="small"><a href="https://www.drupal.org/node/2497313">drupal.org/node/2497313</a></p>
-  </section>
-</section>
-
-<section>
   <h2 id="breakpoints-yml">Breakpoints.YML</h2>
   <pre><code class="language-yaml" style="font-size: .8em;"># fluffiness.breakpoints.yml
 fluffiness.mobile:
@@ -801,6 +753,54 @@ fluffiness.wide:
 </section>
 
 <section>
+  <section class="center">
+    <h2 id="overriding-libraries">Overriding Libraries</h3>
+    <p>Using your theme's *.info.yml</p>
+  </section>
+
+  <section>
+    <h3>Replace a library or asset</h3>
+    <pre><code class="language-yaml"># fluffiness.info.yml cont'd
+libraries-override:
+  # Replace an entire library.
+  core/drupal.collapse: mytheme/collapse
+
+  # Replace an asset with another.
+  subtheme/library:
+    css:
+      theme:
+        css/layout.css: css/my-layout.css</code></pre>
+    <p class="small"><a href="https://www.drupal.org/node/2497313">drupal.org/node/2497313</a></p>
+  </section>
+
+  <section>
+    <h3>Removing an asset or entire&nbsp;library</h3>
+    <pre><code class="language-yaml"># OR in fluffiness.info.yml
+libraries-override:
+  # Remove an asset.
+  drupal/dialog:
+    css:
+      theme:
+        dialog.theme.css: false
+
+  # Remove an entire library.
+  core/modernizr: false</code></pre>
+    <p class="small"><a href="https://www.drupal.org/node/2497313">drupal.org/node/2497313</a></p>
+  </section>
+
+  <section>
+    <h3>Extend a library</h3>
+    <pre><code class="language-yaml"># fluffiness.info.yml cont'd
+# Extend drupal.user: add assets from classy's user libraries.
+libraries-extend:
+  core/drupal.user:
+    - classy/user1
+    - classy/user2</code></pre>
+    <p class="small"><a href="https://www.drupal.org/node/2497313">drupal.org/node/2497313</a></p>
+  </section>
+</section>
+
+<section>
   <section>
     <h2 id="no-theme-functions-">Render Types</h2>
     <div style="text-align: left">
@@ -917,8 +917,9 @@ function frontendrapport_preprocess_menu_local_task(&amp;$variables) {
     <h3>And you can even...</h3>
     <pre><code class="language-twig">{# cool-er.html.twig #}
 {% extends "cool.html.twig" %}
+
 {% block foo %}
-{{ parent() }}
+  {{ parent() }}
   Alternate Content
 {% endblock %}</code></pre>
   </section>
