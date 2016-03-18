@@ -211,7 +211,7 @@
 
 <section>
   <h2 id="js-prefix">JS Prefix</h2>
-  <p>If a class is coming from JS, it gets a "js-" prefix.</p>
+  <p>If a class is being used by or is coming from Javascript, it gets a "js-" prefix.</p>
   <pre><code class="language-css pseudo-code">
 .js-open {}
 .js-accordion {}
@@ -258,7 +258,6 @@ Prefix them with a "u-" so they're easy to spot.
         <h3 id="stable-theme" style="font-weight: 200">Stable</h3>
         <ul>
           <li>Has bare minimum markup/styles needed for things to function.</li>
-          <li>Will not change after D8 release.</li>
         </ul>
       </div>
     </div>
@@ -464,8 +463,8 @@ $sandwich-&gt;__call('cheese');</code></pre>
   <section>
     <h4 id="apply-a-string-filter-to-a-block-of-text">Apply a string filter to a block of text</h4>
     <pre><code class="language-twig">
-  {% filter t %}
-    This text gets run through Drupal's t() function
+  {% filter trim %}
+    Trim will eliminate this &nbsp;&nbsp;&nbsp;&nbsp;weird&nbsp;&nbsp;&nbsp; white&nbsp;&nbsp; space
   {% endfilter %}</code></pre>
   </section>
 </section>
@@ -691,30 +690,19 @@ fluffiness.wide:
 <section>
   <section>
     <h2 id="services-yml-updates">Setup Twig Developer Settings</h2>
-    <div style="font-size: 0.9em; text-align: left">
-      <div>1. Find <code>twig.config</code> and change these values:
+    <ol style="font-size: 0.9em; text-align: left">
+      <li>
+        Find <code>twig.config</code> and change these values <small style="display: block">(should be in development.services.yml)</small>
         <pre><code class="language-yaml"># Will be buried in the file, search for 'twig.config'
   twig.config:
     debug: true</code></pre>
-      </div>
-      <div style="margin-top: 1em">2. In <code>settings.php</code> uncomment:
-          <pre><code class="language-php">&lt;?php
-  if (file_exists(__DIR__ . '/settings.local.php')) {
-    include __DIR__ . '/settings.local.php';
-  }
-  </code></pre>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div style="font-size: 0.9em; text-align: left">
-      <div>3. In <code>settings.local.php</code> add:
+      </li>
+      <li>Add a <code>settings.local.php</code> file with:
         <pre><code class="language-php">&lt;?php
   $settings['cache']['bins']['render'] = 'cache.backend.null';
   $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';</code></pre>
-      </div>
-    </div>
+      </li>
+    </ol>
     <p class="small"><a href="https://www.drupal.org/node/1903374">drupal.org/node/1903374</a></p>
   </section>
 </section>
@@ -926,7 +914,7 @@ function frontendrapport_preprocess_menu_local_task(&amp;$variables) {
   <section>
     <h3>Editorial time...</h3>
     <p>Extends make a tonne of sense for custom Symfony applications...</p>
-    <p>But in Drupal land they might make code DRYer at the expense of intuitive.</p>
+    <p>But in Drupal land they might make code DRYer at the expense of being intuitive.</p>
   </section>
 </section>
 
