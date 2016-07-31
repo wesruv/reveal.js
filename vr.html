@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Web Dev Flavored reveal.js - The HTML Presentation Framework</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="plugin/prism/prism.css">
+    <link rel="stylesheet" href="plugin/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/theme/wes-light.css" id="theme">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+<body>
+
+<div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section data-background="assets/vr/lolvr.jpg" style="color: #fff;">
+  <p class="small" style="position: relative; top: -6em;"><strong>Pro-tip:</strong> Press <span style="display: inline-block; padding: .2em .6em; border: 1px solid #777; border-radius: .3em; background: #fff; box-shadow: 0 1px 0 #555, 0 2px 0 #555, 0 3px 0 #555, 0 4px 0 #555; position: relative; top: -.1em; color: #000;">space bar</span> to progress and it won't skip any slides</p>
+  <h1 class="lolvr" style="position: relative; color: #fff; font-weight: 900; font-size: 5em; color: rgba(255, 255, 255, 0);">
+      <span class="lolvr-text">Web VR</span><span class="lolvr-3dness"></span>
+    </h1>
+  <p style="font-weight: 700; font-size: 2em">What, why and how</p>
+  <style>
+    .lolvr-text {
+      position: relative;
+      z-index: 10;
+      color: #fff;
+    }
+
+    .lolvr .lolvr-3dness:before,
+    .lolvr .lolvr-3dness:after {
+      content: 'Web VR';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: block;
+      text-align: center;
+      color: rgba(255, 255, 255, 0);
+      opacity: 0.7;
+      text-shadow:
+        1px 1px 0 rgb(18, 128, 131), 
+        2px 2px 0 rgb(18, 128, 131), 
+        3px 3px 0 rgb(18, 128, 131), 
+        4px 4px 0 rgb(18, 128, 131),
+        5px 5px 0 rgb(18, 128, 131), 
+        6px 6px 0 rgb(18, 128, 131), 
+        7px 7px 0 rgb(18, 128, 131), 
+        8px 8px 0 rgb(18, 128, 131), 
+        9px 9px 0 rgb(18, 128, 131)
+        ;
+    }
+
+    .lolvr .lolvr-3dness:after {
+      text-shadow:
+        -1px -1px 0 rgb(178, 18, 128), 
+        -2px -2px 0 rgb(178, 18, 128), 
+        -3px -3px 0 rgb(178, 18, 128), 
+        -4px -4px 0 rgb(178, 18, 128),
+        -5px -5px 0 rgb(178, 18, 128), 
+        -6px -6px 0 rgb(178, 18, 128), 
+        -7px -7px 0 rgb(178, 18, 128), 
+        -8px -8px 0 rgb(178, 18, 128), 
+        -9px -9px 0 rgb(178, 18, 128);
+    }
+  </style>
+</section>
+
+<section style="text-align: left;">
+  <h2 id="who-am-i" style="font-weight: 200">About Me...</h2>
+  <img src="assets/d8/me.jpg" alt="" style="width: 35%; float: right;">
+  <div style="box-sizing: border-box; width: calc(65% - 0.6em);">
+    <h3 id="wes-ruvalcaba">Wes Ruvalcaba</h3>
+    <ul>
+      <li>Front End Dev at Lullabot</li>
+      <li>BFA in Illustration</li>
+      <li>Worked 7 years as Web Designer, with a focus on UX</li>
+      <li>Own Google Cardboard and HTC Vive</li>
+    </ul>
+  </div>
+  <p style="margin-top: 1em;"><a href="https://twitter.com/wesruv"><i class="fa fa-twitter" style="font-size: 2em; line-height: .5em; padding: 0 .2em 0 0; transform: translateY(.15em);"></i>@wesruv</a></p>
+</section>
+
+<section>
+  <h2 id="well-go-over">We'll go over</h2>
+  <ul>
+    <li>The VR Landscape</li>
+      <ul>
+        <li>Terminology</li>
+        <li>Applications of VR</li>
+        <li>Motion Sickness</li>
+        <li>Hardware & Software</li>
+      </ul>
+    <li>Google Cardboard</li>
+    <li>Web VR</li>
+    <li>How to build your first VR web site on Codepen.io</li>
+  </ul>
+</section>
+  
+<section class="center">
+  <h2 id="terminology">Terminology</h2>
+</section>
+
+<section>
+  <h3 id="virtual-reality">Virtual Reality</h3>
+  <p style="margin-bottom: 1.5em;">A created environment or simulation that tries to encompass a user as much as possible</p>
+</section>
+
+<section>
+  <h3>Augmented Reality</h3>
+  <p>An environment or elements that attempt to blend into the real world</p>
+</section>
+
+<section>
+  <h3>Milgram’s Reality - Virtuality Continuum</h3>
+  <img src="assets/vr/spectrum.jpg" alt="Real Environment - Augmented Reality (AR) - Augmented Virtuality (AV) - Virtual Environment" />
+</section>
+
+<section>
+  <section>
+    <h3>Virtual Reality - Immersion</h3>
+    <img src="assets/vr/steamvrtrailer-500x375.png" alt="Girl in VR petting a robot dog" />
+  </section>
+  <section>
+    <h4>Virtual Reality - Immersion</h4>
+    <img src="assets/vr/promo-image-3.jpg" alt="A man in vr defending a castle with a bow and arrow from minions" />
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Augmented Reality</h3>
+    <img src="assets/vr/pgo.png" alt="Pokemon Go" />
+  </section>
+
+  <section>
+    <h4>Augmented Reality</h4>
+    <img src="assets/vr/ar-car-repair.jpg" alt="Pokemon Go" />
+  </section>
+
+  <section>
+    <h4>Augmented Reality</h4>
+    <img src="assets/vr/hololens-ar.jpg" alt="Man navigating virtual interface that is overlayed over his living room" />
+  </section>
+
+  <section>
+    <h4>Augmented Reality</h4>
+    <img src="assets/vr/hololens-ar-2.jpg" alt="Man navigating virtual interface that is overlayed over his kitchen" />
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Augmented Virtuality</h3>
+    <img src="assets/vr/hotas-setup.jpg" alt="A PC cockpit setup for a flight sim" />
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2 id="experiences">Experiences</h2>
+    <p>Defines the genre and nature of the interaction</p>
+  </section>
+
+  <section>
+    <h4>Sitting / Standing</h4>
+    <img src="assets/vr/state-of-game-virtual-reality-15.jpg" alt="A man on his couch with a VR headset turning his head while holding a controller" />    
+  </section>
+
+  <section>
+    <h4>Room Scale</h4>
+    <img src="assets/vr/htc-vive-room-scale.jpg" alt="A man on his couch with a VR headset turning his head while holding a controller" />    
+  </section>
+
+</section>
+
+<section>
+  <section>
+    <h2>Applications for VR</h2>
+    <ul>
+      <li>Gaming</li>
+      <li>Photos & Video</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Applications for VR cont'd</h3>
+    <ul>
+      <li>Education
+        <ul>
+          <li>360 Video journalism</li>
+          <li>Demonstrate principals that can’t be easily demonstrated in real life
+            <ul>
+              <li>Space</li>
+              <li>Microscopic or molecular</li>
+            </ul>
+          </li>
+          <li>Driver’s Ed</li>
+          <li>Tour museums</li>
+          <li>Re-enactments of events</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3>Applications for VR cont'd</h3>
+    <ul>
+      <li>Therapy
+        <ul>
+          <li>Surgery simulation</li>
+          <li>Phobia treatment</li>
+          <li>PTSD treatment</li>
+          <li>Mental Rehabilitation for Stroke and Brain Injury victims to help with motor and cognitive function</li>
+        </ul>
+      </li>
+      <li>Training Simulations
+        <ul>
+          <li>Military</li>
+          <li>NASA</li>
+          <li>Flight training</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2 id="#consumer-products">Devices</h2>
+  </section>
+
+  <section>
+    <h4>Google Cardboard</h4>
+      <div class="column-wrapper">
+        <ul style="list-style: none; margin: 0; width: 50%">
+          <li><strong>Experiences:</strong><br> Sitting / Standing</li>
+          <li>Completely limited by phone hardware</li>
+          <li><strong>$15 - $120</strong></li>
+        </ul>
+      <div style="width: 50%"><img src="assets/vr/cardboard.jpg" alt="" /></div>
+    </div>
+  </section>
+
+  <section>
+    <h4>Samsung Gear VR</h4>
+      <div class="column-wrapper">
+        <ul style="list-style: none; margin: 0; width: 50%">
+          <li><strong>Experiences:</strong><br> Sitting / Standing</li>
+          <li>Mostly limited by phone hardware</li>
+          <li><strong>$99<span class="element-invisible">.</span><sup style="font-size: 0.75em">99</sup></strong></li>
+        </ul>
+      <div style="width: 50%"><img src="assets/vr/GearVR_Hero_Gold.png" alt="" /></div>
+    </div>
+  </section>
+
+  <section>
+    <h5>Samsung Gear VR</h5>
+    <img src="assets/vr/samsung-gear-vr-review.jpg" alt="There are additional controls on the side of the Gear VR" />
+  </section>
+
+  <section>
+    <h3>Ocululs Rift</h3>
+    <div class="column-wrapper">
+      <ul style="list-style: none; margin: 0; width: 50%">
+        <li><strong>Experiences:</strong><br> Sitting / Standing</li>
+        <li>No VR Controllers (yet)</li>
+        <li><strong>$599<span class="element-invisible">.</span><sup style="font-size: 0.75em">99</sup></strong></li>
+      </ul>
+      <div style="width: 50%;"><img src="assets/vr/riftshipping2.jpg" alt="" /></div>
+    </div>
+  </section>
+
+  <section>
+    <h4>HTC Vive</h4>
+      <div class="column-wrapper">
+        <ul style="list-style: none; margin: 0; width: 50%">
+          <li><strong>Experiences:</strong><br> Sitting / Standing<br>Room Scale</li>
+          <li>Most immersive consumer experience at present</li>
+          <li><strong>$799<span class="element-invisible">.</span><sup style="font-size: 0.75em">99</sup></strong></li>
+        </ul>
+      <div style="width: 50%"><img src="assets/vr/htc-vive-set.0.jpg" alt="" /></div>
+    </div>
+  </section>
+</section>
+
+
+<section>
+  <h2 id="the-landscape">The Landscape</h2>
+  <p>Google Cardboard v1 & 2 will be Web VR's IE6</p>
+</section>
+
+<section>
+  <section>
+    <h2 id="">Web VR</h2>
+  </section>
+
+  <section>
+    <h3>Janus VR</h3>
+    <img src="assets/vr/janus.jpg" alt="" />
+  </section>
+
+  <section>
+    <h3>MozVR</h3>
+    <ul>
+      <li><a href="https://mozvr.com/">mozvr.com</a></li>
+      <li>Working on a WebVR API spec</li>
+      <li>Working on frameworks/libraries that can be used today
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h4><a href="https://github.com/borismus/webvr-boilerplate">WebVR Boilerplate</a></h4>
+    <ul>
+      <li>Has everything you need to make a WebVR/3D experience in modern browsers</li>
+      <li>Very JS Heavy</li>
+      <li>Developer centric</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4><a href="https://aframe.io">A-Frame</a></h4>
+    <ul>
+      <li>Built on WebVR Boilerplate</li>
+      <li>Markup language that creates Web VR experiences</li>
+      <li>Designer Friendly(ish)</li>
+      <li>Can further be modified with JS</li>
+      <li>Project goal is to enable more creators</li>
+    </ul>
+  </section>
+
+</section>
+
+
+</div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script src="plugin/prism/prism.js"></script>
+
+<script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
+
+  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+  // Optional reveal.js plugins
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true },
+    { src: 'plugin/zoom-js/zoom.js', async: true },
+    { src: 'plugin/notes/notes.js', async: true }
+  ]
+});
+</script>
+</body>
+</html>
