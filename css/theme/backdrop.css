@@ -150,8 +150,7 @@ section h6:first-child {
   .reveal blockquote p:first-child,
   .reveal blockquote p:last-child {
     display: inline-block; }
-  .reveal blockquote:before,
-  .reveal blockquote:after {
+  .reveal blockquote:before, .reveal blockquote:after {
     font-family: Georgia, serif;
     font-weight: bold; }
   .reveal blockquote:before {
@@ -234,9 +233,9 @@ pre {
 .reveal a {
   color: #0074bd;
   text-decoration: none;
-  -webkit-transition: color 0.15s ease;
-  -moz-transition: color 0.15s ease;
-  transition: color 0.15s ease; }
+  -webkit-transition: color .15s ease;
+  -moz-transition: color .15s ease;
+  transition: color .15s ease; }
 
 .reveal a:hover {
   color: #0ba1ff;
@@ -333,5 +332,48 @@ pre {
 .fa-folder,
 .fa-file {
   color: #0084d7; }
+
+.continuum {
+  font-size: 0.8125em;
+  position: relative;
+  display: flex;
+  margin: 2em auto;
+  padding: 3em 0 0; }
+  .continuum:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 1em;
+    border-top: 0.25em solid #000;
+    background: linear-gradient(to right, transparent, transparent, #128083, #b21280, #b21280); }
+  .continuum:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 0.25em;
+    height: 2em;
+    background: #000; }
+  .continuum .continuum__point {
+    position: relative;
+    flex-grow: 1;
+    padding: 0 1em;
+    text-align: center; }
+    .continuum .continuum__point:before {
+      content: '';
+      position: absolute;
+      top: -3em;
+      right: 0;
+      display: block;
+      width: 0.25em;
+      height: 1.25em;
+      background: #000; }
+  .continuum .continuum__point--last:before {
+    right: -0.125em;
+    height: 2em; }
 
 /*# sourceMappingURL=backdrop.css.map */

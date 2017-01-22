@@ -415,3 +415,68 @@ pre {
 .fa-file {
   color: lighten($linkColor, 5);
 }
+
+.continuum {
+  font-size: 0.8125em;
+  position: relative;
+  display: flex;
+  margin: 2em auto;
+  padding: 3em 0 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 1em;
+    border-top: 0.25em solid #000;
+    background: linear-gradient(
+      to right,
+      transparent,
+      transparent,
+      rgb(18, 128, 131),
+      rgb(178, 18, 128),
+      rgb(178, 18, 128)
+    );
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 0.25em;
+    height: 2em;
+    background: #000;
+  }
+
+  .continuum__point {
+    position: relative;
+    flex-grow: 1;
+    padding: 0 1em;
+    text-align: center;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -3em;
+      right: 0;
+      display: block;
+      width: 0.25em;
+      height: 1.25em;
+      background: #000;
+    }
+
+  }
+
+  .continuum__point--last {
+    &:before {
+      right: -0.125em;
+      height: 2em;
+    }
+  }
+
+}
