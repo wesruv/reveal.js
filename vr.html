@@ -19,6 +19,13 @@
     <link rel="stylesheet" href="plugin/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/theme/wes-light.css" id="theme">
 
+    <style>
+      /* @todo Disable in Presentation mode */
+      .reveal aside.notes {
+        display: block;
+      }
+    </style>
+
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
@@ -97,10 +104,10 @@
   <div style="box-sizing: border-box; width: calc(65% - 0.6em);">
     <h3 id="wes-ruvalcaba">Wes Ruvalcaba</h3>
     <ul>
-      <li>Front End Dev at Lullabot</li>
+      <li>Sr. Front End Dev at Lullabot</li>
       <li>BFA in Illustration</li>
-      <li>Worked 7 years as Web Designer, with a focus on UX</li>
-      <li>Own Google Cardboard and HTC Vive</li>
+      <li>Worked 7 years as Web/UX Designer</li>
+      <li>Own Google Cardboard, Daydream and HTC Vive</li>
     </ul>
   </div>
   <p style="margin-top: 1em;"><a href="https://twitter.com/wesruv"><i class="fa fa-twitter" style="font-size: 2em; line-height: .5em; padding: 0 .2em 0 0; transform: translateY(.15em);"></i>@wesruv</a></p>
@@ -109,16 +116,15 @@
 <section>
   <h2 id="well-go-over">We'll go over</h2>
   <ul>
-    <li>The VR Landscape</li>
+    <li><strong>The VR Landscape</strong></li>
       <ul>
         <li>Terminology</li>
         <li>Applications of VR</li>
-        <li>Motion Sickness</li>
-        <li>Hardware & Software</li>
+        <li>Hardware &amp; Software</li>
+        <li>User Experience</li>
       </ul>
-    <li>Google Cardboard</li>
     <li>Web VR</li>
-    <li>How to build your first VR web site on Codepen.io</li>
+    <li><strong>Buiding a VR web site</strong> on <a href="http://codepen.io/">Codepen.io</a></li>
   </ul>
 </section>
 
@@ -127,63 +133,66 @@
 </section>
 
 <section>
-  <h3 id="virtual-reality">Virtual Reality</h3>
-  <p style="margin-bottom: 1.5em;">A created environment or simulation that tries to encompass a user as much as possible</p>
-</section>
-
-<section>
-  <h3>Augmented Reality</h3>
-  <p>An environment or elements that attempt to blend into the real world</p>
-</section>
-
-<section>
-  <h3>Milgram’s Reality to Virtuality Continuum</h3>
   <div class="continuum continuum--fourths">
-    <div class="continuum__point continuum__point--first">
-      Real Environment
+    <div class="continuum__point continuum__point--first" style="width: 25%;">
+      <strong style="display: block">Real</strong> Environment
     </div>
-    <div class="continuum__point continuum__point--second">
-      Augment Reality (AR)
+    <div class="continuum__point continuum__point--second" style="width: 25%;">
+      Augmented Reality
     </div>
-    <div class="continuum__point continuum__point--third">
-      Augmented Virtuality (AV)
+    <div class="continuum__point continuum__point--third" style="width: 25%;">
+      Augmented Virtuality
     </div>
-    <div class="continuum__point continuum__point--last">
-      Virtual Environment
+    <div class="continuum__point continuum__point--last" style="width: 25%;">
+      <strong style="display: block">Virtual</strong> Environment
     </div>
   </div>
+  <p style="font-size: 0.75em; padding-top: 2em; position: relative; top: 2em;">(Milgram’s Reality to Virtuality Continuum)</p>
 </section>
 
 <section>
   <section>
-    <h3>Virtual Reality - Immersion</h3>
-    <img src="assets/vr/steamvrtrailer-500x375.png" alt="Girl in VR petting a robot dog" />
+    <h3 id="virtual-reality" class="vr-thing">Virtual Reality</h3>
+    <aside class="notes" style="margin-bottom: 1.5em;">A created environment or simulation that tries to encompass a user as much as possible</aside>
   </section>
+
   <section>
-    <h4>Virtual Reality - Immersion</h4>
-    <img src="assets/vr/promo-image-3.jpg" alt="A man in vr defending a castle with a bow and arrow from minions" />
+    <!-- @todo better image -->
+    <img style="width: 75%" src="assets/vr/steamvrtrailer-500x375.png" alt="Girl in VR petting a robot dog" />
+    <h4 class="vr-thing">Virtual Reality</h4>
   </section>
+
+  <section>
+    <img src="assets/vr/promo-image-3.jpg" alt="A man in vr defending a castle with a bow and arrow from minions" />
+    <h4 class="vr-thing">Virtual Reality</h4>
+  </section>
+
 </section>
 
 <section>
   <section>
     <h3>Augmented Reality</h3>
-    <img src="assets/vr/pgo.png" alt="Pokemon Go" />
+    <aside class="notes" style="margin-bottom: 1.5em;">An environment or elements that attempt to blend into the real world</aside>
   </section>
 
   <section>
+    <img style="width: 100%;" src="assets/vr/pgo.png" alt="Pokemon Go" />
     <h4>Augmented Reality</h4>
-    <img src="assets/vr/ar-car-repair.jpg" alt="Pokemon Go" />
   </section>
 
   <section>
+    <img style="width: 75%;" src="assets/vr/ar-car-repair.jpg" alt="Pokemon Go" />
     <h4>Augmented Reality</h4>
-    <img src="assets/vr/hololens-ar.jpg" alt="Man navigating virtual interface that is overlayed over his living room" />
   </section>
 
   <section>
+    <img style="width: 90%;" src="assets/vr/hololens-ar.jpg" alt="Man navigating virtual interface that is overlayed over his living room" />
     <h4>Augmented Reality</h4>
-    <img src="assets/vr/hololens-ar-2.jpg" alt="Man navigating virtual interface that is overlayed over his kitchen" />
+  </section>
+
+  <section>
+    <img style="width: 80%;" src="assets/vr/hololens-ar-2.jpg" alt="Man navigating virtual interface that is overlayed over his kitchen" />
+    <h4>Augmented Reality</h4>
   </section>
 </section>
 
@@ -195,7 +204,7 @@
 </section>
 
 <section>
-  <h2 id="experiences">Experiences and Interaction Types</h2>
+  <h2 id="experiences">Experiences &amp; <br>Interaction Types</h2>
 </section>
 
 <section>
@@ -206,7 +215,8 @@
 
   <section>
     <h4>Sitting / Standing</h4>
-    <img src="assets/vr/state-of-game-virtual-reality-15.jpg" alt="A man on his couch with a VR headset turning his head while holding a controller" />
+    <!-- @todo Better image -->
+    <img style="width: 85%;" src="assets/vr/state-of-game-virtual-reality-15.jpg" alt="A man on his couch with a VR headset turning his head while holding a controller" />
   </section>
 
   <section>
@@ -216,6 +226,15 @@
 </section>
 
 <section>
+  <section>
+    <h3>Controls &amp; Inputs</h3>
+  </section>
+
+  <section>
+    <h4>Look or Look &amp; Click</h4>
+    <!-- @todo Need Image -->
+  </section>
+
   <section>
     <h4>Traditional Controllers</h4>
     <img src="assets/vr/noun_10269_cc.png" style="width: 80px; padding-right: 2em" alt="Media controller" />
@@ -234,50 +253,10 @@
   <section>
   <a href="https://www.youtube.com/watch?v=dbYP4bhKr2M"><img src="assets/vr/touch-controller-demo.jpg" alt="Oculus Touch Controller Demo" style="width: 100%" /></a>
   </section>
-</section>
 
-<section>
   <section>
-    <h2>Applications for VR</h2>
-  </section>
-  <section>
-    <h3>Entertainment</h3>
-    <ul>
-      <li>Gaming</li>
-      <li>Photos</li>
-      <li>Video</li>
-    </ul>
-  </section>
-  <section>
-    <h3>Education</h3>
-    <ul>
-      <li>360 Video journalism</li>
-      <li>Demonstrate principals that can’t be easily demonstrated in real life
-        <ul>
-          <li>Space</li>
-          <li>Microscopic or molecular</li>
-        </ul>
-      </li>
-      <li>Driver’s Ed</li>
-      <li>Tour Museums or Locations</li>
-      <li>Re-enactments of events</li>
-    </ul>
-  </section>
-  <section>
-    <h3>Health</h3>
-    <ul>
-      <li>Surgery simulation</li>
-      <li>Exposure Therapy for Phobia or PTSD</li>
-      <li>Mental Rehabilitation for Stroke and Brain Injuries</li>
-    </ul>
-  </section>
-  <section>
-    <h3>Training Simulations</h3>
-    <ul>
-      <li>Military</li>
-      <li>NASA</li>
-      <li>Flight training</li>
-    </ul>
+    <h4>Gestures</h4>
+    <!-- @todo Need Images -->
   </section>
 </section>
 
@@ -368,15 +347,15 @@
           <td><i class="fa fa-check"></i><span class="element-invisible">Yes</span></td>
         </tr>
         <tr>
-          <th>Room Scale</th>
-          <td><span class="element-invisible">No</span></td>
-          <td><span class="element-invisible">No</span></td>
-          <td><span class="element-invisible">No</span></td>
-        </tr>
-        <tr>
           <th>VR Controller</th>
           <td><span class="element-invisible">No</span></td>
           <td><i class="fa fa-check"></i><span class="element-invisible">Yes</span></td>
+          <td><span class="element-invisible">No</span></td>
+        </tr>
+        <tr>
+          <th>Room Scale</th>
+          <td><span class="element-invisible">No</span></td>
+          <td><span class="element-invisible">No</span></td>
           <td><span class="element-invisible">No</span></td>
         </tr>
         <tr>
@@ -391,39 +370,36 @@
   <section>
     <h3>Control Interfaces</h3>
     <ul>
-      <li>Point and Click, has hover</li>
+      <li>Look or Look &amp; Click</li>
       <li>Controllers</li>
     </ul>
   </section>
 
   <section>
-    <h5>Samsung Gear VR</h5>
+    <h5>Daydream VR Controller</h5>
+    <!-- @todo image -->
+  </section>
+
+  <section>
+    <h5>Gear VR Controls</h5>
     <img src="assets/vr/samsung-gear-vr-review.jpg" alt="There are additional controls on the side of the Gear VR" />
   </section>
 </section>
+
 <section>
   <section>
     <h2>Higher End Headsets</h2>
   </section>
   <section>
     <h3>Ocululs Rift</h3>
-    <div class="column-wrapper">
-      <ul style="list-style: none; margin: 0; width: 50%">
-        <li><strong>Experiences:</strong><br> Sitting / Standing</li>
-      </ul>
-      <div style="width: 50%;"><img src="assets/vr/riftshipping2.jpg" alt="" /></div>
-    </div>
+    <!-- @todo need new image -->
+    <img src="assets/vr/riftshipping2.jpg" alt="" />
   </section>
 
   <section>
     <h4>HTC Vive</h4>
-      <div class="column-wrapper">
-        <ul style="list-style: none; margin: 0; width: 50%">
-          <li><strong>Experiences:</strong><br> Sitting / Standing<br>Room Scale</li>
-          <li>Most immersive consumer experience at present</li>
-        </ul>
-      <div style="width: 50%"><img src="assets/vr/htc-vive-set.0.jpg" alt="" /></div>
-    </div>
+    <!-- @todo New Image -->
+    <img src="assets/vr/htc-vive-set.0.jpg" alt="" />
   </section>
   <section>
     <h3>Features</h3>
@@ -444,15 +420,15 @@
           <td><i class="fa fa-check"></i><span class="element-invisible">Yes</span></td>
         </tr>
         <tr>
-          <th>Room Scale</th>
-          <td><span class="element-invisible">No</span></td>
-          <td><span class="element-invisible">No</span></td>
-          <td><i class="fa fa-check"></i><span class="element-invisible">Yes</span></td>
-        </tr>
-        <tr>
           <th>VR Controller</th>
           <td><span class="element-invisible">No</span></td>
           <td><i class="fa fa-check"></i><span class="element-invisible">Yes</span></td>
+          <td><i class="fa fa-check"></i><span class="element-invisible">Yes</span></td>
+        </tr>
+        <tr>
+          <th>Room Scale</th>
+          <td><span class="element-invisible">No</span></td>
+          <td><span class="element-invisible">No</span></td>
           <td><i class="fa fa-check"></i><span class="element-invisible">Yes</span></td>
         </tr>
         <tr>
@@ -474,10 +450,54 @@
 
 </section>
 
-
 <section>
-  <h2 id="the-landscape">The Landscape</h2>
-  <p>Google Cardboard v1 & 2 will be Web VR's IE6</p>
+  <section>
+    <h2>Applications for VR</h2>
+  </section>
+  <section>
+    <h3>Entertainment</h3>
+    <ul>
+      <li>Gaming</li>
+      <li>Photos</li>
+      <li>Video</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Education</h3>
+    <ul>
+      <li>360 Video journalism</li>
+      <li>
+        Demonstrate macro/micro scale
+        <small class="notes" style="display: block;">(e.g. space/molecular science)</small>
+      </li>
+      <li>Tour Museums or Distant Locations</li>
+      <li>Event Re-enactment</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Health</h3>
+    <ul>
+      <li>
+        Surgery simulation
+        <small class="notes" style="display: block;">(e.g. Import 3D scans and explore in VR)</small>
+      </li>
+      <li>Exposure Therapy for Phobia or PTSD</li>
+      <li>
+        Mental Rehabilitation for Stroke and Brain Injuries
+        <small class="notes" style="display: block;">(therapy can better target desired stimulus exercises)</small>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3>Training Simulations</h3>
+    <ul>
+      <li>Driver’s Education</li>
+      <li>Flight training</li>
+      <li>Specialized controls for large vehicles or factories</li>
+      <li>Battlefield &amp; Military</li>
+      <li>NASA</li>
+    </ul>
+  </section>
 </section>
 
 <section>
@@ -488,22 +508,30 @@
   <section>
     <h3>Janus VR</h3>
     <img src="assets/vr/janus.jpg" alt="Janus avatars mingling outside of a theater" />
+    <aside class="notes">
+      <ul>
+        <li>Janus is a desktop application for Linux/Mac/PC</li>
+        <li>Has a language based on HTML/JS</li>
+        <li>Is navigateable entirely in 3d</li>
+        <li></li>
+      </ul>
+    </aside>
   </section>
 
   <section>
-    <h3>MozVR</h3>
+    <h3><a href="https://mozvr.com/">MozVR <sup><i class="fa fa-external-link" style="font-size: 0.5em"></i></sup></a></h3>
+    <!-- @todo image and put bullets in notes? -->
     <ul>
-      <li><a href="https://mozvr.com/">mozvr.com</a></li>
-      <li>Working on a WebVR API spec</li>
-      <li>Working on frameworks/libraries that can be used today
-      </li>
+      <li>Goal: bring VR to web browsers natively</li>
+      <li>Working on a WebVR API W3C specification</li>
+      <li>Working on frameworks/libraries that can be used today</li>
     </ul>
   </section>
 
   <section>
-    <h4><a href="https://github.com/borismus/webvr-boilerplate">WebVR Boilerplate</a></h4>
+    <h4><a href="https://github.com/borismus/webvr-boilerplate">WebVR Boilerplate <sup><i class="fa fa-external-link" style="font-size: 0.5em"></i></sup></a></h4>
     <ul>
-      <li>Has everything you need to make a WebVR/3D experience in modern browsers</li>
+      <li>Starter kit for custom WebVR/3D experience in modern browsers</li>
       <li>Very JS Heavy</li>
       <li>Developer centric</li>
     </ul>
@@ -513,13 +541,26 @@
     <h4><a href="https://aframe.io">A-Frame</a></h4>
     <ul>
       <li>Built on WebVR Boilerplate</li>
-      <li>Markup language that creates Web VR experiences</li>
+      <li>Easy to learn markup language</li>
       <li>Designer Friendly(ish)</li>
       <li>Can further be modified with JS</li>
+      <!-- @todo consider moving this bullet into notes -->
       <li>Project goal is to enable more creators</li>
     </ul>
   </section>
 
+</section>
+
+<section>
+  <section>
+    <h3 style="font-size: 2.25em">A-Frame Tutorial</h3>
+    <p style="font-size: 3em">🤓 😆</p>
+  </section>
+
+  <section>
+    <h4>Anatomy of a tag:</h4>
+    <!-- @todo a-frame basics -->
+  </section>
 </section>
 
 <section style="font-size: 0.75em">
