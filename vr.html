@@ -556,6 +556,14 @@
   </section>
 
   <section>
+    <h4>Good news</h4>
+    <ul>
+      <li>A-Frame docs are fantastic</li>
+      <li>It's a single JS file</li>
+      <li>No compiling necessary!</li>
+  </section>
+
+  <section>
     <h4>Getting Started with A-frame</h4>
     <pre class="language-markup" data-line="6-7"><code class="language-markup">&lt;html>
   &lt;head>
@@ -584,13 +592,13 @@
   <section>
     <h4>Adding a Sphere</h4>
     <pre class="language-markup" data-line="2"><code class="language-markup">&lt;a-scene>
-  &lt;a-sphere color="yellow" radius="5">&lt;/a-sphere>
+  &lt;a-sphere color="orange" radius="1.5">&lt;/a-sphere>
   &lt;a-sky color="#222">&lt;/a-sky>
 &lt;/a-scene></code></pre>
     <p>Alternate syntax, but identical result:</p>
     <pre class="language-markup" data-line="2-3"><code class="language-markup">&lt;a-scene>
-  &lt;a-entity geometry="primitive: sphere; radius: 5"
-    material="color: yellow;">&lt;/a-entity>
+  &lt;a-entity geometry="primitive: sphere; radius: 1.5"
+    material="color: orange;">&lt;/a-entity>
   &lt;a-sky src="360image.jpg">&lt;/a-sky>
 &lt;/a-scene></code></pre>  
     <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
@@ -598,9 +606,46 @@
 
   <section>
     <h4>Positioning in 3D</h4>
-    
+    <img style="width: 66%" src="assets/vr/xyz.png" alt="" />
   </section>
 
+  <section>
+    <h4>Default Camera Position</h4>
+    <img style="width: 66%" src="assets/vr/xyz-camera.png" alt="" />
+  </section>
+
+  <section>
+    <h4>Positioning in 3D</h4>
+    <img style="width: 66%" src="assets/vr/xyz-positioning.png" alt="" />
+  </section>
+
+  <section>
+    <h4>Positioning Our Sphere</h4>
+    <pre class="language-markup" data-line="5"><code class="language-markup">&lt;a-scene>
+  &lt;a-sphere 
+    color="orange" 
+    radius="1.5" 
+    position="2 3 -4">
+  &lt;/a-sphere>
+  &lt;a-sky color="#222">&lt;/a-sky>
+&lt;/a-scene></code></pre>
+    <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
+  </section>
+
+  <section>
+    <h4>Animating Our Sphere</h4>
+    <pre class="language-markup" data-line="5"><code class="language-markup">&lt;a-scene>
+  &lt;a-sphere color="orange" radius="1.5" position="2 3 4">
+    &lt;a-animation 
+      attribute="position"
+      from="2 3 -4"
+      to="2 .75 -4">
+    &lt;/a-animation>
+  &lt;/a-sphere>
+  &lt;a-sky color="#222">&lt;/a-sky>
+&lt;/a-scene></code></pre>
+    <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
+  </section>
 
 </section>
 
