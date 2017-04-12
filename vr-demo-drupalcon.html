@@ -1,0 +1,36 @@
+<html>
+<head>
+<script src="js/aframe-v0.5.0.min.js"></script>
+</head>
+
+<body>
+<a-scene>
+  <a-sphere color="orange" radius="1.5" position="2 3 -4">
+    <a-animation
+      attribute="position"
+      from="2 3 -4"
+      to="2 0 -4">
+    </a-animation>
+  </a-sphere>
+  <a-sky color="#222"></a-sky>
+</a-scene>
+
+<!--
+<a-scene>
+  <a-plane color="black" rotation="-90 0 0" width="20" height="20" position="0 0 0"></a-plane>
+  <a-sphere color="orange" radius="1.5" position="2 3 -4">
+    <a-animation
+      attribute="position"
+      from="2 3 -4"
+      to="2 1.15 -4"
+      repeat="infinite"
+      begin="1500"
+      easing="ease-out-bounce">
+    </a-animation>
+  </a-sphere>
+  <a-sky color="#222"></a-sky>
+</a-scene>
+-->
+
+</body>
+</html>

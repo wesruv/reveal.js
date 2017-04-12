@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Web Dev Flavored reveal.js - The HTML Presentation Framework</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="plugin/prism/prism.css">
+    <link rel="stylesheet" href="plugin/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/theme/wes-light.css" id="theme">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+<body>
+
+<div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section data-background="assets/vr/lolvr.jpg" style="color: #fff;">
+  <p class="small" style="position: relative; top: -6em;"><strong>Pro-tip:</strong> Press <span style="display: inline-block; padding: .2em .6em; border: 1px solid #777; border-radius: .3em; background: #fff; box-shadow: 0 1px 0 #555, 0 2px 0 #555, 0 3px 0 #555, 0 4px 0 #555; position: relative; top: -.1em; color: #000;">space bar</span> to progress and it won't skip any slides</p>
+  <h1 class="lolvr" style="position: relative; color: #fff; font-weight: 900; font-size: 5em; color: rgba(255, 255, 255, 0);">
+      <span class="lolvr-text">Web VR</span><span class="lolvr-3dness"></span>
+    </h1>
+  <p style="font-weight: 700; font-size: 2em">What, why and how</p>
+  <style>
+    .lolvr-text {
+      position: relative;
+      z-index: 10;
+      color: #fff;
+    }
+
+    .lolvr .lolvr-3dness:before,
+    .lolvr .lolvr-3dness:after {
+      content: 'Web VR';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: block;
+      text-align: center;
+      color: rgba(255, 255, 255, 0);
+      opacity: 0.7;
+      text-shadow:
+        1px 1px 0 rgb(18, 128, 131),
+        2px 2px 0 rgb(18, 128, 131),
+        3px 3px 0 rgb(18, 128, 131),
+        4px 4px 0 rgb(18, 128, 131),
+        5px 5px 0 rgb(18, 128, 131),
+        6px 6px 0 rgb(18, 128, 131),
+        7px 7px 0 rgb(18, 128, 131),
+        8px 8px 0 rgb(18, 128, 131),
+        9px 9px 0 rgb(18, 128, 131)
+        ;
+    }
+
+    .lolvr .lolvr-3dness:after {
+      text-shadow:
+        -1px -1px 0 rgb(178, 18, 128),
+        -2px -2px 0 rgb(178, 18, 128),
+        -3px -3px 0 rgb(178, 18, 128),
+        -4px -4px 0 rgb(178, 18, 128),
+        -5px -5px 0 rgb(178, 18, 128),
+        -6px -6px 0 rgb(178, 18, 128),
+        -7px -7px 0 rgb(178, 18, 128),
+        -8px -8px 0 rgb(178, 18, 128),
+        -9px -9px 0 rgb(178, 18, 128);
+    }
+  </style>
+</section>
+
+<section style="text-align: left;">
+  <h2 id="who-am-i" style="font-weight: 200">About Us</h2>
+  <div class="column-wrapper">
+  <div style="width: 50%">
+    <h3 id="wes-ruvalcaba" style="padding: 0 1em 0 0; font-size: 1.4em;">Wes Ruvalcaba</h3>
+    <ul>
+      <li>Front End Dev at Lullabot</li>
+      <li>BFA in Illustration</li>
+    </ul>
+  </div>
+  <div style="width: 50%">
+    <h3 id="dave-burns" style="font-size: 1.4em;">Dave Burns</h3>
+    <ul>
+      <li>Senior Developer at Lullabot</li>
+      <li>Man with the VR Plans</li>
+    </ul>
+  </div>
+</section>
+
+<section data-background-color="#fff">
+  <img src="assets/d8/lullabot-slide.jpg" alt="Lullabot" />
+</section>
+
+<section>
+  <h2 id="well-go-over">We'll go over</h2>
+  <ul>
+    <li>The VR Landscape</li>
+      <ul>
+        <li>Terminology</li>
+        <li>Applications of VR</li>
+        <li>Hardware & Software</li>
+      </ul>
+    <li>Web VR</li>
+    <li>Basics of A-Frame</li>
+    <li>Demo time!</li>
+  </ul>
+</section>
+
+<section class="center">
+  <h2 id="terminology">Terminology</h2>
+</section>
+
+<section>
+  <section>
+    <h3 id="virtual-reality">Virtual Reality</h3>
+    <p style="margin-bottom: 1.5em;">A created environment or simulation that tries to encompass a user as much as possible</p>
+  </section>
+  <section>
+    <h3>Virtual Reality</h3>
+    <img src="assets/vr/steamvrtrailer-500x375.png" alt="Girl in VR petting a robot dog" />
+  </section>
+  <section>
+    <h4>Virtual Reality</h4>
+    <img src="assets/vr/promo-image-3.jpg" alt="A man in vr defending a castle with a bow and arrow from minions" />
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Augmented Reality</h3>
+    <p>An environment or elements that attempt to blend into the real world</p>
+  </section>
+  <section>
+    <h3>Augmented Reality</h3>
+    <img src="assets/vr/pgo.png" alt="Pokemon Go" />
+  </section>
+
+  <section>
+    <h4>Augmented Reality</h4>
+    <img src="assets/vr/ar-car-repair.jpg" alt="Pokemon Go" />
+  </section>
+</section>
+
+<section>
+  <h2 id="experiences">Experiences and Interaction Types</h2>
+</section>
+
+
+<section>
+
+  <section>
+    <h3>Body Interaction</h3>
+  </section>
+
+  <section>
+    <h4>Sitting / Standing</h4>
+    <img style="width:85%" src="assets/vr/state-of-game-virtual-reality-15.jpg" alt="A man on his couch with a VR headset turning his head while holding a controller" />
+    <p><small><a href="http://www.roadtovr.com/oculus-plans-to-have-rift-demo-stations-in-retail-stores-for-consumer-launch/">Source RoadToVR.com</a></small></p>
+  </section>
+
+  <section>
+    <h4>Room Scale</h4>
+    <img src="assets/vr/htc-vive-room-scale.jpg" alt="A man on his couch with a VR headset turning his head while holding a controller" />
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>The Hardware</h3>
+  </section>
+
+  <section>
+    <h2 id="#consumer-products">Low-End Headsets</h2>
+    <div class="column-wrapper">
+      <div style="width: 50%">
+      <ul>
+        <li>Sitting/Standing only</li>
+        <li>$20 to $100</li>
+        <li>Limited by Phone Hardware</li>
+      </ul>
+      </div>
+      <div style="width: 50%">
+        <img src="assets/vr/cardboard.jpg" alt="Google Cardboard" style="width: 50%; margin: 0; float: left;"/>
+        <img src="assets/vr/ap_resize.jpg" alt="" style="width: 50%; margin: 0; float: left;"/>
+      </div>
+    </div>
+    <div style="float: right; width: 70%;">
+      <img src="assets/vr/google-daydream-view-580x358.jpeg" alt="" style="width: 47%; margin: 0 6% 0 0; float: left;" />
+      <img src="assets/vr/GearVR_Hero_Gold.png" alt="" style="width: 47%; margin: 0; float: left;" />
+    </div>
+  </section>
+
+  <section>
+    <h2>Higher End Headsets</h2>
+    <div class="column-wrapper">
+      <div style="width: 50%">
+        <ul>
+          <li>Room Scale and Standing/Sitting</li>
+          <li>VR Controllers</li>
+          <li>$500 to $800</li>
+          <li>Requires powerful computer</li>
+        </ul>
+      </div>
+      <div style="width: 50%">
+        <img src="assets/vr/oculus.jpg" alt="" />
+        <img src="assets/vr/htc-vive-set.0.jpg" alt="" />
+      </div>
+    </div>
+
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Applications for VR</h2>
+  </section>
+  <section>
+    <h3>Entertainment</h3>
+    <ul>
+      <li>Gaming</li>
+      <li>Photos</li>
+      <li>Video</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Education</h3>
+    <ul>
+      <li>360 Video for Documentaries &amp; Journalism</li>
+      <li>Demonstrate macro/micro scale</li>
+      <li>Tour Museums or Distant Locations</li>
+      <li>Event Re-enactment</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Health</h3>
+    <ul>
+      <li>Surgery simulation</li>
+      <li>Exposure Therapy for Phobia or PTSD</li>
+      <li>Mental Rehabilitation for Stroke and Brain Injuries</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Training Simulations</h3>
+    <ul>
+      <li>Driver’s Education</li>
+      <li>Flight training</li>
+      <li>Specialized controls for large vehicles or factories</li>
+      <li>Battlefield &amp; Military</li>
+      <li>NASA</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2 id="webvr">Web VR</h2>
+  </section>
+
+  <section data-background="assets/vr/mozvr.png">
+    <aside class="notes">
+        <p><a href="https://mozvr.com/">Moz VR</a></p>
+        <ul>
+        <li>Goal: bring VR to web browsers natively</li>
+        <li>Working on a WebVR API W3C specification</li>
+        <li>Working on frameworks/libraries that can be used today</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section>
+    <h4><a href="https://github.com/borismus/webvr-boilerplate">WebVR Boilerplate <i class="fa fa-github"></i></a></h4>
+    <ul>
+      <li>Starter kit for custom WebVR/3D experience in modern browsers</li>
+      <li>Very JS Heavy</li>
+      <li>Developer centric</li>
+    </ul>
+  </section>
+
+  <section data-background="assets/vr/aframe.png">
+    <h4><a href="https://aframe.io" style="color: #fff">A-Frame</a></h4>
+    <ul>
+      <li>Built on WebVR Boilerplate</li>
+      <li>Easy to learn markup language</li>
+      <li>Can further be modified with JS</li>
+      <li>Project goal is to enable more creators</li>
+    </ul>
+  </section>
+
+</section>
+
+<section>
+  <section>
+    <h3 style="font-size: 2.25em">A-Frame Tutorial</h3>
+    <p style="font-size: 3em">🤓 😆</p>
+  </section>
+
+  <section>
+    <h4>Good news</h4>
+    <ul>
+      <li>A-Frame docs are fantastic</li>
+      <li>It's a single JS file</li>
+      <li>No compiling necessary!</li>
+  </section>
+
+  <section>
+    <h4>Getting Started with A-frame</h4>
+    <pre class="language-markup" data-line="6-7"><code class="language-markup">&lt;html>
+  &lt;head>
+    &lt;script src="https://aframe.io/releases/0.5.0/aframe.min.js">&lt;/script>
+  &lt;/head>
+  &lt;body>
+    &lt;a-scene>
+    &lt;/a-scene>
+  &lt;body>
+&lt;/html></code></pre>
+  <p><small><a href="https://aframe.io/docs/0.5.0/guides/#starting-with-html">A-Frame Docs</a></small></p>
+  </section>
+
+  <section>
+    <h4>Adding a Background</h4>
+    <pre class="language-markup" data-line="2"><code class="language-markup">&lt;a-scene>
+  &lt;a-sky color="#222">&lt;/a-sky>
+&lt;/a-scene></code></pre>
+  <p>or a background image:</p>
+    <pre class="language-markup" data-line="2"><code class="language-markup">&lt;a-scene>
+  &lt;a-sky src="360image.jpg">&lt;/a-sky>
+&lt;/a-scene></code></pre>
+    <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
+  </section>
+
+  <section>
+    <h4>Adding a Sphere</h4>
+    <pre class="language-markup" data-line="2"><code class="language-markup">&lt;a-scene>
+  &lt;a-sphere color="orange" radius="1.5">&lt;/a-sphere>
+  &lt;a-sky color="#222">&lt;/a-sky>
+&lt;/a-scene></code></pre>
+    <p>Alternate syntax, but identical result:</p>
+    <pre class="language-markup" data-line="2-3"><code class="language-markup">&lt;a-scene>
+  &lt;a-entity geometry="primitive: sphere; radius: 1.5"
+    material="color: orange;">&lt;/a-entity>
+  &lt;a-sky src="360image.jpg">&lt;/a-sky>
+&lt;/a-scene></code></pre>
+    <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
+  </section>
+
+  <section>
+    <h4>Animating Our Sphere</h4>
+    <pre class="language-markup" data-line="3-7"><code class="language-markup">&lt;a-scene>
+  &lt;a-sphere color="orange" radius="1.5" position="2 3 4">
+    &lt;a-animation
+      attribute="position"
+      from="2 3 -4"
+      to="2 .75 -4">
+    &lt;/a-animation>
+  &lt;/a-sphere>
+  &lt;a-sky color="#222">&lt;/a-sky>
+&lt;/a-scene></code></pre>
+    <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
+  </section>
+
+  <section>
+    <h4><a href="vr-demo-drupalcon.html">Demo time!</a></h4>
+  </section>
+
+</section>
+
+<section style="font-size: 0.75em">
+  <h2>Sources</h2>
+  <p><a href="https://thenounproject.com/term/xbox-controller/195043/">XBOX Controller by Mark Davis from the Noun Project</a></p>
+  <p><a href="https://thenounproject.com/search/?q=remote+control&i=10269">Remote Control by Lemon Liu from the Noun Project</a></p>
+  <p>Most other icons sourced from <a href="http://fontawesome.io/">Font Awesome</a></p>
+</section>
+
+</div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script src="plugin/prism/prism.js"></script>
+
+<script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
+
+  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+  // Optional reveal.js plugins
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true },
+    { src: 'plugin/zoom-js/zoom.js', async: true },
+    { src: 'plugin/notes/notes.js', async: true }
+  ]
+});
+</script>
+</body>
+</html>
