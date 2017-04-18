@@ -1,36 +1,44 @@
 <html>
 <head>
-<script src="js/aframe-v0.5.0.min.js"></script>
+  <script src="js/aframe-v0.5.0.min.js"></script>
 </head>
 
 <body>
-<a-scene>
-  <a-sphere color="orange" radius="1.5" position="2 3 -4">
-    <a-animation
-      attribute="position"
-      from="2 3 -4"
-      to="2 0 -4">
-    </a-animation>
-  </a-sphere>
-  <a-sky color="#222"></a-sky>
-</a-scene>
+<a-scene> 
+  <!-- SPINNING BOX -->
+  <a-box color="orange" size="3.2" position="2 1 -4">
+    <!--<a-animation attribute="color" 
+        duration="1000" 
+        from="orange" 
+        to="yellow" 
+        repeat="indefinite" 
+        direction="alternate"></a-animation>
+    <a-animation attribute="rotation" 
+        duration="1000" 
+        from="0 0 0" 
+        to="360 360 0" 
+        repeat="indefinite"></a-animation>
+    <a-animation attribute="opacity" 
+        duration="1000" 
+        from="1" 
+        to="0.5" 
+        repeat="indefinite" 
+        direction="alternate"></a-animation>-->
+  </a-box>
 
-<!--
-<a-scene>
-  <a-plane color="black" rotation="-90 0 0" width="20" height="20" position="0 0 0"></a-plane>
-  <a-sphere color="orange" radius="1.5" position="2 3 -4">
-    <a-animation
-      attribute="position"
-      from="2 3 -4"
-      to="2 1.15 -4"
-      repeat="infinite"
-      begin="1500"
-      easing="ease-out-bounce">
-    </a-animation>
-  </a-sphere>
-  <a-sky color="#222"></a-sky>
-</a-scene>
--->
+  <!-- GROUND AND SKY -->
+  <!--<a-plane color="green" width="500" height="500" position="0 0 0" rotation="-90 0 0"></a-plane>
+  <a-sky color="blue"></a-sky>-->
 
+  <!-- REALISTIC GROUND AND SKY -->
+  <!--<a-sky src="/assets/drupalcon/sky.jpg"></a-sky>-->
+
+  <!-- ASSETS -->
+  <a-assets>
+    <a-asset-item id="msnbc" src="/assets/drupalcon/lullabot_msnbc.mp4"></a-asset-item>
+  </a-assets>
+
+  <!--<a-video src="#msnbc" width="16" height="9" position="0 5 -20"></a-video>
+  <a-plane color="#000" width="17" height="10" position="0 5 -20.1"</a-video>-->
 </body>
 </html>
