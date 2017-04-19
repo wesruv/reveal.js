@@ -120,6 +120,7 @@
     <li>The VR Landscape</li>
       <ul>
         <li>Terminology</li>
+        <li>User Experiences</li>
         <li>Hardware</li>
         <li>Applications of VR</li>
       </ul>
@@ -166,7 +167,7 @@
 
 <section>
   <section>
-    <h2 id="experiences">Experiences &amp; <br>Interaction Types</h2>
+    <h2 id="experiences">User Experience &amp; <br>Interaction Types</h2>
   </section>
 
   <section>
@@ -338,48 +339,6 @@
   &lt;body>
 &lt;/html></code></pre>
   <p><small><a href="https://aframe.io/docs/0.5.0/guides/#starting-with-html">A-Frame Docs</a></small></p>
-  </section>
-
-  <section>
-    <h4>Adding a Background</h4>
-    <pre class="language-markup" data-line="2"><code class="language-markup">&lt;a-scene>
-  &lt;a-sky color="#222">&lt;/a-sky>
-&lt;/a-scene></code></pre>
-  <p>or a background image:</p>
-    <pre class="language-markup" data-line="2"><code class="language-markup">&lt;a-scene>
-  &lt;a-sky src="360image.jpg">&lt;/a-sky>
-&lt;/a-scene></code></pre>
-    <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
-  </section>
-
-  <section>
-    <h4>Adding a Sphere</h4>
-    <pre class="language-markup" data-line="2"><code class="language-markup">&lt;a-scene>
-  &lt;a-sphere color="orange" radius="1.5">&lt;/a-sphere>
-  &lt;a-sky color="#222">&lt;/a-sky>
-&lt;/a-scene></code></pre>
-    <p>Alternate syntax, but identical result:</p>
-    <pre class="language-markup" data-line="2-3"><code class="language-markup">&lt;a-scene>
-  &lt;a-entity geometry="primitive: sphere; radius: 1.5"
-    material="color: orange;">&lt;/a-entity>
-  &lt;a-sky src="360image.jpg">&lt;/a-sky>
-&lt;/a-scene></code></pre>
-    <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
-  </section>
-
-  <section>
-    <h4>Animating Our Sphere</h4>
-    <pre class="language-markup" data-line="3-7"><code class="language-markup">&lt;a-scene>
-  &lt;a-sphere color="orange" radius="1.5" position="2 3 4">
-    &lt;a-animation
-      attribute="position"
-      from="2 3 -4"
-      to="2 .75 -4">
-    &lt;/a-animation>
-  &lt;/a-sphere>
-  &lt;a-sky color="#222">&lt;/a-sky>
-&lt;/a-scene></code></pre>
-    <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
   </section>
 
   <section>
