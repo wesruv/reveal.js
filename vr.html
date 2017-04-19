@@ -397,6 +397,25 @@
       </tbody>
     </table>
   </section>
+  <section>
+    <h3>Control Interfaces</h3>
+    <ul>
+      <li>Look or Look &amp; Click</li>
+      <li>Controllers</li>
+    </ul>
+  </section>
+
+  <section>
+    <h5>Daydream VR Controller</h5>
+    <div class="column-wrapper">
+      <div style="width: 50%">
+        <img src="assets/vr/DaydreamController.jpg" alt="Daydream controller that works as a pointer in VR" />
+      </div>
+      <div style="width: 50%">
+        <img src="assets/vr/daydream-headset.jpg" alt="Daydream controller that works as a pointer in VR" />
+      </div>
+    </div>
+  </section>
 
 </section>
 
@@ -581,7 +600,7 @@
   <p>or a background image:</p>
     <pre class="language-markup" data-line="2"><code class="language-markup">&lt;a-scene>
   &lt;a-sky src="360image.jpg">&lt;/a-sky>
-&lt;/a-scene></code></pre>  
+&lt;/a-scene></code></pre>
     <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
   </section>
 
@@ -596,7 +615,7 @@
   &lt;a-entity geometry="primitive: sphere; radius: 1.5"
     material="color: orange;">&lt;/a-entity>
   &lt;a-sky src="360image.jpg">&lt;/a-sky>
-&lt;/a-scene></code></pre>  
+&lt;/a-scene></code></pre>
     <p><small><a href="https://aframe.io/docs/0.5.0/guides/#adding-a-background-to-the-scene">A-Frame Docs</a></small></p>
   </section>
 
@@ -618,9 +637,9 @@
   <section>
     <h4>Positioning Our Sphere</h4>
     <pre class="language-markup" data-line="5"><code class="language-markup">&lt;a-scene>
-  &lt;a-sphere 
-    color="orange" 
-    radius="1.5" 
+  &lt;a-sphere
+    color="orange"
+    radius="1.5"
     position="2 3 -4">
   &lt;/a-sphere>
   &lt;a-sky color="#222">&lt;/a-sky>
@@ -632,7 +651,7 @@
     <h4>Animating Our Sphere</h4>
     <pre class="language-markup" data-line="3-7"><code class="language-markup">&lt;a-scene>
   &lt;a-sphere color="orange" radius="1.5" position="2 3 4">
-    &lt;a-animation 
+    &lt;a-animation
       attribute="position"
       from="2 3 -4"
       to="2 .75 -4">
