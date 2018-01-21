@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSS Training</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="plugin/prism/prism.css">
+    <link rel="stylesheet" href="plugin/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/theme/wes-light.css" id="theme">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+<body>
+
+<div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section >
+  <p class="small" style="position: relative; top: -6em;"><strong>Pro-tip:</strong> Press <span style="display: inline-block; padding: .2em .6em; border: 1px solid #777; border-radius: .3em; background: #fff; box-shadow: 0 1px 0 #555, 0 2px 0 #555, 0 3px 0 #555, 0 4px 0 #555; position: relative; top: -.1em; color: #000;">space bar</span> to progress and it won't skip any slides</p>
+  <h1>
+    Intermediate to Advanced CSS
+  </h1>
+  <p>For Practical Peoples</p>
+</section>
+
+<section style="text-align: left;">
+  <h2 id="who-am-i" style="font-weight: 200">About Me...</h2>
+  <img src="assets/d8/me.jpg" alt="" style="width: 35%; float: right;">
+  <div style="box-sizing: border-box; width: calc(65% - 0.6em);">
+    <h3 id="wes-ruvalcaba">Wes Ruvalcaba</h3>
+    <ul>
+      <li>Senior Front End Dev at Lullabot</li>
+      <li>Writing CSS since 2002</li>
+      <li>Markup, CSS &amp; Standards Dork</li>
+      <li>Tend to write custom code, more than repurpose existing</li>
+    </ul>
+  </div>
+  <p style="margin-top: 1em;"><a href="https://twitter.com/wesruv"><i class="fa fa-twitter" style="font-size: 2em; line-height: .5em; padding: 0 .2em 0 0; transform: translateY(.15em);"></i>@wesruv</a></p>
+</section>
+
+
+<section data-background-color="#fff">
+  <img src="assets/d8/lullabot-slide.jpg" alt="Lullabot" />
+</section>
+
+<section>
+  <h3>People I'm Stealing <em>a lot</em> from</h3>
+  <p>@todo</p>
+</section>
+
+<section>
+  <h3>Our Goal</h3>
+  <aside class="notes">
+    <p>Kinda good at CSS to understanding the harder concepts of CSS.</p>
+    <p>Understand the tools available, how they work, and what they're good at.</p>
+  </aside>
+</section>
+
+<section>
+  <h2 id="well-go-over">We'll go over</h2>
+  <ul style="font-size: 0.9em;">
+    <li>CSS "Units" and "Lengths"</li>
+    <li>Layout 101 in 2018
+      <ul style="display: none; font-size: 0.8em;">
+        <li>"Document Flow"</li>
+        <li><code>grid</code>, <code>flex</code> (box), "Block Model", &amp; <code>position</code></li>
+      </ul>
+    </li>
+    <li>"Pseudo-content", <code>transform</code></li>
+    <li>Accessibility Concerns</li>
+    <li>Debugging CSS Issues</li>
+    <li><code>transition</code> &amp; <code>animation</code></li>
+    <li>Composing CSS</li>
+    <li>My Fancy Tricks</li>
+    <li>Crowd Sourced Fancy Tricks!</li>
+  </ul>
+</section>
+
+<section class="center">
+  <section>
+    <h2 id="foreword">Foreword</h2>
+  </section>
+
+  <section data-background="assets/css-training/walnut-brain.jpg">
+    <!-- <i class="fa fa-close" style="color:rgba(200, 0, 0, 0.7); font-size: 20em; transform: translate(10%, -15%);"></i> -->
+    <aside class="notes">You don't need to memorize everything</aside>
+  </section>
+  <section data-background="assets/css-training/write-css-code.jpg">
+    <aside class="notes">
+      Make excuses to use, practice, or teach CSS
+    </aside>
+  </section>
+  <section data-background="#fff">
+    <img src="assets/css-training/read-the-docs.png" style="width: 70%"/>
+    <aside class="notes">
+      Read the (W3C) docs, or if those are imparsible nonsense (it happens), look it up on MDN or CSS Tricks
+    </aside>
+  </section>
+  <section data-background="#fff">
+    <img src="assets/css-training/w3c-not-w3c-schools.png" style="width: 100%" alt="" />
+    <aside class="notes">
+      W3C schools is not associated with the W3C,<br>
+      I loathe their site, and their docs are crap
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2 id="units-lengths">CSS Units and Lengths</h2>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Pixels</h3>
+    <pre class="language-css"><code class="language-css">1px
+100px</code></pre>
+
+  <div class="column-wrapper">
+    <pre class="language-css" style="max-width: 50%;"><code class="language-css">.box {
+  width: 60px;
+  height: 60px;
+  background: deepskyblue;
+}</code></pre>
+    <div style="padding: 1em">
+      <div style="width: 60px; height: 60px; background: deepskyblue;">
+        <code style="border: 0; background: transparent; margin: 0; padding: 0;">.box</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section>
+    <h4><code>1px</code> !== 1 pixel on the screen</h4>
+    <aside class="notes">
+      <em>Sarcasm:</em>What! Why! That's Dumb!
+    </aside>
+  </section>
+
+  <section data-transition="none">
+    <img src="assets/css-training/tiny-phone-text.jpg" alt="" style="width: 60%" />
+    <aside class="notes">
+      Then all text on phones would have been tiny, they're wider than small monitors in pixels
+    </aside>
+  </section>
+
+  <section data-transition="none">
+    <img src="assets/css-training/tiny-phone-text-2.jpg" alt="" style="width: 60%" />
+    <aside class="notes">
+      We'd all be doing this (picture of  user with magnifying glass over the screen)
+    </aside>
+  </section>
+
+  <section>
+    <h5><code>1px</code> = 1 pixel * ScreenDensity</h5>
+    <p>Screen pixel density usually ranges from:<br>
+      1x, 1.25x, 1.5x, 2x, or 4x</p>
+  </section>
+
+</section>
+
+<section>
+  <section>
+      <h3>Perentage</h3>
+      <pre class="language-css"><code class="language-css">1%
+33.333%
+150%</code></pre>
+
+    <div class="column-wrapper">
+      <pre class="language-css" style="max-width: 50%;"><code class="language-css">.parent {
+  border-color: gray;
+  border-style: dashed;
+}
+
+.box {
+  width: 50%;
+  background: deepskyblue;
+}</code></pre>
+      <div>
+        <div style="margin: 1em; padding: 0; border: 0.0625em dashed gray; padding: 0.0625em;">
+          <div style="width: 50%; background: deepskyblue;">
+            <code style="border: 0; background: transparent; margin: 0; padding: 0;">.box</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Perentage ... of what?</h3>
+    <aside class="notes">
+      Usually it's parent element's width, but check documentation when it doesn't do what you expect.
+    </aside>
+  </section>
+
+</section>
+
+<section>
+  <section>
+    <h3>Text Based Units</h3>
+  </section>
+
+  <section>
+    <h4><code>em</code></h4>
+    <pre class="language-css"><code class="language-css">1em
+1.25em
+3em</code></pre>
+    <div class="column-wrapper">
+      <pre class="language-css" style="max-width: 50%;"><code class="language-css">.box {
+  width: 2em;
+  background: deepskyblue;
+}
+.box-2 {
+  width: 2em;
+  font-size: 2em;
+  background: firebrick;
+}</code></pre>
+      <div style="padding: 1em;">
+        <div style="width: 2em; background: deepskyblue;">
+          <code style="border: 0; background: transparent; margin: 0; padding: 0;">.box</code>
+        </div>
+        <div style="width: 2em; font-size: 2em; background: firebrick;">
+          <code style="border: 0; background: transparent; margin: 0; padding: 0; white-space: nowrap;">.box-2</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="text-align: left">
+      <p>
+        <code>1em</code> = Calculated <code>font-size</code> of current element
+      </p>
+    </div>
+    <aside class="notes">
+      This may be confusing for some of you, because it has <em>nothing</em> to do with the width of an "em dash".
+      Draw out calculation examples.
+    </aside>
+  </section>
+
+</section>
+
+<section style="font-size: 0.75em">
+  <h2>Sources</h2>
+  <p><a href="https://thenounproject.com/term/xbox-controller/195043/">XBOX Controller by Mark Davis from the Noun Project</a></p>
+  <p><a href="https://thenounproject.com/search/?q=remote+control&i=10269">Remote Control by Lemon Liu from the Noun Project</a></p>
+  <p>Most other icons sourced from <a href="http://fontawesome.io/">Font Awesome</a></p>
+</section>
+
+</div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script src="plugin/prism/prism.js"></script>
+
+<script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
+
+  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+  // Optional reveal.js plugins
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/prism/prism.js', async: true },
+    { src: 'plugin/zoom-js/zoom.js', async: true },
+    { src: 'plugin/notes/notes.js', async: true }
+  ]
+});
+</script>
+</body>
+</html>

@@ -49,6 +49,10 @@ body {
   text-shadow: $headingTextShadow;
 
   word-wrap: break-word;
+
+  code {
+    color: $mainColor;
+  }
 }
 
 section {
@@ -205,6 +209,14 @@ section {
   font-style: italic;
 }
 
+code {
+  background: darken($backgroundColor, 3);
+  border: 0.0625em solid darken($backgroundColor, 15);
+  border-radius: 0.125em;
+  margin: -0.125em;
+  padding: 0.125em 0.25em;
+}
+
 pre {
   display: block;
   position: relative;
@@ -218,6 +230,11 @@ pre {
   display: block;
   overflow: auto;
   max-height: 500px;
+
+  border: 0;
+  background: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 .pseudo-code {

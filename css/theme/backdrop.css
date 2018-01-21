@@ -48,6 +48,13 @@ body {
   letter-spacing: normal;
   text-shadow: none;
   word-wrap: break-word; }
+  .reveal h1 code,
+  .reveal h2 code,
+  .reveal h3 code,
+  .reveal h4 code,
+  .reveal h5 code,
+  .reveal h6 code {
+    color: #000; }
 
 section h1:first-child,
 section h2:first-child,
@@ -168,6 +175,13 @@ section h6:first-child {
 .reveal q {
   font-style: italic; }
 
+code {
+  background: #f2f2f2;
+  border: 0.0625em solid #d4d4d4;
+  border-radius: 0.125em;
+  margin: -0.125em;
+  padding: 0.125em 0.25em; }
+
 pre {
   display: block;
   position: relative;
@@ -179,7 +193,11 @@ pre {
 .reveal pre code {
   display: block;
   overflow: auto;
-  max-height: 500px; }
+  max-height: 500px;
+  border: 0;
+  background: transparent;
+  margin: 0;
+  padding: 0; }
 
 .pseudo-code .punctuation {
   visibility: hidden; }
