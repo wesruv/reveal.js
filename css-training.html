@@ -31,6 +31,32 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
+    <style>
+      .section-indicator {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        font-size: 0.6em;
+        transform: skew(-10deg);
+      }
+
+      .section-indicator:before {
+        content: '';
+        position: absolute;
+        top: -0.5em;
+        bottom: -0.5em;
+        left: -0.75em;
+        right: -2em;
+        z-index: -1;
+        background: rgba(35, 165, 216, 0.2);
+      }
+
+      section {
+        text-align: left;
+      }
+
+    </style>
   </head>
 
 <body>
@@ -47,7 +73,7 @@
   <p>For Practical Peoples</p>
 </section>
 
-<section style="text-align: left;">
+<section>
   <h2 id="who-am-i" style="font-weight: 200">About Me...</h2>
   <img src="assets/d8/me.jpg" alt="" style="width: 35%; float: right;">
   <div style="box-sizing: border-box; width: calc(65% - 0.6em);">
@@ -69,7 +95,13 @@
 
 <section>
   <h3>People I'm Stealing <em>a lot</em> from</h3>
-  <p>@todo</p>
+  <ul>
+    <li>Rachel Andrew</li>
+    <li>Chris Coyier</li>
+    <li>Jen Simmons</li>
+    <li>Mozilla Developer Network</li>
+    <li>... and plenty of others (see sources slides)</li>
+  </ul>
 </section>
 
 <section>
@@ -82,8 +114,9 @@
 
 <section>
   <h2 id="well-go-over">We'll go over</h2>
-  <ul style="font-size: 0.9em;">
+  <ul style="font-size: 0.9em; margin: 0; columns: 2;  width: 100%; list-style: none; padding: 0;">
     <li>CSS "Units" and "Lengths"</li>
+    <li>Media Queries</li>
     <li>Layout 101 in 2018
       <ul style="display: none; font-size: 0.8em;">
         <li>"Document Flow"</li>
@@ -102,7 +135,7 @@
 
 <section class="center">
   <section>
-    <h2 id="foreword">Foreword</h2>
+    <h2 id="foreword">Foreword Advice</h2>
   </section>
 
   <section data-background="assets/css-training/walnut-brain.jpg">
@@ -114,13 +147,13 @@
       Make excuses to use, practice, or teach CSS
     </aside>
   </section>
-  <section data-background="#fff">
-    <img src="assets/css-training/read-the-docs.png" style="width: 70%"/>
+  <section data-background="#fff" style="text-align: center;">
+    <img src="assets/css-training/read-the-docs.png" style="width: 70%" alt="" />
     <aside class="notes">
       Read the (W3C) docs, or if those are imparsible nonsense (it happens), look it up on MDN or CSS Tricks
     </aside>
   </section>
-  <section data-background="#fff">
+  <section data-background="#fff" style="text-align: center;">
     <img src="assets/css-training/w3c-not-w3c-schools.png" style="width: 100%" alt="" />
     <aside class="notes">
       W3C schools is not associated with the W3C,<br>
@@ -131,11 +164,13 @@
 
 <section>
   <section>
-    <h2 id="units-lengths">CSS Units and Lengths</h2>
+    <p>Part 1</p>
+    <h2 id="units-lengths">Units and Lengths</h2>
   </section>
 </section>
 
 <section>
+  <div class="section-indicator">Units and Lengths</div>
   <section>
     <h3>Pixels</h3>
     <pre class="language-css"><code class="language-css">1px
@@ -163,14 +198,14 @@
     </aside>
   </section>
 
-  <section data-transition="none">
+  <section data-transition="none" style="text-align: center;">
     <img src="assets/css-training/tiny-phone-text.jpg" alt="" style="width: 60%" />
     <aside class="notes">
       Then all text on phones would have been tiny, they're wider than small monitors in pixels
     </aside>
   </section>
 
-  <section data-transition="none">
+  <section data-transition="none" style="text-align: center;">
     <img src="assets/css-training/tiny-phone-text-2.jpg" alt="" style="width: 60%" />
     <aside class="notes">
       We'd all be doing this (picture of  user with magnifying glass over the screen)
@@ -186,8 +221,9 @@
 </section>
 
 <section>
+  <div class="section-indicator">Units and Lengths</div>
   <section>
-      <h3>Perentage</h3>
+      <h3>Percentage</h3>
       <pre class="language-css"><code class="language-css">1%
 33.333%
 150%</code></pre>
@@ -213,7 +249,7 @@
   </section>
 
   <section>
-    <h3>Perentage ... of what?</h3>
+    <h3>Percentage ... of what?</h3>
     <aside class="notes">
       Usually it's parent element's width, but check documentation when it doesn't do what you expect.
     </aside>
@@ -222,38 +258,14 @@
 </section>
 
 <section>
-  <section>
-    <h3>Text Based Units</h3>
-  </section>
+  <h3>Text Based Units</h3>
+</section>
 
+<section>
+  <div class="section-indicator">Units and Lengths</div>
   <section>
     <h4><code>em</code></h4>
-    <pre class="language-css"><code class="language-css">1em
-1.25em
-3em</code></pre>
-    <div class="column-wrapper">
-      <pre class="language-css" style="max-width: 50%;"><code class="language-css">.box {
-  width: 2em;
-  background: deepskyblue;
-}
-.box-2 {
-  width: 2em;
-  font-size: 2em;
-  background: firebrick;
-}</code></pre>
-      <div style="padding: 1em;">
-        <div style="width: 2em; background: deepskyblue;">
-          <code style="border: 0; background: transparent; margin: 0; padding: 0;">.box</code>
-        </div>
-        <div style="width: 2em; font-size: 2em; background: firebrick;">
-          <code style="border: 0; background: transparent; margin: 0; padding: 0; white-space: nowrap;">.box-2</code>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div style="text-align: left">
+    <div style="padding: 1em 0;">
       <p>
         <code>1em</code> = Calculated <code>font-size</code> of current element
       </p>
@@ -262,15 +274,1344 @@
       This may be confusing for some of you, because it has <em>nothing</em> to do with the width of an "em dash".
       Draw out calculation examples.
     </aside>
+    <pre class="language-css"><code class="language-css">1em
+1.25em
+3em</code></pre>
+  </section>
+  <section>
+    <div class="column-wrapper">
+      <pre class="language-css" style="max-width: 50%;"><code class="language-css">.box {
+  width: 2em;
+  background: deepskyblue;
+}
+.box-2 {
+  font-size: 2em;
+  width: 2em;
+  background: palegreen;
+}</code></pre>
+      <div style="padding: 1em;">
+        <div style="width: 2em; background: deepskyblue;">
+          <code style="border: 0; background: transparent; margin: 0; padding: 0;">.box</code>
+        </div>
+        <div style="width: 2em; font-size: 2em; background: palegreen;">
+          <code style="border: 0; background: transparent; margin: 0; padding: 0; white-space: nowrap;">.box-2</code>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Before why, note that despite font size, bars line up</aside>
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Units and Lengths</div>
+  <section>
+    <pre class="language-css"><code class="language-css">.box {
+  /* font-size: 16px; (default) */
+  width: 2em; /* 2em = 16px * 2 = 32px */
+  background: deepskyblue;
+}
+.box-2 {
+  font-size: 2em; /* 2em = 16px * 2 = 32px */
+  /* The 32px font-size will then change what
+     2em on the width means */
+  width: 2em; /* 2em = 32px * 2 = 64px */
+  background: palegreen;
+}</code></pre>
+
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Units and Lengths</div>
+  <section>
+    <h4><code>rem</code></h4>
+    <div style="padding: 1em 0;">
+      <p>
+        <code>1rem</code> = Calculated <code>font-size</code> of <code>html</code> element
+      </p>
+    </div>
+    <pre class="language-css"><code class="language-css">1rem
+1.25rem
+3rem</code></pre>
+    <aside class="notes">
+      rem stands for Root em, so no matter where you are in the document, 1rem will come out the same<br>
+    </aside>
+
+  </section>
+  <section>
+    <div class="column-wrapper">
+      <pre class="language-css" style="max-width: 50%;"><code class="language-css">.box {
+  width: 2rem;
+  background: deepskyblue;
+}
+.box-2 {
+  font-size: 2rem;
+  width: 2rem;
+  background: palegreen;
+}</code></pre>
+      <div style="padding: 1em;">
+        <div style="width: 2rem; background: deepskyblue;">
+          <code style="border: 0; background: transparent; margin: 0; padding: 0;">.box</code>
+        </div>
+        <div style="width: 2rem; font-size: 2em; background: palegreen;">
+          <code style="border: 0; background: transparent; margin: 0; padding: 0; white-space: nowrap;">.box-2</code>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      While you <em>can</em> change the font size of html, I recommend you don't and use body instead.<br>
+      I use rem instead of pixels, it prevents breakage if the browser has an increased font size
+    </aside>
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Units and Lengths</div>
+  <section>
+    <h4><code>ex</code> and <code>ch</code></h4>
+    <div class="column-wrapper" style="padding-top: 1em">
+      <pre class="language-css" style="max-width: 45%; margin-right: 5%"><code class="language-css">1ex
+1.25ex
+15ex</code></pre>
+      <p style="max-width: 50%">
+        <code>1ex</code> = Calculated width of a lower-case <code>x</code> in the font that renders
+      </p>
+    </div>
+    <div class="column-wrapper" style="padding-top: 1em">
+<pre class="language-css" style="max-width: 45%; margin-right: 5%"><code class="language-css">1ch
+1.25ch
+15ch</code></pre>
+      <p style="max-width: 50%">
+        <code>1ch</code> = Calculated width of the number <code>0</code> in the font that renders
+      </p>
+    </div>
+  </section>
+  <section>
+    <div class="column-wrapper">
+      <pre class="language-css" style="max-width: 50%;"><code class="language-css">.box {
+  font-family: monospace;
+  width: 20ex;
+  background: deepskyblue;
+}
+.box-2 {
+  font-family: sans-serif;
+  width: 20ex;
+  background: palegreen;
+}</code></pre>
+      <div style="padding: 1em;">
+        <p>Monospace Font:</p>
+        <div style="width: 20ex; font-family: monospace; background: deepskyblue;">
+          <div style="border: 0; background: transparent; margin: 0; padding: 0;">.box</div>
+        </div>
+        <div style="width: 20ex; font-family: sans-serif; background: palegreen;">
+          <div style="border: 0; background: transparent; margin: 0; padding: 0; white-space: nowrap;">.box-2</div>
+        </div>
+        <p>Sans-Serif Font</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Units and Lengths</div>
+  <section>
+    <h3>Viewport Units</h3>
+  </section>
+
+  <section>
+    <h4>What's a viewport?</h4>
+    <img src="assets/css-training/viewport-area.png" alt="Viewport Area, the size of the browser" />
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Units and Lengths</div>
+  <section>
+    <h4 style="position: absolute;"><code>vw</code></h4>
+    <img src="assets/css-training/vw.png" style="width: 100%" alt="vw - percentage width of the browser window" />
+  </section>
+  <section>
+    <h5><code>25vw</code></h5>
+    <img src="assets/css-training/vw25.png" alt="25vw examples" />
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Units and Lengths</div>
+  <section>
+    <h4 style="position: absolute;"><code>vh</code></h4>
+    <img src="assets/css-training/vh.png" style="width: 100%" alt="vh - percantage height of the browser window"/>
+  </section>
+  <section>
+    <h5><code>25vh</code></h5>
+    <img src="assets/css-training/vh25.png" alt="25vh examples" />
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Units and Lengths</div>
+  <section>
+    <h4 style="position: absolute;"><code>vmin</code></h4>
+    <img src="assets/css-training/vmin.png" style="width: 100%" alt="vmin - percantage of the smallest dimension (height or width)"/>
+  </section>
+  <section>
+    <h5><code>25vmin</code></h5>
+    <img src="assets/css-training/vmin25.png" alt="25vmin examples" />
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Units and Lengths</div>
+  <section>
+    <h4 style="position: absolute;"><code>vmax</code></h4>
+    <img src="assets/css-training/vmax.png" style="width: 100%" alt="vmin - percantage of the largest dimension (height or width)"/>
+  </section>
+  <section>
+    <h5>25max</h5>
+    <img src="assets/css-training/vmax25.png" alt="25vmax examples" />
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Units and Lengths</div>
+  <h3>Physical Units</h3>
+  <ul>
+    <li><code>mm</code> millimeter</li>
+    <li><code>cm</code> centimeter</li>
+    <li><code>in</code> inch</li>
+    <li><code>pt</code> point</li>
+    <li><code>pc</code> pica</li>
+  </ul>
+  <aside class="notes">
+    These exist, and are most useful in print stylesheets, but I've never used them
+  </aside>
+</section>
+
+<section>
+  <h2>Media Queries</h2>
+</section>
+
+<section>
+  <div class="section-indicator">Media Queries</div>
+  <section>
+    <h3>Media Queries</h3>
+    <p>Special styles for specific circumstances</p>
+    <pre class="language-css"><code>@media /* Conditions */ {
+  /* CSS Rules */
+}</code></pre>
+  </section>
+
+  <section>
+    <h3>Which Medium?</h3>
+    <pre class="language-css"><code>@media screen { /* Computer Display CSS Rules */ }
+
+@media print { /* Print CSS Rules */ }
+
+@media speech { /* Text to Voice CSS Rules */ }</code></pre>
+
+    <p><small style="line-height: 2">Fun fact: <code>braille</code>, <code>embossed</code> (braille printers), <br><code>tty</code> (like command line), <code>tv</code> also exist.</small></p>
+  </section>
+
+  <section>
+    <h3>What Size?</h3>
+    <pre class="language-css"><code>@media (min-width: 768px) {
+  /* CSS Rules */
+}
+
+@media (min-width: 48em) and (min-height: 30em) {
+  /* CSS Rules */
+}
+
+@media (max-height: 500px) {
+  /* CSS Rules */
+}</code></pre>
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Media Queries</div>
+  <section>
+    <h3><code>@media</code> Best Practices</h3>
+  </section>
+  <section>
+    <h4>Mobile First <code>@media</code> queries</h4>
+    <p style="font-size: 1.25em; line-height: 1.8;">Write <code>min-width</code> and <code>min-height</code>,<br><br>
+    <strong>never</strong> <code>max-width</code> or <code>max-height</code></p>
+  </section>
+  <section style="font-size: 0.8em">
+    <pre class="language-css"><code>.box {
+  /* Mobile CSS */
+}
+
+@media (min-width: 48em) {
+  .box {
+    /* Decent size screen styles */
+  }
+}
+
+@media (min-width: 62em) {
+  .box {
+    /* Huge screen styles */
+  }
+}
+</code></pre>
+    <aside class="notes">
+      Don't write max-width/height, larger screen styles will override smaller screen styles<br>
+      Don't have to work mobile first, just have to end up with mobile first code.
+    </aside>
+  </section>
+
+  <section>
+    <h4>Group all styles for an element</h4>
+    <pre class="language-css"><code style="font-size: 0.9em">/* Widget Styles */
+.widget { }
+
+@media (min-width: 768px) {
+  .widget { }
+}
+
+/* Doo Dad Styles */
+.doo-dad { }
+
+@media (min-width: 768px) {
+  .doo-dad { }
+}
+</code></pre>
+    <aside class="notes">
+      <p>Separating styles by media query gets confusing and hard to maintain, group styles by what element.</p>
+    </aside>
+  </section>
+  <section>
+    <h4>Only be as specific as necessary</h4>
+    <pre class="language-css"><code style="font-size: 0.9em">
+@media (min-width: 768px) and screen {
+  /* Is screen necessary, do we want to exclude print? */
+  .widget { }
+}
+
+@media (min-width: 1024px) and min-height(768px) {
+  /* Is height necessary, should 750px tall screens be excluded?  */
+  .widget { }
+}
+</code></pre>
+  </section>
+
+  <section>
+    <h4>Media queries should be based on content, not devices</h4>
+    <ul>
+      <li>Are columns squished?</li>
+      <li>Line lengths too long or short?</li>
+      <li>Images need to be bigger?</li>
+    </ul>
+    <p>Devices can be a decent guide.<br>Test from 300px - 1600px wide.</p>
+  </section>
+
+  <section style="text-align: center;">
+    <img style="border: 0.25em solid #ccc;" src="assets/css-training/long-lined-content.png" alt="Bootstrap.com between mobile and tablet has long line lengths making it harder to read" width="50%" />
+    <aside class="notes">
+      GetBootstrap.com - Between mobile and tablet - long line lengths
+    </aside>
+  </section>
+
+  <section style="text-align: center;">
+    <p style="font-size: 0.75em">This screenshot is faked</p>
+    <img style="border: 0.25em solid #ccc;" src="assets/css-training/squished-column-content.png" alt="Bootstrap.com faked example of when columns might be too constrained" />
+    <aside class="notes">
+      GetBootstrap.com - Faked example where I'd adjust media queries
+    </aside>
   </section>
 
 </section>
 
-<section style="font-size: 0.75em">
+<section style="text-align: center;">
+  <h2><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
+    Be back at <input type="text" size="5" value="..." style="text-align: left" />
+  </h2>
+  <h3>Coming up: Layout in 2018</h3>
+  <ul>
+    <li>Document Flow &amp; You</li>
+    <li>Grid, Flex, Block Model, &amp; Position</li>
+    <li>Which to use??</li>
+    <li>Browser Support Issues</li>
+  </ul>
+</section>
+
+<section><h1>CSS Layout in 2018</h1></section>
+
+<section>
+  <section>
+    <h2>Document Flow &amp; You</h2>
+    <aside class="notes">
+      Going to try and explain the intention behind CSS<br>
+      I'm going to take small liberties and make up some terms.
+    </aside>
+  </section>
+
+  <section>
+    <img src="assets/css-training/webpage.png" style="margin: -5% 0 0; width: 80%" alt="Mock up of an article page" />
+    <aside class="notes">
+      Document flow is how elements want to layout on the page, given their styles.<br>
+      See text flow<br>
+      See floated image
+    </aside>
+  </section>
+
+  <section>
+    <img src="assets/css-training/document-flow.png" style="margin: -5% 0 0; width: 80%" alt="Mock up of an article page" />
+    <aside class="notes">
+      This is DF<br>
+      They're cool<br>
+      Want you to be able to see all the content<br>
+      Read all the text<br>
+      Tries not to let things overlap<br>
+      Doesn't dig pixel perfection much<br>
+      Don't be mean to document flow, respecting DF pays off.
+    </aside>
+  </section>
+
+  <section data-background="assets/css-training/document-flow-bg.png" data-background-size="100% auto" data-background-position="left top">
+    <h3>Text Flow</h3>
+    <ul>
+      <li>How text behaves and tags like <code>&lt;strong></code> &amp; <code>&lt;em></code></li>
+      <li>Inline* elements mimic</li>
+      <li>White space matters</li>
+    </ul>
+    <aside class="notes">
+      With no CSS, HTML will fall back to a textual flow<br>
+      Doesn’t care about widths, heights, margins, padding, etc
+    </aside>
+  </section>
+
+  <section data-background="assets/css-training/document-flow-bg.png" data-background-size="100% auto" data-background-position="left top">
+    <h3>Layout Flow</h3>
+    <ul>
+      <li>White space agnostic</li>
+      <li>Properties like:<ul>
+        <li>Grid</li>
+        <li>Flexbox</li>
+        <li>Table</li>
+        <li>Columns</li>
+      </ul></li>
+    </ul>
+    <aside class="notes">
+      Composing major parts of doc<br>
+      The large squares/rectangles that the web is good at
+    </aside>
+  </section>
+
+  <section>
+    <img src="assets/css-training/webpage.png" style="margin: -5% 0 0; width: 80%" alt="Mock up of an article page" />
+    <aside class="notes">
+      Content area might be flexbox (Layout flow), but inside of the left column we go back to text flow
+    </aside>
+  </section>
+
+  <section>
+    <img src="assets/css-training/pos-absolute.png" style="margin: -5% 0 0; width: 80%" alt="Mock up of an article page" />
+    <aside class="notes">
+      This angry fellow represents properties that break/mess with document flow<br>
+      It's not wrong to break document flow, it is gutsy<br>
+      He'll do exactly what you say, even when it doesn't make sense<br>
+      Lose the safeguards of document flow that made sure content is legible<br>
+      He's been grumpy about all these new-fangled screen sizes<br>
+      Test your CSS on many screen sizes, px densities, and browsers when you bring out this guy<br>
+    </aside>
+  </section>
+
+  <section align="left" data-background="assets/css-training/pos-absolute-bg.png" data-background-size="100% auto" data-background-position="left top">
+    <h3>Document Flow Breakers:</h3>
+    <div class="section-indicator">Document Flow</div>
+    <p><code>position: absolute, fixed, sticky</code></p>
+    <aside class="notes">
+      These will behave very rigidly and can cause overlap or bugs on differently sized screens.<br>
+      Position fixed is particularly grumpy about smaller sized screens and zooming
+    </aside>
+  </section>
+  <section align="left" data-background="assets/css-training/pos-absolute-bg.png" data-background-size="100% auto" data-background-position="left top">
+    <h3>Mess with Document Flow</h3>
+    <ul>
+      <li style="line-height: 1.8"><code>position: relative</code><br>
+        (when <code>top, right, bottom</code> or <code>left</code> are set)</li>
+      <li><code>transform</code></li>
+      <li>negative <code>margin, padding</code></li>
+    </ul>
+    <aside class="notes">
+      These can cause overlap and can get a little weird
+    </aside>
+  </section>
+
+  <section>
+    <img src="assets/css-training/webpage-modal.png" style="margin: -5% 0 0; width: 80%" alt="Mock up of an article page" />
+    <aside class="notes">
+      To get a modal like this, you have to break document flow<br>
+      But notice inside of it, we're back to regular document flow
+    </aside>
+  </section>
+
+  <section>
+    <h3>TL:Didn't think your cartoons were funny</h3>
+    <ul>
+      <li>Breaking the flow can cause complicated, hard to solve problems.</li>
+      <li>Try to use Flow-friendly tools first.</li>
+      <li>If you enjoy sanity, the large majority of the elements on the page should be flow-friendly.</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <h2>Layout 101 in 2018</h2>
+  <aside class="notes">
+    We're going to start from the outside out.
+  </aside>
+</section>
+
+<section>
+  <section><h3>Floats</h3></section>
+
+  <section>
+    <h4>Don't use them for layout anymore*!</h4>
+    <p class="small" style="margin-top: 6em;">* Except for fallbacks or if you <b>know</b> better options aren't wise<br> based on your user stats.</p>
+    <aside class="notes">
+      If you can, avoid learning floats for layout, it'll go out of fashion fast<br>
+      They were <b>literally</b> never intended to be used for layout, we've been using CSS hacks for over a decade.
+    </aside>
+  </section>
+
+  <section align="left">
+    <img src="assets/css-training/document-flow.png" alt="Document flow cartoon character" style="width: 25%; float: right;" />
+    <h4>Are floats still good for something?</h4>
+    <p>Floats are great for floating elements next to a bunch of text so it will wrap. </p>
+    <p style="opacity: 0.4">Lorem ipsum dolor sit amet, wakka un blitz and chips; dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill.</p>
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Terminology</div>
+  <section>
+    <h3>CSS Grid</h3>
+    <p>Basics and terminology</p>
+  </section>
+
+  <section>
+    <h4>CSS Grid</h4>
+    <p>Great at 2 dimensional, custom, and large scale layouts</p>
+    <ul>
+      <li>Define amount of rows and columns</li>
+      <li>Define constraints for rows and columns</li>
+      <li>Constraints can be flexible, fluid, or content based</li>
+      <li>New rows/columns can be auto-added if needed</li>
+    </ul>
+    <style>
+      .grid-example-wrapper {
+        position: relative;
+      }
+
+      .grid-example {
+        position: relative;
+        display: grid;
+        width: 100%;
+        height: 14em;
+        grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+        border: 0.125em dashed rgba(0, 0, 0, 0.6);
+      }
+
+      .grid-example > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .grid-example-wrapper:before,
+      .grid-example-wrapper:after,
+      .grid-example:before,
+      .grid-example:after {
+        content: '';
+        position: absolute;
+        left: 33.333%;
+        top: 0;
+        bottom: 0;
+        display: block;
+        width: 0;
+        border-left: 0.125em dashed rgba(0, 0, 0, 0.3);
+      }
+
+      .grid-example-wrapper:before {
+        left: 66.667%;
+      }
+
+      .grid-example-wrapper:after,
+      .grid-example:after {
+        top: 33.333%;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: auto;
+        height: 0;
+        border-top: 0.125em dashed rgba(0, 0, 0, 0.3);
+        border-left: 0;
+      }
+
+      .grid-example-wrapper:after {
+        top: 66%;
+      }
+
+      .grid-example-wrapper:before,
+      .grid-example-wrapper:after,
+      .grid-example:before,
+      .grid-example:after {
+        border-color: rgba(0, 0, 0, 0.6);
+      }
+    </style>
+  </section>
+
+  <section>
+    <h4>Grid Container</h4>
+    <p>Element surrounding the grid.</p>
+    <div class="grid-example-wrapper">
+      <div class="grid-example" style="border: 0.25em solid #3372a1"></div>
+    </div>
+  </section>
+
+  <section>
+    <h4>Grid Item</h4>
+    <p>Direct child element of a grid container</p>
+    <div class="grid-example-wrapper">
+      <div class="grid-example" style="font-weight: bold;">
+        <div style="
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 1;
+          grid-column-end: 2;
+          background: rgba(255, 255, 0, 0.3);
+          border: 0.125em solid rgba(150, 100, 0, 0.8);
+          color: #664400;
+          display: flex;
+          align-items: center;
+          justify-content: center;">
+          Grid Item
+        </div>
+        <div style="
+          grid-row-start: 2;
+          grid-row-end: 4;
+          grid-column-start: 1;
+          grid-column-end: 2;
+          background: rgba(0, 170, 255, 0.3);
+          color: #005;
+          border: 0.125em solid rgba(0, 170, 255, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;">
+          Grid Item
+        </div>
+        <div style="
+          grid-row-start: 1;
+          grid-row-end: 3;
+          grid-column-start: 2;
+          grid-column-end: 4;
+          background: rgba(250, 100, 100, 0.3);
+          color: #900;
+          border: 0.125em solid rgba(250, 100, 100, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;">
+          Grid Item
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h4>Grid Track</h4>
+    <p>A grid column or row</p>
+    <div class="grid-example-wrapper">
+        <div class="grid-example" style="font-weight: bold;">
+        <div style="
+          grid-row-start: 1;
+          grid-row-end: 2;
+          grid-column-start: 1;
+          grid-column-end: 4;
+          background: rgba(255, 255, 0, 0.3);
+          border: 0.25em solid rgba(150, 100, 0, 0.8);
+          color: #664400;
+          display: flex;
+          align-items: center;
+          justify-content: center;">
+          Grid Track
+        </div>
+        <div style="
+          grid-row-start: 1;
+          grid-row-end: 4;
+          grid-column-start: 1;
+          grid-column-end: 2;
+          background: rgba(0, 170, 255, 0.3);
+          color: #005;
+          border: 0.25em solid rgba(0, 170, 255, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;">
+          Grid Track
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h4>Grid Line</h4>
+    <p>Any line in the grid</p>
+    <div class="grid-example-wrapper grid-example-wrapper--bold-gaps">
+      <div class="grid-example" style="font-weight: bold;">
+        <div style="
+          align-self: center;
+          text-align: center;
+          line-height: 1.6;
+          margin-top: -0.25em;
+        ">↑<br>
+          ← Grid Lines →<br>
+          ↓
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Beginning with Grid</h3>
+  </section>
+  <section>
+    <h4>Basic syntax</h4>
+    <pre class="language-css" style="font-size: 1em"><code class="language-css">.grid-container {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+}
+</code></pre>
+    <style>
+      .grid-example-wrapper--25-50-25:before {
+        left: 25%;
+      }
+      .grid-example-wrapper--25-50-25 .grid-example:before {
+        left: 75%;
+      }
+      .grid-example-wrapper--no-rows:after,
+      .grid-example-wrapper--no-rows .grid-example:after {
+        display: none;
+      }
+    </style>
+    <div class="grid-example-wrapper grid-example-wrapper--25-50-25 grid-example-wrapper--no-rows">
+      <div class="grid-example" style="
+        grid-template-columns: 25% 50% 25%;
+        grid-template-rows: auto;
+        height: 4em;
+      "></div>
+    </div>
+  </section>
+  <section>
+    <h3><a href="assets/css-training/grid-what-if-more-content.html" target="css-training">
+      What if there's more content than grid areas?
+    </a></h3>
+    <a href="assets/css-training/grid-what-if-more-content.html" target="css-training">Let's see in this example...</a>
+  </section>
+  <section>
+    <h4>Specifically placing a grid-item:</h4>
+    <pre class="language-css" style="font-size: 1em"><code class="language-css">
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+</code></pre>
+
+  </section>
+</section>
+
+<section>
+  <section style="text-align: center">
+    <h3><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
+      Be back at <input type="text" size="5" value="..." style="text-align: left" />
+    </h3>
+    <p>Try to complete as many as you can on our break<br> (try at least 5):</p>
+    <a href="http://cssgridgarden.com/">CSSGridGarden.com</a>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Named grid areas</h3>
+    <p>My favorite grid feature!</p>
+  </section>
+  <section>
+    <h4><code>grid-template-areas</code></h4>
+    <p>Name regions in your grid.</p>
+    <pre class="language-css" style="font-size: 1em"><code class="language-css">.grid-container {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-areas:
+    "header header header"
+    "content content sidebar"
+    "footer footer footer";
+}</code></pre>          
+  </section>
+  <section>
+    <h4><code>grid-area</code></h4>
+    <p>Name regions in your grid.</p>
+    <pre class="language-css" style="font-size: 1em"><code class="language-css">
+.my-header  { grid-area: header; }
+.my-content { grid-area: content;}
+.my-sidebar { grid-area: sidebar;}
+.my-footer  { grid-area: footer; }
+  </code></pre>          
+  </section>
+  <section style="text-align: center;">
+    <div class="grid-example-wrapper grid-example-wrapper--25-50-25">
+      <div class="grid-example" style="
+        grid-template-columns: 25% 50% 25%;
+        grid-template-rows: auto;
+        grid-template-areas:
+          'header header header'
+          'content content sidebar'
+          'footer footer footer';
+        height: 8em;
+      ">
+        <div style="
+          grid-area: content;
+          padding: 0.5em;
+          background: rgba(100, 255, 0, 0.3);
+        ">Content</div>
+        <div style="
+          grid-area: header;
+          padding: 0.5em;
+          background: rgba(250, 50, 100, 0.5);
+        ">Header</div>
+        <div style="
+          grid-area: sidebar;
+          padding: 0.5em;
+          background: rgba(0, 50, 100, 0.3);
+        ">Sidebar</div>
+        <div style="
+          grid-area: footer; 
+          padding: 0.5em;
+          background: rgba(0, 100, 250, 0.5);
+        ">Footer</div>
+      </div>
+    </div>
+  </section>
+  <section>    
+    <pre class="language-css" style="font-size: 1em"><code class="language-css">.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+    'header header'
+    'content content'
+    'sidebar footer';
+}</code></pre>
+    <aside class="notes">
+      Different layout (bc media query or other) now we only have to change the grid container.     
+    </aside>
+  </section>
+  <section style="text-align: center;">
+    <style>
+      .grid-example-wrapper--50-50:before {
+        left: 50%;
+      }
+      .grid-example-wrapper--50-50 .grid-example:before {
+        display: none;
+      }
+    </style>
+    <div class="grid-example-wrapper grid-example-wrapper--50-50">
+      <div class="grid-example" style="
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        grid-template-areas:
+          'header header'
+          'content content'
+          'sidebar footer';
+        height: 8em;
+      ">
+        <div style="
+          grid-area: content;
+          padding: 0.5em;
+          background: rgba(100, 255, 0, 0.3);
+        ">Content</div>
+        <div style="
+          grid-area: header;
+          padding: 0.5em;
+          background: rgba(250, 50, 100, 0.5);
+        ">Header</div>
+        <div style="
+          grid-area: sidebar;
+          padding: 0.5em;
+          background: rgba(0, 50, 100, 0.3);
+        ">Sidebar</div>
+        <div style="
+          grid-area: footer; 
+          padding: 0.5em;
+          background: rgba(0, 100, 250, 0.5);
+        ">Footer</div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Grid Units &amp; Helpers</h3>
+  </section>
+
+  <section>
+    <h4><code>fr</code></h4>
+    <p>Distributes free space in a grid track</p>
+    <div style="font-size: 0.9em">
+      <pre class="language-css" style="font-size: 1.1em"><code class="language-css">grid-template-row: 1fr 50% 1fr;</code></pre>
+      <pre class="language-css" style="font-size: 1.1em"><code class="language-css">1fr 1fr /* 50% 50% (Maybe) */
+1fr 2fr 1fr /* 25% 50% 25% (Maybe) */
+25% 1fr 1fr /* 25% 37.5% 37.5% (Maybe) */</code></pre>
+    </div>
+  </section>
+  <section>
+    <h4><a href="https://gridbyexample.com/examples/code/example31.html" target="css-training">
+      <code>minmax()</code>
+    </a></h4>
+    <pre class="language-css" style="font-size: 1em"><code class="language-css">display: grid;
+grid-gap: 10px;
+grid-template-columns:
+  minmax(200px, 1fr) 200px 200px;
+</code></pre>
+    <p><a href="https://gridbyexample.com/examples/code/example31.html" target="css-training">Example</a></p>
+  </section>
+  <section>
+    <h4><a href="assets/css-training/grid-repeat-example.html" target="css-training">
+      <code>repeat(number, size)</code>
+    </a></h4>
+    <pre class="language-css" style="font-size: 1em"><code class="language-css">display: grid;
+grid-gap: 10px;
+grid-template-columns: repeat(4, 100px);
+grid-template-rows: repeat(3, auto);
+</code></pre>
+    <p><a href="assets/css-training/grid-repeat-example.html" target="css-training">Example</a></p>
+  </section>
+
+  <section>
+    <h4 style="text-align: center"><a href="assets/css-training/grid-auto-fit-vs-fill.html" target="css-training">
+      <code>auto-fit</code> and <code>auto-fill</code>
+    </a></h4>
+    <pre class="language-css" style="font-size: 0.9em"><code class="language-css">grid-template-columns: repeat(auto-fit, 150px)</code></pre>
+    <div style="margin: 0 0 1em;">Will add columns as it has room for more.</div>
+    <pre class="language-css" style="font-size: 0.9em"><code class="language-css">grid-template-columns: repeat(auto-fill, 150px)</code></pre>
+    <div style="margin: 0 0 1em;">Will make columns fit available space.</div>
+    <aside class="notes">
+      This behavior is when there aren't enough grid items to fill available area
+    </aside>
+    <p><a href="assets/css-training/grid-auto-fit-vs-fill.html" target="css-training">Example</a></p>
+  </section>
+
+  <section>
+    <h4><a href="http://labs.jensimmons.com/2017/01-009K.html" target="css-training">Masonry like layout</a></h4>
+    <pre class="language-css" style="font-size: 1em"><code class="language-css">display: grid;
+grid-template-columns:
+  repeat(auto-fit, minmax(180px, 1fr));
+grid-gap: 1rem;
+</code></pre>
+    <p><a href="http://labs.jensimmons.com/2017/01-009K.html" target="css-training">Example</a></p>
+    <aside class="notes">Just like 'masonry' layout, but it may shuffle items around to make them fit nicely.</aside>
+  </section>
+
+</section>
+
+<section>
+  <section>
+    <h3>Can I use Grid Now?</h3>
+  </section>
+  <section>
+    <img src="assets/css-training/grid-compatibility.png" alt="CanIUse.com, Globally 72.4% fully support Grid, not counting mobile browsers it’s 85.5% (1/21/18)" />
+    <aside class="notes">
+      1/21/18<br>
+      CanIUse.com<br>
+      Globally 72.4% fully support Grid, <br>
+      not counting mobile browsers it’s 85.5%
+    </aside>
+  </section>
+  <section>
+    <img src="assets/css-training/grid-compatibility-scs.png" alt="CMU School of Computer Science (my client) is at about 93% of visitors will get Grid layout" />
+    <aside class="notes">
+      (1/7/2018)<br>
+      CMU’s School of Computer Science<br>
+      About 93% of visitors will get Grid layout
+    </aside>
+  </section>
+  <section>
+    <img src="assets/css-training/grid-compatibility-lullabot.png" alt="Lullabot.com, About 97% of visitors will get Grid layout (1/7/2018)" />
+    <aside class="notes">
+      (1/7/2018)<br>
+      CMU’s School of Computer Science<br>
+      About 93% of visitors will get Grid layout
+    </aside>
+
+  </section>
+</section>
+
+<section>
+  <div class="section-indicator">Terminology</div>
+  <section>
+    <h3>Flexbox</h3>
+    <p>Basics and terminology</p>
+  </section>
+
+  <section>
+    <h4>Flexbox</h4>
+    <p>Best at 1 dimensional and small scale layouts.</p>
+    <ul>
+      <li>Layout can be row <strong>or</strong> column layout</li>
+      <li>Good at working with content to distribute extra space in layout</li>
+      <li>Can change displayed order of items</li>
+      <li>Can direct flow of content, horizintal/vertical reverse/regular direction</li>
+      <li>New rows/columns can be auto-added if needed</li>
+    </ul>
+    <style>
+      .flex-container {
+        display: flex;
+        padding: 0.25em 0 0 0.25em;
+        border: 0.125em solid rgba(0, 0, 0, 0.6);
+      }
+      .flex-container > div {
+        min-width: 4em;
+        min-height: 4em;
+        margin: 0 0.25em 0.25em 0;
+        background: rgba(35, 165, 216, 0.3);
+      }
+    </style>
+  </section>
+  <section>
+    <h4>Flex Container</h4>
+    <p>Element enclosing everything</p>
+    <div class="flex-container" style="border-color: rgb(35, 165, 216);">
+      <div style="background: rgba(0, 0, 0, 0.2)"></div>
+      <div style="background: rgba(0, 0, 0, 0.2)"></div>
+      <div style="background: rgba(0, 0, 0, 0.2)"></div>
+      <div style="background: rgba(0, 0, 0, 0.2)"></div>
+    </div>
+  </section>
+  <section>
+    <h4>Flex Item</h4>
+    <p>Direct child of flex container</p>
+    <div class="flex-container">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+  <section>
+    <h4>Main Axis</h4>
+    <p>The axis the flex items are laid out on (row/column).</p>
+    <div class="flex-container" style="position: relative">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: auto;
+        min-height: auto;
+        transform: translate(-50%, -50%);
+        background: transparent;
+        font-weight: bold;
+      ">
+        ← Main Axis →
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h4>Cross Axis</h4>
+    <p>The opposite axis of the main (column/row)</p>
+    <div class="flex-container" style="position: relative">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="height: 6em;"></div>
+      <div style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 5em;
+        min-height: auto;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        background: transparent;
+        font-weight: bold;
+      ">
+        ← Cross <div style="text-align: right">Axis →</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h4>Main Start &amp; End</h4>
+    <p>The beginning of the main axis is where items start from, end is the opposite side.</p>
+    <div class="flex-container" style="position: relative">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="
+        position: absolute;
+        top: 50%;
+        left: 0.25em;
+        min-width: auto;
+        min-height: auto;
+        transform: translate(0, -50%);
+        background: transparent;
+        font-weight: bold;
+      ">
+        ← Main Start
+      </div>
+      <div style="
+        position: absolute;
+        top: 50%;
+        right: 0;
+        min-width: auto;
+        min-height: auto;
+        transform: translate(0, -50%);
+        background: transparent;
+        font-weight: bold;
+      ">
+        Main End →
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h4>Cross Start &amp; End</h4>
+    <p>The beginning of the cross axis will be top if flex is horizontal, left if it's vertical</p>
+    <div class="flex-container" style="position: relative">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="
+        position: absolute;
+        top: 0;
+        left: 50%;
+        min-width: auto;
+        min-height: auto;
+        transform: translate(-50%, 0);
+        font-weight: bold;
+        text-align: center;
+        background: transparent;
+      ">
+      <div style="line-height: 0.7;">↑</div>
+        Cross Start
+      </div>
+      <div style="
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        min-width: auto;
+        min-height: auto;
+        transform: translate(-50%, 0);
+        font-weight: bold;
+        text-align: center;
+        line-height: 0.8;
+        background: transparent;
+      ">
+        Cross End<br>
+        <div style="line-height: 1.2;">↓</div>
+      </div>
+    </div>
+    <aside class="notes">
+      Doesn't matter if it's reverse or not, cross axis start and end will be top or left
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Beginning with Flex Box</h3>
+  </section>
+  <section>
+    <h4>Basic syntax</h4>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+  display: flex; /* All you need */
+  /* flex-direction: row; (Default) */
+  /* flex-wrap: nowrap;   (Default) */
+}
+</code></pre>
+    <div class="flex-container" style="position: relative">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <aside class="notes">
+      By default flex will be row and won't wrap
+    </aside>
+  </section>
+  <section>
+    <h4>Behold, the not wrapping!</h4>
+    <div class="flex-container" style="position: relative">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+  <section>
+    <h4><code>flex-wrap</code></h4>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+  display: flex;
+  /* flex-direction: row; (Default) */
+  flex-wrap: wrap;
+}
+</code></pre>
+    <div class="flex-container" style="flex-wrap: wrap;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <aside class="notes">
+      By default flex will be row and won't wrap
+    </aside>
+  </section>
+  <section>
+    <h4><code>flex-direction</code></h4>
+    <div class="column-wrapper">
+      <div>
+        <pre class="language-css" style="font-size: 0.8em; width: 5em"><code class="language-css">.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}</code></pre>
+        <a href="assets/css-training/flexbox-flex-direction.html" target="css-training">Examples of <code>flex-direction</code></a>
+      </div>
+      <div class="flex-container" style="flex-direction: column; width: 4.5em; margin: auto; flex-grow: 0;">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h4><code>flex-</code></h4>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+  display: flex; /* All you need */
+  /* flex-direction: row; (Default) */
+  flex-wrap: wrap;
+}
+</code></pre>
+    <div class="flex-container" style="flex-wrap: wrap;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <aside class="notes">
+      By default flex will be row and won't wrap
+    </aside>
+  </section>
+  <section>
+    <h4><code>flex-</code></h4>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+  display: flex; /* All you need */
+  /* flex-direction: row; (Default) */
+  flex-wrap: wrap;
+}
+</code></pre>
+    <div class="flex-container" style="flex-wrap: wrap;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <aside class="notes">
+      By default flex will be row and won't wrap
+    </aside>
+  </section>
+  <section>
+    <h4><code>flex-</code></h4>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+  display: flex; /* All you need */
+  /* flex-direction: row; (Default) */
+  flex-wrap: wrap;
+}
+</code></pre>
+    <div class="flex-container" style="flex-wrap: wrap;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <aside class="notes">
+      By default flex will be row and won't wrap
+    </aside>
+  </section>
+  <section>
+    <h4><code>flex-</code></h4>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+  display: flex; /* All you need */
+  /* flex-direction: row; (Default) */
+  flex-wrap: wrap;
+}
+</code></pre>
+    <div class="flex-container" style="flex-wrap: wrap;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <aside class="notes">
+      By default flex will be row and won't wrap
+    </aside>
+  </section>
+</section>
+
+
+
+<!--
+  FIN, the CREDITS!
+-->
+
+
+<section style="font-size: 0.75em;">
   <h2>Sources</h2>
-  <p><a href="https://thenounproject.com/term/xbox-controller/195043/">XBOX Controller by Mark Davis from the Noun Project</a></p>
-  <p><a href="https://thenounproject.com/search/?q=remote+control&i=10269">Remote Control by Lemon Liu from the Noun Project</a></p>
-  <p>Most other icons sourced from <a href="http://fontawesome.io/">Font Awesome</a></p>
+  <div style="overflow:auto; max-height: 15em;">
+    <ul>
+      <li><a href="https://css-tricks.com/getting-started-css-grid/">Robin Rendle, Getting Started with CSS Grid - https://css-tricks.com/getting-started-css-grid/</a><br></li>
+      <li><a href="https://gridbyexample.com/">Rachel Andrews, Grid By Example - https://gridbyexample.com/</a><br></li>
+      <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">Chris House, A Complete Guide to Grid - https://css-tricks.com/snippets/css/complete-guide-grid/</a><br></li>
+      <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Chris Coyier, A Complete Guide to Flexbox - https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a><br></li>
+      <li><a href="http://labs.jensimmons.com/">Jen Simmons, Multiple examples - http://labs.jensimmons.com/</a><br></li>
+      <li><a href="https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/">Sara Soueidan, Auto-Sizing Columns in CSS Grid: `auto-fill` vs `auto-fit` - https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/</a><br>  </li>
+      <li><a href="https://herchel.com/2018-01-15-css-grid/">Mike Herchel, Getting Up and Running with Grid - https://herchel.com/2018-01-15-css-grid/</a><br></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">transform, MDN web docs - https://developer.mozilla.org/en-US/docs/Web/CSS/transform</a><br></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">MDN, Using Media Queries - https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries</a><br></li>
+      <li>Stock Photos from <a href="https://pixabay.com/">Pixabay.com</a></li>
+    </ul>
+  </div>
 </section>
 
 </div>
