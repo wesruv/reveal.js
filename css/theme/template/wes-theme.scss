@@ -137,6 +137,8 @@ section {
 
 .reveal ul ul {
   list-style-type: square;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .reveal ul ul ul {
@@ -496,4 +498,12 @@ pre {
     }
   }
 
+}
+
+input {
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+  background: transparent;
+  border: 0;
 }

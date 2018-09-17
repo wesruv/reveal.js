@@ -121,7 +121,9 @@ section h6:first-child {
   list-style-type: disc; }
 
 .reveal ul ul {
-  list-style-type: square; }
+  list-style-type: square;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em; }
 
 .reveal ul ul ul {
   list-style-type: circle; }
@@ -393,5 +395,12 @@ pre {
   .continuum .continuum__point--last:before {
     right: -0.125em;
     height: 2em; }
+
+input {
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+  background: transparent;
+  border: 0; }
 
 /*# sourceMappingURL=backdrop.css.map */

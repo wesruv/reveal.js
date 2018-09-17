@@ -105,7 +105,7 @@
 </section>
 
 <section>
-  <h3>Our Goal</h3>
+  <h3>The Goal</h3>
   <aside class="notes">
     <p>Kinda good at CSS to understanding the harder concepts of CSS.</p>
     <p>Understand the tools available, how they work, and what they're good at.</p>
@@ -123,13 +123,13 @@
         <li><code>grid</code>, <code>flex</code> (box), "Block Model", &amp; <code>position</code></li>
       </ul>
     </li>
-    <li>"Pseudo-content", <code>transform</code></li>
+    <li>"Pseudo-content", <code style="margin-left: 0;">transform</code></li>
     <li>Accessibility Concerns</li>
     <li>Debugging CSS Issues</li>
     <li><code>transition</code> &amp; <code>animation</code></li>
     <li>Composing CSS</li>
     <li>My Fancy Tricks</li>
-    <li>Crowd Sourced Fancy Tricks!</li>
+    <li>(and maybe) Crowd Sourced Fancy Tricks!</li>
   </ul>
 </section>
 
@@ -536,7 +536,7 @@
   <section>
     <h4>Mobile First <code>@media</code> queries</h4>
     <p style="font-size: 1.25em; line-height: 1.8;">Write <code>min-width</code> and <code>min-height</code>,<br><br>
-    <strong>never</strong> <code>max-width</code> or <code>max-height</code></p>
+    <strong>not</strong> <code>max-width</code> or <code>max-height</code></p>
   </section>
   <section style="font-size: 0.8em">
     <pre class="language-css"><code>.box {
@@ -589,7 +589,7 @@
   .widget { }
 }
 
-@media (min-width: 1024px) and min-height(768px) {
+@media (min-width: 1024px) and (min-height: 768px) {
   /* Is height necessary, should 750px tall screens be excluded?  */
   .widget { }
 }
@@ -673,8 +673,8 @@
     <h3>Text Flow</h3>
     <ul>
       <li>How text behaves and tags like <code>&lt;strong></code> &amp; <code>&lt;em></code></li>
-      <li>Inline* elements mimic</li>
-      <li>White space matters</li>
+      <li>Inline* elements mimic text flow</li>
+      <li>White space matters* (*up to one space!)</li>
     </ul>
     <aside class="notes">
       With no CSS, HTML will fall back to a textual flow<br>
@@ -733,7 +733,7 @@
       <li style="line-height: 1.8"><code>position: relative</code><br>
         (when <code>top, right, bottom</code> or <code>left</code> are set)</li>
       <li><code>transform</code></li>
-      <li>negative <code>margin, padding</code></li>
+      <li>negative <code>margin</code> or <code>padding</code></li>
     </ul>
     <aside class="notes">
       These can cause overlap and can get a little weird
@@ -798,8 +798,7 @@
     <ul>
       <li>Define amount of rows and columns</li>
       <li>Define constraints for rows and columns</li>
-      <li>Constraints can be flexible, fluid, or content based</li>
-      <li>New rows/columns can be auto-added if needed</li>
+      <li>Constraints can be rigid, flexible, or content based</li>
     </ul>
     <style>
       .grid-example-wrapper {
@@ -1009,6 +1008,7 @@
       What if there's more content than grid areas?
     </a></h3>
     <a href="assets/css-training/grid-what-if-more-content.html" target="css-training">Let's see in this example...</a>
+    <p class="small" style="margin-top: 3em;">Grid code examples stolen/modified from <a href="http://GridByExample.com">GridByExample.com</a>, from Rachel Andrew</p>
   </section>
   <section>
     <h4>Specifically placing a grid-item:</h4>
@@ -1034,6 +1034,9 @@
 
 <section>
   <section>
+    <h3>More CSS Grid</h3>
+  </section>
+  <section>
     <h3>Named grid areas</h3>
     <p>My favorite grid feature!</p>
   </section>
@@ -1047,7 +1050,7 @@
     "header header header"
     "content content sidebar"
     "footer footer footer";
-}</code></pre>          
+}</code></pre>
   </section>
   <section>
     <h4><code>grid-area</code></h4>
@@ -1057,7 +1060,7 @@
 .my-content { grid-area: content;}
 .my-sidebar { grid-area: sidebar;}
 .my-footer  { grid-area: footer; }
-  </code></pre>          
+  </code></pre>
   </section>
   <section style="text-align: center;">
     <div class="grid-example-wrapper grid-example-wrapper--25-50-25">
@@ -1086,14 +1089,14 @@
           background: rgba(0, 50, 100, 0.3);
         ">Sidebar</div>
         <div style="
-          grid-area: footer; 
+          grid-area: footer;
           padding: 0.5em;
           background: rgba(0, 100, 250, 0.5);
         ">Footer</div>
       </div>
     </div>
   </section>
-  <section>    
+  <section>
     <pre class="language-css" style="font-size: 1em"><code class="language-css">.grid-container {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -1103,7 +1106,7 @@
     'sidebar footer';
 }</code></pre>
     <aside class="notes">
-      Different layout (bc media query or other) now we only have to change the grid container.     
+      Different layout (bc media query or other) now we only have to change the grid container.
     </aside>
   </section>
   <section style="text-align: center;">
@@ -1141,7 +1144,7 @@
           background: rgba(0, 50, 100, 0.3);
         ">Sidebar</div>
         <div style="
-          grid-area: footer; 
+          grid-area: footer;
           padding: 0.5em;
           background: rgba(0, 100, 250, 0.5);
         ">Footer</div>
@@ -1193,9 +1196,9 @@ grid-template-rows: repeat(3, auto);
       <code>auto-fit</code> and <code>auto-fill</code>
     </a></h4>
     <pre class="language-css" style="font-size: 0.9em"><code class="language-css">grid-template-columns: repeat(auto-fit, 150px)</code></pre>
-    <div style="margin: 0 0 1em;">Will add columns as it has room for more.</div>
-    <pre class="language-css" style="font-size: 0.9em"><code class="language-css">grid-template-columns: repeat(auto-fill, 150px)</code></pre>
     <div style="margin: 0 0 1em;">Will make columns fit available space.</div>
+    <pre class="language-css" style="font-size: 0.9em"><code class="language-css">grid-template-columns: repeat(auto-fill, 150px)</code></pre>
+    <div style="margin: 0 0 1em;">Will add columns as it has room for more.</div>
     <aside class="notes">
       This behavior is when there aren't enough grid items to fill available area
     </aside>
@@ -1248,6 +1251,17 @@ grid-gap: 1rem;
 </section>
 
 <section>
+  <section style="text-align: center">
+    <h3><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
+      Be back at <input type="text" size="5" value="..." style="text-align: left" />
+    </h3>
+    <p>@todo, A Grid Exercise</p>
+  </section>
+</section>
+
+
+
+<section>
   <div class="section-indicator">Terminology</div>
   <section>
     <h3>Flexbox</h3>
@@ -1258,11 +1272,10 @@ grid-gap: 1rem;
     <h4>Flexbox</h4>
     <p>Best at 1 dimensional and small scale layouts.</p>
     <ul>
-      <li>Layout can be row <strong>or</strong> column layout</li>
-      <li>Good at working with content to distribute extra space in layout</li>
+      <li>Can direct flow of content, horizontal/vertical, reverse/regular direction</li>
+      <li>Can distribute extra space many ways</li>
       <li>Can change displayed order of items</li>
-      <li>Can direct flow of content, horizintal/vertical reverse/regular direction</li>
-      <li>New rows/columns can be auto-added if needed</li>
+      <li>Can handle multiple rows/columns, but with less control than CSS Grid</li>
     </ul>
     <style>
       .flex-container {
@@ -1289,9 +1302,14 @@ grid-gap: 1rem;
     </div>
   </section>
   <section>
+    <style>
+      .flex-container--flex-items > div {
+        border: 0.125em solid rgba(35, 165, 216, 0.8);
+      }
+    </style>
     <h4>Flex Item</h4>
     <p>Direct child of flex container</p>
-    <div class="flex-container">
+    <div class="flex-container flex-container--flex-items">
       <div></div>
       <div></div>
       <div></div>
@@ -1466,7 +1484,7 @@ grid-gap: 1rem;
   flex-wrap: wrap;
 }
 </code></pre>
-    <div class="flex-container" style="flex-wrap: wrap;">
+    <div class="flex-container" style="flex-wrap: wrap; font-size: 0.8em;">
       <div></div>
       <div></div>
       <div></div>
@@ -1484,7 +1502,7 @@ grid-gap: 1rem;
     <h4><code>flex-direction</code></h4>
     <div class="column-wrapper">
       <div>
-        <pre class="language-css" style="font-size: 0.8em; width: 5em"><code class="language-css">.flex-container {
+        <pre class="language-css" style="font-size: 0.8em; width: 19em"><code class="language-css">.flex-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -1500,96 +1518,338 @@ grid-gap: 1rem;
   </section>
 
   <section>
-    <h4><code>flex-</code></h4>
+    <h4><code>justify-content</code></h4>
+    <aside class="notes">
+      How extra space is distributed along the main axis
+    </aside>
     <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
-  display: flex; /* All you need */
-  /* flex-direction: row; (Default) */
-  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
 }
 </code></pre>
-    <div class="flex-container" style="flex-wrap: wrap;">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="flex-container" style="justify-content: center;">
       <div></div>
       <div></div>
       <div></div>
       <div></div>
     </div>
+  </section>
+  <section>
+    <h4 style="font-size: 1em;">Other <code>justify-content</code> values</h4>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">justify-content: flex-start;</code></div>
+    <div class="flex-container" style="font-size: 0.4em; justify-content: flex-start;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">justify-content: flex-end;</code></div>
+    <div class="flex-container" style="font-size: 0.4em; justify-content: flex-end;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+  <section>
+    <h4 style="font-size: 1em;">Other <code>justify-content</code> values</h4>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">justify-content: space-between;</code></div>
+    <div class="flex-container" style="font-size: 0.4em; justify-content: space-between;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">justify-content: space-around;</code></div>
+    <div class="flex-container" style="font-size: 0.4em; justify-content: space-around;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">justify-content: space-evenly;</code></div>
+    <div class="flex-container" style="font-size: 0.4em; justify-content: space-evenly;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+
+  <section>
+    <h4><code>align-items</code></h4>
     <aside class="notes">
-      By default flex will be row and won't wrap
+      How each flex item is aligned along the cross axis
+    </aside>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+  display: flex; /* All you need */
+  align-items: center;
+}</code></pre>
+    <style>
+      .flex-container--align-items {position: relative;}
+      .flex-container--align-items > div {
+        min-height: 1px;
+        width: 25%;
+        padding: 0.25em;
+      }
+    </style>
+    <div class="flex-container flex-container--align-items" style="align-items: center;">
+      <div>1</div>
+      <div>Second item</div>
+      <div>I think this one is number 3</div>
+      <div>4</div>
+    </div>
+  </section>
+  <section>
+    <h4 style="font-size: 1em;">Other <code>align-items</code> values</h4>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">align-items: stretch; /* (Default) */</code></div>
+    <div class="flex-container flex-container--align-items" style="font-size: 0.4em; align-items: stretch;">
+      <div>1</div>
+      <div>Second item</div>
+      <div>I think this one is number 3</div>
+      <div>4</div>
+    </div>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">align-items: flex-start;</code></div>
+    <div class="flex-container flex-container--align-items" style="font-size: 0.4em; align-items: flex-start;">
+      <div>1</div>
+      <div>Second item</div>
+      <div>I think this one is number 3</div>
+      <div>4</div>
+    </div>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">align-items: flex-end;</code></div>
+    <div class="flex-container flex-container--align-items" style="font-size: 0.4em; align-items: flex-end;">
+      <div>1</div>
+      <div>Second item</div>
+      <div>I think this one is number 3</div>
+      <div>4</div>
+    </div>
+  </section>
+  <section>
+    <h4 style="font-size: 1em;">Other <code>align-items</code> values</h4>
+    <style>
+      .flex-container--align-items[style^='font-size'] > div {
+        width: 7rem;
+      }
+      .flex-container--align-items--baseline:before,
+      .flex-container--align-items--center:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: rgba(255, 100, 100, 0.8);
+      }
+      .flex-container--align-items--baseline:before {
+        top: 2.25em;
+      }
+    </style>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">align-items: center;</code></div>
+    <div class="flex-container flex-container--align-items flex-container--align-items--center" style="font-size: 0.4em; align-items: center;">
+      <div>1</div>
+      <div style="font-size: 1.5em">Second item</div>
+      <div>I think this one is number 3</div>
+      <div style="font-size: 0.5em">4</div>
+    </div>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">align-items: baseline;</code></div>
+    <div class="flex-container flex-container--align-items flex-container--align-items--baseline" style="font-size: 0.4em; align-items: baseline;">
+      <div>1</div>
+      <div style="font-size: 1.5em">Second item</div>
+      <div>I think this one is number 3</div>
+      <div style="font-size: 0.5em">4</div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section style="text-align: center">
+    <h3><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
+      Be back at <input type="text" size="5" value="..." style="text-align: left" />
+    </h3>
+    <p>Try to complete as many as you can on our break<br> (try to get to exercise 10):</p>
+    <a href="http://FlexboxFroggy.com/">FlexboxFroggy.com</a>
+    <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSSTricks.com open in another browser may come in handy!</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>More Flexbox</h3>
+    <p>All of the previous properties applied to flex&nbsp;<i>containers</i>, these are for flex <strong>items</strong>.</p>
+    <div class="flex-container flex-container--flex-items">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+
+  <section>
+    <h4><code>order</code></h4>
+    <p>Changes the <em>visual</em> order of the elements on the page.</p>
+    <aside class="notes">
+      Should be an integer<br>
+      Does not effect tab order or source order
+    </aside>
+
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 {
+  order: 1;
+}
+</code></pre>
+    <style>
+      .flex-container > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .flex-container > div > div {
+        font-size: 2em;
+      }
+    </style>
+    <div class="flex-container" style="font-size: 0.8em;">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="order: 1"><div>3</div></div>
+      <div><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+  <section>
+    <p><code>order</code> is calculated like <code>weight</code> in Drupal, heaver goes to the end, lighter goes to the top.</p>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-1 { /* Not set */ }
+.flex-item-2 { order: -999; }
+.flex-item-3 { order: 100; }
+.flex-item-4 { order: 10; }
+.flex-item-5 { /* Not set */ }</code></pre>
+    <div class="flex-container" style="font-size: 0.8em;">
+      <div><div>1</div></div>
+      <div style="order: -999"><div>2</div></div>
+      <div style="order: 100"><div>3</div></div>
+      <div style="order: 10"><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+  <section>
+    <h4>💖<code>margin</code> and flex items💖</h4>
+    <p><code>auto</code> will use left over space to push as far as it can</p>
+    <aside class="notes">
+      flex items wer designed to be magical with margin, but it's not well known.
+      <br><br>
+      SHALL NOT PASS!
+    </aside>
+
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 {
+  margin: auto;
+}</code></pre>
+    <div class="flex-container" style="font-size: 0.4em; height: 15em;">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="margin: auto;"><div>3</div></div>
+      <div><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+  <section>
+    <h4>❓<code style="margin-left: 0;">margin</code> and flex items❓</h4>
+    <p><code>margin</code> does not collapse inside of a flex container</p>
+    <aside class="notes">
+      flex items wer designed to be magical with margin, but it's not well known.
+      <br><br>
+      SHALL NOT PASS!
+    </aside>
+
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.flex-item-4 { margin-left: 1em; }
+</code></pre>
+    <div class="flex-container">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="margin-left: 1em; margin-right: 1em;"><div>3</div></div>
+      <div style="margin-left: 1em;"><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>@todo!! Can I use Flexbox Now?</h3>
+  </section>
+  <section>
+    <img src="assets/css-training/grid-compatibility.png" alt="CanIUse.com, Globally 72.4% fully support Grid, not counting mobile browsers it’s 85.5% (1/21/18)" />
+    <aside class="notes">
+      1/21/18<br>
+      CanIUse.com<br>
+      Globally 72.4% fully support Grid, <br>
+      not counting mobile browsers it’s 85.5%
     </aside>
   </section>
   <section>
-    <h4><code>flex-</code></h4>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
-  display: flex; /* All you need */
-  /* flex-direction: row; (Default) */
-  flex-wrap: wrap;
-}
-</code></pre>
-    <div class="flex-container" style="flex-wrap: wrap;">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <img src="assets/css-training/grid-compatibility-scs.png" alt="CMU School of Computer Science (my client) is at about 93% of visitors will get Grid layout" />
     <aside class="notes">
-      By default flex will be row and won't wrap
+      (1/7/2018)<br>
+      CMU’s School of Computer Science<br>
+      About 93% of visitors will get Grid layout
     </aside>
   </section>
   <section>
-    <h4><code>flex-</code></h4>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
-  display: flex; /* All you need */
-  /* flex-direction: row; (Default) */
-  flex-wrap: wrap;
-}
-</code></pre>
-    <div class="flex-container" style="flex-wrap: wrap;">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <img src="assets/css-training/grid-compatibility-lullabot.png" alt="Lullabot.com, About 97% of visitors will get Grid layout (1/7/2018)" />
     <aside class="notes">
-      By default flex will be row and won't wrap
-    </aside>
-  </section>
-  <section>
-    <h4><code>flex-</code></h4>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
-  display: flex; /* All you need */
-  /* flex-direction: row; (Default) */
-  flex-wrap: wrap;
-}
-</code></pre>
-    <div class="flex-container" style="flex-wrap: wrap;">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <aside class="notes">
-      By default flex will be row and won't wrap
+      (1/7/2018)<br>
+      CMU’s School of Computer Science<br>
+      About 93% of visitors will get Grid layout
     </aside>
   </section>
 </section>
 
+<section>
+  <section style="text-align: center">
+    <h3><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
+      Be back at <input type="text" size="5" value="..." style="text-align: left" />
+    </h3>
+    <p>@todo, A Flexbox Exercise</p>
+    <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSSTricks.com open in another browser may come in handy!</p>
+  </section>
+</section>
 
+
+<section>
+  <section>
+    <h3>Block Layout &amp; Box Model</h3>
+    <p>Last stop on the layout train!</p>
+  </section>
+  <section>
+    <h4>Block Layout</h4>
+    <p>The most basic and oldest layout method on the web.</p>
+    <ul>
+      <li>A <code>&lt;div></code> has one default style, <code>display: block</code></li>
+      <li>Block elements gets stacked on top of each other</li>
+      <li>They default to 100% width</li>
+      <li>Works well with all the box model properties:
+        <ul>
+          <li><code style="margin-right: 0">width</code>, <code>height</code></li>
+          <li><code style="margin-right: 0">margin</code>, <code>padding</code></li>
+          <li><code>border</code></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>When should I use block layout?</h4>
+    <ul>
+      <li>Nothing cooler makes sense</li>
+      <li>You want to use box model properties</li>
+      <li>The element shouldn't be inline with text<br>(unlike <code>&lt;strong></code>, <code>&lt;em></code>, <code style="margin-right: 0;">&lt;span></code>)</li>
+    </ul>
+  </section>
+
+</section>
 
 <!--
   FIN, the CREDITS!
@@ -1603,6 +1863,7 @@ grid-gap: 1rem;
       <li><a href="https://css-tricks.com/getting-started-css-grid/">Robin Rendle, Getting Started with CSS Grid - https://css-tricks.com/getting-started-css-grid/</a><br></li>
       <li><a href="https://gridbyexample.com/">Rachel Andrews, Grid By Example - https://gridbyexample.com/</a><br></li>
       <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">Chris House, A Complete Guide to Grid - https://css-tricks.com/snippets/css/complete-guide-grid/</a><br></li>
+      <li><a href="https://css-tricks.com/collection-interesting-facts-css-grid-layout/">Manuel Matuzovic, A Collection of Interesting Facts about CSS Grid Layout - https://css-tricks.com/collection-interesting-facts-css-grid-layout/</a></li>
       <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Chris Coyier, A Complete Guide to Flexbox - https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a><br></li>
       <li><a href="http://labs.jensimmons.com/">Jen Simmons, Multiple examples - http://labs.jensimmons.com/</a><br></li>
       <li><a href="https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/">Sara Soueidan, Auto-Sizing Columns in CSS Grid: `auto-fill` vs `auto-fit` - https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/</a><br>  </li>
