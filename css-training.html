@@ -1821,7 +1821,6 @@ grid-gap: 1rem;
 <section>
   <section>
     <h3>Block Layout &amp; Box Model</h3>
-    <p>Last stop on the layout train!</p>
   </section>
   <section>
     <h4>Block Layout</h4>
@@ -1854,6 +1853,17 @@ grid-gap: 1rem;
 <section>
   <section>
     <h3>Box Model</h3>
+  </section>
+  <section style="text-align: center;">
+    <div style="display: flex; justify-content: center; padding: 0 0 75px;">
+      <div style="margin: 10px 20px; border: 2px solid transparent; padding: 5px 10px; font-size: 16px; width: 25%; transform: scale(3.25);">This is content</div>
+    </div>
+    <img src="assets/css-training/box-model-graphic.png" width="50%" alt="Depiction of box-model from chrome" />
+    <aside class="notes">
+      Inspect<br>
+      This is fine, kind of makes sense<br>
+      but let me explain it a different way
+    </aside>
   </section>
   <section style="text-align: center;" data-transition="none">
     <img src="assets/css-training/box-model cats.png" alt="Cat" width="60%" />
@@ -1930,6 +1940,78 @@ grid-gap: 1rem;
     <aside class="notes">
       What if we have two grumpy cats<br>
       Margin collapse demonstration
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Box Sizing</h3>
+    <div>How the browser measures width and height.</div>
+  </section>
+  <section>
+    <h4 style="font-size: 1.4em"><code>box-sizing: content-box;</code></h4>
+    <img src="assets/css-training/box-sizing-content-box.png" alt="" width="40%" style="display: block; margin: 0 auto;" />
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.element {           /* Space taken up in layout */
+  width: 100px;      /* 100px */
+  padding: 5px 10px; /* 100px + 20px */
+  border-width: 2px; /* 120px + 2px */
+}                    /* Total 122px */</code></pre>
+  </section>
+  <section>
+    <h4 style="font-size: 1.4em"><code>box-sizing: border-box;</code></h4>
+    <img src="assets/css-training/box-sizing-border-box.png" alt="" width="40%" style="display: block; margin: 0 auto;" />
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.element {           /* Space taken up in layout */
+  width: 100px;      /* 100px */
+  padding: 5px 10px; /* 100px */
+  border-width: 2px; /* 100px */
+}                    /* Total 100px */</code></pre>
+  </section>
+  <section>
+    <h4 style="font-size: 1.3em;">Where it goes wrong</h4>
+    <div class="column-wrapper">
+      <div>
+    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.half-column {
+  float: left;
+  width: 50%;
+  border: 2px solid green;
+  padding: 0 15px;
+}</code></pre>
+      <div style="width: 100%; background: rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="float: left; box-sizing: content-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 1</div>
+        <div style="float: left; box-sizing: content-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 2</div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h4 style="font-size: 1.3em;">Where it goes wrong</h4>
+    <div class="column-wrapper">
+      <div>
+    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.half-column {
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+  border: 2px solid green;
+  padding: 0 15px;
+}</code></pre>
+      <div style="width: 100%; background: rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="float: left; box-sizing: border-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 1</div>
+        <div style="float: left; box-sizing: border-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 2</div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h4>Editorial:</h4>
+    <p>BORDER BOX ALL THE THINGS!</p>
+    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">* {
+  box-sizing: border-box;
+}</code></pre>
+    <aside class="notes">
+      On every project I'm controlling the CSS, this is at the top of the CSS<br>
+      No disadvantage<br>
+      Very common practice
     </aside>
   </section>
 </section>
