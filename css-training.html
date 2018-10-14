@@ -2015,6 +2015,249 @@ grid-gap: 1rem;
     </aside>
   </section>
 </section>
+
+<section>
+  <style>
+    .position-example-wrapper {
+      position: relative;
+      z-index: 0;
+      border: 0.375rem solid #d4d4d4;
+      padding: 0.5em;
+      color: #999;
+    }
+
+    .position-example-wrapper:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .position-example-wrapper > .position-item {
+      box-sizing: border-box;
+      z-index: 1;
+      width: 4em;
+      height: 4em;
+      margin: 0 0.5em 0 0;
+      float: left;
+      border: 0.375rem solid rgba(35, 165, 216, 1);
+      background: rgba(35, 165, 216, 0.3);
+    }
+
+    .position-example-wrapper > .position-item--base {
+      position: absolute;
+      z-index: 0;
+      top: 0.5em;
+      left: 0.5em;
+      opacity: 0.3;
+    }
+  </style>
+  <section>
+    <h3><code>position</code></h3>
+    <p>Very useful, and often misused.</p>
+  </section>
+  <section>
+    <h4>Position's Associated Styles</h4>
+    <h5><code>top, bottom, left, right</code></h5>
+    <p>Change the location of "positioned" elements</p>
+    <h5 style="margin-top: 1.25em"><code>z-index</code></h5>
+    <p>Determines vertical layering of "positioned" elements</p>
+  </section>
+  <section>
+    <h4><code>position: static;</code></h4>
+    <p style="font-size: 0.9em">Position's default value, these elements are not "positioned" so associated styles are ignored.</p>
+    <div class="position-example-wrapper">
+      <div class="position-item position-item--base"></div>
+      <div class="position-item" style="position: static; top: 25px; left: 50px;"></div>
+      This is some example text
+    </div>
+    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.element {
+  position: static;
+  top: 100px; /* Ignored, because position: static */
+  left: 50px; /* Static isn't considered "positioned" */
+}</code></pre>
+  </section>
+  <section>
+    <h4><code>position: relative;</code></h4>
+    <p style="font-size: 0.9em">Update the element from where it would rendered.</p>
+    <div class="column-wrapper">
+      <div class="position-example-wrapper" style="width: calc(100% - 12em);">
+        <div class="position-item position-item--base"></div>
+        <div class="position-item" style="position: relative; top: 25px; left: 50px;"></div>
+        This is some example text
+      </div>
+      <pre class="language-css" style="font-size: 0.7em; width: 12em;"><code class="language-css">.element {
+  position: relative;
+  top: 100px;
+  left: 50px;
+}</code></pre>
+    </div>
+    <aside class="notes">
+      Also the preferred style to get z-index working
+    </aside>
+  </section>
+  <section>
+    <h4><code>position: absolute;</code></h4>
+    <p style="font-size: 0.9em">Update the element based on positioning of a "positioned" parent element</p>
+    <div class="column-wrapper">
+      <div class="position-example-wrapper">
+        <div class="position-item position-item--base"></div>
+        <div class="position-item" style="position: absolute; top: 0; left: 0;"></div>
+        This is some example text
+      </div>
+      <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.element {
+  position: absolute;
+  top: 0;
+  left: 0;
+}</code></pre>
+</div>
+    <aside class="notes">
+
+    </aside>
+  </section>
+  <section>
+    <h4><code>position: fixed;</code></h4>
+    <p style="font-size: 0.9em">Positions element to the window and element doesn't move when page scrolls.</p>
+    <div class="column-wrapper">
+      <div>
+        <iframe src="assets/css-training/position-fixed.html" class="position-example-wrapper"
+          style="
+            padding: 0;
+            width: 100%;
+            height: 35rem;
+            box-sizing: border-box;
+            max-width: 99999em;
+            max-height: 99999em;
+          ">
+        </iframe>
+      </div>
+      <pre class="language-css" style="font-size: 0.7em; width: 12em;"><code class="language-css">.element {
+  position: fixed;
+  top: 100px;
+  left: 50px;
+}</code></pre>
+    </div>
+  </section>
+  <section>
+    <h4><code>position: sticky;</code></h4>
+    <p style="font-size: 0.9em">Element will stick to defined position when page scrolls<br>(<a href="https://caniuse.com/#search=sticky">Not ready for prime time yet</a>)</p>
+    <div class="column-wrapper">
+      <div>
+        <iframe src="assets/css-training/position-sticky.html" class="position-example-wrapper"
+          style="
+            padding: 0;
+            width: 100%;
+            height: 35rem;
+            box-sizing: border-box;
+            max-width: 99999em;
+            max-height: 99999em;
+          ">
+        </iframe>
+      </div>
+      <pre class="language-css" style="font-size: 0.7em; width: 12em;"><code class="language-css">.element {
+  position: sticky;
+  top: 100px;
+  left: 50px;
+}</code></pre>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h4>How & When to Use <code>position</code></h4>
+  </section>
+  <section>
+    <h5>Scoping <code>position: absolute</code></h5>
+    <div class="column-wrapper">
+      <div class="position-example-wrapper" style="width: calc(100% - 12em)">
+        <div class="position-item position-item--base" style="top: 2.325em; left: 2.325em;"></div>
+        <div class="position-example-wrapper" style="/* position: static */">
+          <div class="position-example-wrapper" style="/* position: static; */">
+            <div class="position-example-wrapper" style="/* position: static; */">
+              <div class="position-item" style="position: absolute; top: 0; left: 0;"></div>
+              This is some example text
+            </div>
+          </div>
+        </div>
+      </div>
+      <pre class="language-css" style="font-size: 0.7em; width: 12em;"><code class="language-css">.element {
+  position: absolute;
+  top: 0;
+  left: 0;
+}</code></pre>
+    </div>
+  </section>
+  <section style="color: #999">
+    <h6>Overlayed caption</h6>
+    <figure
+      style="
+        position: relative;
+        width: 25%;
+        margin: 0 1em 0 0;
+        padding: 0;
+        border: 5px solid #555;
+        float: left;
+      "
+    >
+      <img src="assets/css-training/tiny-phone-text.jpg" alt="Tiny text on a phone"
+        style="
+          display: block;
+          margin: 0;
+          padding: 0;
+          max-width: 100%;
+        "
+      />
+      <figcaption
+        style="
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          box-sizing: border-box;
+          width: 100%;
+          margin: 0;
+          font-size: 0.5em;
+          background: rgba(0, 0, 0, 0.5);
+          color: #fff;
+          padding: 0.5em 0.75em;
+        "
+      >
+        This is my cool caption
+      </figcaption>
+    </figure>
+    Lorem ipsum dolor sit amet, floating that ramble jab all zaszzy like.
+  </section>
+  <section>
+    <h4>Scoping <code>z-index</code></h4>
+    <div style="background: #fafafa">
+      <div class="position-example-wrapper"
+        style="
+          position: relative;
+          z-index: auto;
+        ">
+        <div class="position-item"
+          style="
+            border-width: 1em;
+            position: relative;
+            background: rgba(0, 0, 0, 0.3);
+            border-color: #000;
+          "
+        ></div>
+        <div class="position-item"
+          style="
+            position: relative;
+            top: 2em;
+            left: -2.5em;
+            /* z-index: -1; */
+            border-width: 1em;
+          "
+        ></div>
+      </div>
+      <div class="position-example-wrapper" style="z-index: 1; margin-top: 30px; background: #fff; opacity: 0.5; border-color: #333;"></div>
+    </div>
+
+  </section>
+</section>
+
 <!--
   FIN, the CREDITS!
 -->
