@@ -53,6 +53,11 @@ $heading4Size: 1.0em;
   }
 }
 
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 
 // Theme template ------------------------------
 @import "../template/wes-theme";

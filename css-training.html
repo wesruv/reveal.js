@@ -163,6 +163,12 @@
 </section>
 
 <section>
+  <p>Prologue</p>
+  <h2>Debugging Tool Basics</h2>
+  <a href="assets/css-training/sample-page.html" target="css-training">Sample page</a>
+</section>
+
+<section>
   <section>
     <p>Part 1</p>
     <h2 id="units-lengths">Units and Lengths</h2>
@@ -1828,7 +1834,7 @@ grid-gap: 1rem;
     <ul>
       <li>A <code>&lt;div></code> has one default style, <code>display: block</code></li>
       <li>Block elements gets stacked on top of each other</li>
-      <li>They default to 100% width</li>
+      <li>Block elements default to 100% width</li>
       <li>Works well with all the box model properties:
         <ul>
           <li><code style="margin-right: 0">width</code>, <code>height</code></li>
@@ -2254,9 +2260,518 @@ grid-gap: 1rem;
       </div>
       <div class="position-example-wrapper" style="z-index: 1; margin-top: 30px; background: #fff; opacity: 0.5; border-color: #333;"></div>
     </div>
-
+  </section>
+  <section>
+    @todo position exercise(s)?
   </section>
 </section>
+
+<section>
+  <section>
+    <h3>How do I know which layout method to use?</h3>
+    <p>Some guidelines</p>
+  </section>
+  <section style="text-align: center">
+    <h4 style="margin-bottom: -0.75em;">Start Outside In</h4>
+    <img src="assets/css-training/webpage.png" alt="" width="75%" />
+  </section>
+  <section>
+    <h4>Flow Friendly First</h4>
+    <p>Think in this order as a general rule:</p>
+    <ul>
+      <li>Grid</li>
+      <li>Flex box</li>
+      <li>Box model</li>
+      <li>Position</li>
+    </ul>
+  </section>
+  <section style="text-align: center">
+    <img src="assets/css-training/webpage.png" alt="" width="75%" />
+  </section>
+  <section>
+    <h4>Remember what layout methods are best at</h4>
+    <ul>
+      <li>Grid - 2d layout</li>
+      <li>Flex box - 1d layout</li>
+      <li>Box model - Sets up simple box-model properties</li>
+      <li>Position - Great special cases, can be risky</li>
+    </ul>
+  </section>
+  <section>
+    <h4>If it's being a total fussy headache...</h4>
+    <ul>
+      <li>Are we using the best tool?</li>
+      <li>To the Google!</li>
+      <li>Is it better to rework the design?</li>
+    </ul>
+  </section>
+</section>
+
+<section style="text-align: center;">
+  <h2><input type="text" size="5" value="30 min." style="text-align: right" /> Break!<br>
+    Be back at <input type="text" size="5" value="..." style="text-align: left" />
+  </h2>
+  <p>Up Next: Transforms, Transitions & Animations</p>
+</section>
+
+<section>
+  <style>
+    .transform-example-wrapper {
+      position: relative;
+      border: 0.375rem solid #d4d4d4;
+      padding: 0.5em;
+      color: #999;
+    }
+
+    .transform-example-wrapper:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .transform-example-wrapper > .transform-item {
+      position: relative;
+      box-sizing: border-box;
+      z-index: 1;
+      width: 4em;
+      height: 4em;
+      margin: 0 0.5em 0 0;
+      float: left;
+      border: 0.375rem solid rgba(35, 165, 216, 1);
+      background: rgba(35, 165, 216, 0.3);
+    }
+
+    .transform-example-wrapper > .transform-item--base {
+      position: absolute;
+      z-index: 0;
+      top: 0.5em;
+      left: 0.5em;
+      opacity: 0.3;
+    }
+  </style>
+  <section>
+    <h2><code>transform</code></h2>
+    <ul>
+      <li>Manipulates elements visually</li>
+      <li>Can move, scale, rotate, and more</li>
+      <li>Anti-aliases content</li>
+      <li>Messes with document flow, but doesn't break it</li>
+      <li>Smoothest and most performant way to animate elements</li>
+      <li>Can define multiple transforms</li>
+    </ul>
+  </section>
+  <section>
+    <h3 style="font-size: 1.2em"><code>transform: translate(x, y);</code></h3>
+      <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.element {
+  transform: translate(50px, 25px);
+}</code></pre>
+      <div class="transform-example-wrapper">
+        <div class="transform-item transform-item--base"></div>
+        <div class="transform-item" style="transform: translate(50px, 25px);"></div>
+        This is some example text
+      </div>
+  </section>
+  <section>
+    <h3 style="font-size: 1.2em"><code>transform: translate(x);</code></h3>
+      <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.element {
+  transform: translate(50px);
+}</code></pre>
+      <div class="transform-example-wrapper">
+        <div class="transform-item transform-item--base"></div>
+        <div class="transform-item" style="transform: translate(50px);"></div>
+        This is some example text
+      </div>
+  </section>
+  <section>
+    <h3 style="font-size: 1.2em"><code>transform: scale(x);</code></h3>
+      <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.element {
+  transform: scale(2);
+}</code></pre>
+      <div class="transform-example-wrapper">
+        <div class="transform-item transform-item--base"></div>
+        <div class="transform-item" style="transform: scale(2);"></div>
+        This is some example text
+      </div>
+  </section>
+  <section>
+    <h3 style="font-size: 1.2em"><code>transform: scale(x, y);</code></h3>
+      <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.element {
+  transform: scale(2, 0.5);
+}</code></pre>
+      <div class="transform-example-wrapper">
+        <div class="transform-item transform-item--base"></div>
+        <div class="transform-item" style="transform: scale(2, 0.5);"></div>
+        This is some example text
+      </div>
+  </section>
+  <section>
+    <h3 style="font-size: 1.2em"><code>transform: rotate(deg);</code></h3>
+      <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.element {
+  transform: rotate(45deg);
+}</code></pre>
+      <div class="transform-example-wrapper">
+        <div class="transform-item transform-item--base"></div>
+        <div class="transform-item" style="transform: rotate(45deg);"></div>
+        This is some example text
+      </div>
+  </section>
+  <section>
+    <h3 style="font-size: 1.2em"><code>transform: skew(deg, deg);</code></h3>
+      <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.element {
+  transform: skew(45deg, 15deg);
+}</code></pre>
+      <div class="transform-example-wrapper">
+        <div class="transform-item transform-item--base"></div>
+        <div class="transform-item" style="transform: skew(45deg, 15deg);"></div>
+        This is some example text
+      </div>
+  </section>
+  <section>
+    <h3 style="font-size: 1.2em"><code>transform-origin: x, y;</code></h3>
+      <pre class="language-css" style="font-size: 0.7em;"><code class="language-css">.blue-element,
+.red-element {
+  transform: rotate(45deg);
+  /* transform-origin: center center; Default */
+}
+.red-element {
+  transform-origin: left top;
+}</code></pre>
+      <div class="transform-example-wrapper">
+        <div class="transform-item transform-item--base"></div>
+        <div class="transform-item" style="transform: rotate(45deg);"></div>
+        <div class="transform-item" style="transform: rotate(45deg); transform-origin: left top; position: absolute; top: 0.5em; left: 0.5em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
+        This is some example text
+      </div>
+  </section>
+  <section style="font-size: 0.7em">
+    <div class="transform-example-wrapper" style="margin: 0 3em 0.5em;">
+      <div class="transform-item transform-item--base"></div>
+      <div class="transform-item" style="transform: scale(0.75);"></div>
+      <div class="transform-item" style="transform: scale(0.75); transform-origin: left top; position: absolute; top: 0.5em; left: 0.5em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
+      Scale set at 0.75
+    </div>
+    <div class="transform-example-wrapper" style="margin: 0 3em 0.5em;">
+      <div class="transform-item transform-item--base"></div>
+      <div class="transform-item" style="transform: skew(45deg);"></div>
+      <div class="transform-item" style="transform: skew(45deg); transform-origin: left top; position: absolute; top: 0.5em; left: 0.5em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
+      Skew at 45deg
+    </div>
+    <div class="transform-example-wrapper" style="margin: 0 3em 0.5em;">
+      <div class="transform-item transform-item--base"></div>
+      <div class="transform-item" style="transform: translate(100px);"></div>
+      <div class="transform-item" style="transform: translate(100px); transform-origin: left top; position: absolute; top: 0.5em; left: 0.5em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
+      Translate at 100px
+    </div>
+  </section>
+  <section>
+    <h3>Multiple transforms</h3>
+    <p>Order matters!</p>
+  </section>
+  <section>
+      <pre class="language-css" style="font-size: 0.7em;"><code class="language-css">.blue-element {
+  transform: translate(200px) rotate(80deg);
+}
+.red-element {
+  transform: rotate(80deg) translate(200px);
+}</code></pre>
+    <div class="transform-example-wrapper" style="margin: 0 3em 0.5em;">
+      <div class="transform-item transform-item--base"></div>
+      <div class="transform-item" style="transform: translate(200px) rotate(80deg);"></div>
+      <div class="transform-item" style="transform:  rotate(80deg) translate(200px); position: absolute; top: 0.5em; left: 0.5em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <h3>Transform Pro-Tips</h3>
+  <ul>
+    <li>Elements with small detail might appear 'fuzzy' after being transformed</li>
+    <li>Using 3D transform will use graphics hardware acceleration, which can waste a phone's battery faster</li>
+    <li>3D transforms can cause laggy or slow performance on phones or less powerful devices</li>
+  </ul>
+</section>
+
+<section>
+  <section>
+    <h2><code>transition</code></h2>
+    <ul>
+      <li>Used to transition from current state to new state</li>
+      <li>Can be used on any <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank">'animeatable' property</a></li>
+      <li>Can transition multiple properties</li>
+    </ul>
+  </section>
+  <section>
+      <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.element {
+  transition: transform 1s;
+}
+.element:hover {
+  transform: translate(50px, 25px);
+}</code></pre>
+      <div class="transform-example-wrapper">
+        <style>.transition-3:hover { transform: translate(50px, 25px); }</style>
+        <div class="transform-item transform-item--base"></div>
+        <div class="transform-item transition-1" style="transition: transform 1s;"></div>
+        This is some example text
+      </div>
+  </section>
+
+  <section>
+    <style>
+      .transition-3:hover {
+        transform: translate(50px, 25px);
+        background: rgba(200, 0, 0, 0.6);
+      }
+    </style>
+    <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.element {
+  transition: transform 1s, background 3s;
+}
+.element:hover {
+  transform: translate(50px, 25px);
+  background: rgba(200, 0, 0, 0.6);
+}</code></pre>
+    <div class="transform-example-wrapper">
+      <style>.transition-1:hover { transform: translate(50px, 25px); }</style>
+      <div class="transform-item transform-item--base"></div>
+      <div class="transform-item transition-3" style="transition: transform 1s, background 3s;"></div>
+      This is some example text
+    </div>
+  </section>
+
+  <section style="text-align: center">
+    <h3>Timing Functions</h3>
+    <img src="assets/css-training/animation-timing.png" alt="linear, ease, ease-in, ease-out, ease-in-out" />
+    <small style="opacity: 0.5">Image from: Jotform - <a href="https://stories.jotform.com/how-to-use-css-animations-like-a-pro-dfacc1e97338">How to Use CSS Animations Like a Pro</a></small>
+  </section>
+  <section>
+      <pre class="language-css" style="font-size: 0.7em;"><code class="language-css">.blue-element   { transition: transform 1s linear; }
+.red-element    { transition: transform 1s ease-in; }
+.yellow-element { transition: transform 1s ease-out; }</code></pre>
+      <div class="transform-example-wrapper" style="font-size: 0.8em">
+        <style>.transform-example-wrapper:hover .transition-2 { transform: translate(20em); }</style>
+        <div class="transform-item transition-2" style="transition: transform 1s linear; float: none; margin-bottom: 0.25em;"></div>
+        <div class="transform-item transition-2" style="transition: transform 1s ease-in; float: none; margin-bottom: 0.25em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
+        <div class="transform-item transition-2" style="transition: transform 1s ease-out; float: none; margin-bottom: 0.25em; border-color: rgba(200, 150, 0, 0.9); background: rgba(200, 150, 0, 0.3);"></div>
+      </div>
+  </section>
+  <section>
+      <pre class="language-css" style="font-size: 0.7em;"><code class="language-css">.blue-element   { transition-delay: 0; }
+.red-element    { transition-delay: 1s; }
+.yellow-element { transition-delay: 2s; }</code></pre>
+      <div class="transform-example-wrapper" style="font-size: 0.8em">
+        <style>.transform-example-wrapper:hover .transition-2 { transform: translate(20em); }</style>
+        <div class="transform-item transition-2" style="transition: transform 1s linear; transition-delay: 0s; float: none; margin-bottom: 0.25em;"></div>
+        <div class="transform-item transition-2" style="transition: transform 1s linear; transition-delay: 1s; float: none; margin-bottom: 0.25em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
+        <div class="transform-item transition-2" style="transition: transform 1s linear; transition-delay: 2s; float: none; margin-bottom: 0.25em; border-color: rgba(200, 150, 0, 0.9); background: rgba(200, 150, 0, 0.3);"></div>
+      </div>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2><code>animation</code></h2>
+    <ul>
+      <li>Animates between multiple configurations</li>
+      <li>Can loop a number of times, or infinitely</li>
+      <li>Doesn't require user interaction, but can be based on interactions</li>
+      <li>Can animate any <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank">'animeatable' property</a></li>
+    </ul>
+  </section>
+  <section>
+    <h3>Definining Keyframes</h3>
+      <pre class="language-css" style="font-size: 0.7em;"><code class="language-css">@keyframes slide-in {
+  0% {
+    transform: translate(-15em);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}</code></pre>
+    <style>
+      @keyframes slide-in {
+        0% {
+          transform: translate(-15em);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </section>
+  <section>
+    <h3>Apply the animation</h3>
+    <pre class="language-css" style="font-size: 0.7em;"><code class="language-css">@keyframes slide-in { ... }
+
+.element {
+  animation-name: slide-in;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}</code></pre>
+    <style>.stope-animate-on-hover:hover { animation-play-state: paused; }</style>
+    <div class="transform-example-wrapper" style="font-size: 0.8em">
+      <div class="transform-item stope-animate-on-hover" style="margin: 0 auto; float: none; animation-name: slide-in; animation-duration: 2s; animation-iteration-count: infinite;"></div>
+    </div>
+  </section>
+  <section>
+      <pre class="language-css" style="font-size: 0.6em;"><code class="language-css">@keyframes slide-all-over {
+  0% {
+    transform: translate(-15em);
+    opacity: 0;
+  }
+  33% {
+    transform: translate(-10em, -5em);
+  }
+  66% {
+    transform: translate(-5em, 5em);
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}</code></pre>
+    <style>
+      @keyframes slide-all-over {
+        0% {
+          transform: translate(-15em);
+          opacity: 0;
+        }
+        33% {
+          transform: translate(-10em, -5em);
+        }
+        66% {
+          transform: translate(-5em, 5em);
+        }
+        100% {
+          transform: translate(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </section>
+  <section>
+    <div class="transform-example-wrapper" style="font-size: 0.8em">
+      <div class="transform-item stope-animate-on-hover" style="margin: 0 auto; float: none; animation-name: slide-all-over; animation-duration: 2s; animation-iteration-count: infinite;"></div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Animation Pro-Tips</h2>
+  </section>
+  <section>
+    <h3>Transforms are the bomb</h3>
+    <p>If the desired animation can be done with transform, it should be.</p>
+    <ul>
+      <li>Performs better</li>
+      <li>Won't effect layout</li>
+      <li>Animation will be smoother because of anti-aliasing</li>
+  </section>
+  <section>
+    <p>Moving 2em right, zoomed in at 10x.<br>Blue is using transform, Red is using margin-left.</p>
+    <style>
+      .transform-example-wrapper:hover .transition-4 { transform: translate(2em); }
+      .transform-example-wrapper:hover .transition-5 { margin-left: 2em; }
+    </style>
+    <div class="transform-example-wrapper" style="font-size: 0.1em; transform: scale(10); width: 5%; transform-origin: top left;">
+      <div class="transform-item transition-4" style="transition: transform 1s linear; float: none; margin-bottom: 0.25em;"></div>
+      <div class="transform-item transition-5" style="transition: margin 1s linear; float: none; margin-bottom: 0.25em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
+    </div>
+    <div style="padding-bottom: 10em;"></div>
+  </section>
+  <section>
+    <h3>Don't move something that animates on hover</h3>
+    <div class="transform-example-wrapper">
+      <style>.transition-6:hover { transform: translate(250px, 25px);} .transition-6:hover:after {content: 'looool!'}</style>
+      <div class="transform-item transition-6" style="transition: transform 1s;"></div>
+      This is some example text
+    </div>
+  </section>
+  <section>
+    <h3>Animation Accessibility concerns</h3>
+    <ul>
+      <li><a href="https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity">Large movement effects users with motion triggered dizziness and nausea</a></li>
+      <li><a href="https://www.washington.edu/accessibility/checklist/flashing-content/">Flashing or flickering can effect users who have seizures</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2><code>cubic-bezier()</code></h2>
+    <p>Make your own animation timing!</p>
+    <a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="_blank">Now with web site helper!</a>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2><code>:before</code> and <code>:after</code></h2>
+    <p style="margin-bottom: 0.5em; font-weight: bold;">(aka pseudo-content)</p>
+    <ul>
+      <li>Adds new elements to the inside of the selected element, essentially a&nbsp;free&nbsp;<code>&lt;span></code></li>
+      <li>2 of these can be placed on any element</li>
+      <li><em>Can</em> insert text into the page, <strong>but</strong> it is very spotty in accessibility tools</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Creating Pseudo-Content</h3>
+    <p>Bare minimum is a selector, before or after, and the content attribute (which can be an empty string).</p>
+    <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.element:before {
+  content: '';
+}</code></pre>
+    <p>This creates an empty invisible element.</p>
+  </section>
+  <section>
+    <h3>Clearfix uses an empty invisible after element</h3>
+    <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}</code></pre>
+  </section>
+  <section>
+    <h3>Can add <em>supplemental</em> content</h3>
+    <p>So long as it isn't necessary for the content to be understood.</p>
+    <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.email-address:before {
+  content: 'Contact me at ';
+}</code></pre>
+    <style>.email-address:before { content: 'Contact me at ';}</style>
+    <a href="mailto:someone@something.com" class="email-address">someone@something.com</a>
+  </section>
+  <section>
+    <h3>Can expose html attributes</h3>
+    <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">[data-label]:before {
+  content: attr(data-label);
+  display: inline-block;
+  margin-right: 0.5em;
+  padding: 0.25em 0.5em;
+  background: rgb(225, 200, 0);
+  color: rgb(100, 50, 0);
+}</code></pre>
+    <style>[data-label]:before {
+  content: attr(data-label);
+  display: inline-block;
+  margin-right: 0.5em;
+  padding: 0.25em 0.5em;
+  background: rgb(225, 200, 0);
+  color: rgb(100, 50, 0);
+}</style>
+    <div data-label="Featured">Cool thing!</div>
+  </section>
+  <section>
+    <h3>Can show URLs of links in the print stylesheet</h3>
+    <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">@media print {
+  main a[href]:after {
+    content: " (" attr(href) ") ";
+  }
+}</code></pre>
+  <style>.show-href:after { content: " (" attr(href) ") ";}</style>
+  <a href="https://css-tricks.com/css-content/" class="show-href">I stole this idea from CSS Tricks</a>
+  </section>
+</section>
+
 
 <!--
   FIN, the CREDITS!
