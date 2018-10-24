@@ -1043,8 +1043,47 @@
     <h3>More CSS Grid</h3>
   </section>
   <section>
+    <h3>Grid Item Shorthand</h3>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.my-header {
+  grid-column: 1 / -1;
+}
+
+.my-content {
+  grid-column: 1 / span 2;
+}
+
+.my-sidebar {
+  grid-column: 1 / span 1;
+}</code></pre>
+  </section>
+  <section style="text-align: center;">
+    <div class="grid-example-wrapper grid-example-wrapper--25-50-25">
+      <div class="grid-example" style="
+        grid-template-columns: 25% 50% 25%;
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+        height: 8em;
+      ">
+        <div style="
+          grid-column: 1 / -1;
+          padding: 0.5em;
+          background: rgba(250, 50, 100, 0.5);
+        ">Header</div>
+        <div style="
+          grid-column: 1 / span 2;
+          padding: 0.5em;
+          background: rgba(100, 255, 0, 0.3);
+        ">Content</div>
+        <div style="
+          grid-column: 3 / span 1;
+          padding: 0.5em;
+          background: rgba(0, 50, 100, 0.3);
+        ">Sidebar</div>
+      </div>
+    </div>
+  </section>
+  <section>
     <h3>Named grid areas</h3>
-    <p>My favorite grid feature!</p>
+    <p>One of my favorite grid features!</p>
   </section>
   <section>
     <h4><code>grid-template-areas</code></h4>
@@ -1060,7 +1099,7 @@
   </section>
   <section>
     <h4><code>grid-area</code></h4>
-    <p>Name regions in your grid.</p>
+    <p>Set location of grid items to a grid region.</p>
     <pre class="language-css" style="font-size: 1em"><code class="language-css">
 .my-header  { grid-area: header; }
 .my-content { grid-area: content;}
@@ -1231,16 +1270,19 @@ grid-gap: 1rem;
   <section>
     <img src="assets/css-training/grid-compatibility.png" alt="CanIUse.com, Globally 72.4% fully support Grid, not counting mobile browsers it’s 85.5% (1/21/18)" />
     <aside class="notes">
-      1/21/18<br>
+      10/23/18<br>
       CanIUse.com<br>
-      Globally 72.4% fully support Grid, <br>
-      not counting mobile browsers it’s 85.5%
+      Globally 84.95% fully support grid<br>
+      1/21/18<br>
+      Globally 72.4% fully support Grid
     </aside>
   </section>
   <section>
     <img src="assets/css-training/grid-compatibility-scs.png" alt="CMU School of Computer Science (my client) is at about 93% of visitors will get Grid layout" />
     <aside class="notes">
-      (1/7/2018)<br>
+      10/23/18<br>
+      96%<br>
+      1/7/2018<br>
       CMU’s School of Computer Science<br>
       About 93% of visitors will get Grid layout
     </aside>
@@ -1248,8 +1290,9 @@ grid-gap: 1rem;
   <section>
     <img src="assets/css-training/grid-compatibility-lullabot.png" alt="Lullabot.com, About 97% of visitors will get Grid layout (1/7/2018)" />
     <aside class="notes">
+      10/23/18<br>
+      96.3%<br>
       (1/7/2018)<br>
-      CMU’s School of Computer Science<br>
       About 93% of visitors will get Grid layout
     </aside>
 
@@ -1257,10 +1300,28 @@ grid-gap: 1rem;
 </section>
 
 <section>
+  <section>
+    <h3 style="font-size: 1.2em"><code>@supports (...) {}</code> Grid's bestie!</h3>
+    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.grid-container { /* Fallback styles */ }
+      
+@supports (display: grid) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+      'header header'
+      'content content'
+      'sidebar footer';
+  }
+}</code></pre>
+  </section>
+</section>
+
+<section>
   <section style="text-align: center">
-    <h3><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
+    <h2><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
       Be back at <input type="text" size="5" value="..." style="text-align: left" />
-    </h3>
+    </h2>
     <p>@todo, A Grid Exercise</p>
   </section>
 </section>
@@ -1308,12 +1369,12 @@ grid-gap: 1rem;
     </div>
   </section>
   <section>
+    <h4>Flex Item</h4>
     <style>
       .flex-container--flex-items > div {
         border: 0.125em solid rgba(35, 165, 216, 0.8);
       }
     </style>
-    <h4>Flex Item</h4>
     <p>Direct child of flex container</p>
     <div class="flex-container flex-container--flex-items">
       <div></div>
@@ -1357,13 +1418,14 @@ grid-gap: 1rem;
         position: absolute;
         top: 50%;
         left: 50%;
+        display: block;
         min-width: 5em;
         min-height: auto;
         transform: translate(-50%, -50%) rotate(-90deg);
         background: transparent;
         font-weight: bold;
       ">
-        ← Cross <div style="text-align: right">Axis →</div>
+        ← Cross <div style="font-size: 1em; text-align: right">Axis →</div>
       </div>
     </div>
   </section>
@@ -1756,59 +1818,19 @@ grid-gap: 1rem;
       <div><div>5</div></div>
     </div>
   </section>
-  <section>
-    <h4>❓<code style="margin-left: 0;">margin</code> and flex items❓</h4>
-    <p><code>margin</code> does not collapse inside of a flex container</p>
-    <aside class="notes">
-      flex items wer designed to be magical with margin, but it's not well known.
-      <br><br>
-      SHALL NOT PASS!
-    </aside>
-
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 {
-  margin-left: 1em;
-  margin-right: 1em;
-}
-
-.flex-item-4 { margin-left: 1em; }
-</code></pre>
-    <div class="flex-container">
-      <div><div>1</div></div>
-      <div><div>2</div></div>
-      <div style="margin-left: 1em; margin-right: 1em;"><div>3</div></div>
-      <div style="margin-left: 1em;"><div>4</div></div>
-      <div><div>5</div></div>
-    </div>
-  </section>
 </section>
 
 <section>
   <section>
-    <h3>@todo!! Can I use Flexbox Now?</h3>
+    <h3>Can I use Flexbox Now?</h3>
   </section>
   <section>
-    <img src="assets/css-training/grid-compatibility.png" alt="CanIUse.com, Globally 72.4% fully support Grid, not counting mobile browsers it’s 85.5% (1/21/18)" />
+    <img src="assets/css-training/flex-compatibility.png" alt="CanIUse.com screenshot" />
     <aside class="notes">
+      10/23/2018<br>
+      92.44% can use flexbox if it's been prefixed
       1/21/18<br>
-      CanIUse.com<br>
-      Globally 72.4% fully support Grid, <br>
-      not counting mobile browsers it’s 85.5%
-    </aside>
-  </section>
-  <section>
-    <img src="assets/css-training/grid-compatibility-scs.png" alt="CMU School of Computer Science (my client) is at about 93% of visitors will get Grid layout" />
-    <aside class="notes">
-      (1/7/2018)<br>
-      CMU’s School of Computer Science<br>
-      About 93% of visitors will get Grid layout
-    </aside>
-  </section>
-  <section>
-    <img src="assets/css-training/grid-compatibility-lullabot.png" alt="Lullabot.com, About 97% of visitors will get Grid layout (1/7/2018)" />
-    <aside class="notes">
-      (1/7/2018)<br>
-      CMU’s School of Computer Science<br>
-      About 93% of visitors will get Grid layout
+      84.9%
     </aside>
   </section>
 </section>
@@ -1950,6 +1972,27 @@ grid-gap: 1rem;
   </section>
 </section>
 
+  <section>
+    <h4>❓<code style="margin-left: 0;">margin</code> and flex items❓</h4>
+    <p><code>margin</code> does not collapse inside of a flex container</p>
+
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.flex-item-4 { margin-left: 1em; }
+</code></pre>
+    <div class="flex-container">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="margin-left: 1em; margin-right: 1em;"><div>3</div></div>
+      <div style="margin-left: 1em;"><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+
+
 <section>
   <section>
     <h3>Box Sizing</h3>
@@ -2080,7 +2123,11 @@ grid-gap: 1rem;
   position: static;
   top: 100px; /* Ignored, because position: static */
   left: 50px; /* Static isn't considered "positioned" */
+  float: left;
 }</code></pre>
+    <aside class="notes">
+      Floated this item so document flow disruption is visible.
+    </aside>
   </section>
   <section>
     <h4><code>position: relative;</code></h4>
@@ -2095,9 +2142,11 @@ grid-gap: 1rem;
   position: relative;
   top: 100px;
   left: 50px;
+  float: left;
 }</code></pre>
     </div>
     <aside class="notes">
+      Document flow not disrupted <br>
       Also the preferred style to get z-index working
     </aside>
   </section>
@@ -2114,10 +2163,11 @@ grid-gap: 1rem;
   position: absolute;
   top: 0;
   left: 0;
+  float: left;
 }</code></pre>
 </div>
     <aside class="notes">
-
+      Document flow disrupted
     </aside>
   </section>
   <section>
@@ -2610,9 +2660,12 @@ grid-gap: 1rem;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }</code></pre>
-    <style>.stope-animate-on-hover:hover { animation-play-state: paused; }</style>
+    <style>
+      .stop-animate-on-hover:hover { animation-play-state: paused; }
+      [aria-hidden] [style*="animation-name"] { animation-play-state: paused; }
+    </style>
     <div class="transform-example-wrapper" style="font-size: 0.8em">
-      <div class="transform-item stope-animate-on-hover" style="margin: 0 auto; float: none; animation-name: slide-in; animation-duration: 2s; animation-iteration-count: infinite;"></div>
+      <div class="transform-item stop-animate-on-hover" style="margin: 0 auto; float: none; animation-name: slide-in; animation-duration: 2s; animation-iteration-count: infinite;"></div>
     </div>
   </section>
   <section>
@@ -2653,7 +2706,7 @@ grid-gap: 1rem;
   </section>
   <section>
     <div class="transform-example-wrapper" style="font-size: 0.8em">
-      <div class="transform-item stope-animate-on-hover" style="margin: 0 auto; float: none; animation-name: slide-all-over; animation-duration: 2s; animation-iteration-count: infinite;"></div>
+      <div class="transform-item stop-animate-on-hover" style="margin: 0 auto; float: none; animation-name: slide-all-over; animation-duration: 2s; animation-iteration-count: infinite;"></div>
     </div>
   </section>
 </section>
@@ -2671,14 +2724,14 @@ grid-gap: 1rem;
       <li>Animation will be smoother because of anti-aliasing</li>
   </section>
   <section>
-    <p>Moving 2em right, zoomed in at 10x.<br>Blue is using transform, Red is using margin-left.</p>
+    <p>Zoomed in at 10x.<br>Blue is using transform, Red is using margin-left.</p>
     <style>
-      .transform-example-wrapper:hover .transition-4 { transform: translate(2em); }
-      .transform-example-wrapper:hover .transition-5 { margin-left: 2em; }
+      .transform-example-wrapper:hover .transition-4 { transform: translate(4em); }
+      .transform-example-wrapper:hover .transition-5 { margin-left: 4em; }
     </style>
     <div class="transform-example-wrapper" style="font-size: 0.1em; transform: scale(10); width: 5%; transform-origin: top left;">
-      <div class="transform-item transition-4" style="transition: transform 1s linear; float: none; margin-bottom: 0.25em;"></div>
-      <div class="transform-item transition-5" style="transition: margin 1s linear; float: none; margin-bottom: 0.25em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
+      <div class="transform-item transition-4" style="transition: transform 3s linear; float: none; margin-bottom: 0.25em;"></div>
+      <div class="transform-item transition-5" style="transition: margin 3s linear; float: none; margin-bottom: 0.25em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
     </div>
     <div style="padding-bottom: 10em;"></div>
   </section>
@@ -2772,6 +2825,89 @@ grid-gap: 1rem;
   </section>
 </section>
 
+<section>
+  <section>
+    <h2>CSS Accessibility Concerns</h2>
+  </section>
+  <section>
+    <h3>Color contrast and Font-size</h3>
+    <div style="
+      padding: 0.75em 1em;
+      color: #aaa;
+    ">
+      This isn't very legible
+    </div>
+    <div style="
+      margin: 0 0 1em;
+      padding: 0.75em 1em;
+      color: #555;
+      background: #111;
+    ">
+      This isn't very legible
+    </div>
+    <p>There are a lot of tools, <a href="https://webaim.org/resources/contrastchecker/" target="_blank">Web AIM contrast checker</a> is an easy one.</p>
+  </section>
+  <section>
+    <h3 style="line-height: 1.8">
+      Add <code>:focus</code> selector when adding <code>:hover</code> selector
+    </h3>
+    <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.button:hover,
+.button:focus {
+  background: #121399;
+}</code></pre>
+  </section>
+  <section>
+    <h3>Content hiding options!</h3>
+    <ul style="font-size: 1em; line-height: 1.8;">
+      <li><strong>Hide from everyone!</strong><br>
+        <code>display: none;</code>
+        <code>visibility: hidden;</code></li>
+      <li><strong>Hide from sighted users</strong><br>
+        CSS clipping, like <code>.element-invisible</code> <code>.sr-only</code>
+        <code>text-indent: -9999em;</code></li>
+    </ul>
+  </section>
+  <section>
+    <img src="assets/css-training/andre-n-i-devices.jpg" alt="Andre the Giant's giant meaty man mitts were 10 inches from palm to finger tips, average male hand is 7 inches. Andrew could use an ipad as an iphone pretty comfortablly."  />
+  </section>
+  <section>
+    <h3>Make hit areas 45x45 for touch</h3><p>(and better mousing!)</p>
+  </section>
+</section>
+
+<section>
+  <h2>Let's talk debugging!</h2>
+</section>
+
+<section>
+  <section>
+    <h2>Tips on Composing CSS</h2>
+  </section>
+
+  <section>
+    <h3>Starting from scratch</h3>
+    <ul>
+      <li>Use normalize or reset or similar</li>
+      <li>Decide on a class naming convention</li>
+      <li>Think about explicit vs utility classes</li>
+      <li>Use auto-prefixer (in a build step, or in your editor of choice)</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Working inside of a framework</h3>
+    <ul>
+      <li>Consider using a prefix for custom classes especially if the framework does not (e.g. lc- for Lullabot.com) you know where it came from</li>
+      <li>Don’t write selectors that use framework utility classes unless you’re extending them</li>
+      <li>Have guidelines for what framework is used for, and what custom CSS should cover
+        <ul>
+          <li>Using just the grid? Grid + some components?</li>
+          <li>Prefer or avoid using framework components?</li>
+        </ul>
+      </li>
+      <li>Use auto-prefixer for custom CSS (in a build step, or in your editor of choice)</li>
+    </ul>
+  </section>
+</section>
 
 <!--
   FIN, the CREDITS!
