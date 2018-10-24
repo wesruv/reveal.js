@@ -1303,7 +1303,7 @@ grid-gap: 1rem;
   <section>
     <h3 style="font-size: 1.2em"><code>@supports (...) {}</code> Grid's bestie!</h3>
     <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.grid-container { /* Fallback styles */ }
-      
+
 @supports (display: grid) {
   .grid-container {
     display: grid;
@@ -2885,12 +2885,27 @@ grid-gap: 1rem;
   </section>
 
   <section>
+    <h3>General Tips</h3>
+<ul>
+  <li>Keep specificity low
+    <ul>
+      <li>Avoid ID’s like the plauge, use [id=”id-name”]</li>
+      <li>Don’t qualify classes <code>header.main-header</code></li>
+    </ul>
+  </li>
+  <li>NEVER write an !important unless you have to</li>
+  <li>You can use [class] to bulk up specificity</li>
+  <li>Use auto-prefixer (in a build step, or in your editor of choice)</li>
+</ul>
+
+  </section>
+
+  <section>
     <h3>Starting from scratch</h3>
     <ul>
       <li>Use normalize or reset or similar</li>
       <li>Decide on a class naming convention</li>
       <li>Think about explicit vs utility classes</li>
-      <li>Use auto-prefixer (in a build step, or in your editor of choice)</li>
     </ul>
   </section>
   <section>
@@ -2904,7 +2919,6 @@ grid-gap: 1rem;
           <li>Prefer or avoid using framework components?</li>
         </ul>
       </li>
-      <li>Use auto-prefixer for custom CSS (in a build step, or in your editor of choice)</li>
     </ul>
   </section>
 </section>
