@@ -494,6 +494,48 @@
 </section>
 
 <section>
+  <div class="section-indicator">Units and Lengths</div>
+  <section>
+    <h3>Which unit should I use?</h3>
+  </section>
+  <section>
+    <h4>Relative Units</h4>
+    <style>
+      .button[class][class] {
+        display: inline-block;
+        padding: 0.75em 1em;
+        margin: 0 1em 1em 0;
+        background: #225378;
+        color: #fff;
+      }
+      .button--px[class][class] {
+        padding: 17px 23px;
+        margin: 0 23px 23px 0;
+      }
+    </style>
+    <p>When size should be proportionate to the unit's basis</p>
+    <p><strong>Sized with em</strong></p>
+    <div style="font-size: 0.6em">
+      <a href="#" target="_blank" class="button">My button</a>
+      <a href="#" target="_blank" class="button" style="font-size: 2em;">Larger button</a>
+    </div>
+    <p><strong>Sized with px</strong></p>
+    <div style="font-size: 0.6em">
+      <a href="#" target="_blank" class="button button--px">My button</a>
+      <a href="#" target="_blank" class="button button--px" style="font-size: 2em;">Larger button</a>
+    </div>
+  </section>
+  <section>
+    <h4>Pixels</h4>
+    <p>A fallback, if you can't/shouldn't use a relative unit.</p>
+    <aside class="notes">
+      how you want to work that can be very often or the exception.
+    </aside>
+  </section>
+</section>
+
+
+<section>
   <h2>Media Queries</h2>
 </section>
 
@@ -1024,6 +1066,19 @@
   grid-row-start: 1;
   grid-row-end: 2;
 </code></pre>
+  </section>
+  <section>
+    <h4>Specifically placing a grid-item from the end!</h4>
+    <pre class="language-css" style="font-size: 1em"><code class="language-css">
+  grid-column-start: -3;
+  grid-column-end: -1;
+  grid-row-start: -2;
+  grid-row-end: -1;
+</code></pre>
+    <pre class="language-css" style="font-size: 1em"><code class="language-css">
+  grid-column-start: 1;
+  grid-column-end: -1;
+</code></pre>
 
   </section>
 </section>
@@ -1062,29 +1117,32 @@
       <div class="grid-example" style="
         grid-template-columns: 25% 50% 25%;
         grid-template-rows: repeat(3, minmax(0, 1fr));
-        height: 8em;
+        height: 14em;
       ">
         <div style="
           grid-column: 1 / -1;
           padding: 0.5em;
           background: rgba(250, 50, 100, 0.5);
-        ">Header</div>
+        ">Header<br><small>grid-column: 1 / -1</small></div>
         <div style="
           grid-column: 1 / span 2;
           padding: 0.5em;
           background: rgba(100, 255, 0, 0.3);
-        ">Content</div>
+        ">Content<br><small>grid-column: 1 / span 2</small></div>
         <div style="
           grid-column: 3 / span 1;
           padding: 0.5em;
           background: rgba(0, 50, 100, 0.3);
-        ">Sidebar</div>
+        ">
+          Sidebar<small><br>
+          grid-row: 2;<br>
+          grid-column: 3;</small>
+        </div>
       </div>
     </div>
   </section>
   <section>
     <h3>Named grid areas</h3>
-    <p>One of my favorite grid features!</p>
   </section>
   <section>
     <h4><code>grid-template-areas</code></h4>
@@ -1271,8 +1329,10 @@ grid-gap: 1rem;
   <section>
     <img src="assets/css-training/grid-compatibility.png" alt="CanIUse.com, Globally 72.4% fully support Grid, not counting mobile browsers it’s 85.5% (1/21/18)" />
     <aside class="notes">
-      10/23/18<br>
       CanIUse.com<br>
+      2/13/19<br>
+      Globally 85.08% fully support grid<br>
+      10/23/18<br>
       Globally 84.95% fully support grid<br>
       1/21/18<br>
       Globally 72.4% fully support Grid
@@ -1281,26 +1341,47 @@ grid-gap: 1rem;
   <section>
     <img src="assets/css-training/grid-compatibility-scs.png" alt="CMU School of Computer Science (my client) is at about 93% of visitors will get Grid layout" />
     <aside class="notes">
+      Professional group for scientists and engineers<br>
+      2/13/19<br>
+      87%<br>
+      10/23/18<br>
+      88%<br>
+      1/7/18<br>
+      83%
+    </aside>
+  </section>
+  <section>
+    <img src="assets/css-training/grid-compatibility-scs.png" alt="CMU School of Computer Science (my client) is at about 93% of visitors will get Grid layout" />
+    <aside class="notes">
+      CMU SCS<br>
+      2/13/19<br>
+      97%<br>
       10/23/18<br>
       96%<br>
-      1/7/2018<br>
-      CMU’s School of Computer Science<br>
-      About 93% of visitors will get Grid layout
+      1/7/18<br>
+      93%
     </aside>
   </section>
   <section>
     <img src="assets/css-training/grid-compatibility-lullabot.png" alt="Lullabot.com, About 97% of visitors will get Grid layout (1/7/2018)" />
     <aside class="notes">
+      Lullabot.com<br>
+      2/13/19<br>
+      98%<br>
       10/23/18<br>
       96.3%<br>
-      (1/7/2018)<br>
-      About 93% of visitors will get Grid layout
+      1/7/18<br>
+      93%
     </aside>
 
   </section>
 </section>
 
 <section>
+  <section>
+    <h2>CSS Grid Tips</h2>
+  </section>
+
   <section>
     <h3 style="font-size: 1.2em"><code>@supports (...) {}</code> Grid's bestie!</h3>
     <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.grid-container { /* Fallback styles */ }
@@ -1315,6 +1396,37 @@ grid-gap: 1rem;
       'sidebar footer';
   }
 }</code></pre>
+    <aside class="notes">
+      Allows fallback for old browsers<br>
+      @support doesn't work in IE11, which thinks it supports grid...
+    </aside>
+  </section>
+
+  <section>
+    <h3>Want equal width columns with gutter?</h3>
+    <p>You'd think...</p>
+<pre class="language-css" style="font-size: 0.9em"><code class="language-css">.wrapper {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 10px;
+}</code></pre>
+
+    <p><a href="/assets/css-training/grid-equal-columns-wrong.html" target="css-training">
+      But look at what that gives you...
+    </a></p>
+  </section>
+
+  <section>
+    <h3>How to get equal width columns with gutter</h3>
+<pre class="language-css" style="font-size: 0.9em"><code class="language-css">.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-gap: 10px;
+}</code></pre>
+
+    <p><a href="/assets/css-training/grid-equal-columns-correct.html" target="css-training">
+      Take a look...
+    </a></p>
   </section>
 </section>
 
@@ -1323,7 +1435,10 @@ grid-gap: 1rem;
     <h2><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
       Be back at <input type="text" size="5" value="..." style="text-align: left" />
     </h2>
-    <p>@todo, A Grid Exercise</p>
+    <p>Fix the equal width grid with gutters yourself:<br>
+    <a href="https://codepen.io/pen/RvBzrV" target="css-training">codepen.io/pen/RvBzrV</a></p>
+    <p>Try more <a href="https://CSSGridGarden.com" target="_blank">CSSGridGarden.com</a></p>
+    <p>Or explore <a href="https://GridByExample.com" target="_blank">GridByExample.com</a></p>
   </section>
 </section>
 
@@ -1651,7 +1766,7 @@ grid-gap: 1rem;
       How each flex item is aligned along the cross axis
     </aside>
     <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
-  display: flex; /* All you need */
+  display: flex;
   align-items: center;
 }</code></pre>
     <style>
@@ -1828,7 +1943,9 @@ grid-gap: 1rem;
   <section>
     <img src="assets/css-training/flex-compatibility.png" alt="CanIUse.com screenshot" />
     <aside class="notes">
-      10/23/2018<br>
+      2/13/19<br>
+      94.42% can use flexbox if it's been prefixed
+      10/23/18<br>
       92.44% can use flexbox if it's been prefixed
       1/21/18<br>
       84.9%
@@ -1841,7 +1958,8 @@ grid-gap: 1rem;
     <h3><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
       Be back at <input type="text" size="5" value="..." style="text-align: left" />
     </h3>
-    <p>@todo, A Flexbox Exercise</p>
+    <p>Try styling a menu for an up and coming industrialist super-power:<br>
+    <a href="https://codepen.io/pen/rPrERx" target="_blank">codepen.io/pen/rPrERx</a></p>
     <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSSTricks.com open in another browser may come in handy!</p>
   </section>
 </section>
@@ -1978,17 +2096,17 @@ grid-gap: 1rem;
     <p><code>margin</code> does not collapse inside of a flex container</p>
 
     <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 {
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
-.flex-item-4 { margin-left: 1em; }
+.flex-item-4 { margin-left: 2em; }
 </code></pre>
     <div class="flex-container">
       <div><div>1</div></div>
       <div><div>2</div></div>
-      <div style="margin-left: 1em; margin-right: 1em;"><div>3</div></div>
-      <div style="margin-left: 1em;"><div>4</div></div>
+      <div style="margin-left: 2em; margin-right: 2em;"><div>3</div></div>
+      <div style="margin-left: 2em;"><div>4</div></div>
       <div><div>5</div></div>
     </div>
   </section>
@@ -2021,26 +2139,34 @@ grid-gap: 1rem;
     <h4 style="font-size: 1.3em;">Where it goes wrong</h4>
     <div class="column-wrapper">
       <div>
-    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.half-column {
-  float: left;
+    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.half-column {
   width: 50%;
   border: 2px solid green;
   padding: 0 15px;
 }</code></pre>
-      <div style="width: 100%; background: rgba(0, 0, 0, 0.1); overflow: hidden;">
-        <div style="float: left; box-sizing: content-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 1</div>
-        <div style="float: left; box-sizing: content-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 2</div>
+      <div style="display: flex; flex-wrap: wrap; width: 100%; background: rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div style="box-sizing: content-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 1</div>
+        <div style="box-sizing: content-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 2</div>
       </div>
       </div>
     </div>
   </section>
   <section>
-    <h4 style="font-size: 1.3em;">Where it goes wrong</h4>
+    <h4 style="font-size: 1.3em;"><code>border-box</code> saves the day!</h4>
     <div class="column-wrapper">
       <div>
-    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.half-column {
+    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.half-column {
   box-sizing: border-box;
-  float: left;
   width: 50%;
   border: 2px solid green;
   padding: 0 15px;
@@ -2312,9 +2438,9 @@ grid-gap: 1rem;
       <div class="position-example-wrapper" style="z-index: 1; margin-top: 30px; background: #fff; opacity: 0.5; border-color: #333;"></div>
     </div>
   </section>
-  <section>
+  <!--<section>
     @todo position exercise(s)?
-  </section>
+  </section>-->
 </section>
 
 <section>
@@ -2739,7 +2865,7 @@ grid-gap: 1rem;
   <section>
     <h3>Don't move something that animates on hover</h3>
     <div class="transform-example-wrapper">
-      <style>.transition-6:hover { transform: translate(250px, 25px);} .transition-6:hover:after {content: 'looool!'}</style>
+      <style>.transition-6:hover { transform: translate(250px, 25px);} .transition-6:hover:after {content: 'trollolol!'; color: #d00; display: block; text-align: center; padding-top: 1em;}</style>
       <div class="transform-item transition-6" style="transition: transform 1s;"></div>
       This is some example text
     </div>
@@ -2764,7 +2890,7 @@ grid-gap: 1rem;
     <p style="margin-bottom: 0.5em; font-weight: bold;">(aka pseudo-content)</p>
     <ul>
       <li>Adds new elements to the inside of the selected element, essentially a&nbsp;free&nbsp;<code>&lt;span></code></li>
-      <li>2 of these can be placed on any element</li>
+      <li>2 of these can be placed on any element with a closing tag</li>
       <li><em>Can</em> insert text into the page, <strong>but</strong> it is very spotty in accessibility tools</li>
     </ul>
   </section>
@@ -2886,34 +3012,177 @@ grid-gap: 1rem;
   </section>
 
   <section>
-    <h3>General Tips</h3>
-<ul>
-  <li>Keep specificity low
+    <h3 style="line-height: 1.6">The larger the project, <span style="display: block; font-weight: normal; font-size: 0.75em; color: #000">the more important CSS standards & architecture are.</span></h3>
+  </section>
+
+  <section>
+    <h3>Keep Specificity Low</h3>
+  </section>
+  <section>
+    <p style="margin-bottom: 1em;"><code style="display: block;">#main .article a</code> has a specificity of 1, 1, 1</p>
+    <p style="margin-bottom: 1em;"><code style="display: block;">#page #main a</code> has a specificity of 2, 0, 1</p>
+    <p style="margin-bottom: 1em;"><code style="display: block;">.article p a</code> has a specificity of 0, 1, 2</p>
+  </section>
+  <section>
+    <div class="column" style="position: relative; width: 75%; margin: 0 auto;">
+      <div style="position: absolute; top: 2em; right: 100%; width: 15%; text-align: right; font-size: 0.7em;">0, 7, 0</div>
+      <img src="assets/css-training/specificity-lullabot-com-02-19.png" alt="Specificity chart for lullabot.com, showing it's quite low" />
+    </div>
+  </section>
+
+  <section>
+    <div class="column" style="position: relative; width: 75%; margin: 0 auto;">
+      <div style="position: absolute; top: 2em; right: 100%; width: 15%; text-align: right; font-size: 0.7em;">3, 7, 1</div>
+      <img src="assets/css-training/specificity-futurist-02-19.png" alt="Specificity chart for futurist technology web site, showing it's specificity is out of control" />
+    </div>
+  </section>
+
+  <section>
+    <div class="column-wrapper">
+      <div class="column" style="width: 33.33%; display: flex; flex-direction: column-reverse;">
+        <div><img src="assets/css-training/specificity-lullabot-com-02-19.png" alt="Specificity chart for lullabot.com, showing it's quite low" /></div>
+      </div>
+      <div class="column" style="width: 66.67%"><img src="assets/css-training/specificity-futurist-02-19.png" alt="Specificity chart for futurist technology web site, showing it's specificity is out of control" /></div>
+    </div>
+  </section>
+
+  <section>
+    <pre class="language-css" style="font-size: 0.6em;"><code class="language-css">body.html.page-node-X
+  #header
+    #header-wrapper h2,
+
+body.html.page-node-X
+  #header
+    #header-wrapper
+      #block-views-view-name-block-1
+        > .view-view-name
+          > .view-content
+            > .views-row
+              > .row-inner
+                > .views-field-title,
+
+body.html.page-node-X
+  #header
+    #header-wrapper
+      #block-views-view-name-block-1
+        > .view-view-name
+          .attachment
+            .view-heading,
+
+#block-views-view-name-block-1
+  > .view-view-name
+    .attachment
+      body.html.page-node-6
+        #header
+          #header-wrapper
+            .view-heading,
+
+body.html.page-node-6
+  #header
+    #header-wrapper
+      #block-views-view-name-block-1
+      > .view-view-name
+        .attachment
+          .view-view-name
+            .views-row
+              .views-field-title,
+
+#block-views-view-name-block-1
+  > .view-view-name
+    .attachment
+      .view-view-name
+        .views-row
+          body.html.page-node-6
+            #header
+              #header-wrapper
+                .views-field-title {
+
+  display: block;
+  text-align: center;
+  line-height: 1.3em;
+  padding-top: 140px
+}</code></pre>
+  </section>
+
+  <section data-background="assets/css-training/war.jpg"></section>
+  <section>
+    <h3>Guidelines</h3>
     <ul>
-      <li>Avoid ID’s like the plauge, use [id=”id-name”]</li>
-      <li>Don’t qualify classes <code>header.main-header</code></li>
+      <li>Use classes, not id's or tags (except for base tag styling)</li>
+      <li>Write styles so the cascade starts at the most general, to the most specific. Some good examples are <a href="https://smacss.com/book/categorizing" target="_blank">SMACSS</a> or <a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/">Inverted Pyramid</a></li>
+      <li>Avoid inline styles as much as possible (lookin at your JS folks!)</li>
+      <li>Don't use <code>!important</code> unless you're overriding inline styles</li>
     </ul>
-  </li>
-  <li>NEVER write an !important unless you have to</li>
-  <li>You can use [class] to bulk up specificity</li>
-  <li>Use auto-prefixer (in a build step, or in your editor of choice)</li>
-</ul>
+  </section>
+
+  <section>
+    <h4>Only be as specific as necessary</h4>
+    <ul>
+      <li>Avoid unneccessary parts of your selector, e.g. <code><em style="color:#900">.main-header</em> .header-logo</code></li>
+      <li>Don’t 'qualify' classes by adding the tag name e.g. <code><em style="color:#900">header</em>.main-header</code></li>
+      <li>Avoid compound selectors by creating highly specific class names; e.g. <a href="http://getbem.com/naming/">BEM</a> class naming <code>.widget__title--featured</code></li>
+    </ul>
 
   </section>
 
   <section>
-    <h3>Starting from scratch</h3>
+    <h3>Tips & Tricks</h3>
     <ul>
-      <li>Use normalize or reset or similar</li>
-      <li>Decide on a class naming convention</li>
-      <li>Think about explicit vs utility classes</li>
+      <li>If id is the best styling hook, use <code>[id=”id-name”]</code></li>
+      <li>If specificity is too low, but adding other class names would be bloat, use an attribute selector like <code>.my-widget[class][class]</code></li>
     </ul>
   </section>
+
+  <section>
+    <ul>
+      <li>If you're using Drupal or a CSS Preprocessor, break up your CSS into small organized files</li>
+      <li>Use auto-prefixer, in a build step, as a plugin for your editor, or use <a href="http://autoprefixer.github.io/">Autoprefixer.github.io</a></li>
+    </ul>
+  </section>
+</section>
+
+
+<section>
+  <section>
+    <h3>Starting from scratch</h3>
+  </section>
+  <section>
+    <ul>
+      <li>Use normalize.css, or reset.css, or similar</li>
+      <li>Decide on a class naming convention</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Think about explicit vs utility classes</h3>
+    <p>Explicit classes are meant to target very specific elements, e.g. <code>.widget__photo--captioned</code></p>
+    <p>Utility classes are meant to apply very specific styles, e.g. <code>.text-align-center</code></p>
+
+    <p>Consider prefixing utility classes, e.g. <code>.u-text-align-center</code></p>
+    <aside class="notes">
+      I find that I use both,<br>I start with explicit classes, and as I work I'll pull out common needs across different components and make them utility classes
+    </aside>
+  </section>
+  <section>
+    <h3>Document all of these decisions in a README</h3>
+    <p>e.g. <a href="https://gist.github.com/wesruv/97e58a332cbc0e95914d0c274b99d131" target="css-training">Lullabot.com Example</a></p>
+  </section>
+</section>
+
+
+<section>
   <section>
     <h3>Working inside of a framework</h3>
     <ul>
-      <li>Consider using a prefix for custom classes especially if the framework does not (e.g. lc- for Lullabot.com) you know where it came from</li>
-      <li>Don’t write selectors that use framework utility classes unless you’re extending them</li>
+      <li>Consider using a prefix for custom classes especially if the framework does not (e.g. <code>lc-</code> for Lullabot.com) you know where it came from</li>
+      <li>Don’t write selectors that use framework utility classes unless you’re extending them, e.g.
+        <pre class="language-css" style="font-size: 0.6em;"><code class="language-css">.sidebar .col-lg-3 {
+  text-align: right; /* .col-lg-3 is intended for layout, not text treatment :( */
+}</code></pre>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <ul>
       <li>Have guidelines for what framework is used for, and what custom CSS should cover
         <ul>
           <li>Using just the grid? Grid + some components?</li>

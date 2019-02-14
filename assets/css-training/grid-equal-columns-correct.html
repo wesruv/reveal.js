@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>More Content than grid areas</title>
+    <meta charset="utf-8">
+    <style>
+  body {
+    margin: 40px;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-gap: 10px;
+    grid-template-rows: auto;
+    padding: 10px 0;
+    background-color: #f55;
+    color: #444;
+  }
+
+  .box {
+    background: linear-gradient(45deg, #444, #000);
+    color: #fff;
+    border-radius: 0;
+    padding: 20px;
+    font-size: 150%;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+   </style>
+</head>
+
+ <body>
+   <div class="wrapper">
+    <div class="box a">A</div>
+    <div class="box b">B</div>
+    <div class="box c">C</div>
+    <div class="box d">D</div>
+    <div class="box e">E</div>
+    <div class="box f">f</div>
+    <div class="box g">g</div>
+    <div class="box h">h</div>
+  </div>
+</body>
+</html>

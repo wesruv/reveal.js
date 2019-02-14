@@ -18,6 +18,11 @@ input {
   font-family: inherit;
   font-size: inherit; }
 
+code {
+  white-space: nowrap; }
+  pre code {
+    white-space: normal; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/

@@ -58,6 +58,13 @@ input {
   font-size: inherit;
 }
 
+code {
+  white-space: nowrap;
+
+  pre & {
+    white-space: normal;
+  }
+}
 
 // Theme template ------------------------------
 @import "../template/wes-theme";
