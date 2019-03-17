@@ -166,6 +166,13 @@
   <p>Prologue</p>
   <h2>Debugging Tool Basics</h2>
   <a href="assets/css-training/sample-page.html" target="css-training">Sample page</a>
+  <aside class="notes">
+- Inspect<br>
+- Style pane<br>
+- Calculated pane<br>
+- Layout Pane<br>
+- Grid Inspector
+</aside>
 </section>
 
 <section>
@@ -553,11 +560,9 @@
     <h3>Which Medium?</h3>
     <pre class="language-css"><code>@media screen { /* Computer Display CSS Rules */ }
 
-@media print { /* Print CSS Rules */ }
+@media print { /* Print CSS Rules */ }</code></pre>
 
-@media speech { /* Text to Voice CSS Rules */ }</code></pre>
-
-    <p><small style="line-height: 2">Fun fact: <code>braille</code>, <code>embossed</code> (braille printers), <br><code>tty</code> (like command line), <code>tv</code> also exist.</small></p>
+    <p><small style="line-height: 2">Fun fact: <code>speech</code>, <code>braille</code>, <code>embossed</code> (braille printers), <br><code>tty</code> (like command line), <code>tv</code> also exist.</small></p>
   </section>
 
   <section>
@@ -828,8 +833,9 @@
   <section align="left">
     <img src="assets/css-training/document-flow.png" alt="Document flow cartoon character" style="width: 25%; float: right;" />
     <h4>Are floats still good for something?</h4>
-    <p>Floats are great for floating elements next to a bunch of text so it will wrap. </p>
-    <p style="opacity: 0.4">Lorem ipsum dolor sit amet, wakka un blitz and chips; dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill.</p>
+    <p style="font-size: 0.75em;">Floats are great for floating elements next to a bunch of text so it will wrap. </p>
+    <p style="font-size: 0.5em; opacity: 0.4">Lorem ipsum dolor sit amet, wakka un blitz and chips; dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill. Lorem ipsum dolor sit amet, wakka un blitz and chips; dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill.</p>
+    <p style="font-size: 0.5em; opacity: 0.4">Lorem ipsum dolor sit amet, wakka un blitz and chips; dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill.</p>
   </section>
 </section>
 
@@ -1273,7 +1279,7 @@
     </div>
   </section>
   <section>
-    <h4><a href="https://gridbyexample.com/examples/code/example31.html" target="css-training">
+    <h4><a href="assets/css-training/Example 31.html" target="css-training">
       <code>minmax()</code>
     </a></h4>
     <pre class="language-css" style="font-size: 1em"><code class="language-css">display: grid;
@@ -1281,7 +1287,7 @@ grid-gap: 10px;
 grid-template-columns:
   minmax(200px, 1fr) 200px 200px;
 </code></pre>
-    <p><a href="https://gridbyexample.com/examples/code/example31.html" target="css-training">Example</a></p>
+    <p><a href="assets/css-training/Example 31.html" target="css-training">Example</a></p>
   </section>
   <section>
     <h4><a href="assets/css-training/grid-repeat-example.html" target="css-training">
@@ -3004,6 +3010,41 @@ grid-gap: 1rem;
 
 <section>
   <h2>Let's talk debugging!</h2>
+  <aside class="notes">
+    Common Debug Issues and Methods
+    <ul>
+      <li>
+        Checking to see if stylesheet is applying (color: red!important)
+      </li>
+      <li>Style isn’t applying
+        <ul>
+          <li>Check computed pane</li>
+          <li>
+            Specificity hacks
+          </li>
+        </ul>
+      </li>
+      <li>Check if stylesheet is being added</li>
+      <li>Is the class name correct?
+        <ul>
+          <li>Make sure you didn’t put a “.” in the HTML</li>
+          <li>Copy the class name from the HTML into your CSS</li>
+        </ul>
+      </li>
+      <li> Hide and seek elements (z-index, overflow, etc)
+        <ul>
+          <li>Check computed styles for culprits</li>
+          <li>Check parent elements for overflow: hidden</li>
+        </ul>
+      </li>
+      <li> Misc. weirdness
+        <ul>
+          <li>display:none elements until the problem goes away</li>
+          <li>Margin in an element with no padding and an element with padding</li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
 </section>
 
 <section>
@@ -3023,12 +3064,18 @@ grid-gap: 1rem;
     <p style="margin-bottom: 1em;"><code style="display: block;">#page #main a</code> has a specificity of 2, 0, 1</p>
     <p style="margin-bottom: 1em;"><code style="display: block;">.article p a</code> has a specificity of 0, 1, 2</p>
   </section>
+
   <section>
     <div class="column" style="position: relative; width: 75%; margin: 0 auto;">
       <div style="position: absolute; top: 2em; right: 100%; width: 15%; text-align: right; font-size: 0.7em;">0, 7, 0</div>
       <img src="assets/css-training/specificity-lullabot-com-02-19.png" alt="Specificity chart for lullabot.com, showing it's quite low" />
     </div>
   </section>
+
+  <section data-background="assets/css-training/cafe-unsplash-photo-1529022805552-1c88a713c1c5.jpeg">
+    <p class="photo-credit">Photo by Wade Austin Ellis on Unsplash</p>
+  </section>
+
 
   <section>
     <div class="column" style="position: relative; width: 75%; margin: 0 auto;">
@@ -3072,12 +3119,12 @@ body.html.page-node-X
 #block-views-view-name-block-1
   > .view-view-name
     .attachment
-      body.html.page-node-6
+      body.html.page-node-X
         #header
           #header-wrapper
             .view-heading,
 
-body.html.page-node-6
+body.html.page-node-X
   #header
     #header-wrapper
       #block-views-view-name-block-1
@@ -3092,7 +3139,7 @@ body.html.page-node-6
     .attachment
       .view-view-name
         .views-row
-          body.html.page-node-6
+          body.html.page-node-X
             #header
               #header-wrapper
                 .views-field-title {
@@ -3126,17 +3173,25 @@ body.html.page-node-6
   </section>
 
   <section>
+    <ul>
+      <li>If you're using Drupal or a CSS Preprocessor, break up your CSS into small organized files</li>
+      <li>Use auto-prefixer, in a build step, as a plugin for your editor, or use <a href="http://autoprefixer.github.io/">Autoprefixer.github.io</a></li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Choosing the best selector</h3>
+  </section>
+
+
+
+  <section>
     <h3>Tips & Tricks</h3>
     <ul>
       <li>If id is the best styling hook, use <code>[id=”id-name”]</code></li>
       <li>If specificity is too low, but adding other class names would be bloat, use an attribute selector like <code>.my-widget[class][class]</code></li>
-    </ul>
-  </section>
-
-  <section>
-    <ul>
-      <li>If you're using Drupal or a CSS Preprocessor, break up your CSS into small organized files</li>
-      <li>Use auto-prefixer, in a build step, as a plugin for your editor, or use <a href="http://autoprefixer.github.io/">Autoprefixer.github.io</a></li>
     </ul>
   </section>
 </section>
@@ -3192,6 +3247,7 @@ body.html.page-node-6
     </ul>
   </section>
 </section>
+
 
 <!--
   FIN, the CREDITS!
