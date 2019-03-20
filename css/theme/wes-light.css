@@ -20,8 +20,6 @@ input {
 
 code {
   white-space: nowrap; }
-  pre code {
-    white-space: normal; }
 
 .photo-credit {
   position: absolute;
@@ -209,12 +207,24 @@ code {
   padding: 0.125em 0.25em; }
 
 pre {
-  display: block;
-  position: relative;
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
   text-align: left;
-  font-size: 0.7em;
-  font-family: monospace;
-  line-height: 1.2em; }
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  background: #f5f2f0; }
 
 .reveal pre code {
   display: block;

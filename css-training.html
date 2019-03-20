@@ -74,18 +74,23 @@
 </section>
 
 <section>
-  <h2 id="who-am-i" style="font-weight: 200">About Me...</h2>
-  <img src="assets/d8/me.jpg" alt="" style="width: 35%; float: right;">
-  <div style="box-sizing: border-box; width: calc(65% - 0.6em);">
-    <h3 id="wes-ruvalcaba">Wes Ruvalcaba</h3>
-    <ul>
-      <li>Senior Front End Dev at Lullabot</li>
-      <li>Writing CSS since 2002</li>
-      <li>Markup, CSS &amp; Standards Dork</li>
-      <li>Tend to write custom code, more than repurpose existing</li>
-    </ul>
-  </div>
-  <p style="margin-top: 1em;"><a href="https://twitter.com/wesruv"><i class="fa fa-twitter" style="font-size: 2em; line-height: .5em; padding: 0 .2em 0 0; transform: translateY(.15em);"></i>@wesruv</a></p>
+  <section>
+    <h2 id="who-am-i" style="font-weight: 200">About Me...</h2>
+    <img src="assets/d8/me.jpg" alt="" style="width: 35%; float: right;">
+    <div style="box-sizing: border-box; width: calc(65% - 0.6em);">
+      <h3 id="wes-ruvalcaba">Wes Ruvalcaba</h3>
+      <ul>
+        <li>Senior Front End Dev at Lullabot</li>
+        <li>Writing CSS since 2002</li>
+        <li>Markup, CSS &amp; Standards Dork</li>
+        <li>Tend to write custom code, more than repurpose existing</li>
+      </ul>
+    </div>
+    <p style="margin-top: 1em;"><a href="https://twitter.com/wesruv"><i class="fa fa-twitter" style="font-size: 2em; line-height: .5em; padding: 0 .2em 0 0; transform: translateY(.15em);"></i>@wesruv</a></p>
+  </section>
+  <section>
+    <h3>Feel free to ask questions at any time!</h3>
+  </section>
 </section>
 
 
@@ -127,8 +132,8 @@
     <li>Accessibility Concerns</li>
     <li>Debugging CSS Issues</li>
     <li><code>transition</code> &amp; <code>animation</code></li>
-    <li>Composing CSS</li>
-    <li>My Fancy Tricks</li>
+    <li>Architecting CSS so it's not a headache</li>
+    <li>Fancy Tips and Tricks</li>
     <li>(and maybe) Crowd Sourced Fancy Tricks!</li>
   </ul>
 </section>
@@ -139,7 +144,6 @@
   </section>
 
   <section data-background="assets/css-training/walnut-brain.jpg">
-    <!-- <i class="fa fa-close" style="color:rgba(200, 0, 0, 0.7); font-size: 20em; transform: translate(10%, -15%);"></i> -->
     <aside class="notes">You don't need to memorize everything</aside>
   </section>
   <section data-background="assets/css-training/write-css-code.jpg">
@@ -523,13 +527,13 @@
     <p>When size should be proportionate to the unit's basis</p>
     <p><strong>Sized with em</strong></p>
     <div style="font-size: 0.6em">
-      <a href="#" target="_blank" class="button">My button</a>
-      <a href="#" target="_blank" class="button" style="font-size: 2em;">Larger button</a>
+      <a href="#" target="css-training" class="button">My button</a>
+      <a href="#" target="css-training" class="button" style="font-size: 2em;">Larger button</a>
     </div>
     <p><strong>Sized with px</strong></p>
     <div style="font-size: 0.6em">
-      <a href="#" target="_blank" class="button button--px">My button</a>
-      <a href="#" target="_blank" class="button button--px" style="font-size: 2em;">Larger button</a>
+      <a href="#" target="css-training" class="button button--px">My button</a>
+      <a href="#" target="css-training" class="button button--px" style="font-size: 2em;">Larger button</a>
     </div>
   </section>
   <section>
@@ -1443,12 +1447,10 @@ grid-gap: 1rem;
     </h2>
     <p>Fix the equal width grid with gutters yourself:<br>
     <a href="https://codepen.io/pen/RvBzrV" target="css-training">codepen.io/pen/RvBzrV</a></p>
-    <p>Try more <a href="https://CSSGridGarden.com" target="_blank">CSSGridGarden.com</a></p>
-    <p>Or explore <a href="https://GridByExample.com" target="_blank">GridByExample.com</a></p>
+    <p>Try more <a href="https://CSSGridGarden.com" target="css-training">CSSGridGarden.com</a></p>
+    <p>Or explore <a href="https://GridByExample.com" target="css-training">GridByExample.com</a></p>
   </section>
 </section>
-
-
 
 <section>
   <div class="section-indicator">Terminology</div>
@@ -1965,7 +1967,7 @@ grid-gap: 1rem;
       Be back at <input type="text" size="5" value="..." style="text-align: left" />
     </h3>
     <p>Try styling a menu for an up and coming industrialist super-power:<br>
-    <a href="https://codepen.io/pen/rPrERx" target="_blank">codepen.io/pen/rPrERx</a></p>
+    <a href="https://codepen.io/pen/rPrERx" target="css-training">codepen.io/pen/rPrERx</a></p>
     <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSSTricks.com open in another browser may come in handy!</p>
   </section>
 </section>
@@ -2498,6 +2500,10 @@ grid-gap: 1rem;
 </section>
 
 <section>
+  <h1>Transforms, Transitions & Animations</h1>
+</section>
+
+<section>
   <style>
     .transform-example-wrapper {
       position: relative;
@@ -2679,7 +2685,7 @@ grid-gap: 1rem;
     <h2><code>transition</code></h2>
     <ul>
       <li>Used to transition from current state to new state</li>
-      <li>Can be used on any <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank">'animeatable' property</a></li>
+      <li>Can be used on any <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="css-training">'animeatable' property</a></li>
       <li>Can transition multiple properties</li>
     </ul>
   </section>
@@ -2756,7 +2762,7 @@ grid-gap: 1rem;
       <li>Animates between multiple configurations</li>
       <li>Can loop a number of times, or infinitely</li>
       <li>Doesn't require user interaction, but can be based on interactions</li>
-      <li>Can animate any <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank">'animeatable' property</a></li>
+      <li>Can animate any <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="css-training">'animeatable' property</a></li>
     </ul>
   </section>
   <section>
@@ -2886,7 +2892,7 @@ grid-gap: 1rem;
   <section>
     <h2><code>cubic-bezier()</code></h2>
     <p>Make your own animation timing!</p>
-    <a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="_blank">Now with web site helper!</a>
+    <a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="css-training">Now with web site helper!</a>
   </section>
 </section>
 
@@ -2960,8 +2966,9 @@ grid-gap: 1rem;
 
 <section>
   <section>
-    <h2>CSS Accessibility Concerns</h2>
+    <h1>CSS Accessibility Concerns</h1>
   </section>
+
   <section>
     <h3>Color contrast and Font-size</h3>
     <div style="
@@ -2978,7 +2985,7 @@ grid-gap: 1rem;
     ">
       This isn't very legible
     </div>
-    <p>There are a lot of tools, <a href="https://webaim.org/resources/contrastchecker/" target="_blank">Web AIM contrast checker</a> is an easy one.</p>
+    <p>There are a lot of tools, <a href="https://webaim.org/resources/contrastchecker/" target="css-training">Web AIM contrast checker</a> is an easy one.</p>
   </section>
   <section>
     <h3 style="line-height: 1.8">
@@ -3008,61 +3015,29 @@ grid-gap: 1rem;
   </section>
 </section>
 
+<section style="text-align: center;">
+  <h2><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
+    Be back at <input type="text" size="5" value="..." style="text-align: left" />
+  </h2>
+  <h3>Coming up: Setting up projects to avoid CSS related headaches</h3>
+  <ul>
+    <li>Specificity</li>
+    <li>Selectors</li>
+    <li>Architecting Your CSS</li>
+  </ul>
+</section>
+
 <section>
-  <h2>Let's talk debugging!</h2>
-  <aside class="notes">
-    Common Debug Issues and Methods
-    <ul>
-      <li>
-        Checking to see if stylesheet is applying (color: red!important)
-      </li>
-      <li>Style isn’t applying
-        <ul>
-          <li>Check computed pane</li>
-          <li>
-            Specificity hacks
-          </li>
-        </ul>
-      </li>
-      <li>Check if stylesheet is being added</li>
-      <li>Is the class name correct?
-        <ul>
-          <li>Make sure you didn’t put a “.” in the HTML</li>
-          <li>Copy the class name from the HTML into your CSS</li>
-        </ul>
-      </li>
-      <li> Hide and seek elements (z-index, overflow, etc)
-        <ul>
-          <li>Check computed styles for culprits</li>
-          <li>Check parent elements for overflow: hidden</li>
-        </ul>
-      </li>
-      <li> Misc. weirdness
-        <ul>
-          <li>display:none elements until the problem goes away</li>
-          <li>Margin in an element with no padding and an element with padding</li>
-        </ul>
-      </li>
-    </ul>
-  </aside>
+  <h1>Setting up projects to avoid CSS related headaches</h1>
 </section>
 
 <section>
   <section>
-    <h2>Tips on Composing CSS</h2>
+    <h2>A tale of two project's CSS</h2>
   </section>
 
-  <section>
-    <h3 style="line-height: 1.6">The larger the project, <span style="display: block; font-weight: normal; font-size: 0.75em; color: #000">the more important CSS standards & architecture are.</span></h3>
-  </section>
-
-  <section>
-    <h3>Keep Specificity Low</h3>
-  </section>
-  <section>
-    <p style="margin-bottom: 1em;"><code style="display: block;">#main .article a</code> has a specificity of 1, 1, 1</p>
-    <p style="margin-bottom: 1em;"><code style="display: block;">#page #main a</code> has a specificity of 2, 0, 1</p>
-    <p style="margin-bottom: 1em;"><code style="display: block;">.article p a</code> has a specificity of 0, 1, 2</p>
+  <section data-background="assets/css-training/cafe-unsplash-photo-1529022805552-1c88a713c1c5.jpeg">
+    <p class="photo-credit">Photo by Wade Austin Ellis on Unsplash</p>
   </section>
 
   <section>
@@ -3071,11 +3046,6 @@ grid-gap: 1rem;
       <img src="assets/css-training/specificity-lullabot-com-02-19.png" alt="Specificity chart for lullabot.com, showing it's quite low" />
     </div>
   </section>
-
-  <section data-background="assets/css-training/cafe-unsplash-photo-1529022805552-1c88a713c1c5.jpeg">
-    <p class="photo-credit">Photo by Wade Austin Ellis on Unsplash</p>
-  </section>
-
 
   <section>
     <div class="column" style="position: relative; width: 75%; margin: 0 auto;">
@@ -3152,50 +3122,234 @@ body.html.page-node-X
   </section>
 
   <section data-background="assets/css-training/war.jpg"></section>
+</section>
+
+<section>
   <section>
-    <h3>Guidelines</h3>
-    <ul>
-      <li>Use classes, not id's or tags (except for base tag styling)</li>
-      <li>Write styles so the cascade starts at the most general, to the most specific. Some good examples are <a href="https://smacss.com/book/categorizing" target="_blank">SMACSS</a> or <a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/">Inverted Pyramid</a></li>
-      <li>Avoid inline styles as much as possible (lookin at your JS folks!)</li>
-      <li>Don't use <code>!important</code> unless you're overriding inline styles</li>
+    <h3>CSS Selectors & Specificity</h3>
+  </section>
+
+  <section style="text-align: center;">
+    <h4>Simple Selectors</h4>
+    <ul style="width: 75%; margin: 0 12.5%;">
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">tagname</code>
+        <strong style="display: block; color: green">Type/Tag (0, 0, 1)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">.class-name</code>
+        <strong style="display: block; color: teal">Class (0, 1, 0)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">#id-name</code>
+        <strong style="display: block; color: #900">ID (1, 0, 0)</strong>
+      </li>
     </ul>
   </section>
 
-  <section>
-    <h4>Only be as specific as necessary</h4>
-    <ul>
-      <li>Avoid unneccessary parts of your selector, e.g. <code><em style="color:#900">.main-header</em> .header-logo</code></li>
-      <li>Don’t 'qualify' classes by adding the tag name e.g. <code><em style="color:#900">header</em>.main-header</code></li>
-      <li>Avoid compound selectors by creating highly specific class names; e.g. <a href="http://getbem.com/naming/">BEM</a> class naming <code>.widget__title--featured</code></li>
+  <section style="text-align: center;">
+    <ul style="width: 75%; margin: 0 12.5%; list-style: none;">
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">*</code>
+        <strong style="display: block; color: rgb(19, 177, 19)">Universal (0, 0, 0)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">[attribute]</code>
+        <strong style="display: block; color: teal">Attribute (0, 1, 0)</strong>
+      </li>
     </ul>
-
+    <p class="small"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors#Simple_selectors" target="css-training">MDN Attribute Selectors Documentation</a></p>
   </section>
 
   <section>
-    <ul>
-      <li>If you're using Drupal or a CSS Preprocessor, break up your CSS into small organized files</li>
-      <li>Use auto-prefixer, in a build step, as a plugin for your editor, or use <a href="http://autoprefixer.github.io/">Autoprefixer.github.io</a></li>
+    <h5>Attribute Selector</h5>
+    <p style="margin-bottom: 1em;"><code>&lt;div <strong style="color: teal">attribute-name="value"</strong>>&lt;div></code></p>
+    <pre>[attribute-name]
+[attribute-name<strong style="color: teal">='value'</strong>]
+[attribute-name<strong style="color: teal">*=</strong>'lu']
+[attribute-name<strong style="color: teal">^=</strong>'val']</pre>
+    <p>All of these are a specificity of <strong style="color: teal">(0, 1, 0)</strong></p>
+    <p class="small"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors" target="css-training">MDN Attribute Selectors Documentation</a></p>
+  </section>
+
+  <section>
+    <h4>Combinators</h4>
+    <ul style="width: 75%; margin: 0 12.5%; list-style: none;">
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">></code>
+        <strong style="display: block; color: rgb(19, 177, 19)">Direct descendant (0, 0, 0)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">~</code>
+        <strong style="display: block; color: rgb(19, 177, 19)">General sibling (0, 0, 0)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">*</code>
+        <strong style="display: block; color: rgb(19, 177, 19)">Universal (0, 0, 0)</strong>
+      </li>
+    </ul>
+    <p class="small"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors#Combinators" target="css-training">MDN CSS Combinators Documentation</a></p>
+  </section>
+
+  <section>
+    <h4>Pseudo-Classes</h4>
+    <ul style="width: 100%; margin: 0; list-style: none;">
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">:hover, :focus</code>
+        <strong style="display: block; color: teal">(0, 1, 0)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">:first-child, :last-child</code>
+        <strong style="display: block; color: teal">(0, 1, 0)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">:empty</code>
+        <strong style="display: block; color: teal">(0, 1, 0)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">:checked</code>
+        <strong style="display: block; color: teal">(0, 1, 0)</strong>
+      </li>
+    </ul>
+    <p class="small"><a href="classes" target="css-training">MDN Pseudo Classes Documentation</a></p>
+  </section>
+
+  <section>
+    <h4><code>:nth-child</code> Pseudo-Classes</h4>
+    <ul style="width: 100%; margin: 0; list-style: none;">
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">:nth-child()</code>
+        <strong style="display: block; color: teal">(0, 1, 0)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">:nth-of-type()</code>
+        <strong style="display: block; color: teal">(0, 1, 0)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">:nth-last-child()</code>
+        <strong style="display: block; color: teal">(0, 1, 0)</strong>
+      </li>
     </ul>
   </section>
 </section>
 
 <section>
   <section>
-    <h3>Choosing the best selector</h3>
+    <h3>
+      Choosing the best selector for the job
+    </h3>
   </section>
 
+  <section>
+    <ol>
+      <li>Keep Specificity Low</li>
+      <li>Only target what you mean to</li>
+      <li>Try to use selectors that explain what they're targeting</li>
+    </ol>
+  </section>
+</section>
 
+<section>
+  <section>
+    <h4>Keep Specificity Low</h4>
+  </section>
+  <section>
+    <h5>Too Loud!</h5>
+    <ul style="width: 75%; margin: 0; list-style: none;">
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">#main .article a</code>
+        <strong style="color: #900">(1, 1, 1)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">#page #main a</code>
+        <strong style="color: #C00">(2, 0, 1)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">h4.sidebar-title a</code>
+        <strong style="color: teal">(0, 1, 2)</strong>
+      </li>
+    </ul>
+  </section>
 
   <section>
-    <h3>Tips & Tricks</h3>
-    <ul>
-      <li>If id is the best styling hook, use <code>[id=”id-name”]</code></li>
-      <li>If specificity is too low, but adding other class names would be bloat, use an attribute selector like <code>.my-widget[class][class]</code></li>
+    <h5>Much Better!</h5>
+    <ul style="width: 75%; margin: 0 0 1em; list-style: none;">
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">#main .article a</code>
+        <strong style="color: #900">(1, 1, 1)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">.article a</code>
+        <strong style="color: teal">(0, 1, 1)</strong>
+      </li>
+    </ul>
+    <ul style="width: 75%; margin: 0 0 1em; list-style: none;">
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">#page #main a</code>
+        <strong style="color: #C00">(2, 0, 1)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">[id="main"] a</code>
+        <strong style="color: teal">(0, 1, 1)</strong>
+      </li>
+    </ul>
+    <ul style="width: 75%; margin: 0 0 1em; list-style: none;">
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">h4.sidebar-title a</code>
+        <strong style="color: teal">(0, 1, 2)</strong>
+      </li>
+      <li style="display: flex; justify-content: space-between;">
+        <code style="display: block;">.sidebar-title a</code>
+        <strong style="color: teal">(0, 1, 1)</strong>
+      </li>
     </ul>
   </section>
 </section>
 
+<section>
+  <section>
+    <h4>Only target what you mean to</h4>
+  </section>
+  <section>
+    <pre class="language-markup" style="font-size: 0.8em;"><code class="language-markup" style="white-space: pre;">&lt;article about="/page-url" typeof="foaf:Document" class="node node-news node-published node-not-promoted node-not-sticky clearfix" id="node-news-2">
+  &lt;div class="field field-name-body field-type-text-with-summary field-label-hidden">
+    &lt;div class="field-items">
+      &lt;div class="field-item even" property="content:encoded">
+        &lt;p>Hello World!&lt;/p>
+      &lt;/div>
+    &lt;/div>
+  &lt;/div>
+&lt;/article></code></pre>
+    <aside class="notes">
+      Targeting all text with summary, just this field? Just ones of news type?<br>
+      If you're setting font size you can set on wrapper, inheritable<br>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h4>Try to use selectors that explain what they're targeting</h4>
+  </section>
+  <section>
+    <h5>When possible create descriptive and specific class names</h5>
+  </section>
+  <section>
+    This is much more descriptive:
+    <pre>.node-news .field-name-body</pre>
+    Than this:
+    <pre>.node-news .field</pre>
+  </section>
+</section>
+
+
+<section>
+<h3 style="font-weight: 200">CSS Architecture Best Practices</h3>
+</section>
+
+<section>
+  <h2 style="line-height: 1.6">The larger the project, <span style="display: block; font-weight: normal; font-size: 0.75em; color: #000">the more important CSS standards & architecture are.</span></h2>
+</section>
 
 <section>
   <section>
@@ -3223,7 +3377,6 @@ body.html.page-node-X
   </section>
 </section>
 
-
 <section>
   <section>
     <h3>Working inside of a framework</h3>
@@ -3246,6 +3399,92 @@ body.html.page-node-X
       </li>
     </ul>
   </section>
+</section>
+
+
+<section>
+
+  <section>
+    <h3>On Selectors</h3>
+    <ul>
+      <li>Use classes, not id's or tags (except for base tag styling)</li>
+      <li>Write styles so the cascade starts at the most general, to the most specific. Some good examples are <a href="https://smacss.com/book/categorizing" target="css-training">SMACSS</a> or <a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/">Inverted Pyramid</a></li>
+      <li>Avoid inline styles as much as possible (in markup or javascript)</li>
+      <li>Don't use <code>!important</code> <em>unless</em> you're overriding inline styles</li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>Only be as specific as necessary</h4>
+    <ul>
+      <li>Avoid unneccessary parts of your selector, e.g. <code><em style="color:#900">.main-header</em> .header-logo</code></li>
+      <li>Don’t 'qualify' classes by adding the tag name e.g. <code><em style="color:#900">header</em>.main-header</code></li>
+      <li>Avoid compound selectors by creating highly specific class names; e.g. <a href="http://getbem.com/naming/">BEM</a> class naming <code>.widget__title--featured</code></li>
+    </ul>
+
+  </section>
+
+  <section>
+    <ul>
+      <li>If you're using Drupal or a CSS Preprocessor, break up your CSS into small organized files</li>
+      <li>Use auto-prefixer, in a build step, as a plugin for your editor, or use <a href="http://autoprefixer.github.io/">Autoprefixer.github.io</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <ul>
+      <li>If id is the best styling hook, use <code>[id=”id-name”]</code></li>
+      <li>If specificity is too low, but adding other class names would be bloat, use an attribute selector like <code>.my-widget[class][class]</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h4>Fancy <code>nth-child</code> Tricks</h4>
+    <ul>
+      <li><a href="https://css-tricks.com/useful-nth-child-recipies/" target="css-training">CSS Tricks Nth-Child Recipes</a></li>
+      <li><a href="https://alistapart.com/article/quantity-queries-for-css" target="css-training">Quantity Queries for CSS</a></p>
+    </ul>
+  </section>
+
+</section>
+
+<section>
+  <h2>Debugging tips and tricks</h2>
+  <aside class="notes">
+    Common Debug Issues and Methods
+    <ul>
+      <li>
+        Checking to see if stylesheet is applying (color: red!important)
+      </li>
+      <li>Style isn’t applying
+        <ul>
+          <li>Check computed pane</li>
+          <li>
+            Specificity hacks
+          </li>
+        </ul>
+      </li>
+      <li>Check if stylesheet is being added</li>
+      <li>Is the class name correct?
+        <ul>
+          <li>Make sure you didn’t put a “.” in the HTML</li>
+          <li>Copy the class name from the HTML into your CSS</li>
+        </ul>
+      </li>
+      <li> Hide and seek elements (z-index, overflow, etc)
+        <ul>
+          <li>Check computed styles for culprits</li>
+          <li>Check parent elements for overflow: hidden</li>
+        </ul>
+      </li>
+      <li> Misc. weirdness
+        <ul>
+          <li>display:none elements until the problem goes away</li>
+          <li>Margin in an element with no padding and an element with padding</li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
 </section>
 
 
