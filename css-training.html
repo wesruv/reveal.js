@@ -1337,9 +1337,13 @@ grid-gap: 1rem;
     <h3>Can I use Grid Now?</h3>
   </section>
   <section>
-    <img src="assets/css-training/grid-compatibility.png" alt="CanIUse.com, Globally 72.4% fully support Grid, not counting mobile browsers it’s 85.5% (1/21/18)" />
+    <img src="assets/css-training/grid-compatibility.png"
+      alt="CanIUse.com, Globally 89.08% fully support Grid"
+    />
     <aside class="notes">
       CanIUse.com<br>
+      6/5/2019<br>
+      Globally 89.08% fully support grid<br>
       2/13/19<br>
       Globally 85.08% fully support grid<br>
       10/23/18<br>
@@ -1349,9 +1353,12 @@ grid-gap: 1rem;
     </aside>
   </section>
   <section>
-    <img src="assets/css-training/grid-compatibility-scs.png" alt="CMU School of Computer Science (my client) is at about 93% of visitors will get Grid layout" />
+    <img src="assets/css-training/grid-compatibility-scs.png"
+      alt="A client whose a group of scientists, about 87% will get grid" />
     <aside class="notes">
       Professional group for scientists and engineers<br>
+      6/5/2019<br>
+      88%<br>
       2/13/19<br>
       87%<br>
       10/23/18<br>
@@ -1361,9 +1368,12 @@ grid-gap: 1rem;
     </aside>
   </section>
   <section>
-    <img src="assets/css-training/grid-compatibility-scs.png" alt="CMU School of Computer Science (my client) is at about 93% of visitors will get Grid layout" />
+    <img src="assets/css-training/grid-compatibility-scs.png"
+      alt="CMU School of Computer Science (my client) is at about 97% of visitors will get Grid layout" />
     <aside class="notes">
       CMU SCS<br>
+      6/5/2019<br>
+      97%<br>
       2/13/19<br>
       97%<br>
       10/23/18<br>
@@ -1373,9 +1383,12 @@ grid-gap: 1rem;
     </aside>
   </section>
   <section>
-    <img src="assets/css-training/grid-compatibility-lullabot.png" alt="Lullabot.com, About 97% of visitors will get Grid layout (1/7/2018)" />
+    <img src="assets/css-training/grid-compatibility-lullabot.png"
+      alt="Lullabot.com, About 98% of visitors will get Grid layout (1/7/2018)" />
     <aside class="notes">
       Lullabot.com<br>
+      6/5/2019<br>
+      99%<br>
       2/13/19<br>
       98%<br>
       10/23/18<br>
@@ -1415,7 +1428,7 @@ grid-gap: 1rem;
   <section>
     <h3>Want equal width columns with gutter?</h3>
     <p>You'd think...</p>
-<pre class="language-css" style="font-size: 0.9em"><code class="language-css">.wrapper {
+<pre class="language-css"><code class="language-css">.wrapper {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   grid-gap: 10px;
@@ -1428,7 +1441,7 @@ grid-gap: 1rem;
 
   <section>
     <h3>How to get equal width columns with gutter</h3>
-<pre class="language-css" style="font-size: 0.9em"><code class="language-css">.wrapper {
+<pre class="language-css"><code class="language-css">.wrapper {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-gap: 10px;
@@ -2129,18 +2142,18 @@ grid-gap: 1rem;
     <h4 style="font-size: 1.4em"><code>box-sizing: content-box;</code></h4>
     <img src="assets/css-training/box-sizing-content-box.png" alt="" width="40%" style="display: block; margin: 0 auto;" />
     <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.element {           /* Space taken up in layout */
-  width: 100px;      /* 100px */
-  padding: 5px 10px; /* 100px + 20px */
-  border-width: 2px; /* 120px + 2px */
-}                    /* Total 122px */</code></pre>
+  padding: 5px 10px; /* 10px + 10px = 20px */
+  border-width: 2px; /* 20px + 2px + 2px = 24px */
+  width: 100px;      /* 24px + 100px */
+}                    /* Total 124px */</code></pre>
   </section>
   <section>
     <h4 style="font-size: 1.4em"><code>box-sizing: border-box;</code></h4>
     <img src="assets/css-training/box-sizing-border-box.png" alt="" width="40%" style="display: block; margin: 0 auto;" />
     <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.element {           /* Space taken up in layout */
+  padding: 5px 10px; /* 10px + 10px = 20px */
+  border-width: 2px; /* 20px + 2px + 2px = 24px */
   width: 100px;      /* 100px */
-  padding: 5px 10px; /* 100px */
-  border-width: 2px; /* 100px */
 }                    /* Total 100px */</code></pre>
   </section>
   <section>
@@ -2275,7 +2288,7 @@ grid-gap: 1rem;
       </div>
       <pre class="language-css" style="font-size: 0.7em; width: 12em;"><code class="language-css">.element {
   position: relative;
-  top: 100px;
+  top: 25px;
   left: 50px;
   float: left;
 }</code></pre>
@@ -2483,8 +2496,9 @@ grid-gap: 1rem;
     </ul>
   </section>
   <section>
-    <h4>If it's being a total fussy headache...</h4>
+    <h4>When an element isn't cooperating...</h4>
     <ul>
+      <li>Check the layout properties of the element and it's parent</li>
       <li>Are we using the best tool?</li>
       <li>To the Google!</li>
       <li>Is it better to rework the design?</li>
@@ -2658,15 +2672,15 @@ grid-gap: 1rem;
   </section>
   <section>
       <pre class="language-css" style="font-size: 0.7em;"><code class="language-css">.blue-element {
-  transform: translate(200px) rotate(80deg);
+  transform: translate(200px) rotate(45deg);
 }
 .red-element {
-  transform: rotate(80deg) translate(200px);
+  transform: rotate(45deg) translate(200px);
 }</code></pre>
     <div class="transform-example-wrapper" style="margin: 0 3em 0.5em;">
       <div class="transform-item transform-item--base"></div>
-      <div class="transform-item" style="transform: translate(200px) rotate(80deg);"></div>
-      <div class="transform-item" style="transform:  rotate(80deg) translate(200px); position: absolute; top: 0.5em; left: 0.5em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
+      <div class="transform-item" style="transform: translate(200px) rotate(45deg);"></div>
+      <div class="transform-item" style="transform:  rotate(45deg) translate(200px); position: absolute; top: 0.5em; left: 0.5em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
     </div>
   </section>
 </section>
@@ -3311,7 +3325,7 @@ body.html.page-node-X
     <h4>Only target what you mean to</h4>
   </section>
   <section>
-    <pre class="language-markup" style="font-size: 0.8em;"><code class="language-markup" style="white-space: pre;">&lt;article about="/page-url" typeof="foaf:Document" class="node node-news node-published node-not-promoted node-not-sticky clearfix" id="node-news-2">
+    <pre class="language-markup" style="font-size: 1.2rem;"><code class="language-markup" style="white-space: pre;">&lt;article class="node node-news node-published node-not-promoted node-not-sticky clearfix" id="node-news-2" about="/page-url" typeof="foaf:Document">
   &lt;div class="field field-name-body field-type-text-with-summary field-label-hidden">
     &lt;div class="field-items">
       &lt;div class="field-item even" property="content:encoded">
@@ -3338,7 +3352,7 @@ body.html.page-node-X
     This is much more descriptive:
     <pre>.node-news .field-name-body</pre>
     Than this:
-    <pre>.node-news .field</pre>
+    <pre>.node .field</pre>
   </section>
 </section>
 
@@ -3390,14 +3404,11 @@ body.html.page-node-X
     </ul>
   </section>
   <section>
-    <ul>
-      <li>Have guidelines for what framework is used for, and what custom CSS should cover
-        <ul>
-          <li>Using just the grid? Grid + some components?</li>
-          <li>Prefer or avoid using framework components?</li>
-        </ul>
-      </li>
-    </ul>
+    <h4>Guidelines for framework or contrib vs custom code uses</h4>
+      <ul>
+        <li>Using just the grid? Grid + some components?</li>
+        <li>Prefer or avoid using framework components?</li>
+      </ul>
   </section>
 </section>
 

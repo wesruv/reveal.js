@@ -21,6 +21,9 @@ input {
 code {
   white-space: nowrap; }
 
+pre[class*='language-'] {
+  font-size: 1.6rem; }
+
 .photo-credit {
   position: absolute;
   top: 50vh;
