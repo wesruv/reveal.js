@@ -6,8 +6,8 @@
 
     <title>CSS Training</title>
 
-    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="Full day CSS training">
+    <meta name="author" content="Wes Ruvalcaba">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -680,6 +680,7 @@
 
 </section>
 
+<!--
 <section style="text-align: center;">
   <h2><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
     Be back at <input type="text" size="5" value="..." style="text-align: left" />
@@ -692,7 +693,7 @@
     <li>Browser Support Issues</li>
   </ul>
 </section>
-
+-->
 <section><h1>CSS Layout in 2018</h1></section>
 
 <section>
@@ -1434,7 +1435,7 @@ grid-gap: 1rem;
   grid-gap: 10px;
 }</code></pre>
 
-    <p><a href="/assets/css-training/grid-equal-columns-wrong.html" target="css-training">
+    <p><a href="assets/css-training/grid-equal-columns-wrong.html" target="css-training">
       But look at what that gives you...
     </a></p>
   </section>
@@ -1447,7 +1448,7 @@ grid-gap: 1rem;
   grid-gap: 10px;
 }</code></pre>
 
-    <p><a href="/assets/css-training/grid-equal-columns-correct.html" target="css-training">
+    <p><a href="assets/css-training/grid-equal-columns-correct.html" target="css-training">
       Take a look...
     </a></p>
   </section>
@@ -1934,6 +1935,50 @@ grid-gap: 1rem;
       <div style="order: 10"><div>4</div></div>
       <div><div>5</div></div>
     </div>
+  </section>
+  <section>
+    <h4><code>flex-basis</code></h4>
+    <p>Sets initial size of flex item</p>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 { flex-basis: 4em; }
+.flex-item-4 { flex-basis: 2em; }</code></pre>
+    <div class="flex-container" style="font-size: 0.8em;">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="flex-basis: 4em; min-width: 0;"><div>3</div></div>
+      <div style="flex-basis: 2em; min-width: 0;"><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+  <section>
+    <h4><code>flex-grow</code></h4>
+    <p>Distributes extra space to items that have a value</p>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 { flex-grow: 2; }
+.flex-item-4 { flex-grow: 1; }</code></pre>
+    <div class="flex-container" style="font-size: 0.8em;">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="flex-grow: 2"><div>3</div></div>
+      <div style="flex-grow: 1"><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h4><code>flex-shrink</code></h4>
+    <p>When there isn't enough space items will shrink to fit</p>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 { flex-shrink: 2; }
+.flex-item-4 { flex-shrink: 1; }</code></pre>
+    <div class="flex-container" style="font-size: 0.8em;">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="flex-shrink: 2; flex-basis: 4em; min-width: 0px"><div>3</div></div>
+      <div style="flex-shrink: 1; flex-basis: 4em; min-width: 0px"><div>4</div></div>
+      <div><div>5</div></div>
+      <div><div>6</div></div>
+      <div><div>7</div></div>
+      <div><div>8</div></div>
+    </div>
+
   </section>
   <section>
     <h4>💖<code>margin</code> and flex items💖</h4>
@@ -3250,6 +3295,21 @@ body.html.page-node-X
 <section>
   <section>
     <h3>
+      How to read selectors
+    </h3>
+  </section>
+  <section>
+    <h4>Read back to front</h4>
+    <pre class="language-css" style="font-size: 0.6em;"><code class="language-css">.article h4 a
+.main-menu > li a
+.bio-photo + .bio-name
+.column:nth-last-child(4) ~ .column:first-child</code></pre>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>
       Choosing the best selector for the job
     </h3>
   </section>
@@ -3356,13 +3416,14 @@ body.html.page-node-X
   </section>
 </section>
 
-
 <section>
 <h3 style="font-weight: 200">CSS Architecture Best Practices</h3>
 </section>
 
 <section>
-  <h2 style="line-height: 1.6">The larger the project, <span style="display: block; font-weight: normal; font-size: 0.75em; color: #000">the more important CSS standards & architecture are.</span></h2>
+  <h3 style="line-height: 1.6">
+  The larger the project, <span style="display: block; font-weight: normal; font-size: 0.75em; color: #000">the more important CSS standards & architecture are.</span>
+  </h3>
 </section>
 
 <section>
@@ -3457,6 +3518,52 @@ body.html.page-node-X
     </ul>
   </section>
 
+</section>
+
+<section>
+  <section>
+    <h2>Page Performance & CSS</h2>
+  </section>
+  <section>
+    <h3>CSS Selector speed doesn't matter</h3>
+    <div style="text-align: center">
+      <img src="assets/css-training/css-selectors-IE7-colorB-459x330.jpg" alt="In IE7 morme CSS selectors have low effect on page speed until 18,000">
+    </div>
+    <p style="font-size: 0.7em">
+      <em>Technically</em> it does, but in the real world it's low value and high cost.<br>
+      See: <a href="http://www.stevesouders.com/blog/2009/03/10/performance-impact-of-css-selectors/" target="_blank">
+        Performance Impact of CSS Selectors - Steve stevesouders
+      </a>
+    </p>
+  </section>
+  <section>
+    <h3>Things to avoid:</h3>
+    <ul>
+      <li><code>@import</code></li>
+      <li>Base64 assets</li>
+    </ul>
+    <aside class="notes">
+      @import makes it harder for the browser to optimize resource delivery<br>
+      Base64 is larger than a compressed file, can add too much computation for slow devices
+    </aside>
+  </section>
+  <section>
+    <h3>Tips:</h3>
+    <ul>
+      <li>Inline critical CSS</li>
+      <li>Manage filesize with minification</li>
+      <li>Use <code>will-change</code> to clue in browser to animations</li>
+      <li>Use <code>font-display</code> to prevent a web font from blocking render</li>
+    </ul>
+  </section>
+  <section>
+    <h3>For animation or manipulation:</h3>
+    <ul>
+      <li>Transforms for animations whenever possible</li>
+      <li>Don't use 3d transforms (typically used for parallax)</li>
+      <li>Don't cause reflow when possible</li>
+    </ul>
+  </section>
 </section>
 
 <section>
