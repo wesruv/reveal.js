@@ -75,7 +75,6 @@
 
 <section>
   <section>
-    <h2 id="who-am-i" style="font-weight: 200">About Me...</h2>
     <img src="assets/d8/me.jpg" alt="" style="width: 35%; float: right;">
     <div style="box-sizing: border-box; width: calc(65% - 0.6em);">
       <h3 id="wes-ruvalcaba">Wes Ruvalcaba</h3>
@@ -96,6 +95,13 @@
 
 <section data-background-color="#fff">
   <img src="assets/d8/lullabot-slide.jpg" alt="Lullabot" />
+  <aside class="notes">
+    Strategy, Design, Development<br>
+    Large scale web sites with complex problems<br>
+    Content, Editorial, Technical Challenges<br>
+    Support & Maint<br>
+    Technical Support, Mentorship, Training, Advice, Smaller engagements
+  </aside>
 </section>
 
 <section>
@@ -119,22 +125,15 @@
 
 <section>
   <h2 id="well-go-over">We'll go over</h2>
-  <ul style="font-size: 0.9em; margin: 0; columns: 2;  width: 100%; list-style: none; padding: 0;">
+  <ul style="font-size: 0.9em;  width: 100%; padding: 0;">
     <li>CSS "Units" and "Lengths"</li>
     <li>Media Queries</li>
-    <li>Layout 101 in 2018
-      <ul style="display: none; font-size: 0.8em;">
-        <li>"Document Flow"</li>
-        <li><code>grid</code>, <code>flex</code> (box), "Block Model", &amp; <code>position</code></li>
-      </ul>
-    </li>
-    <li>"Pseudo-content", <code style="margin-left: 0;">transform</code></li>
-    <li>Accessibility Concerns</li>
+    <li>Layout with CSS</li>
+    <li>Advanced styling techniques & animating</li>
+    <li>Accessibility</li>
     <li>Debugging CSS Issues</li>
-    <li><code>transition</code> &amp; <code>animation</code></li>
-    <li>Architecting CSS so it's not a headache</li>
+    <li>Architecting CSS</li>
     <li>Fancy Tips and Tricks</li>
-    <li>(and maybe) Crowd Sourced Fancy Tricks!</li>
   </ul>
 </section>
 
@@ -386,20 +385,21 @@
   <div class="section-indicator">Units and Lengths</div>
   <section>
     <h4><code>ex</code> and <code>ch</code></h4>
+    <p>Based on the font that renders</p>
     <div class="column-wrapper" style="padding-top: 1em">
       <pre class="language-css" style="max-width: 45%; margin-right: 5%"><code class="language-css">1ex
 1.25ex
 15ex</code></pre>
-      <p style="max-width: 50%">
-        <code>1ex</code> = Calculated width of a lower-case <code>x</code> in the font that renders
+      <p style="max-width: 75%;">
+        <code>1ex</code> = Calculated width of a lower-case <code>x</code>
       </p>
     </div>
     <div class="column-wrapper" style="padding-top: 1em">
 <pre class="language-css" style="max-width: 45%; margin-right: 5%"><code class="language-css">1ch
 1.25ch
 15ch</code></pre>
-      <p style="max-width: 50%">
-        <code>1ch</code> = Calculated width of the number <code>0</code> in the font that renders
+      <p style="max-width: 75%; line-height: 1.6">
+        <code>1ch</code> = Calculated width of the number <code>0</code>
       </p>
     </div>
   </section>
@@ -484,7 +484,7 @@
     <img src="assets/css-training/vmax.png" style="width: 100%" alt="vmin - percantage of the largest dimension (height or width)"/>
   </section>
   <section>
-    <h5>25vmax</h5>
+    <h5><code>25vmax</code></h5>
     <img src="assets/css-training/vmax25.png" alt="25vmax examples" />
   </section>
 </section>
@@ -558,6 +558,9 @@
     <pre class="language-css"><code>@media /* Conditions */ {
   /* CSS Rules */
 }</code></pre>
+    <aside class="notes">
+      Ask questions about the end user's browser
+    </aside>
   </section>
 
   <section>
@@ -566,7 +569,7 @@
 
 @media print { /* Print CSS Rules */ }</code></pre>
 
-    <p><small style="line-height: 2">Fun fact: <code>speech</code>, <code>braille</code>, <code>embossed</code> (braille printers), <br><code>tty</code> (like command line), <code>tv</code> also exist.</small></p>
+    <p><small>Fun fact: <br><code>speech</code>, <code>braille</code>, <code>embossed</code> (braille printers), <br><code>tty</code> (like command line), <code>tv</code> also exist.</small></p>
   </section>
 
   <section>
@@ -595,8 +598,8 @@
     <p style="font-size: 1.25em; line-height: 1.8;">Write <code>min-width</code> and <code>min-height</code>,<br><br>
     <strong>not</strong> <code>max-width</code> or <code>max-height</code></p>
   </section>
-  <section style="font-size: 0.8em">
-    <pre class="language-css"><code>.box {
+  <section>
+    <pre class="language-css"><code style="font-size: 0.85em">.box {
   /* Mobile CSS */
 }
 
@@ -706,7 +709,7 @@
   </section>
 
   <section>
-    <img src="assets/css-training/webpage.png" style="margin: -5% 0 0; width: 80%" alt="Mock up of an article page" />
+    <img src="assets/css-training/webpage.png" class="block-centered" style="width: 70%" alt="Mock up of an article page" />
     <aside class="notes">
       Document flow is how elements want to layout on the page, given their styles.<br>
       See text flow<br>
@@ -715,7 +718,7 @@
   </section>
 
   <section>
-    <img src="assets/css-training/document-flow.png" style="margin: -5% 0 0; width: 80%" alt="Mock up of an article page" />
+    <img src="assets/css-training/document-flow.png" class="block-centered" style="width: 80%" alt="Mock up of an article page" />
     <aside class="notes">
       This is DF<br>
       They're cool<br>
@@ -758,14 +761,14 @@
   </section>
 
   <section>
-    <img src="assets/css-training/webpage.png" style="margin: -5% 0 0; width: 80%" alt="Mock up of an article page" />
+    <img src="assets/css-training/webpage.png" class="block-centered" style="width: 70%" alt="Mock up of an article page" />
     <aside class="notes">
       Content area might be flexbox (Layout flow), but inside of the left column we go back to text flow
     </aside>
   </section>
 
   <section>
-    <img src="assets/css-training/pos-absolute.png" style="margin: -5% 0 0; width: 80%" alt="Mock up of an article page" />
+    <img src="assets/css-training/pos-absolute.png" class="block-centered" style="width: 80%" alt="Mock up of an article page" />
     <aside class="notes">
       This angry fellow represents properties that break/mess with document flow<br>
       It's not wrong to break document flow, it is gutsy<br>
@@ -799,7 +802,7 @@
   </section>
 
   <section>
-    <img src="assets/css-training/webpage-modal.png" style="margin: -5% 0 0; width: 80%" alt="Mock up of an article page" />
+    <img src="assets/css-training/webpage-modal.png" class="block-centered" style="width: 80%" alt="Mock up of an article page" />
     <aside class="notes">
       To get a modal like this, you have to break document flow<br>
       But notice inside of it, we're back to regular document flow
@@ -817,7 +820,7 @@
 </section>
 
 <section>
-  <h2>Layout 101 in 2018</h2>
+  <h2>Layout 101 in Post-CSS Grid</h2>
   <aside class="notes">
     We're going to start from the outside out.
   </aside>
@@ -1110,7 +1113,7 @@
   </section>
   <section>
     <h3>Grid Item Shorthand</h3>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.my-header {
+    <pre class="language-css"><code style="font-size: 0.85em" class="language-css">.my-header {
   grid-column: 1 / -1;
 }
 
@@ -1174,8 +1177,7 @@
 .my-header  { grid-area: header; }
 .my-content { grid-area: content;}
 .my-sidebar { grid-area: sidebar;}
-.my-footer  { grid-area: footer; }
-  </code></pre>
+.my-footer  { grid-area: footer; }</code></pre>
   </section>
   <section style="text-align: center;">
     <div class="grid-example-wrapper grid-example-wrapper--25-50-25">
@@ -1340,6 +1342,7 @@ grid-gap: 1rem;
   <section>
     <img src="assets/css-training/grid-compatibility.png"
       alt="CanIUse.com, Globally 89.08% fully support Grid"
+      class="block-centered"
     />
     <aside class="notes">
       CanIUse.com<br>
@@ -1355,7 +1358,8 @@ grid-gap: 1rem;
   </section>
   <section>
     <img src="assets/css-training/grid-compatibility-scs.png"
-      alt="A client whose a group of scientists, about 87% will get grid" />
+      alt="A client whose a group of scientists, about 87% will get grid"
+      class="block-centered" />
     <aside class="notes">
       Professional group for scientists and engineers<br>
       6/5/2019<br>
@@ -1370,7 +1374,8 @@ grid-gap: 1rem;
   </section>
   <section>
     <img src="assets/css-training/grid-compatibility-scs.png"
-      alt="CMU School of Computer Science (my client) is at about 97% of visitors will get Grid layout" />
+      alt="CMU School of Computer Science (my client) is at about 97% of visitors will get Grid layout"
+      class="block-centered" />
     <aside class="notes">
       CMU SCS<br>
       6/5/2019<br>
@@ -1385,7 +1390,8 @@ grid-gap: 1rem;
   </section>
   <section>
     <img src="assets/css-training/grid-compatibility-lullabot.png"
-      alt="Lullabot.com, About 98% of visitors will get Grid layout (1/7/2018)" />
+      alt="Lullabot.com, About 98% of visitors will get Grid layout (1/7/2018)"
+      class="block-centered" />
     <aside class="notes">
       Lullabot.com<br>
       6/5/2019<br>
@@ -1489,8 +1495,8 @@ grid-gap: 1rem;
         border: 0.125em solid rgba(0, 0, 0, 0.6);
       }
       .flex-container > div {
-        min-width: 4em;
-        min-height: 4em;
+        min-width: 3.75em;
+        min-height: 3.75em;
         margin: 0 0.25em 0.25em 0;
         background: rgba(35, 165, 216, 0.3);
       }
@@ -1725,9 +1731,7 @@ grid-gap: 1rem;
 
   <section>
     <h4><code>justify-content</code></h4>
-    <aside class="notes">
-      How extra space is distributed along the main axis
-    </aside>
+    <p>How extra space is distributed along the <strong>main&nbsp;axis</strong></p>
     <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
   display: flex;
   justify-content: center;
@@ -1784,9 +1788,7 @@ grid-gap: 1rem;
 
   <section>
     <h4><code>align-items</code></h4>
-    <aside class="notes">
-      How each flex item is aligned along the cross axis
-    </aside>
+    <p>How extra space is distributed along the <strong>cross&nbsp;axis</strong></p>
     <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
   display: flex;
   align-items: center;
@@ -2038,7 +2040,7 @@ grid-gap: 1rem;
   <section>
     <h4>Block Layout</h4>
     <p>The most basic and oldest layout method on the web.</p>
-    <ul>
+    <ul style="font-size: 0.95em">
       <li>A <code>&lt;div></code> has one default style, <code>display: block</code></li>
       <li>Block elements gets stacked on top of each other</li>
       <li>Block elements default to 100% width</li>
@@ -2186,7 +2188,7 @@ grid-gap: 1rem;
   <section>
     <h4 style="font-size: 1.4em"><code>box-sizing: content-box;</code></h4>
     <img src="assets/css-training/box-sizing-content-box.png" alt="" width="40%" style="display: block; margin: 0 auto;" />
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.element {           /* Space taken up in layout */
+    <pre class="language-css" style="font-size: 0.75em"><code class="language-css">.element {           /* Space taken up in layout */
   padding: 5px 10px; /* 10px + 10px = 20px */
   border-width: 2px; /* 20px + 2px + 2px = 24px */
   width: 100px;      /* 24px + 100px */
@@ -2195,7 +2197,7 @@ grid-gap: 1rem;
   <section>
     <h4 style="font-size: 1.4em"><code>box-sizing: border-box;</code></h4>
     <img src="assets/css-training/box-sizing-border-box.png" alt="" width="40%" style="display: block; margin: 0 auto;" />
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.element {           /* Space taken up in layout */
+    <pre class="language-css" style="font-size: 0.75em"><code class="language-css">.element {           /* Space taken up in layout */
   padding: 5px 10px; /* 10px + 10px = 20px */
   border-width: 2px; /* 20px + 2px + 2px = 24px */
   width: 100px;      /* 100px */
@@ -2515,8 +2517,8 @@ grid-gap: 1rem;
     <p>Some guidelines</p>
   </section>
   <section style="text-align: center">
-    <h4 style="margin-bottom: -0.75em;">Start Outside In</h4>
-    <img src="assets/css-training/webpage.png" alt="" width="75%" />
+    <h4>Start Outside In</h4>
+    <img src="assets/css-training/webpage.png" class="block-centered" alt="" width="70%" />
   </section>
   <section>
     <h4>Flow Friendly First</h4>
@@ -2529,7 +2531,7 @@ grid-gap: 1rem;
     </ul>
   </section>
   <section style="text-align: center">
-    <img src="assets/css-training/webpage.png" alt="" width="75%" />
+    <img src="assets/css-training/webpage.png" class="block-centered" alt="" width="70%" />
   </section>
   <section>
     <h4>Remember what layout methods are best at</h4>
@@ -2914,7 +2916,7 @@ grid-gap: 1rem;
     <h2>Animation Pro-Tips</h2>
   </section>
   <section>
-    <h3>Transforms are the bomb</h3>
+    <h3>Transforms are the awesome</h3>
     <p>If the desired animation can be done with transform, it should be.</p>
     <ul>
       <li>Performs better</li>
@@ -2922,16 +2924,11 @@ grid-gap: 1rem;
       <li>Animation will be smoother because of anti-aliasing</li>
   </section>
   <section>
-    <p>Zoomed in at 10x.<br>Blue is using transform, Red is using margin-left.</p>
-    <style>
-      .transform-example-wrapper:hover .transition-4 { transform: translate(4em); }
-      .transform-example-wrapper:hover .transition-5 { margin-left: 4em; }
-    </style>
-    <div class="transform-example-wrapper" style="font-size: 0.1em; transform: scale(10); width: 5%; transform-origin: top left;">
-      <div class="transform-item transition-4" style="transition: transform 3s linear; float: none; margin-bottom: 0.25em;"></div>
-      <div class="transform-item transition-5" style="transition: margin 3s linear; float: none; margin-bottom: 0.25em; border-color: rgba(200, 0, 0, 0.9); background: rgba(200, 0, 0, 0.3);"></div>
-    </div>
-    <div style="padding-bottom: 10em;"></div>
+    <h3>
+      <a href="https://codepen.io/wesruv/pen/mZVEqZ" target="css-training">
+        Live example of their awesomeness
+      </a>
+    </h3>
   </section>
   <section>
     <h3>Don't move something that animates on hover</h3>

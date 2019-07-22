@@ -32,50 +32,14 @@ $headingH1FontWeight: 200;
 $linkColor: #128083;
 $linkColorHover: lighten( $linkColor, 15 );
 $selectionBackgroundColor: desaturate(lighten( $linkColor, 25 ), 20);
-$arrow-color: #fff;
-$arrow-background: #128083;
+$arrow-color: #128083;
+$arrow-background: transparent;
 $highlighter-color: #ffec99;
 
 $heading1Size: 2.5em;
 $heading2Size: 1.6em;
 $heading3Size: 1.3em;
 $heading4Size: 1.0em;
-
-.has-dark-background {
-  &,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: #fff;
-  }
-}
-
-input {
-  font-family: inherit;
-  font-size: inherit;
-}
-
-code {
-  white-space: nowrap;
-}
-
-pre[class*='language-'] {
-  font-size: 1.6rem;
-}
-
-.photo-credit {
-  position: absolute;
-  top: 50vh;
-  top: calc(50vh + 1.5em);
-  right: 0;
-  padding: 0.75em 1.5em;
-  font-size: 0.3em;
-  background: rgba(255, 255, 255, 0.75);
-
-}
 
 // Theme template ------------------------------
 @import "../template/wes-theme";

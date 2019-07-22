@@ -28,6 +28,11 @@ body {
   font-weight: inherit;
 }
 
+.reveal .slides[class][class] section {
+  max-width: 96%;
+  margin-left: 2%;
+}
+
 /*********************************************
  * HEADERS
  *********************************************/
@@ -121,10 +126,9 @@ section {
 .reveal ol,
 .reveal dl,
 .reveal ul {
-  display: inline-block;
-
   text-align: left;
-  margin: 0 0 0 1em;
+  padding: 0 0 0 1em;
+  margin: 0 0 0.25em;
 }
 
 .reveal ol {
@@ -151,6 +155,10 @@ section {
 .reveal ol ul {
   display: block;
   margin-left: 40px;
+}
+
+.reveal section li {
+  margin-bottom: 0.125em;
 }
 
 .reveal dt {
@@ -217,6 +225,7 @@ code {
   border-radius: 0.125em;
   margin: -0.125em;
   padding: 0.125em 0.25em;
+  line-height: 1.6;
 }
 
 pre {
@@ -238,6 +247,9 @@ pre {
   -ms-hyphens: none;
   hyphens: none;
   background: #f5f2f0;
+  code {
+    line-height: inherit;
+  }
 }
 
 .reveal pre code {
@@ -351,21 +363,8 @@ pre {
   background: $arrow-background;
 }
 
-.controls div.navigate-left:before {
-  border-right-color: $arrow-color;
-}
-
-
-.controls div.navigate-right:before {
-  border-left-color: $arrow-color;
-}
-
-.controls div.navigate-up:before {
-  border-bottom-color: $arrow-color;
-}
-
-.controls div.navigate-down:before {
-  border-top-color: $arrow-color;
+.reveal .controls .controls-arrow {
+  color: $arrow-color;
 }
 
 
@@ -519,3 +518,44 @@ input {
   background: transparent;
   border: 0;
 }
+
+.reveal .controls [class][class][class] {
+  animation: none;
+}
+
+.has-dark-background {
+  &,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #fff;
+  }
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+code {
+  white-space: nowrap;
+}
+
+pre[class*='language-'] {
+  font-size: 1.6rem;
+}
+
+.photo-credit {
+  position: absolute;
+  top: 50vh;
+  top: calc(50vh + 1.5em);
+  right: 0;
+  padding: 0.75em 1.5em;
+  font-size: 0.3em;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+@import "../../partials/custom-utilities";

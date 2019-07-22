@@ -22,6 +22,12 @@
   vertical-align: top;
 }
 
+.block-centered[class] {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .reveal .file-list {
 
   &,
