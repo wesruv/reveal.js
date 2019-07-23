@@ -128,7 +128,7 @@
   <ul style="font-size: 0.9em;  width: 100%; padding: 0;">
     <li>CSS "Units" and "Lengths"</li>
     <li>Media Queries</li>
-    <li>Layout with CSS</li>
+    <li>Layout with CSS post Grid & Flexbox</li>
     <li>Advanced styling techniques & animating</li>
     <li>Accessibility</li>
     <li>Debugging CSS Issues</li>
@@ -405,7 +405,7 @@
   </section>
   <section>
     <div class="column-wrapper">
-      <pre class="language-css" style="max-width: 50%;"><code class="language-css">.box {
+      <pre class="language-css" style="max-width: 50%;"><code class="language-css" style="font-size: 0.85em">.box {
   font-family: monospace;
   width: 20ex;
   background: deepskyblue;
@@ -683,21 +683,7 @@
 
 </section>
 
-<!--
-<section style="text-align: center;">
-  <h2><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
-    Be back at <input type="text" size="5" value="..." style="text-align: left" />
-  </h2>
-  <h3>Coming up: Layout in 2018</h3>
-  <ul>
-    <li>Document Flow &amp; You</li>
-    <li>Grid, Flex, Block Model, &amp; Position</li>
-    <li>Which to use??</li>
-    <li>Browser Support Issues</li>
-  </ul>
-</section>
--->
-<section><h1>CSS Layout in 2018</h1></section>
+<section><h1>CSS Layout post CSS Grid & Flexbox</h1></section>
 
 <section>
   <section>
@@ -1877,7 +1863,7 @@ grid-gap: 1rem;
     </h3>
     <p>Try to complete as many as you can on our break<br> (try to get to exercise 10):</p>
     <a href="http://FlexboxFroggy.com/">FlexboxFroggy.com</a>
-    <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSSTricks.com open in another browser may come in handy!</p>
+    <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSS-Tricks.com open in another browser may come in handy!</p>
   </section>
 </section>
 
@@ -2028,7 +2014,106 @@ grid-gap: 1rem;
     </h3>
     <p>Try styling a menu for an up and coming industrialist super-power:<br>
     <a href="https://codepen.io/pen/rPrERx" target="css-training">codepen.io/pen/rPrERx</a></p>
-    <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSSTricks.com open in another browser may come in handy!</p>
+    <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSS-Tricks.com open in another browser may come in handy!</p>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>CSS Columns</h3>
+    <p style="
+      color: #777;
+      column-count: 3;
+      column-gap: 1em;
+      font-size: 0.5em;
+      background: #fff;
+      padding: 1em;
+      margin-bottom: -10em;"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nibh diam, et rhoncus nulla interdum vitae. Suspendisse ac quam justo. In ut enim faucibus, aliquet velit a, rhoncus mauris. Ut pharetra magna ac euismod gravida. Aenean fringilla ex sit amet est condimentum, fermentum dapibus diam finibus. Donec id tortor turpis. Morbi semper turpis quis posuere sagittis. Suspendisse ac pulvinar magna, a hendrerit arcu. Aenean dictum nunc sit amet libero fringilla, vel vulputate risus auctor. Vestibulum interdum vulputate nibh et sodales. Donec lorem nisi, mattis quis tempus sed, finibus at velit. Curabitur pharetra libero eget felis ornare finibus. Vivamus eget sollicitudin risus, eu lobortis est. Duis sed lectus a purus luctus fermentum. Duis consequat gravida ex, id pellentesque turpis finibus eu.
+    </p>
+  </section>
+  <section>
+    <h4>Basic syntax</h4>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.column-container {
+  column-count: 3;
+}</code></pre>
+    <p style="
+      color: #777;
+      column-count: 3;
+      font-size: 0.5em;
+      background: #fff;
+      padding: 1em;
+      margin-bottom: -10em;"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nibh diam, et rhoncus nulla interdum vitae. Suspendisse ac quam justo. In ut enim faucibus, aliquet velit a, rhoncus mauris. Ut pharetra magna ac euismod gravida. Aenean fringilla ex sit amet est condimentum, fermentum dapibus diam finibus. Donec id tortor turpis. Morbi semper turpis quis posuere sagittis. Suspendisse ac pulvinar magna, a hendrerit arcu. Aenean dictum nunc sit amet libero fringilla, vel vulputate risus auctor. Vestibulum interdum vulputate nibh et sodales. Donec lorem nisi, mattis quis tempus sed, finibus at velit. Curabitur pharetra libero eget felis ornare finibus. Vivamus eget sollicitudin risus, eu lobortis est. Duis sed lectus a purus luctus fermentum. Duis consequat gravida ex, id pellentesque turpis finibus eu.
+    </p>
+  </section>
+  <section>
+    <h4>Or Specify <code>column-width</code></h4>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.column-container {
+  column-width: 9em;
+}</code></pre>
+    <p style="
+      color: #777;
+      column-width: 8em;
+      font-size: 0.5em;
+      background: #fff;
+      padding: 1em;
+      margin-bottom: -10em;"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nibh diam, et rhoncus nulla interdum vitae. Suspendisse ac quam justo. In ut enim faucibus, aliquet velit a, rhoncus mauris. Ut pharetra magna ac euismod gravida. Aenean fringilla ex sit amet est condimentum, fermentum dapibus diam finibus. Donec id tortor turpis. Morbi semper turpis quis posuere sagittis. Suspendisse ac pulvinar magna, a hendrerit arcu. Aenean dictum nunc sit amet libero fringilla, vel vulputate risus auctor. Vestibulum interdum vulputate nibh et sodales. Donec lorem nisi, mattis quis tempus sed, finibus at velit. Curabitur pharetra libero eget felis ornare finibus. Vivamus eget sollicitudin risus, eu lobortis est. Duis sed lectus a purus luctus fermentum. Duis consequat gravida ex, id pellentesque turpis finibus eu.
+    </p>
+  </section>
+  <section>
+    <h4><code>column-gap</code></h4>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.column-container {
+  column-count: 3;
+  column-gap: 2em;
+}</code></pre>
+    <p style="
+      color: #777;
+      column-count: 3;
+      column-gap: 2em;
+      font-size: 0.5em;
+      background: #fff;
+      padding: 1em;
+      margin-bottom: -10em;"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nibh diam, et rhoncus nulla interdum vitae. Suspendisse ac quam justo. In ut enim faucibus, aliquet velit a, rhoncus mauris. Ut pharetra magna ac euismod gravida. Aenean fringilla ex sit amet est condimentum, fermentum dapibus diam finibus. Donec id tortor turpis. Morbi semper turpis quis posuere sagittis. Suspendisse ac pulvinar magna, a hendrerit arcu. Aenean dictum nunc sit amet libero fringilla, vel vulputate risus auctor. Vestibulum interdum vulputate nibh et sodales. Donec lorem nisi, mattis quis tempus sed, finibus at velit. Curabitur pharetra libero eget felis ornare finibus. Vivamus eget sollicitudin risus, eu lobortis est. Duis sed lectus a purus luctus fermentum. Duis consequat gravida ex, id pellentesque turpis finibus eu.
+    </p>
+  </section>
+  <section>
+    <h4><code>break-inside</code></h4>
+    <style>.children-break-inside-avoid > * { break-inside: avoid; }</style>
+    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.column-children {
+  break-inside: avoid;
+}</code></pre>
+    <ul class="children-break-inside-avoid" style="
+      color: #777;
+      column-count: 3;
+      column-gap: 2em;
+      font-size: 0.5em;
+      background: #fff;
+      padding: 1em;
+      margin-bottom: -10em;"
+    >
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+      <li>Proin rutrum nibh diam, et rhoncus nulla interdum vitae. Suspendisse ac quam justo.</li>
+      <li>In ut enim faucibus, aliquet velit a, rhoncus mauris.</li>
+      <li>Ut pharetra magna ac euismod gravida. Aenean fringilla ex sit amet est condimentum, fermentum dapibus diam finibus. Donec id tortor turpis.</li>
+      <li>Morbi semper turpis quis posuere sagittis.</li>
+      <li>Suspendisse ac pulvinar magna, a hendrerit arcu.</li>
+      <li>Aenean dictum nunc sit amet libero fringilla, vel vulputate risus auctor. Vestibulum interdum vulputate nibh et sodales.</li>
+      <li>Donec lorem nisi, mattis quis tempus sed, finibus at velit.</li>
+      <li>Curabitur pharetra libero eget felis ornare finibus. Vivamus eget sollicitudin risus, eu lobortis est.</li>
+      <li>Duis sed lectus a purus luctus fermentum.</li>
+      <li>Duis consequat gravida ex, id pellentesque turpis finibus eu.</li>
+    </ul>
+  </section>
+  <section>
+    <h4>CSS Column Gotcha</h4>
+    <p><a href="https://codepen.io/wesruv/pen/RXaPae?editors=1100" target="css-training">Beware effects that render at the bottom of columns.</a></p>
   </section>
 </section>
 
