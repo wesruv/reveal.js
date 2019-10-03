@@ -94,7 +94,7 @@
 
 
 <section data-background-color="#fff">
-  <img src="assets/d8/lullabot-slide.jpg" alt="Lullabot" />
+  <img src="assets/lullabot-logo.png" alt="Lullabot" />
   <aside class="notes">
     Strategy, Design, Development<br>
     Large scale web sites with complex problems<br>
@@ -265,7 +265,11 @@
   </section>
 
   <section>
-    <h3>Percentage ... of what?</h3>
+    <h3>
+      <a href="https://codepen.io/wesruv/pen/LYPwwKv?editors=1100">
+        Percentage ... of what?
+      </a>
+    </h3>
     <aside class="notes">
       Usually it's parent element's width, but check documentation when it doesn't do what you expect.
     </aside>
@@ -851,6 +855,7 @@
     <style>
       .grid-example-wrapper {
         position: relative;
+        transform: scale(0.9);
       }
 
       .grid-example {
@@ -961,41 +966,6 @@
           align-items: center;
           justify-content: center;">
           Grid Item
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h4>Grid Track</h4>
-    <p>A grid column or row</p>
-    <div class="grid-example-wrapper">
-        <div class="grid-example" style="font-weight: bold;">
-        <div style="
-          grid-row-start: 1;
-          grid-row-end: 2;
-          grid-column-start: 1;
-          grid-column-end: 4;
-          background: rgba(255, 255, 0, 0.3);
-          border: 0.25em solid rgba(150, 100, 0, 0.8);
-          color: #664400;
-          display: flex;
-          align-items: center;
-          justify-content: center;">
-          Grid Track
-        </div>
-        <div style="
-          grid-row-start: 1;
-          grid-row-end: 4;
-          grid-column-start: 1;
-          grid-column-end: 2;
-          background: rgba(0, 170, 255, 0.3);
-          color: #005;
-          border: 0.25em solid rgba(0, 170, 255, 0.5);
-          display: flex;
-          align-items: center;
-          justify-content: center;">
-          Grid Track
         </div>
       </div>
     </div>
@@ -1327,11 +1297,13 @@ grid-gap: 1rem;
   </section>
   <section>
     <img src="assets/css-training/grid-compatibility.png"
-      alt="CanIUse.com, Globally 89.08% fully support Grid"
+      alt="CanIUse.com, Globally 91.61% fully support Grid"
       class="block-centered"
     />
     <aside class="notes">
       CanIUse.com<br>
+      10/2/2019<br>
+      Globally 91.61% fully support grid<br>
       6/5/2019<br>
       Globally 89.08% fully support grid<br>
       2/13/19<br>
@@ -1343,11 +1315,18 @@ grid-gap: 1rem;
     </aside>
   </section>
   <section>
+    Site for network of scientists
+    <div style="font-size: 2em; font-weight: bold;">
+      83%
+    </div>
+    fully support Grid
     <img src="assets/css-training/grid-compatibility-scs.png"
       alt="A client whose a group of scientists, about 87% will get grid"
       class="block-centered" />
     <aside class="notes">
       Professional group for scientists and engineers<br>
+      10/2/2019<br>
+      83%<br>
       6/5/2019<br>
       88%<br>
       2/13/19<br>
@@ -1359,11 +1338,15 @@ grid-gap: 1rem;
     </aside>
   </section>
   <section>
-    <img src="assets/css-training/grid-compatibility-scs.png"
-      alt="CMU School of Computer Science (my client) is at about 97% of visitors will get Grid layout"
-      class="block-centered" />
+    Carnegie Mellon School of Computer Science
+    <div style="font-size: 2em; font-weight: bold;">
+      96%
+    </div>
+    fully support Grid
     <aside class="notes">
       CMU SCS<br>
+      10/2/2019<br>
+      Globally ~94% fully support grid<br>
       6/5/2019<br>
       97%<br>
       2/13/19<br>
@@ -1375,11 +1358,18 @@ grid-gap: 1rem;
     </aside>
   </section>
   <section>
+    Lullabot.com
+    <div style="font-size: 2em; font-weight: bold;">
+      99%
+    </div>
+    fully support Grid
     <img src="assets/css-training/grid-compatibility-lullabot.png"
       alt="Lullabot.com, About 98% of visitors will get Grid layout (1/7/2018)"
       class="block-centered" />
     <aside class="notes">
       Lullabot.com<br>
+      10/2/2019<br>
+      99%<br>
       6/5/2019<br>
       99%<br>
       2/13/19<br>
@@ -2248,7 +2238,7 @@ grid-gap: 1rem;
     <h4>❓<code style="margin-left: 0;">margin</code> and flex items❓</h4>
     <p><code>margin</code> does not collapse inside of a flex container</p>
 
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 {
+    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.flex-item-3 {
   margin-left: 2em;
   margin-right: 2em;
 }
@@ -3010,8 +3000,8 @@ grid-gap: 1rem;
   </section>
   <section>
     <h3>
-      <a href="https://codepen.io/wesruv/pen/mZVEqZ" target="css-training">
-        Live example of their awesomeness
+      <a href="https://codepen.io/wesruv/full/mZVEqZ" target="css-training">
+        Live example of transform > other styles for animation
       </a>
     </h3>
   </section>
@@ -3325,8 +3315,8 @@ body.html.page-node-X
         <strong style="display: block; color: rgb(19, 177, 19)">General sibling (0, 0, 0)</strong>
       </li>
       <li style="display: flex; justify-content: space-between;">
-        <code style="display: block;">*</code>
-        <strong style="display: block; color: rgb(19, 177, 19)">Universal (0, 0, 0)</strong>
+        <code style="display: block;">+</code>
+        <strong style="display: block; color: rgb(19, 177, 19)">Adjacent Sibling (0, 0, 0)</strong>
       </li>
     </ul>
     <p class="small"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors#Combinators" target="css-training">MDN CSS Combinators Documentation</a></p>
@@ -3384,8 +3374,8 @@ body.html.page-node-X
     <h4>Read back to front</h4>
     <pre class="language-css" style="font-size: 0.6em;"><code class="language-css">.article h4 a
 .main-menu > li a
-.bio-photo + .bio-name
-.column:nth-last-child(4) ~ .column:first-child</code></pre>
+.bio-photo ~ .bio-name
+.js .carousel .slide</code></pre>
   </section>
 </section>
 
