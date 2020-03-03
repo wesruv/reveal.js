@@ -1,0 +1,186 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css);
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$redhatRed: #e00;
+
+$mainColor: #000;
+$headingColor: $redhatRed;
+
+$mainFontSize: 38px;
+$mainFont: 'RedHatText', Helvetica, sans-serif;
+$headingFont: 'RedHatDisplay', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 500;
+$headingH1FontWeight: 400;
+$linkColor: #06c;
+$linkColorHover: $linkColor;
+$selectionBackgroundColor: desaturate(lighten($linkColor, 25), 20);
+$arrow-color: $redhatRed;
+$arrow-background: transparent;
+$highlighter-color: #ffec99;
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+// Theme template ------------------------------
+@import "../template/wes-theme";
+// ---------------------------------------------
+
+.slide--title {
+  box-sizing: border-box;
+  height: 100%;
+
+  .slide__inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  header {
+    flex-grow: 1;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      z-index: -1;
+      display: block;
+      width: 300vw;
+      height: 300vh;
+      transform: translate(-50%);
+      background: $redhatRed;
+    }
+
+    h1,
+    h2,
+    li,
+    p {
+      color: #fff;
+    }
+
+    h1 + p,
+    h1 + h2 {
+      margin-top: 0;
+    }
+
+    h1,
+    .slide--title__authors {
+      margin-top: auto;
+    }
+
+    .slide--title__authors {
+      margin-bottom: 2em;
+    }
+  }
+
+  .slide__footer {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      margin: 1.75%;
+      max-width: 15%;
+    }
+  }
+}
+
+.slide--title__authors {
+  font-size: 0.4em;
+
+  &[class] {
+    display: flex;
+    margin: 0;
+    padding: 0 0 2em;
+    list-style: none;
+  }
+
+  > li {
+    margin: 0 2em 0 0;
+    padding: 0;
+  }
+
+  strong {
+    display: block;
+    margin: 0 0 0.5em;
+    font-weight: inherit;
+  }
+}
+
+.section-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  font-size: 0.4em;
+}
+
+.section-indicator:before {
+  content: '';
+  position: absolute;
+  top: -20vh;
+  bottom: -0.5em;
+  left: -0.75em;
+  z-index: -1;
+  border-left: 2px solid $redhatRed;
+}
+
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  padding-top: 1em;
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  // border: 3px solid #f5f2f0;
+  // border-radius: 0.25em;
+  background: transparent;
+}
+
+pre[class*="language-"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  [class][class] & code {
+    padding: 0 0.2em;
+    border: 0;
+    color: #900;
+    background: transparent;
+  }
+}
+
+.column-wrapper > pre {
+  margin-left: 0.75em;
+}
