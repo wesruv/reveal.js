@@ -6,7 +6,7 @@
 
     <title>CSS Training</title>
 
-    <meta name="description" content="Full day CSS training">
+    <meta name="description" content="Half day CSS training">
     <meta name="author" content="Wes Ruvalcaba">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -14,19 +14,17 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-    <link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="plugin/prism/prism.css">
     <link rel="stylesheet" href="plugin/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/theme/wes-light.css" id="theme">
 
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
@@ -3730,31 +3728,25 @@ body.html.page-node-X
 
 </div>
 
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
 <script src="plugin/prism/prism.js"></script>
-
+<script src="dist/reveal.js"></script>
+<script src="plugin/zoom/zoom.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/search/search.js"></script>
 <script>
-// Full list of configuration options available at:
-// https://github.com/hakimel/reveal.js#configuration
-Reveal.initialize({
-  controls: true,
-  progress: true,
-  history: true,
-  center: true,
 
-  transition: 'slide', // none/fade/slide/convex/concave/zoom
+  // Also available as an ES module, see:
+  // https://revealjs.com/initialization/
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    center: true,
+    hash: true,
 
-  // Optional reveal.js plugins
-  dependencies: [
-    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'plugin/prism/prism.js', async: true },
-    { src: 'plugin/zoom-js/zoom.js', async: true },
-    { src: 'plugin/notes/notes.js', async: true }
-  ]
-});
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealZoom, RevealNotes, RevealSearch ]
+  });
+
 </script>
 </body>
 </html>
