@@ -60,10 +60,9 @@
   </head>
   <body class="reveal" style="overflow: scroll">
     <section style="height: 200em; padding-top: 2em; line-height: 2.5">
-      <div style="border: 3px solid #3372a1; padding: 1em; height: 20em;">
-        <div class="position-item position-item--base" style="top: 5em;"></div>
-        <div class="position-item" style="position: sticky; top: 100px; left: 50px;"></div>
-        This is some example text in an <code>iframe</code>
+      <div style="border: 3px solid #3372a1; padding: 1em; height: 20em; box-sizing: border-box">
+        <div class="position-item position-item--base" style="top: calc(3em + 3px); left: calc(1.5em + 3px);"></div>
+        <div class="position-item" style="position: sticky; top: 100px; right: 100%"></div>
       </div>
     </section>
   </body>
