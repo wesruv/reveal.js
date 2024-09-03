@@ -9,8 +9,12 @@
   }
   .wrapper {
     display: grid;
-    grid-template-columns: 25% 50% 25%;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 100px 100px;
+    grid-gap: 10px;
+
+    /* Sets the default height for unspecified rows */
+    grid-auto-rows: 50px;
     background-color: #fff;
     color: #444;
   }
