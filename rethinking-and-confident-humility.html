@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSS Training</title>
+
+    <meta name="description" content="Half day CSS training">
+    <meta name="author" content="Wes Ruvalcaba">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="plugin/prism/prism.css">
+    <link rel="stylesheet" href="plugin/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/theme/wes-light.css" id="theme">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style>
+      .section-indicator {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        font-size: 0.6em;
+        transform: skew(-10deg);
+      }
+
+      .section-indicator:before {
+        content: '';
+        position: absolute;
+        top: -0.5em;
+        bottom: -0.5em;
+        left: -0.75em;
+        right: -2em;
+        z-index: -1;
+        background: rgba(35, 165, 216, 0.2);
+      }
+
+      section {
+        text-align: left;
+      }
+
+      aside.notes {
+        font-size: 0.75em!important;
+      }
+
+      .columns-wrapper--2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+    </style>
+  </head>
+
+<body>
+
+<div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section >
+  <p class="small" style="position: relative; top: -6em;"><strong>Pro-tip:</strong> Press <span style="display: inline-block; padding: .2em .6em; border: 1px solid #777; border-radius: .3em; background: #fff; box-shadow: 0 1px 0 #555, 0 2px 0 #555, 0 3px 0 #555, 0 4px 0 #555; position: relative; top: -.1em; color: #000;">space bar</span> to progress and it won't skip any slides</p>
+  <h1>
+    <strong>Rethinking</strong><br>
+    & Confident Humility
+  </h1>
+  <p>The Structure that Made My Work Better</p>
+</section>
+
+<section data-background-color="#fff" style="aspect-ratio: 16 / 9">
+  <img src="assets/giant-rabbit.png" alt="Giant Rabbit" style="position:absolute; width:100%; height: 100%; object-fit: contain;">
+  <aside class="notes">
+    <ul>
+      <li>I've been a little over a year</li>
+      <li>we're a small company of about 20 people</li>
+      <li>Founded 20 years ago</li>
+      <li>GR exclusively to support nonprofits, </li>
+      <li>We believe in long-term, sustainable relationships with our clients<br>and what's best for the humans that have to live with the systems we build</li>
+      <li>I really like they are mission oriented</li>
+      <li>They ended up growing a wide array of skills as a result</li>
+      <li>ongoing development for complex websites,</li>
+      <li>data integrations,</li>
+      <li>CRM implementation,</li>
+      <li>managed hosting,</li>
+      <li>design,</li>
+      <li>and long-term support.</li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <h2></h2>
+  <aside class="notes">
+    <ul>
+      <li><strong>Every single job I've had</strong> (there are many), the   </li>
+      <li><strong>hardest problems</strong> to solve were <strong>how</strong> <strong>people work</strong> and <strong>communicate</strong> with each other.  </li>
+      <li>
+        Every project and team are unique, so I find prescriptive advice unhelpful,
+        <ul>
+            <li>But I've found <strong>certain values for myself</strong> and <strong>how I work with others</strong> have been extremely helpful  </li>
+        </ul>
+      </li>
+      <li>
+        So I'd like start with some important lessons that brought those values, and how I've found them helpful.
+      </li>
+    </ul>
+  </aside>
+</section>
+
+<section>
+  <section>
+    <h2>This is your brain...</h2>
+    <p>and mine too.</p>
+    <aside class="notes">
+      <ul>
+        <li>I've found the science behind how we work and communicate to be immensely helpful</li>
+         <li>Unfortunately we have limited time, my first draft was twice as long as my time slot</li>
+         <li>But we have enough time run through a little cognitive science that I find fascinating</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section>
+    <h2>How We Learn<br>
+    & Feedback Loops</h2>
+  </section>
+</section>
+
+<section>
+  <section class="justify-center">
+    <!-- @todo change image on screen? TextEdit -->
+    <img src="assets/rethinking/5200.jpg" alt="Macintosh Computer" />
+    <aside class="notes">
+      <ul>
+        <li>
+          The year is 1997
+          <ul>
+              <li>
+                I started to learn how to build web sites to show off my drawings
+                <ul>
+                    <li>Notepad.exe  </li>
+                    <li>No DOM inspector  </li>
+                    <li>
+                      it was painful to figure out my mistakes
+                      <ul>
+                          <li>quotes/open tags/mispellings  </li>
+                      </ul>
+                    </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section class="justify-center">
+    <figure>
+      <img src="assets/rethinking/Firebug.png" alt="Firebug Inspector circa 2007" />
+      <figcaption class="small">Picture from <a href="https://blog.codinghorror.com/firefox-as-an-ide/">Jeff Atwood's Blog</a></figcaption>
+    </figure>
+    <aside class="notes">
+      <ul>
+        <li>
+          About a decade later
+          <ul>
+            <li>
+              When DOM inspector Firebug came out, my abilities as a dev grew immensely.
+              <ul>
+                  <li>My understanding of how the browser worked grew quickly,   </li>
+                  <li>Able to understand and find mistakes much more quickly  </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section class="justify-center">
+    <figure>
+      <img src="assets/rethinking/sublime-text-2.png" alt="Sublime Text 2" />
+    <aside class="notes">
+      <ul>
+        <li>
+          5 years later
+          <ul>
+            <li>
+              Years later I got linters, auto complete and 'just in time' documentation, which again improved my skills immensely.
+              <ul>
+                  <li>They point out when I've mistyped a variable,   </li>
+                  <li>get told what the parameters are for the function I'm calling  </li>
+                  <li>my 'code highlighting' is off because I have incomplete parentheses or quotes</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2 style="font-size: 2.5em; line-height: 1.3em">
+      <div class="small" style="text-transform: uppercase; font-weight: normal">
+        We learn best with
+      </div>
+      <div><em>quick</em> &</div>
+      <div><em>unambiguous</em> feedback.
+    </h2>
+  </section>
+  <section data-auto-animate>
+    <h3 class="tag">For myself:</h3>
+  </section>
+  <section data-auto-animate>
+    <h3 class="tag" style="font-size: 0.75em">For myself:</h3>
+    <div style="font-size: 1.5em">
+      <strong>Stuck for more than 20 minutes?</strong>
+      <div class="fragment">I need to ask for help and/or take a break.</div>
+    </div>
+    <aside class="notes">
+      <ul>
+        <li>Frustrated me does bad work</li>
+        <li>I'm less efficient</li>
+        <li>and I'm burning energy and sanity</li>
+        <li>I'm usually ahead on the curve for how many questions I ask</li>
+      </ul>
+    </aside>
+  </section>
+  <section data-auto-animate>
+    <h3 class="tag" style="font-size: 0.75em">For myself:</h3>
+    <div style="font-size: 1.5em">
+      Being a remote dev, <br><strong>coworking helps me a lot.</strong>
+    </div>
+    <aside class="notes">
+      <ul>
+        <li>Quicker and better feedback when I have issues</li>
+        <li>Can rubber duck/get perspective</li>
+        <li>Get a better relationship with my coworkers</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section data-auto-animate>
+    <h3 class="tag2">For working with others:</h3>
+  </section>
+  <section data-auto-animate>
+    <h3 class="tag2" style="font-size: 0.75em">For working with others:</h3>
+    <div style="font-size: 1.5em">
+      <strong>Good documentation</strong>
+      <div class="fragment">Make it as easy <br>as possible to onboard</div>
+    </div>
+    <aside class="notes">
+      <ul>
+        <li>I try to pay the kindness forward for all the questions</li>
+        <li>It's much easier to build as you go, and there when you need it</li>
+        <li>Make it as easy as possible to find and update</li>
+        <li>A difficult start to a project can set a bad tone</li>
+        <li>Use my own docs, and update any docs when I run into an issue</li>
+      </ul>
+    </aside>
+  </section>
+  <section data-auto-animate>
+    <h3 class="tag2" style="font-size: 0.75em">For working with others:</h3>
+    <div style="font-size: 1.5em">
+      <strong>Use the things I build</strong>
+      <div class="fragment">Make sure it's clear and works</div>
+    </div>
+    <aside class="notes">
+      <ul>
+        <li>Try to understand their skill level</li>
+        <li>Content types - make sure labels and hints make things clearer</li>
+      </ul>
+    </aside>
+  </section>
+  <section data-auto-animate>
+    <h3 class="tag2" style="font-size: 0.75em">For working with others:</h3>
+    <div style="font-size: 1.5em">
+      <strong>Build in error messages</strong>
+      <div class="fragment">Especially with code shared <br>with other people.</div>
+    </div>
+    <aside class="notes">
+      <ul>
+        <li>Todo</li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <aside class="notes">
+      <ul>
+        <li><strong>Unfortunately not everything has an ideal learning environment,</strong> </li>
+        <li>our wiring is not perfect for every use case,</li>
+        <li>and there are a lot of ways it's predictably imperfect.</li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2 style="font-size: 2.5em">
+      <span style="font-weight: 900">Cursed</span><br>
+      Feedback Loops
+    </h2>
+    <aside class="notes">
+      <ul>
+        <li><strong>Sometimes we have cursed feedback loops</strong>, incenting behavior that produces worse results</li>
+        <li>Daniel Kahneman (Nobel Prize winning psychologist) <br>was teaching Air Force flight instructors<br>the <strong>psychology of effective training</strong></li>
+        <li>Kahneman was giving a speech about <br>an <strong>important principle of skill training</strong>:<br>rewards for improved performance work better than punishment for mistakes.  </li>
+        <li>After his 'enthusiastic speech', one of the <br>seasoned pilot instructors stood up to say <br><strong>positive reinforcement wasn't optimal</strong> for cadets  </li>
+        <li>In his long experience when <br>he praised a cadet for a good maneuver, <br>the next time they performed worse!  </li>
+        <li>On the other hand, <br>when he screams into their headset <br>after a bad maneuver the often improved the next time.</li>
+        <li>The instructor was <strong>experience is accurate</strong>,<br> but also <strong>completely wrong</strong>.</li>
+      </ul>
+    </aside>
+  </section>
+  <section data-auto-animate="">
+    <h3 class="title">Regression to the Mean</h3>
+    <p class="small">From: Daniel Kahneman. Thinking Fast and Slow "Regression to the Mean"</p>
+    <aside class="notes">
+      <ul>
+         <li>So on a large time scale, professional athletes, software devs, cooks, all skilled humans have 'good days' and 'bad days'</li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <h3 class="title" style="font-size: 0.75em">Regression to the Mean</h3>
+    @todo sin graphic
+    <aside class="notes">
+      <ul>
+         <li>Our performance can be thought of as a sin curve, Michael Jordan's sin curve for three pointers is on a whole other level than mine, but we both have a sin curve.  </li>
+         <li>When you <strong>perform well</strong>, it's most likely that your next performance is average, which may look like you've done poorer  </li>
+         <li>When you <strong>perform poorly</strong>, it's most likely that your next performance is average, which will look like an improvement  </li>
+         <li><strong>Unfortunately, the flight instructor is experiencing very tight feedback loop</strong>, but from all of our long term research and science, we know that positive reinforcement is much more effective than negative reinforcement</li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Intuition, Bias, and Confidence</h2>
+    <aside class="notes">
+      <ul>
+        <li>
+          Turns out on the SAT/ACT if you have a bad feeling about your answer,
+          <ul>
+              <li>it's a-ok to change it.  </li>
+          </ul>
+        </li>
+        <li>
+          Most SAT/ACT prep courses will teach you the opposite,
+          <ul>
+              <li>putting some strange stock in our intuition.   </li>
+          </ul>
+        </li>
+        <li><strong>Our intuition isn't any more trustworthy</strong> than our second guessing,
+          <ul>
+            <li>and ignoring anything but our intution will produce a worse result.</li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>System 1</h3>
+    <ul>
+      <li class="fragment">Constantly running</li>
+      <li class="fragment">Automatic and almost instantaneous responses</li>
+      <li class="fragment">Responsible for intuition, our "gut"</li>
+      <li class="fragment">Little or no voluntary control</li>
+    </ul>
+    <aside class="notes">
+      <ul>
+        <li>Walking and talking</li>
+        <li>@todo</li>
+        <li></li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <h3>System 2</h3>
+    <ul>
+      <li class="fragment">Effortful and much slower than System 1</li>
+      <li class="fragment">Only runs when needed</li>
+      <li class="fragment">Responsible for conscious choice and concentration</li>
+    </ul>
+    <aside class="notes">
+      <ul>
+        <li>If we're walking and talking, 17 x 24</li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <aside class="notes">
+      <ul>
+        <li>All day we have to make a myriad of little decisions</li>
+        <li>The vast majority are solved by system 1</li>
+        <li>It isn't possible to use System 2 all day</li>
+        <li>If System 1 <strong>realizes it has a problem</strong>, it will pull in System 2</li>
+        <li>
+            While this way of functioning has a lot of advantages,
+            <ul>
+               <li>it also has downsides that we call 'Cognitive errors'</li>
+            </ul>
+         </li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+      <p>More Features of System 1:   </p>
+      <ul>
+         <li>collects all of your expertise,  </li>
+         <li>the information your exposed,  </li>
+         <li>and determines a large amount of your 'lense', how you see the world</li>
+      </ul>
+  </section>
+  <section>
+    <aside class="notes">
+      <ul>
+        <li>If you're a chess expert, eventually System 1 can look at a chess game and figure out checkmate</li>
+        <li>As a person that's spent an inordinate amount of time drawing, I can draw and talk, or quickly sketch out complex things with little effort</li>
+        <li>As a CSS expert, I have a high success rate of finding layout bugs quickly and being able to fix them</li>
+        <li>This is amazing, and there are a lot of advantages to how we work, but there are also downsides.</li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+
+<section>
+  <section>
+    <h2>Cognitive Errors</h2>
+    <aside class="notes">
+      <ul>
+        <li>
+            <strong>Before I get too much into them, I've got bad news.</strong>
+            <ul>
+              <li>Knowing these about cognitive errors and how they happen doesn't mean you're less likely to have them.  </li>
+              <li>These are bugs in the machine, we all experience them, all the time.   </li>
+              <li>With awareness of them, we can compensate, in high risk or reward situations, we can make sure we stop to make sure we aren't falling into cognitive ease that might lead us to an error.  </li>
+              <li>This isn't fodder to be insecure; it's reason to collaborate with others, to listen, ask questions, and have kindness and empathy.</li>
+            </ul>
+        </li>
+      </ul>
+      <p>I'm going to go over <strong>a few very quickly</strong>,<br>I <strong>love learning about them</strong>, I feel it helps me <strong>catch mistakes</strong> better.</p>
+      <p>Unfortunately we only have enough time for me to blitz through a few.</p>
+      <p><strong>'Dunning Kruger Effect and Overconfidence'</strong></p>
+
+    </aside>
+  </section>
+  <section data-auto-animate>
+    <ul style="font-size: 1.5em; list-style: none;">
+      <li class="fragment" style="margin-bottom: 0.5em">
+        A bat and a ball <br>together cost <strong>$1.10</strong>
+      </li>
+      <li class="fragment" style="margin-bottom: 0.5em">
+        The bat costs <br><strong>$1 more</strong> than the ball.
+      </li>
+      <li class="fragment" style="margin-bottom: 0.5em; color: var(--highlight-color)">
+        How much does the ball cost?
+      </li>
+    </ul>
+  </section>
+  <section data-auto-animate>
+    <ul style="font-size: 1.5em; list-style: none;">
+      <li style="font-size: 0.6em;">
+        A bat and a ball <br>together cost <strong>$1.10</strong>
+      </li>
+      <li class="fragment" style="font-size: 1.25em; margin-block: 0.5em; font-weight: bold;">
+        Intuitive Answer: 10<sup style="font-size: 0.75em">¢</sup>
+      </li>
+      <li class="fragment" style="margin-bottom: 0.5em; color: var(--highlight-color)">
+        Then the bat would be <strong>$1.10</strong><br>the total would be <strong style="color: #900">$1.20</strong>
+      </li>
+    </ul>
+    <aside class="notes">
+      <ul>
+          <li>In studies the <strong>of us get this wrong</strong>, our intuitive answer is 10 cents,</li>
+          <li>I'd bet that answer occurred to everyone wether or not it was their given answer.</li>
+      </ul>
+    </aside>
+  </section>
+  <section data-auto-animate>
+    <ul style="font-size: 1.5em; list-style: none;">
+      <li style="font-size: 0.6em;">
+        A bat and a ball <br>together cost <strong>$1.10</strong>
+      </li>
+      <li class="fragment" style="margin-block: 0.5em; font-weight: bold; font-size: 1.25em;">
+        <strong>Correct Answer:</strong> 5<sup style="font-size: 0.75em">¢</sup>.
+      </li>
+      <li class="fragment" style="margin-bottom: 0.5em; color: var(--highlight-color)">
+        Then the bat would be <strong>$1.05</strong><br>the total would be <strong style="color: #36b">$1.10</strong>
+      </li>
+    </ul>
+    <aside class="notes">
+      <ul>
+          <li>@todo</li>
+          <li>This extends to more than tricky word puzzles</li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Dunning Kruger & Overconfidence</h3>
+    <aside class="notes">
+      <ul>
+        <li>
+          It describes a common phenomenon (with all of us) that when we are new at a skill, our perceived skill is often much higher than our actual skill.
+        </li>
+        <li>
+          This study <em>is not</em> about specific types of people, it describes a tendency that we've all exhibited and will likely do so again.
+        </li>
+        <li>
+          In a book I read recently called 'Think Again' by Adam Grant
+        </li>
+        <li>
+          He talks about study conducted of new doctors,
+          <ul>
+            <li>These people are not unintelligent, and certainly have plenty of knowledge  </li>
+            <li>but they do lack experience with patients</li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <section class="justify-center" style="position: relative;">
+    <img src="assets/rethinking/W180315_SANCHEZ_OVERCONFIDENCE.png" alt="" style="width: 35%; position: relative; left: -10%;" />
+    <div class="small" style="text-align: left; width: 35%; position: absolute; right: 0; bottom: 0; font-size: 0.5em;"><a href="https://hbr.org/2018/03/research-learning-a-little-about-something-makes-us-overconfident">Carmen Sanchez &amp; David Dunning 'Overconfidence Among Beginners: Is a Little Learning a Dangerous Thing'</a>, <br>'Think Again - Stranded at the Summit of Mount Stupid)</div>
+    <aside class="notes">
+      <ul>
+        <li>In this 2018 study, they mapped that confidence of the doctor's diagnosis vs if it turned out to be true.  </li>
+        <li>As they gained a little experience, their confidence outpaced their actual accuracy very quickly, and at least in the study, it continued to outpace accuracy.</li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Substituting Questions</h3>
+    <aside class="notes">
+      <ul>
+        <li>
+          Our minds will subconsciously <strong>substitute easier questions</strong> instead of trying to figure out the actual (harder) question,
+        </li>
+        <li>
+          For example:
+          <ul>
+            <li>If asked to donate to a non-profit, the question you're probably answering is 'how many stories of this problem can I think of' and 'how strongly do I feel about it'  </li>
+            <li>If asked how safe it is in a city or country, you're probably going to answer the question 'how many stories about crime or violence can I think of' and maybe questioning how much you've even heard about the place.  </li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>What you see is all there is</h3>
+    <aside class="notes">
+      <ul>
+        <li>Daniel Kahneman in 'Thinking Fast and Slow' coined <strong>'What you see is all there is'</strong>  </li>
+        <li>System 1 doesn't tend to consider if you are <em>missing</em> information  </li>
+        <li>It uses the information we have as if it is the only information, and most of the time we are unaware this even happening  </li>
+        <li>
+            One area I've been burned, and I see others get burned is in picking technology solutions
+            <ul>
+              <li>New tools often get the benefit of the doubt, because their warts aren't as well known, or their marketing is louder than their detractors</li>
+            </ul>
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <aside class="notes">
+      <ul>
+        <li>There are plenty of others cognitive mistakes that have been studied, and we can't help but fall into these traps sometimes, so what should we do?</li>
+        <li>Recently reading the book 'Think Again', I found it codified a lot of ideas I was leaning into and gave me a much clearer picture of how I can hold myself and work with others.</li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Mental Dexterity</h3>
+    <aside class="notes">
+      <ul>
+        <li><strong>Mental Dexterity -</strong> the ability to rethink and unlearn, to update your ideas and beliefs when faced with new information.</li>
+        <li>I've found my own flexibility and openness to being wrong has prevent some very large mistakes</li>
+        <li>I really like how Adam Grant describes it, and now I have a much better idea of what I'm focusing on and why</li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Confident Humilty, it's a Vibe</h3>
+    <aside class="notes">
+      <ul>
+        <li>
+            In 'Think Again', one point that really clicked with me was shooting for 'Confident Humility'
+            <ul>
+              <li>Confidence - how much you believe in yourself and your abilities to figure it out  </li>
+              <li>Humility - willingness to seek advice, hear feedback, and be able to question your ideas/tools/approach  </li>
+            </ul>
+        </li>
+        <li>
+          We should keep some room for uncertainty, that there might be missing something
+          <ul>
+            <li>be open to ideas, feedback, and collaborate with others  </li>
+          </ul>
+        </li>
+        <li>But approach situations with knowing what you've been able to do</li>
+        <li>'Think Again' talks about another way to improve your ability to work, specifically how we work with others:</li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+
+<section>
+  <section>
+    <h2>Encourage (or find) a Learning Culture</h2>
+    <aside class="notes">
+      <ul>
+        <li>The best groups of professionals, teams and projects enjoyed figuring out issues and getting better, even if it meant they were mistaken.</li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <h3>There are two key aspects to a Learning Culture</h3>
+    <ul>
+      <li class="fragment">Psychological Safety</li>
+      <li class="fragment">Accountability</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Psychological Safety</h3>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Regression to the Mean</h3>
+    <aside class="notes">
+      <ul>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Regression to the Mean</h3>
+    <aside class="notes">
+      <ul>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Regression to the Mean</h3>
+    <aside class="notes">
+      <ul>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Regression to the Mean</h3>
+    <aside class="notes">
+      <ul>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Regression to the Mean</h3>
+    <aside class="notes">
+      <ul>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Regression to the Mean</h3>
+    <aside class="notes">
+      <ul>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>Regression to the Mean</h3>
+    <aside class="notes">
+      <ul>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+
+</div>
+
+</div>
+
+<script src="plugin/prism/prism.js"></script>
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/search/search.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealNotes, RevealSearch ]
+			});
+
+		</script>
+</body>
+</html>
