@@ -30,6 +30,10 @@
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
     <style>
+      .reveal[class] {
+        /* Default is 36px */
+        font-size: 30px;
+      }
       .section-indicator {
         position: absolute;
         top: 0;
@@ -74,6 +78,10 @@
 
       .reveal[class] th {
         background: #ddd;
+      }
+
+      .reveal[class][class] h4:has(code:only-child) {
+        font-size: 1.25em
       }
 
     </style>
@@ -1929,7 +1937,7 @@ gap: 1rem;
 <section>
   <section style="font-size: 0.8em">
     <h2 id="grid-vs-flexbox">Grid vs. Flebox</h2>
-    <table aria-labelledby="grid-vs-flexbox">
+    <table aria-labelledby="grid-vs-flexbox" style="width: 100%">
       <thead>
         <tr>
           <th style="width: 33.333%">Key Quality</th>
@@ -1971,14 +1979,48 @@ gap: 1rem;
     </ul>
   </section>
   <section>
+    <h4><code>gap</code></h4>
+    <p>With 1 value, it applies to rows and columns, 2 values set row, then column.</p>
+    <p style="font-size: 0.8em">Formerly known as: <code>column-gap/row-gap/grid-gap/grid-row-gap/grid-column-gap</code></p>
+    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.flex-container {
+  display: flex;
+  /* gap: 5px 10px; /* Sets row to 5px and column gap to 10px */
+  gap: 5px; /* Sets row and column gap to 5px */
+}
+</code></pre>
+    <div class="flex-container" style="justify-content: center; font-size: 0.5em; gap: 5px 10px; gap: 5px; flex-wrap: wrap;">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+  <section>
     <h4><code>justify-content</code></h4>
     <p>How extra space is distributed along the <strong>main&nbsp;axis</strong></p>
-    <pre class="language-css" ><code class="language-css">.flex-container {
+    <div style="font-size: 0.8em">(main axis in <code>grid</code> is always horizontal.</code></div>
+    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.flex-container {
   display: flex;
   justify-content: center;
 }
 </code></pre>
-    <div class="flex-container" style="justify-content: center;">
+    <div class="flex-container" style="justify-content: center; font-size: 0.5em">
       <div></div>
       <div></div>
       <div></div>
@@ -2168,10 +2210,10 @@ gap: 1rem;
       <li>Duis consequat gravida ex, id pellentesque turpis finibus eu.</li>
     </ul>
   </section>
-  <section>
+  <!--<section>
     <h4>CSS Column Gotcha</h4>
     <p><a href="https://codepen.io/wesruv/pen/RXaPae?editors=1100" target="css-training">Beware effects that render at the bottom of columns.</a></p>
-  </section>
+  </section>-->
 </section>
 
 
@@ -2261,6 +2303,16 @@ gap: 1rem;
       How close will it let other cats
     </aside>
   </section>
+</section>
+
+<section>
+  <section style="font-size: 3em; text-align: center;">
+    <div style="font-size: 0.75em">Let's play...</div>
+    <h4>Describe that Cat with Box Model!</h4>
+    <aside class="notes">
+      Describe width, height, padding, border, and margin
+    </aside>
+  </section>
   <section style="text-align: center;">
     <div style="display: flex; align-items: flex-end; justify-content: center;">
       <img src="assets/css-training/box-model cats-padded.png" alt="Cat" style="width: 40%; height: auto; margin-bottom: 1em;" />
@@ -2270,134 +2322,29 @@ gap: 1rem;
       And we still have width, and height
     </aside>
   </section>
-  <section style="font-size: 3em; text-align: center;">
-    <div style="font-size: 0.75em">Let's play...</div>
-    <h4>Describe that Cat with Box Model!</h4>
-    <aside class="notes">
-      Describe width, height, padding, border, and margin
-    </aside>
-  </section>
   <section style="text-align: center;">
     <img src="assets/css-training/box-model cats-fluff.png" alt="Fluffy Cat" width="60%" />
   </section>
   <section style="text-align: center;">
     <img src="assets/css-training/box-model-cats-sphinx.png" alt="Sphinx (Hairless) Cat" width="60%" />
   </section>
+</section>
+<section>
+  <section style="font-size: 2em">
+    <h3 style="font-size: 1.5em">Margin Collapse</h3>
+    <p>-or- the effects of cat grumpiness</p>
+  </section>
   <section style="text-align: center;">
-    <div style="display: flex; align-items: flex-end; justify-content: space-between;">
-      <img src="assets/css-training/box-model cats-kittens.png" alt="Kittens" style="width: 20%; height: auto; margin-bottom: 1em;" />
-      <img src="assets/css-training/box-model cats-meh.png" alt="Slightly Grumpy Cat" width="30%" style="transform: rotate(5deg)" />
+    <div>
+      <img src="assets/css-training/box-model cats-kittens.png" alt="Kittens" style="width: 20%; height: auto; margin-right: 0;" />
+      <img src="assets/css-training/box-model cats-meh.png" alt="Slightly Grumpy Cat" width="30%" style="transform: rotate(5deg); margin-left: 10%;" />
     </div>
   </section>
   <section style="text-align: center;">
-    <div style="display: flex; align-items: center; justify-content: space-between;">
-      <img src="assets/css-training/box-model cats-grumpy.png" alt="Very Grumpy Cat" style="width: 40%; height: auto; margin-bottom: 1em;" />
-      <img src="assets/css-training/box-model cats-meh.png" alt="Slightly Grumpy Cat" width="10%" style="transform: rotate(5deg)" />
-    </div>
+    <div style=""><img src="assets/css-training/box-model cats-grumpy.png" alt="Very Grumpy Cat" style="width: 30%; height: auto; margin-right: 50%;" /><img src="assets/css-training/box-model cats-meh.png" alt="Slightly Grumpy Cat" style="width: 10%; transform: translateY(-50%) rotate(5deg); margin-left: 10%;" /></div>
     <aside class="notes">
       What if we have two grumpy cats<br>
       Margin collapse demonstration
-    </aside>
-  </section>
-</section>
-
-  <section>
-    <h4>❓<code style="margin-left: 0;">margin</code> and flex items❓</h4>
-    <p><code>margin</code> does not collapse inside of a flex container</p>
-
-    <pre class="language-css" ><code class="language-css">.flex-item-3 {
-  margin-left: 2em;
-  margin-right: 2em;
-}
-
-.flex-item-4 { margin-left: 2em; }
-</code></pre>
-    <div class="flex-container">
-      <div><div>1</div></div>
-      <div><div>2</div></div>
-      <div style="margin-left: 2em; margin-right: 2em;"><div>3</div></div>
-      <div style="margin-left: 2em;"><div>4</div></div>
-      <div><div>5</div></div>
-    </div>
-  </section>
-
-
-<section>
-  <section>
-    <h3>Box Sizing</h3>
-    <div>How the browser measures width and height.</div>
-  </section>
-  <section>
-    <h4 style="font-size: 1.4em"><code>box-sizing: content-box;</code></h4>
-    <img src="assets/css-training/box-sizing-content-box.png" alt="" width="40%" style="display: block; margin: 0 auto;" />
-    <pre class="language-css" ><code class="language-css">.element {           /* Space taken up in layout */
-  padding: 5px 10px; /* 10px + 10px = 20px */
-  border-width: 2px; /* 20px + 2px + 2px = 24px */
-  width: 100px;      /* 24px + 100px */
-}                    /* Total 124px */</code></pre>
-  </section>
-  <section>
-    <h4 style="font-size: 1.4em"><code>box-sizing: border-box;</code></h4>
-    <img src="assets/css-training/box-sizing-border-box.png" alt="" width="40%" style="display: block; margin: 0 auto;" />
-    <pre class="language-css" ><code class="language-css">.element {           /* Space taken up in layout */
-  padding: 5px 10px; /* 10px + 10px = 20px */
-  border-width: 2px; /* 20px + 2px + 2px = 24px */
-  width: 100px;      /* 100px */
-}                    /* Total 100px */</code></pre>
-  </section>
-  <section>
-    <h4 style="font-size: 1.3em;">Where it goes wrong</h4>
-    <div class="column-wrapper">
-      <div>
-    <pre class="language-css" ><code class="language-css">.wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.half-column {
-  width: 50%;
-  border: 2px solid green;
-  padding: 0 15px;
-}</code></pre>
-      <div style="display: flex; flex-wrap: wrap; width: 100%; background: rgba(0, 0, 0, 0.1); overflow: hidden;">
-        <div style="box-sizing: content-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 1</div>
-        <div style="box-sizing: content-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 2</div>
-      </div>
-      </div>
-    </div>
-  </section>
-  <section>
-    <h4 style="font-size: 1.3em;"><code>border-box</code> saves the day!</h4>
-    <div class="column-wrapper">
-      <div>
-    <pre class="language-css" ><code class="language-css">.wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.half-column {
-  box-sizing: border-box;
-  width: 50%;
-  border: 2px solid green;
-  padding: 0 15px;
-}</code></pre>
-      <div style="width: 100%; background: rgba(0, 0, 0, 0.1); overflow: hidden;">
-        <div style="float: left; box-sizing: border-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 1</div>
-        <div style="float: left; box-sizing: border-box; width: 50%; padding: 0 15px; border: 2px solid green;">Column 2</div>
-      </div>
-      </div>
-    </div>
-  </section>
-  <section>
-    <h4>Editorial:</h4>
-    <p>BORDER BOX ALL THE THINGS!</p>
-    <pre class="language-css" ><code class="language-css">* {
-  box-sizing: border-box;
-}</code></pre>
-    <aside class="notes">
-      On every project I'm controlling the CSS, this is at the top of the CSS<br>
-      No disadvantage<br>
-      Very common practice
     </aside>
   </section>
 </section>
@@ -2672,6 +2619,19 @@ gap: 1rem;
       <li>Position</li>
     </ul>
   </section>
+  <section>
+    <h3>Flow <em>Breaking</em> CSS</h3>
+    <ul>
+      <li><code>position: absolute;</code></li>
+      <li><code>position: fixed;</code></li>
+    </ul>
+    <h3>CSS that <em>Messes</em> with Flow</h3>
+    <ul>
+      <li>Negative <code>margin</code></li>
+      <li><code>position: relative;</code> if <code>top/right/bottom/left</code> are set</li>
+      <li><code>transform/rotate/translate/skew/scale</code></li>
+    </ul>
+  </section>
   <section style="text-align: center">
     <img src="assets/css-training/webpage.png" class="block-centered" alt="" width="70%" />
   </section>
@@ -2679,11 +2639,23 @@ gap: 1rem;
   <section>
     <h4>When an element isn't cooperating...</h4>
     <ul>
-      <li>Check the layout properties of the element and it's parent</li>
-      <li>Are we using the best tool?</li>
-      <li>To the Google!</li>
-      <li>Is it better to rework the design?</li>
+      <li class="fragment">Check the layout properties of the element <strong>and</strong> it's parent</li>
+      <li class="fragment">Are we using the best tool? Grid vs Flexbox vs Box Model vs Position)</li>
+      <li class="fragment">To the search engine!
+        <ul class="fragment">
+          <li>Beware, a significant number of CSS advice on the internet is either outdated or was never good.
+            <ul>
+              <li class="fragment">Reputable up to date sources (e.g. MDN, CSS tricks) it's probably good</li>
+              <li class="fragment">For Stack Overflow/low trust sources, try and find 3 different approaches</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
+  </section>
+  <section>
+    <h4>Would it be best to change the&nbsp;design?</h4>
+    <p>Best meaning for the client, budget, or your sanity.</p>
   </section>
 </section>
 
@@ -2691,7 +2663,79 @@ gap: 1rem;
   <h2><input type="text" size="5" value="30 min." style="text-align: left; width: 3.75em" /> Break!<br>
     Be back at <input type="text" size="5" value="..." style="text-align: left" />
   </h2>
-  <p>Up Next: Transforms, Transitions & Animations</p>
+</section>
+
+
+<section>
+  <section>
+    <h2>Layout Odds and Ends</h2>
+  </section>
+  <section>
+    <h4><code>aspect-ratio</code></h4>
+    <pre class="language-css" ><code class="language-css">.blue-box {
+  width: 25%;
+  aspect-ratio: 2 / 1;
+}</code></pre>
+
+  <div class="blue-box" style="width: 25%; aspect-ratio: 2 / 1; background-color: rgba(35, 165, 216, 0.3); border: 0.375rem solid rgba(35, 165, 216, 1)"></div>
+
+  </section>
+  <section>
+    <h4>❓<code style="margin-left: 0;">margin</code> and flex items❓</h4>
+    <p><code>margin</code> does not collapse inside of a flex container</p>
+
+    <pre class="language-css" ><code class="language-css">.flex-item-3 {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.flex-item-4 { margin-left: 2em; }</code></pre>
+    <div class="flex-container">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="margin-left: 2em; margin-right: 2em;"><div>3</div></div>
+      <div style="margin-left: 2em;"><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h4><code style="margin-left: 0;">margin</code> and grid items</h4>
+    <p><code>margin</code> pushes on the grid area instead of adjacent elements.</p>
+    <div class="grid-example-wrapper grid-example-wrapper--25-50-25 grid-example-wrapper--no-rows">
+      <div class="grid-example" style="
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+        grid-template-rows: auto;
+        height: 4em;
+        gap: 0.25em;
+      ">
+        <div style="background-color: rgba(165, 165, 165, 0.3); border: 0.375rem solid rgba(165, 165, 165, 1)"></div>
+        <div style="/*margin: auto;*/ padding: 0.125em; background-color: rgba(165, 165, 165, 0.3); border: 0.375rem solid rgba(165, 165, 165, 1)">
+          <div style="width: 2em; height: 2em; background-color: rgba(35, 165, 216, 0.3); border: 0.375rem solid rgba(35, 165, 216, 1)"></div>
+        </div>
+        <div style="background-color: rgba(165, 165, 165, 0.3); border: 0.375rem solid rgba(165, 165, 165, 1)"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h4>Logical Properties</h4>
+    <pre class="language-txt" style="font-size: 0.75em"><code class="language-txt">/* Assuming left to right, top to bottom language, like English is: */
+width/height ~ inline-size/block-size
+
+margin-left/margin-right ~ margin-inline-start/margin-inline-end
+margin-inline ~ margin-left + margin-right
+
+border-top/border-bottom ~ border-block-start/border-block-end
+border-block ~ border-top + border-bottom
+
+top/bottom ~ inset-block-start/inset-block-end
+left/right ~ inset-inline-start/inset-inline-end
+
+/* Follows same rules as margin/padding values */
+inset ~ top right bottom left
+</code></pre>
+  </section>
 </section>
 
 <section>
@@ -3080,6 +3124,22 @@ gap: 1rem;
     </ul>
   </section>
   <section>
+    <h3>Prefers reduced motion query</h3>
+    <pre class="language-css" style="font-size: 0.75em"><code class="language-css">.element {
+  animation-name: slide-in;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+/* If they prefer reduced motion, you can remove animation completely,
+   Or go with something that has minimal movement */
+@media (prefers-reduced-motion: reduce) {
+  .element {
+    animation: none;
+  }
+}</code></pre>
+  </section>
+  <section>
     <h2><code>cubic-bezier()</code></h2>
     <p>Make your own animation timing!</p>
     <a href="http://cubic-bezier.com/#.17,.67,.83,.67" target="css-training">Now with web site helper!</a>
@@ -3175,16 +3235,18 @@ gap: 1rem;
     ">
       This isn't very legible
     </div>
-    <p>There are a lot of tools, <a href="https://webaim.org/resources/contrastchecker/" target="css-training">Web AIM contrast checker</a> is an easy one.</p>
+    <p>There are a lot of tools, <a href="https://webaim.org/resources/contrastchecker/" target="css-training">Web AIM contrast checker</a> is an easy one</p>
+    <p>Accessibility browser extensions like WAVE and Axe Devtools will test for this, but they have false positives sometimes</p>
   </section>
   <section>
     <h3 style="line-height: 1.8">
-      Add <code>:focus</code> selector when adding <code>:hover</code> selector
+      Add <code>:focus</code> selector when adding <code>:hover</code> selector*
     </h3>
     <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.button:hover,
 .button:focus {
   background: #121399;
 }</code></pre>
+  <p style="font-size: 0.8em">*In general, form elements are an exception, e.g. text input, select, checkbox, radio, etc. Having a separate hover vs focus is often preferred with them.</p>
   </section>
   <section>
     <h3>Content hiding options!</h3>
@@ -3194,14 +3256,16 @@ gap: 1rem;
         <code>visibility: hidden;</code></li>
       <li><strong>Hide from sighted users</strong><br>
         CSS clipping, like <code>.element-invisible</code> <code>.sr-only</code>
-        <code>text-indent: -9999em;</code></li>
+        <code>text-indent: -9999em;</code> aka the Phark technique 🤓</li>
     </ul>
   </section>
   <section>
     <img src="assets/css-training/andre-n-i-devices.jpg" alt="Andre the Giant's giant meaty man mitts were 10 inches from palm to finger tips, average male hand is 7 inches. Andrew could use an ipad as an iphone pretty comfortablly."  />
   </section>
   <section>
-    <h3>Make hit areas 45x45 for touch</h3><p>(and better mousing!)</p>
+    <h3>Make hit areas 45x45 for touch*</h3>
+    <p>(and better mousing!)</p>
+    <p>*This is less applicable to links in the flow of text and content that isn't near more clickable elements</p>
   </section>
 </section>
 
@@ -3430,8 +3494,8 @@ body.html.page-node-X
     </h3>
   </section>
   <section>
-    <h4>Read back to front</h4>
-    <pre class="language-css" style="font-size: 0.6em;"><code class="language-css">.article h4 a
+    <h4>In CSS, read back to front</h4>
+    <pre class="language-css"><code class="language-css">.article h4 a
 .main-menu > li a
 .bio-photo ~ .bio-name
 .js .carousel .slide</code></pre>
@@ -3441,15 +3505,12 @@ body.html.page-node-X
 <section>
   <section>
     <h3>
-      Choosing the best selector for the job
+      Choosing the best selector<br>for the job
     </h3>
-  </section>
-
-  <section>
     <ol>
-      <li>Keep Specificity Low</li>
-      <li>Only target what you mean to</li>
-      <li>Try to use selectors that explain what they're targeting</li>
+      <li class="fragment">Keep Specificity Low</li>
+      <li class="fragment">Only target what you mean to</li>
+      <li class="fragment">Try to use selectors that explain what they're targeting</li>
     </ol>
   </section>
 </section>
@@ -3562,7 +3623,7 @@ body.html.page-node-X
     <h3>Starting from scratch</h3>
   </section>
   <section>
-    <ul>
+    <ul class="list-spacing">
       <li>Use normalize.css, or reset.css, or similar</li>
       <li>Decide on a class naming convention</li>
     </ul>
@@ -3586,34 +3647,44 @@ body.html.page-node-X
 <section>
   <section>
     <h3>Working inside of a framework</h3>
-    <ul>
-      <li>Consider using a prefix for custom classes especially if the framework does not (e.g. <code>lc-</code> for Lullabot.com) you know where it came from</li>
+    <ul class="list-spacing">
+      <li>Consider using a prefix for custom classes especially if the framework does not (e.g. <code>gr-</code> for giantrabbit.com) you know where it came from</li>
       <li>Don’t write selectors that use framework utility classes unless you’re extending them, e.g.
-        <pre class="language-css" style="font-size: 0.6em;"><code class="language-css">.sidebar .col-lg-3 {
-  text-align: right; /* .col-lg-3 is intended for layout, not text treatment :( */
+        <pre class="language-css" style="font-size: 0.8em;"><code class="language-css">.sidebar .col-lg-3 {
+  text-align: right;
+  /* .col-lg-3 is intended for layout, not text treatment :( */
 }</code></pre>
       </li>
     </ul>
   </section>
   <section>
-    <h4>Guidelines for framework or contrib vs custom code uses</h4>
-      <ul>
-        <li>Using just the grid? Grid + some components?</li>
-        <li>Prefer or avoid using framework components?</li>
+    <h4>Guidelines for framework/contrib vs custom code uses</h4>
+      <ul class="list-spacing">
+        <li><strong>Using just the grid? Grid + some components?</strong>
+          <div class="fragment">Download a paired down version of the library. It's easer to add more later than take it away.</div>
+        </li>
+        <li class="fragment">
+          <strong>Should your project prefer or avoid using framework components?</strong>
+          <div class="fragment">Document your decision, document what projects you prefer to pull from.</div>
+        </li>
       </ul>
   </section>
 </section>
 
 
 <section>
-
   <section>
     <h3>On Selectors</h3>
-    <ul>
-      <li>Use classes, not id's or tags (except for base tag styling)</li>
-      <li>Write styles so the cascade starts at the most general, to the most specific. Some good examples are <a href="https://smacss.com/book/categorizing" target="css-training">SMACSS</a> or <a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/">Inverted Pyramid</a></li>
-      <li>Avoid inline styles as much as possible (in markup or javascript)</li>
-      <li>Don't use <code>!important</code> <em>unless</em> you're overriding inline styles</li>
+    <ul class="list-spacing">
+      <li class="fragment">Use classes, not id's or tags (except for base tag styling)</li>
+      <li class="fragment">Write styles so the cascade starts at the most general, to the most specific. Some good examples are <a href="https://smacss.com/book/categorizing" target="css-training">SMACSS</a> or <a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/">Inverted Pyramid</a></li>
+      <li class="fragment">Avoid inline styles as much as possible
+        <ul>
+          <li><strong>In markup</strong> prefer extra classes</li>
+          <li><strong>In Javascript</strong> prefer using CSS custom properties which can receive a default via CSS.</li>
+        </ul>
+      </li>
+      <li class="fragment">Don't use <code>!important</code> <em>unless</em> you're overriding inline styles or another important that you can't remove.</li>
     </ul>
   </section>
 
@@ -3621,7 +3692,7 @@ body.html.page-node-X
     <h4>Only be as specific as necessary</h4>
     <ul>
       <li>Avoid unneccessary parts of your selector, e.g. <code><em style="color:#900">.main-header</em> .header-logo</code></li>
-      <li>Don’t 'qualify' classes by adding the tag name e.g. <code><em style="color:#900">header</em>.main-header</code></li>
+      <li>Don't 'qualify' classes by adding the tag name e.g. <code><em style="color:#900">header</em>.main-header</code></li>
       <li>Avoid compound selectors by creating highly specific class names; e.g. <a href="http://getbem.com/naming/">BEM</a> class naming <code>.widget__title--featured</code></li>
     </ul>
 
@@ -3653,6 +3724,43 @@ body.html.page-node-X
 
 <section>
   <section>
+    <h2>CSS Custom Properties</h2>
+    <p>aka CSS variables</p>
+  </section>
+  <section>
+    <h3>Syntax</h3>
+    <pre class="language-css"><code class="language-css">:root {
+  /* Setting a custom property */
+  --my-cool-var: #c00001;
+}
+
+.my-element {
+  /* Use the custom property with no fallback */
+  background-color: var(--my-cool-var);
+  /* Use it with a fallback, in case it isn't set */
+  background-color: var(--my-cool-var, #c00);
+}</code></pre>
+  </section>
+  <section>
+    <h3>
+      <a href="https://googlechrome.github.io/samples/css-custom-properties/index.html" target="css-training">
+        Let's do it live!
+      </a>
+    </h3>
+    <aside class="notes">
+      <ul>
+        <li>Inherits through the DOM</li>
+        <li>Can be combined with calc</li>
+        <li>Custom properties can be set with JS https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties#values_in_javascript</li>
+        <li>Unset or invalid custom properties will make that style get ignored</li>
+        <li></li>
+      </ul>
+    </aside>
+  </section>
+</section>
+
+<section>
+  <section>
     <h2>Page Performance & CSS</h2>
   </section>
   <section>
@@ -3680,19 +3788,20 @@ body.html.page-node-X
   </section>
   <section>
     <h3>Tips:</h3>
-    <ul>
-      <li>Inline critical CSS</li>
-      <li>Manage filesize with minification</li>
-      <li>Use <code>will-change</code> to clue in browser to animations</li>
-      <li>Use <code>font-display</code> to prevent a web font from blocking render</li>
+    <ul class="list-spacing">
+      <li class="fragment">Manage filesize with minification</li>
+      <li class="fragment">Use <code>will-change</code> to clue in browser to animations</li>
+      <li class="fragment">Use <code>font-display</code> to prevent a web font from blocking render</li>
+      <li class="fragment">Test interactive components without JS, make sure they're not unusuable</li>
+      <li class="fragment">Inline critical CSS</li>
     </ul>
   </section>
   <section>
     <h3>For animation or manipulation:</h3>
-    <ul>
-      <li>Transforms for animations whenever possible</li>
-      <li>Don't use 3d transforms (typically used for parallax)</li>
-      <li>Don't cause reflow when possible</li>
+    <ul class="list-spacing">
+      <li class="fragment">Transforms for animations whenever possible</li>
+      <li class="fragment">Don't use 3d transforms (typically used for parallax)</li>
+      <li class="fragment">Don't cause reflow when possible</li>
     </ul>
   </section>
 </section>
@@ -3701,39 +3810,53 @@ body.html.page-node-X
   <h2>Debugging tips and tricks</h2>
   <aside class="notes">
     Common Debug Issues and Methods
-    <ul>
-      <li>
-        Checking to see if stylesheet is applying (color: red!important)
+    <ul class="list-spacing">
+      <li class="fragment">
+        Checking to see if stylesheet is applying? I add:
+        <pre class="language-css"><code>* { color: red!important }</code></pre>
       </li>
-      <li>Style isn’t applying
+      <li class="fragment">Style isn't applying
         <ul>
           <li>Check computed pane</li>
+          <li>Use Ctrl + F in the Elements pain and try the selector, hack it in there until it works</li>
           <li>
             Specificity hacks
           </li>
         </ul>
       </li>
-      <li>Check if stylesheet is being added</li>
-      <li>Is the class name correct?
+      <li class="fragment">Check if stylesheet is being added by checking network tab</li>
+      <li class="fragment">Is the class name correct?
         <ul>
           <li>Make sure you didn’t put a “.” in the HTML</li>
           <li>Copy the class name from the HTML into your CSS</li>
         </ul>
       </li>
-      <li> Hide and seek elements (z-index, overflow, etc)
+      <li class="fragment"> Hide and seek elements (z-index, overflow, etc)
         <ul>
           <li>Check computed styles for culprits</li>
           <li>Check parent elements for overflow: hidden</li>
         </ul>
       </li>
-      <li> Misc. weirdness
+      <li class="fragment"> Misc. weirdness
         <ul>
-          <li>display:none elements until the problem goes away</li>
+          <li>display:none or delete elements until the problem goes away</li>
           <li>Margin in an element with no padding and an element with padding</li>
         </ul>
       </li>
     </ul>
   </aside>
+</section>
+
+<section>
+  @todo <ul>
+    <li>CSS Layers</li>
+    <li>:where, :is, :has</li>
+    <li>CSS Nesting</li>
+    <li>Container Queries</li>
+    <li>@supports, @style queries</li>
+    <li>New CSS color stuff</li>
+    <li>Light mode/dark mode</li>
+  </ul>
 </section>
 
 
