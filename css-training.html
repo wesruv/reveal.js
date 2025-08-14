@@ -60,6 +60,22 @@
         gap: 0.5em;
       }
 
+      .reveal[class] th,
+      .reveal[class] td {
+        border: 0;
+        border-bottom: 1px solid #aaa;
+        padding: 0.5em 0.75em;
+
+        + td,
+        + th {
+          border-left: 1px solid #aaa;
+        }
+      }
+
+      .reveal[class] th {
+        background: #ddd;
+      }
+
     </style>
   </head>
 
@@ -559,7 +575,8 @@
   </section>
   <section>
     <h4>Pixels</h4>
-    <p>A fallback, if you can't/shouldn't use a relative unit.</p>
+    <p>A fallback, if you can't/shouldn't use a relative unit*.</p>
+    <p class="fragment" style="font-style: italic; margin-top: 1.5em">* Most devs and teams I've known use pixels by default, while that has drawbacks, it's not "bad".</p>
     <aside class="notes">
       This is what I'd recommend, but I understand if px everywhere to keep it simple
     </aside>
@@ -598,7 +615,7 @@
     <pre class="language-css" ><code>@media (min-width: 768px) {
   /* CSS Rules */
 }
-/* OR */
+/* OR the newest Comparison syntax */
 @media (width >= 768px) { /* CSS Rules */ }
 
 @media (min-width: 48em) and (min-height: 30em) {
@@ -621,7 +638,8 @@
   </section>
   <section>
     <h4>Mobile First <code>@media</code> queries</h4>
-    <p style="font-size: 1.25em; line-height: 1.8;">Write <code>min-width</code> and <code>min-height</code>,<br><br>
+    <p>
+      Write <code>min-width</code> and <code>min-height</code>,<br><br>
     <strong>not</strong> <code>max-width</code> or <code>max-height</code></p>
   </section>
   <section>
@@ -668,8 +686,7 @@
   </section>
   <section>
     <h4>Only be as specific as necessary</h4>
-    <pre class="language-css"><code style="font-size: 0.9em">
-@media (min-width: 768px) and screen {
+    <pre class="language-css"><code style="font-size: 0.9em">@media (min-width: 768px) and screen {
   /* Is screen necessary, do we want to exclude print? */
   .widget { }
 }
@@ -683,13 +700,18 @@
 
   <section>
     <h4 style="font-size: 1.25em;">Ideally breakpoints are based on content, not devices</h4>
+    <p>That means asking questions like:</p>
     <ul>
       <li>Are columns squished?</li>
       <li>Line lengths too long or short?</li>
       <li>Images need to be bigger?</li>
     </ul>
-    <p>Test from 300px - 1600px wide.</p>
-    <aside class="notes">Using devices is fine, be open to changing them if it's needed.</aside>
+    <p>Test from 350px - 1600px wide.</p>
+    <aside class="notes">
+      Using devices for breakpoints is fine,<br>
+      that tends to be my default<br>
+      be open to changing them if it's needed.
+    </aside>
   </section>
 
   <section style="text-align: center;">
@@ -1057,19 +1079,10 @@ grid-column-end: -1;
 </section>
 
 <section>
-  <section style="text-align: center">
-    <h3><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
-      Be back at <input type="text" size="5" value="..." style="text-align: left" />
-    </h3>
-    <p>Try to complete as many as you can on our break<br> (try at least 5):</p>
-    <a href="http://cssgridgarden.com/">CSSGridGarden.com</a>
-  </section>
-</section>
-
-<section>
+<!--
   <section>
     <h3>More CSS Grid</h3>
-  </section>
+  </section>-->
   <section>
     <h3>Grid Item Shorthand</h3>
     <pre class="language-css"><code style="font-size: 0.85em" class="language-css">.my-header {
@@ -1248,7 +1261,7 @@ grid-column-end: -1;
       <code>minmax()</code>
     </a></h4>
     <pre class="language-css" ><code class="language-css">display: grid;
-grid-gap: 10px;
+gap: 10px;
 grid-template-columns:
   minmax(200px, 1fr) 200px 200px;
 </code></pre>
@@ -1259,7 +1272,7 @@ grid-template-columns:
       <code>repeat(number, size)</code>
     </a></h4>
     <pre class="language-css" ><code class="language-css">display: grid;
-grid-gap: 10px;
+gap: 10px;
 grid-template-columns: repeat(4, 100px);
 grid-template-rows: repeat(3, auto);
 </code></pre>
@@ -1285,7 +1298,7 @@ grid-template-rows: repeat(3, auto);
     <pre class="language-css" ><code class="language-css">display: grid;
 grid-template-columns:
   repeat(auto-fit, minmax(180px, 1fr));
-grid-gap: 1rem;
+gap: 1rem;
 </code></pre>
     <p><a href="http://labs.jensimmons.com/2017/01-009K.html" target="css-training">Example</a></p>
     <aside class="notes">Just like 'masonry' layout, but it may shuffle items around to make them fit nicely.</aside>
@@ -1293,6 +1306,7 @@ grid-gap: 1rem;
 
 </section>
 
+<!--
 <section>
   <section>
     <h3>Can I use Grid Now?</h3>
@@ -1407,12 +1421,13 @@ grid-gap: 1rem;
 
   </section>
 </section>
-
+-->
 <section>
   <section>
     <h2>CSS Grid Tips</h2>
   </section>
 
+<!--
   <section>
     <h3 style="font-size: 1.2em"><code>@supports (...) {}</code> Grid's bestie!</h3>
     <pre class="language-css" ><code class="language-css">.grid-container { /* Fallback styles */ }
@@ -1432,14 +1447,14 @@ grid-gap: 1rem;
       @support doesn't work in IE11, which thinks it supports grid...
     </aside>
   </section>
-
+-->
   <section>
     <h3>Want equal width columns with gutter?</h3>
-    <p>You'd think...</p>
+    <p>You may assume this would have a good result:</p>
 <pre class="language-css"><code class="language-css">.wrapper {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  grid-gap: 10px;
+  gap: 10px;
 }</code></pre>
 
     <p><a href="assets/css-training/grid-equal-columns-wrong.html" target="css-training">
@@ -1452,7 +1467,7 @@ grid-gap: 1rem;
 <pre class="language-css"><code class="language-css">.wrapper {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-gap: 10px;
+  gap: 10px;
 }</code></pre>
 
     <p><a href="assets/css-training/grid-equal-columns-correct.html" target="css-training">
@@ -1462,8 +1477,8 @@ grid-gap: 1rem;
 </section>
 
 <section>
-  <section style="text-align: center">
-    <h2><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
+  <section>
+    <h2><input type="text" size="5" value="10 min." style="text-align: left; width: 3.75em" /> Break!<br>
       Be back at <input type="text" size="5" value="..." style="text-align: left" />
     </h2>
     <p>Fix the equal width grid with gutters yourself:<br>
@@ -1480,29 +1495,20 @@ grid-gap: 1rem;
     <p>Basics and terminology</p>
   </section>
 
-  <section>
-    <h4>Flexbox</h4>
-    <p>Best at 1 dimensional and small scale layouts.</p>
-    <ul>
-      <li>Can direct flow of content, horizontal/vertical, reverse/regular direction</li>
-      <li>Can distribute extra space many ways</li>
-      <li>Can change displayed order of items</li>
-      <li>Can handle multiple rows/columns, but with less control than CSS Grid</li>
-    </ul>
-    <style>
-      .flex-container {
-        display: flex;
-        padding: 0.25em 0 0 0.25em;
-        border: 0.125em solid rgba(0, 0, 0, 0.6);
-      }
-      .flex-container > div {
-        min-width: 3.75em;
-        min-height: 3.75em;
-        margin: 0 0.25em 0.25em 0;
-        background: rgba(35, 165, 216, 0.3);
-      }
-    </style>
-  </section>
+  <style>
+    .flex-container {
+      display: flex;
+      padding: 0.25em 0 0 0.25em;
+      border: 0.125em solid rgba(0, 0, 0, 0.6);
+    }
+    .flex-container > div {
+      min-width: 3.75em;
+      min-height: 3.75em;
+      margin: 0 0.25em 0.25em 0;
+      background: rgba(35, 165, 216, 0.3);
+    }
+  </style>
+
   <section>
     <h4>Flex Container</h4>
     <p>Element enclosing everything</p>
@@ -1731,6 +1737,240 @@ grid-gap: 1rem;
   </section>
 
   <section>
+    <h4 style="font-size: 1em;">Other <code>align-items</code> values</h4>
+    <style>
+      .flex-container--align-items[style^='font-size'] > div {
+        width: 7rem;
+      }
+      .flex-container--align-items--baseline:before,
+      .flex-container--align-items--center:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: rgba(255, 100, 100, 0.8);
+      }
+      .flex-container--align-items--baseline:before {
+        top: 2.25em;
+      }
+    </style>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">align-items: center;</code></div>
+    <div class="flex-container flex-container--align-items flex-container--align-items--center" style="font-size: 0.4em; align-items: center;">
+      <div>1</div>
+      <div style="font-size: 1.5em">Second item</div>
+      <div>I think this one is number 3</div>
+      <div style="font-size: 0.5em">4</div>
+    </div>
+    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">align-items: baseline;</code></div>
+    <div class="flex-container flex-container--align-items flex-container--align-items--baseline" style="font-size: 0.4em; align-items: baseline;">
+      <div>1</div>
+      <div style="font-size: 1.5em">Second item</div>
+      <div>I think this one is number 3</div>
+      <div style="font-size: 0.5em">4</div>
+    </div>
+  </section>
+</section>
+<!--
+<section>
+  <section>
+    <h3><input type="text" size="5" value="10 min." style="text-align: left; width: 3.75em" /> Break!<br>
+      Be back at <input type="text" size="5" value="..." style="text-align: left" />
+    </h3>
+    <p>Try to complete as many as you can on our break<br> (try to get to exercise 10):</p>
+    <a href="http://FlexboxFroggy.com/">FlexboxFroggy.com</a>
+    <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSS-Tricks.com open in another browser may come in handy!</p>
+  </section>
+</section>
+-->
+<section>
+  <section>
+    <h3>Styles for Flexbox Items</h3>
+    <p>All of the previous properties applied to flex&nbsp;<i>containers</i>, these are for flex <strong>items</strong>.</p>
+    <div class="flex-container flex-container--flex-items">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+
+  <section>
+    <h4><code>order</code></h4>
+    <p>Changes the <em>visual</em> order of the elements on the page.</p>
+    <aside class="notes">
+      Should be an integer<br>
+      Does not effect tab order or source order
+    </aside>
+
+    <pre class="language-css" ><code class="language-css">.flex-item-3 {
+  order: 1;
+}
+</code></pre>
+    <style>
+      .flex-container > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .flex-container > div > div {
+        font-size: 2em;
+      }
+    </style>
+    <div class="flex-container" style="font-size: 0.8em;">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="order: 1"><div>3</div></div>
+      <div><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+  <section>
+    <p><code>order</code> is calculated like <code>weight</code> in Drupal, heavier goes to the end, lighter goes to the top.</p>
+    <pre class="language-css" ><code class="language-css">.flex-item-1 { /* Not set */ }
+.flex-item-2 { order: -999; }
+.flex-item-3 { order: 100; }
+.flex-item-4 { order: 10; }
+.flex-item-5 { /* Not set */ }</code></pre>
+    <div class="flex-container" style="font-size: 0.8em;">
+      <div><div>1</div></div>
+      <div style="order: -999"><div>2</div></div>
+      <div style="order: 100"><div>3</div></div>
+      <div style="order: 10"><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h4><code>flex-grow</code></h4>
+    <p>Distributes extra space to items that have a value</p>
+    <pre class="language-css" ><code class="language-css">.flex-item-3 { flex-grow: 2; }
+.flex-item-4 { flex-grow: 1; }</code></pre>
+    <div class="flex-container" style="font-size: 0.8em;">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="flex-grow: 2"><div>3</div></div>
+      <div style="flex-grow: 1"><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h4><code>flex-shrink</code></h4>
+    <p>When there isn't enough space items will shrink to fit</p>
+    <pre class="language-css" ><code class="language-css">.flex-item-3 { flex-shrink: 2; }
+.flex-item-4 { flex-shrink: 1; }</code></pre>
+    <div class="flex-container" style="font-size: 0.8em;">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="flex-shrink: 2; flex-basis: 4em; min-width: 0px"><div>3</div></div>
+      <div style="flex-shrink: 1; flex-basis: 4em; min-width: 0px"><div>4</div></div>
+      <div><div>5</div></div>
+      <div><div>6</div></div>
+      <div><div>7</div></div>
+      <div><div>8</div></div>
+    </div>
+
+  <section>
+    <h4><code>flex-basis</code></h4>
+    <p>Sets initial size of flex item on the main axis, before <code>flex-grow</code> or <code>flex-shrink</code> are applied.</p>
+    <pre class="language-css" ><code class="language-css">.flex-item-3 { flex-basis: 4em; }
+.flex-item-4 { flex-basis: 2em; }</code></pre>
+    <div class="flex-container" style="font-size: 0.8em;">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="flex-basis: 4em; min-width: 0;"><div>3</div></div>
+      <div style="flex-basis: 2em; min-width: 0;"><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+
+  </section>
+  <section>
+    <h4>💖<code>margin</code> and flex items💖</h4>
+    <p><code>auto</code> will use left over space to push as far as it can</p>
+    <aside class="notes">
+      flex items wer designed to be magical with margin, but it's not well known.
+      <br><br>
+      SHALL NOT PASS!
+    </aside>
+
+    <pre class="language-css" ><code class="language-css">.flex-item-3 {
+  margin: auto;
+}</code></pre>
+    <div class="flex-container" style="font-size: 0.4em; height: 15em;">
+      <div><div>1</div></div>
+      <div><div>2</div></div>
+      <div style="margin: auto;"><div>3</div></div>
+      <div><div>4</div></div>
+      <div><div>5</div></div>
+    </div>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3><input type="text" size="5" value="10 min." style="text-align: left; width: 3.75em" /> Break!<br>
+      Be back at <input type="text" size="5" value="..." style="text-align: left" />
+    </h3>
+    <p>Try styling a menu for an up and coming (fake) industrialist super-power:<br>
+    <a href="https://codepen.io/pen/rPrERx" target="css-training">codepen.io/pen/rPrERx</a></p>
+    <p style="font-size: 0.8em; margin: 2em auto 0; width: 30em;">Hint: Having
+      <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="css-training">
+        A Complete Guide to Flexbox
+      </a>
+      from CSS-Tricks.com open in another browser may come in handy!
+    </p>
+  </section>
+</section>
+
+<section>
+  <section style="font-size: 0.8em">
+    <h2 id="grid-vs-flexbox">Grid vs. Flebox</h2>
+    <table aria-labelledby="grid-vs-flexbox">
+      <thead>
+        <tr>
+          <th style="width: 33.333%">Key Quality</th>
+          <th style="width: 33.333%">Grid</th>
+          <th style="width: 33.333%">Flexbox</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="fragment">
+          <td>Layout Specialty</td>
+          <td>2d layout</td>
+          <td>1d layout</td>
+        </tr>
+        <tr class="fragment">
+          <td>Prefers respecting</td>
+          <td>Layout<br>(content conforms)</td>
+          <td>Content<br>(layout flexes)</td>
+        </tr>
+      </tbody>
+    </table>
+    <aside class="notes">
+      <ul>
+        <li>At first glance, these may seem redundant</li>
+        <li>The biggest differences I think of when I'm trying to decide which to use: (See table)</li>
+        <li>
+          Grid lets you set rules for rows and columns, Flex is really good at it's main axis,<br>
+          but less control over the cross axis
+        </li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <h3>Grid & Flexbox Share:</h3>
+    <ul class="list-spacing">
+      <li class="fragment"><code>gap</code></li>
+      <li class="fragment"><code>align-[items/content]</code></li>
+      <li class="fragment"><code>align-self</code></li>
+      <li class="fragment"><code>justify-[items/content]</code></li>
+    </ul>
+  </section>
+  <section>
     <h4><code>justify-content</code></h4>
     <p>How extra space is distributed along the <strong>main&nbsp;axis</strong></p>
     <pre class="language-css" ><code class="language-css">.flex-container {
@@ -1833,204 +2073,6 @@ grid-gap: 1rem;
       <div>4</div>
     </div>
   </section>
-  <section>
-    <h4 style="font-size: 1em;">Other <code>align-items</code> values</h4>
-    <style>
-      .flex-container--align-items[style^='font-size'] > div {
-        width: 7rem;
-      }
-      .flex-container--align-items--baseline:before,
-      .flex-container--align-items--center:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: rgba(255, 100, 100, 0.8);
-      }
-      .flex-container--align-items--baseline:before {
-        top: 2.25em;
-      }
-    </style>
-    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">align-items: center;</code></div>
-    <div class="flex-container flex-container--align-items flex-container--align-items--center" style="font-size: 0.4em; align-items: center;">
-      <div>1</div>
-      <div style="font-size: 1.5em">Second item</div>
-      <div>I think this one is number 3</div>
-      <div style="font-size: 0.5em">4</div>
-    </div>
-    <div style="font-size: 0.9em; margin-top: 0.75em; margin-bottom: 0.25em;"><code class="language-css">align-items: baseline;</code></div>
-    <div class="flex-container flex-container--align-items flex-container--align-items--baseline" style="font-size: 0.4em; align-items: baseline;">
-      <div>1</div>
-      <div style="font-size: 1.5em">Second item</div>
-      <div>I think this one is number 3</div>
-      <div style="font-size: 0.5em">4</div>
-    </div>
-  </section>
-</section>
-
-<section>
-  <section style="text-align: center">
-    <h3><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
-      Be back at <input type="text" size="5" value="..." style="text-align: left" />
-    </h3>
-    <p>Try to complete as many as you can on our break<br> (try to get to exercise 10):</p>
-    <a href="http://FlexboxFroggy.com/">FlexboxFroggy.com</a>
-    <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSS-Tricks.com open in another browser may come in handy!</p>
-  </section>
-</section>
-
-<section>
-  <section>
-    <h3>More Flexbox</h3>
-    <p>All of the previous properties applied to flex&nbsp;<i>containers</i>, these are for flex <strong>items</strong>.</p>
-    <div class="flex-container flex-container--flex-items">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </section>
-
-  <section>
-    <h4><code>order</code></h4>
-    <p>Changes the <em>visual</em> order of the elements on the page.</p>
-    <aside class="notes">
-      Should be an integer<br>
-      Does not effect tab order or source order
-    </aside>
-
-    <pre class="language-css" ><code class="language-css">.flex-item-3 {
-  order: 1;
-}
-</code></pre>
-    <style>
-      .flex-container > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .flex-container > div > div {
-        font-size: 2em;
-      }
-    </style>
-    <div class="flex-container" style="font-size: 0.8em;">
-      <div><div>1</div></div>
-      <div><div>2</div></div>
-      <div style="order: 1"><div>3</div></div>
-      <div><div>4</div></div>
-      <div><div>5</div></div>
-    </div>
-  </section>
-  <section>
-    <p><code>order</code> is calculated like <code>weight</code> in Drupal, heavier goes to the end, lighter goes to the top.</p>
-    <pre class="language-css" ><code class="language-css">.flex-item-1 { /* Not set */ }
-.flex-item-2 { order: -999; }
-.flex-item-3 { order: 100; }
-.flex-item-4 { order: 10; }
-.flex-item-5 { /* Not set */ }</code></pre>
-    <div class="flex-container" style="font-size: 0.8em;">
-      <div><div>1</div></div>
-      <div style="order: -999"><div>2</div></div>
-      <div style="order: 100"><div>3</div></div>
-      <div style="order: 10"><div>4</div></div>
-      <div><div>5</div></div>
-    </div>
-  </section>
-  <section>
-    <h4><code>flex-basis</code></h4>
-    <p>Sets initial size of flex item</p>
-    <pre class="language-css" ><code class="language-css">.flex-item-3 { flex-basis: 4em; }
-.flex-item-4 { flex-basis: 2em; }</code></pre>
-    <div class="flex-container" style="font-size: 0.8em;">
-      <div><div>1</div></div>
-      <div><div>2</div></div>
-      <div style="flex-basis: 4em; min-width: 0;"><div>3</div></div>
-      <div style="flex-basis: 2em; min-width: 0;"><div>4</div></div>
-      <div><div>5</div></div>
-    </div>
-  </section>
-  <section>
-    <h4><code>flex-grow</code></h4>
-    <p>Distributes extra space to items that have a value</p>
-    <pre class="language-css" ><code class="language-css">.flex-item-3 { flex-grow: 2; }
-.flex-item-4 { flex-grow: 1; }</code></pre>
-    <div class="flex-container" style="font-size: 0.8em;">
-      <div><div>1</div></div>
-      <div><div>2</div></div>
-      <div style="flex-grow: 2"><div>3</div></div>
-      <div style="flex-grow: 1"><div>4</div></div>
-      <div><div>5</div></div>
-    </div>
-  </section>
-
-  <section>
-    <h4><code>flex-shrink</code></h4>
-    <p>When there isn't enough space items will shrink to fit</p>
-    <pre class="language-css" ><code class="language-css">.flex-item-3 { flex-shrink: 2; }
-.flex-item-4 { flex-shrink: 1; }</code></pre>
-    <div class="flex-container" style="font-size: 0.8em;">
-      <div><div>1</div></div>
-      <div><div>2</div></div>
-      <div style="flex-shrink: 2; flex-basis: 4em; min-width: 0px"><div>3</div></div>
-      <div style="flex-shrink: 1; flex-basis: 4em; min-width: 0px"><div>4</div></div>
-      <div><div>5</div></div>
-      <div><div>6</div></div>
-      <div><div>7</div></div>
-      <div><div>8</div></div>
-    </div>
-
-  </section>
-  <section>
-    <h4>💖<code>margin</code> and flex items💖</h4>
-    <p><code>auto</code> will use left over space to push as far as it can</p>
-    <aside class="notes">
-      flex items wer designed to be magical with margin, but it's not well known.
-      <br><br>
-      SHALL NOT PASS!
-    </aside>
-
-    <pre class="language-css" ><code class="language-css">.flex-item-3 {
-  margin: auto;
-}</code></pre>
-    <div class="flex-container" style="font-size: 0.4em; height: 15em;">
-      <div><div>1</div></div>
-      <div><div>2</div></div>
-      <div style="margin: auto;"><div>3</div></div>
-      <div><div>4</div></div>
-      <div><div>5</div></div>
-    </div>
-  </section>
-</section>
-
-<section>
-  <section>
-    <h3>Can I use Flexbox Now?</h3>
-  </section>
-  <section>
-    <img src="assets/css-training/flex-compatibility.png" alt="CanIUse.com screenshot" />
-    <aside class="notes">
-      2/13/19<br>
-      94.42% can use flexbox if it's been prefixed
-      10/23/18<br>
-      92.44% can use flexbox if it's been prefixed
-      1/21/18<br>
-      84.9%
-    </aside>
-  </section>
-</section>
-
-<section>
-  <section style="text-align: center">
-    <h3><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
-      Be back at <input type="text" size="5" value="..." style="text-align: left" />
-    </h3>
-    <p>Try styling a menu for an up and coming industrialist super-power:<br>
-    <a href="https://codepen.io/pen/rPrERx" target="css-training">codepen.io/pen/rPrERx</a></p>
-    <p style="font-size: 0.5em; margin: 5em auto 0; width: 30em;">Hint: Having "A Complete Guide to Flexbox" from CSS-Tricks.com open in another browser may come in handy!</p>
-  </section>
 </section>
 
 <section>
@@ -2039,7 +2081,7 @@ grid-gap: 1rem;
     <p style="
       color: #777;
       column-count: 3;
-      column-gap: 1em;
+      gap: 1em;
       font-size: 0.5em;
       background: #fff;
       padding: 1em;
@@ -2081,15 +2123,15 @@ grid-gap: 1rem;
     </p>
   </section>
   <section>
-    <h4><code>column-gap</code></h4>
+    <h4><code>gap</code></h4>
     <pre class="language-css" ><code class="language-css">.column-container {
   column-count: 3;
-  column-gap: 2em;
+  gap: 2em;
 }</code></pre>
     <p style="
       color: #777;
       column-count: 3;
-      column-gap: 2em;
+      gap: 2em;
       font-size: 0.5em;
       background: #fff;
       padding: 1em;
@@ -2107,7 +2149,7 @@ grid-gap: 1rem;
     <ul class="children-break-inside-avoid" style="
       color: #777;
       column-count: 3;
-      column-gap: 2em;
+      gap: 2em;
       font-size: 0.5em;
       background: #fff;
       padding: 1em;
@@ -2236,21 +2278,21 @@ grid-gap: 1rem;
     </aside>
   </section>
   <section style="text-align: center;">
-    <img src="assets/css-training/box-model cats-fluff.png" alt="Cat" width="60%" />
+    <img src="assets/css-training/box-model cats-fluff.png" alt="Fluffy Cat" width="60%" />
   </section>
   <section style="text-align: center;">
-    <img src="assets/css-training/box-model-cats-sphinx.png" alt="Cat" width="60%" />
+    <img src="assets/css-training/box-model-cats-sphinx.png" alt="Sphinx (Hairless) Cat" width="60%" />
   </section>
   <section style="text-align: center;">
     <div style="display: flex; align-items: flex-end; justify-content: space-between;">
-      <img src="assets/css-training/box-model cats-kittens.png" alt="Cat" style="width: 20%; height: auto; margin-bottom: 1em;" />
-      <img src="assets/css-training/box-model cats-meh.png" alt="Cat" width="30%" style="transform: rotate(5deg)" />
+      <img src="assets/css-training/box-model cats-kittens.png" alt="Kittens" style="width: 20%; height: auto; margin-bottom: 1em;" />
+      <img src="assets/css-training/box-model cats-meh.png" alt="Slightly Grumpy Cat" width="30%" style="transform: rotate(5deg)" />
     </div>
   </section>
   <section style="text-align: center;">
     <div style="display: flex; align-items: center; justify-content: space-between;">
-      <img src="assets/css-training/box-model cats-grumpy.png" alt="Cat" style="width: 40%; height: auto; margin-bottom: 1em;" />
-      <img src="assets/css-training/box-model cats-meh.png" alt="Cat" width="10%" style="transform: rotate(5deg)" />
+      <img src="assets/css-training/box-model cats-grumpy.png" alt="Very Grumpy Cat" style="width: 40%; height: auto; margin-bottom: 1em;" />
+      <img src="assets/css-training/box-model cats-meh.png" alt="Slightly Grumpy Cat" width="10%" style="transform: rotate(5deg)" />
     </div>
     <aside class="notes">
       What if we have two grumpy cats<br>
@@ -2633,15 +2675,7 @@ grid-gap: 1rem;
   <section style="text-align: center">
     <img src="assets/css-training/webpage.png" class="block-centered" alt="" width="70%" />
   </section>
-  <section>
-    <h4>Remember what layout methods are best at</h4>
-    <ul>
-      <li>Grid - 2d layout</li>
-      <li>Flex box - 1d layout</li>
-      <li>Box model - Sets up simple box-model properties</li>
-      <li>Position - Great special cases, can be risky</li>
-    </ul>
-  </section>
+
   <section>
     <h4>When an element isn't cooperating...</h4>
     <ul>
@@ -2653,8 +2687,8 @@ grid-gap: 1rem;
   </section>
 </section>
 
-<section style="text-align: center;">
-  <h2><input type="text" size="5" value="30 min." style="text-align: right" /> Break!<br>
+<section>
+  <h2><input type="text" size="5" value="30 min." style="text-align: left; width: 3.75em" /> Break!<br>
     Be back at <input type="text" size="5" value="..." style="text-align: left" />
   </h2>
   <p>Up Next: Transforms, Transitions & Animations</p>
@@ -3171,8 +3205,8 @@ grid-gap: 1rem;
   </section>
 </section>
 
-<section style="text-align: center;">
-  <h2><input type="text" size="5" value="10 min." style="text-align: right" /> Break!<br>
+<section>
+  <h2><input type="text" size="5" value="10 min." style="text-align: left; width: 3.75em" /> Break!<br>
     Be back at <input type="text" size="5" value="..." style="text-align: left" />
   </h2>
   <h3>Coming up: Setting up projects to avoid CSS related headaches</h3>
