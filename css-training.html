@@ -54,6 +54,12 @@
         text-align: left;
       }
 
+      .list-spacing {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+      }
+
     </style>
   </head>
 
@@ -72,18 +78,18 @@
 </section>
 
 <section>
-  <section>
-    <img src="assets/d8/me.jpg" alt="" style="width: 35%; float: right;">
+  <section style="font-size: 0.8em">
+    <img src="assets/avatar-guitar.jpg" alt="" style="width: 35%; float: right;">
     <div style="box-sizing: border-box; width: calc(65% - 0.6em);">
       <h3 id="wes-ruvalcaba">Wes Ruvalcaba</h3>
-      <ul>
-        <li>Senior Software Engineer at Red Hat</li>
+      Some factoids and biases
+      <ul class="list-spacing">
         <li>Writing CSS since 2002</li>
         <li>Markup, CSS &amp; Standards Dork</li>
-        <li>Tend to write custom code, more than repurpose existing</li>
+        <li>I'm a waning SCSS fan, use React and Solid JS sometimes, but usually try to stay as vanilla as I can.</li>
+        <li>I usually avoid CSS frameworks, unless it's good for folks I'm hanidng off to.</li>
       </ul>
     </div>
-    <p style="margin-top: 1em;"><a href="https://twitter.com/wesruv"><i class="fa fa-twitter" style="font-size: 2em; line-height: .5em; padding: 0 .2em 0 0; transform: translateY(.15em);"></i>@wesruv</a></p>
   </section>
   <section>
     <h3>Feel free to ask questions at any time!</h3>
@@ -103,7 +109,7 @@
 </section>
 -->
 
-<section>
+<section style="font-size: 0.8em">
   <h3>People I'm Stealing <em>a lot</em> from</h3>
   <ul>
     <li>Rachel Andrew</li>
@@ -112,26 +118,23 @@
     <li>Mozilla Developer Network</li>
     <li>... and plenty of others (see sources slides)</li>
   </ul>
-</section>
-
-<section>
-  <h3>The Goal</h3>
-  <aside class="notes">
-    <p>Kinda good at CSS to understanding the harder concepts of CSS.</p>
-    <p>Understand the tools available, how they work, and what they're good at.</p>
-  </aside>
+  <h3 style="margin-block: 0.5em 0;">Special thanks to:</h3>
+  <ul>
+    <li>Frank Taylor (blog.frankmtaylor.com @paceaux)</li>
+    <li>Aubrey Sambor (aubreysambor.com @starshaped)</li>
+  </ul>
 </section>
 
 <section>
   <h2 id="well-go-over">We'll go over</h2>
-  <ul style="font-size: 0.9em;  width: 100%; padding: 0;">
+  <ul style="font-size: 0.9em;  width: 100%;">
     <li>CSS "Units" and "Lengths"</li>
     <li>Media Queries</li>
-    <li>Layout with CSS post Grid & Flexbox</li>
+    <li>Grid Vs Flexbox</li>
     <li>Advanced styling techniques & animating</li>
     <li>Accessibility</li>
-    <li>Debugging CSS Issues</li>
     <li>Architecting CSS</li>
+    <li>Debugging CSS Issues</li>
     <li>Fancy Tips and Tricks</li>
   </ul>
 </section>
@@ -178,14 +181,24 @@
 </section>
 
 <section>
+  <h2>Some themes you'll notice:</h2>
+  <ul>
+    <li class="fragment">Only be as specific as necessary</li>
+    <li class="fragment">Best practice guidelines become more important the bigger the team or more complex the project</li>
+  </ul>
+</section>
+
+<section>
   <section>
     <p>Part 1</p>
     <h2 id="units-lengths">Units and Lengths</h2>
   </section>
 </section>
 
+<!--
 <section>
   <div class="section-indicator">Units and Lengths</div>
+
   <section>
     <h3>Pixels</h3>
     <pre class="language-css"><code class="language-css">1px
@@ -234,7 +247,7 @@
   </section>
 
 </section>
-
+-->
 <section>
   <div class="section-indicator">Units and Lengths</div>
   <section>
@@ -265,7 +278,7 @@
 
   <section>
     <h3>
-      <a href="https://codepen.io/wesruv/pen/LYPwwKv?editors=1100">
+      <a href="https://codepen.io/wesruv/pen/LYPwwKv?editors=1100" target="css-training">
         Percentage ... of what?
       </a>
     </h3>
@@ -290,8 +303,7 @@
       </p>
     </div>
     <aside class="notes">
-      This may be confusing for some of you, because it has <em>nothing</em> to do with the width of an "em dash".
-      Draw out calculation examples.
+      For any grammar, typography, or semantic nerds, CSS' <code>em</code> has <em>nothing</em> to do with the width of an "em dash".
     </aside>
     <pre class="language-css"><code class="language-css">1em
 1.25em
@@ -317,7 +329,7 @@
         </div>
       </div>
     </div>
-    <aside class="notes">Before why, note that despite font size, bars line up</aside>
+    <aside class="notes">Note that the box lines up with the x in the same place, despite the font-size change</aside>
   </section>
 </section>
 
@@ -410,23 +422,29 @@
     <div class="column-wrapper">
       <pre class="language-css" style="max-width: 50%;"><code class="language-css" style="font-size: 0.85em">.box {
   font-family: monospace;
-  width: 20ex;
+  width: 25ch;
   background: deepskyblue;
 }
 .box-2 {
   font-family: sans-serif;
-  width: 20ex;
+  width: 25ch;
   background: palegreen;
 }</code></pre>
-      <div style="padding: 1em;">
-        <p>Monospace Font:</p>
-        <div style="width: 20ex; font-family: monospace; background: deepskyblue;">
-          <div style="border: 0; background: transparent; margin: 0; padding: 0;">.box</div>
+      <div style="padding: 1em; font-size: 0.7em">
+        <div style="font-family: monospace; margin-bottom: 2em;">
+          <div>Monospace Font:</div>
+          <div style="font-family: monospace;">0000000000000000000000000</div>
+          <div style="width: 25ch; font-family: monospace; background: deepskyblue;">
+            <div style="border: 0; background: transparent; margin: 0; padding: 0;">.box</div>
+          </div>
         </div>
-        <div style="width: 20ex; font-family: sans-serif; background: palegreen;">
-          <div style="border: 0; background: transparent; margin: 0; padding: 0; white-space: nowrap;">.box-2</div>
+        <div style="font-family: Georgia;">
+          <div>Georgia</div>
+          <div>0000000000000000000000000</div>
+          <div style="width: 25ch; background: palegreen;">
+            <div style="border: 0; background: transparent; margin: 0; padding: 0; white-space: nowrap;">.box-2</div>
+          </div>
         </div>
-        <p>Sans-Serif Font</p>
       </div>
     </div>
   </section>
@@ -447,7 +465,7 @@
 <section>
   <div class="section-indicator">Units and Lengths</div>
   <section>
-    <h4 style="position: absolute;"><code>vw</code></h4>
+    <h4 style="position: absolute;"><code>100vw</code></h4>
     <img src="assets/css-training/vw.png" style="width: 100%" alt="vw - percentage width of the browser window" />
   </section>
   <section>
@@ -459,7 +477,7 @@
 <section>
   <div class="section-indicator">Units and Lengths</div>
   <section>
-    <h4 style="position: absolute;"><code>vh</code></h4>
+    <h4 style="margin-bottom: -1em;"><code>100vh</code></h4>
     <img src="assets/css-training/vh.png" style="width: 100%" alt="vh - percantage height of the browser window"/>
   </section>
   <section>
@@ -467,7 +485,7 @@
     <img src="assets/css-training/vh25.png" alt="25vh examples" />
   </section>
 </section>
-
+<!--
 <section>
   <div class="section-indicator">Units and Lengths</div>
   <section>
@@ -490,26 +508,26 @@
     <h5><code>25vmax</code></h5>
     <img src="assets/css-training/vmax25.png" alt="25vmax examples" />
   </section>
-</section>
+</section>-->
 
 <section>
   <div class="section-indicator">Units and Lengths</div>
   <h3>Physical Units</h3>
   <ul>
-    <li><code>mm</code> millimeter</li>
-    <li><code>cm</code> centimeter</li>
-    <li><code>in</code> inch</li>
-    <li><code>pt</code> point</li>
-    <li><code>pc</code> pica</li>
+    <li><code>mm</code>&nbsp;&nbsp;&nbsp;millimeter</li>
+    <li><code>cm</code>&nbsp;&nbsp;&nbsp;centimeter</li>
+    <li><code>in</code>&nbsp;&nbsp;&nbsp;inch</li>
+    <li><code>pt</code>&nbsp;&nbsp;&nbsp;point</li>
+    <li><code>pc</code>&nbsp;&nbsp;&nbsp;pica</li>
   </ul>
   <aside class="notes">
-    These exist, and are most useful in print stylesheets, but I've never used them
+    These exist, and are most useful in print stylesheets, I've only used inches a few times
   </aside>
 </section>
 
 <section>
   <div class="section-indicator">Units and Lengths</div>
-  <section>
+  <section style="font-size: 0.8em">
     <h3>Which unit should I use?</h3>
   </section>
   <section>
@@ -517,7 +535,7 @@
     <style>
       .button[class][class] {
         display: inline-block;
-        padding: 0.75em 1em;
+        padding: 0.3em 0.75em;
         margin: 0 1em 1em 0;
         background: #225378;
         color: #fff;
@@ -530,8 +548,8 @@
     <p>When size should be proportionate to the unit's basis</p>
     <p><strong>Sized with em</strong></p>
     <div style="font-size: 0.6em">
-      <a href="#" target="css-training" class="button">My button</a>
-      <a href="#" target="css-training" class="button" style="font-size: 2em;">Larger button</a>
+      <a href="#" target="css-training" class="button" style="font-size: 0.75em">My button</a>
+      <a href="#" target="css-training" class="button" style="font-size: 1.5em;">Larger button</a>
     </div>
     <p><strong>Sized with px</strong></p>
     <div style="font-size: 0.6em">
@@ -543,7 +561,7 @@
     <h4>Pixels</h4>
     <p>A fallback, if you can't/shouldn't use a relative unit.</p>
     <aside class="notes">
-      how you want to work that can be very often or the exception.
+      This is what I'd recommend, but I understand if px everywhere to keep it simple
     </aside>
   </section>
 </section>
@@ -577,17 +595,22 @@
 
   <section>
     <h3>What Size?</h3>
-    <pre class="language-css"><code>@media (min-width: 768px) {
+    <pre class="language-css" ><code>@media (min-width: 768px) {
   /* CSS Rules */
 }
+/* OR */
+@media (width >= 768px) { /* CSS Rules */ }
 
 @media (min-width: 48em) and (min-height: 30em) {
   /* CSS Rules */
 }
 
-@media (max-height: 500px) {
-  /* CSS Rules */
+@media (400px <= width <= 600px)  {
+  /* Styles for viewports between 400px and 600px. */
 }</code></pre>
+    <aside class="notes">
+      In 2025 we did run into some clients that couldn't use the new Level 4 comparison syntax
+    </aside>
   </section>
 </section>
 
@@ -619,8 +642,9 @@
 }
 </code></pre>
     <aside class="notes">
-      Don't write max-width/height, larger screen styles will override smaller screen styles<br>
-      Don't have to work mobile first, just have to end up with mobile first code.
+      <ul>
+        <li>This has been the preference for a long time, going one direction (small to large) is preferable over media queries being random</li>
+        <li>Don't have to work mobile first, just have to end up with mobile first code.</li>
     </aside>
   </section>
 
@@ -628,14 +652,12 @@
     <h4>Group all styles for an element</h4>
     <pre class="language-css"><code style="font-size: 0.9em">/* Widget Styles */
 .widget { }
-
 @media (min-width: 768px) {
   .widget { }
 }
 
 /* Doo Dad Styles */
 .doo-dad { }
-
 @media (min-width: 768px) {
   .doo-dad { }
 }
@@ -660,13 +682,14 @@
   </section>
 
   <section>
-    <h4>Media queries should be based on content, not devices</h4>
+    <h4 style="font-size: 1.25em;">Ideally breakpoints are based on content, not devices</h4>
     <ul>
       <li>Are columns squished?</li>
       <li>Line lengths too long or short?</li>
       <li>Images need to be bigger?</li>
     </ul>
-    <p>Devices can be a decent guide.<br>Test from 300px - 1600px wide.</p>
+    <p>Test from 300px - 1600px wide.</p>
+    <aside class="notes">Using devices is fine, be open to changing them if it's needed.</aside>
   </section>
 
   <section style="text-align: center;">
@@ -686,8 +709,9 @@
 
 </section>
 
-<section><h1>CSS Layout post CSS Grid & Flexbox</h1></section>
+<section><h1>Flexbox & Grid</h1></section>
 
+<!--
 <section>
   <section>
     <h2>Document Flow &amp; You</h2>
@@ -807,15 +831,8 @@
     </ul>
   </section>
 </section>
-
-<section>
-  <h2>Layout 101 in Post-CSS Grid</h2>
-  <aside class="notes">
-    We're going to start from the outside out.
-  </aside>
-</section>
-
-<section>
+-->
+<!--<section>
   <section><h3>Floats</h3></section>
 
   <section>
@@ -835,84 +852,74 @@
     <p style="font-size: 0.5em; opacity: 0.4">Lorem ipsum dolor sit amet, wakka un blitz and chips; dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill. Lorem ipsum dolor sit amet, wakka un flurb dolla dolla bill.</p>
   </section>
 </section>
-
+-->
 <section>
   <div class="section-indicator">Terminology</div>
   <section>
     <h3>CSS Grid</h3>
     <p>Basics and terminology</p>
   </section>
+  <style>
+    .grid-example-wrapper {
+      position: relative;
+      transform: scale(0.9);
+    }
 
-  <section>
-    <h4>CSS Grid</h4>
-    <p>Great at 2 dimensional, custom, and large scale layouts</p>
-    <ul>
-      <li>Define amount of rows and columns</li>
-      <li>Define constraints for rows and columns</li>
-      <li>Constraints can be rigid, flexible, or content based</li>
-    </ul>
-    <style>
-      .grid-example-wrapper {
-        position: relative;
-        transform: scale(0.9);
-      }
+    .grid-example {
+      position: relative;
+      display: grid;
+      width: 100%;
+      height: 14em;
+      grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+      border: 0.125em dashed rgba(0, 0, 0, 0.6);
+    }
 
-      .grid-example {
-        position: relative;
-        display: grid;
-        width: 100%;
-        height: 14em;
-        grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
-        border: 0.125em dashed rgba(0, 0, 0, 0.6);
-      }
+    .grid-example > * {
+      position: relative;
+      z-index: 1;
+    }
 
-      .grid-example > * {
-        position: relative;
-        z-index: 1;
-      }
+    .grid-example-wrapper:before,
+    .grid-example-wrapper:after,
+    .grid-example:before,
+    .grid-example:after {
+      content: '';
+      position: absolute;
+      left: 33.333%;
+      top: 0;
+      bottom: 0;
+      display: block;
+      width: 0;
+      border-left: 0.125em dashed rgba(0, 0, 0, 0.3);
+    }
 
-      .grid-example-wrapper:before,
-      .grid-example-wrapper:after,
-      .grid-example:before,
-      .grid-example:after {
-        content: '';
-        position: absolute;
-        left: 33.333%;
-        top: 0;
-        bottom: 0;
-        display: block;
-        width: 0;
-        border-left: 0.125em dashed rgba(0, 0, 0, 0.3);
-      }
+    .grid-example-wrapper:before {
+      left: 66.667%;
+    }
 
-      .grid-example-wrapper:before {
-        left: 66.667%;
-      }
+    .grid-example-wrapper:after,
+    .grid-example:after {
+      top: 33.333%;
+      left: 0;
+      right: 0;
+      bottom: auto;
+      width: auto;
+      height: 0;
+      border-top: 0.125em dashed rgba(0, 0, 0, 0.3);
+      border-left: 0;
+    }
 
-      .grid-example-wrapper:after,
-      .grid-example:after {
-        top: 33.333%;
-        left: 0;
-        right: 0;
-        bottom: auto;
-        width: auto;
-        height: 0;
-        border-top: 0.125em dashed rgba(0, 0, 0, 0.3);
-        border-left: 0;
-      }
+    .grid-example-wrapper:after {
+      top: 66%;
+    }
 
-      .grid-example-wrapper:after {
-        top: 66%;
-      }
-
-      .grid-example-wrapper:before,
-      .grid-example-wrapper:after,
-      .grid-example:before,
-      .grid-example:after {
-        border-color: rgba(0, 0, 0, 0.6);
-      }
-    </style>
-  </section>
+    .grid-example-wrapper:before,
+    .grid-example-wrapper:after,
+    .grid-example:before,
+    .grid-example:after {
+      border-color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
 
   <section>
     <h4>Grid Container</h4>
@@ -995,7 +1002,7 @@
   </section>
   <section>
     <h4>Basic syntax</h4>
-    <pre class="language-css" style="font-size: 1em"><code class="language-css">.grid-container {
+    <pre class="language-css" ><code class="language-css">.grid-container {
   display: grid;
   grid-template-columns: 25% 50% 25%;
 }
@@ -1028,25 +1035,22 @@
     <p class="small" style="margin-top: 3em;">Grid code examples stolen/modified from <a href="http://GridByExample.com">GridByExample.com</a>, from Rachel Andrew</p>
   </section>
   <section>
-    <h4>Specifically placing a grid-item:</h4>
-    <pre class="language-css" style="font-size: 1em"><code class="language-css">
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
+    <h4>Specifically placing a <span style="white-space: nowrap">grid-item</span></h4>
+    <pre class="language-css" ><code class="language-css">grid-column-start: 2;
+grid-column-end: 3;
+grid-row-start: 1;
+grid-row-end: 2;
 </code></pre>
   </section>
   <section>
-    <h4>Specifically placing a grid-item from the end!</h4>
-    <pre class="language-css" style="font-size: 1em"><code class="language-css">
-  grid-column-start: -3;
-  grid-column-end: -1;
-  grid-row-start: -2;
-  grid-row-end: -1;
+    <h4>Specifically placing a <span style="white-space: nowrap">grid-item</span> from the end!</h4>
+    <pre class="language-css" ><code class="language-css">grid-column-start: -3;
+grid-column-end: -1;
+grid-row-start: -2;
+grid-row-end: -1;
 </code></pre>
-    <pre class="language-css" style="font-size: 1em"><code class="language-css">
-  grid-column-start: 1;
-  grid-column-end: -1;
+    <pre class="language-css" ><code class="language-css">grid-column-start: 1;
+grid-column-end: -1;
 </code></pre>
 
   </section>
@@ -1116,7 +1120,7 @@
   <section>
     <h4><code>grid-template-areas</code></h4>
     <p>Name regions in your grid.</p>
-    <pre class="language-css" style="font-size: 1em"><code class="language-css">.grid-container {
+    <pre class="language-css" ><code class="language-css">.grid-container {
   display: grid;
   grid-template-columns: 25% 50% 25%;
   grid-template-areas:
@@ -1128,8 +1132,7 @@
   <section>
     <h4><code>grid-area</code></h4>
     <p>Set location of grid items to a grid region.</p>
-    <pre class="language-css" style="font-size: 1em"><code class="language-css">
-.my-header  { grid-area: header; }
+    <pre class="language-css" ><code class="language-css">.my-header  { grid-area: header; }
 .my-content { grid-area: content;}
 .my-sidebar { grid-area: sidebar;}
 .my-footer  { grid-area: footer; }</code></pre>
@@ -1169,7 +1172,7 @@
     </div>
   </section>
   <section>
-    <pre class="language-css" style="font-size: 1em"><code class="language-css">.grid-container {
+    <pre class="language-css" ><code class="language-css">.grid-container {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-areas:
@@ -1234,8 +1237,8 @@
     <h4><code>fr</code></h4>
     <p>Distributes free space in a grid track</p>
     <div style="font-size: 0.9em">
-      <pre class="language-css" style="font-size: 1.1em"><code class="language-css">grid-template-row: 1fr 50% 1fr;</code></pre>
-      <pre class="language-css" style="font-size: 1.1em"><code class="language-css">1fr 1fr /* 50% 50% (Maybe) */
+      <pre class="language-css" ><code class="language-css">grid-template-row: 1fr 50% 1fr;</code></pre>
+      <pre class="language-css" ><code class="language-css">1fr 1fr /* 50% 50% (Maybe) */
 1fr 2fr 1fr /* 25% 50% 25% (Maybe) */
 25% 1fr 1fr /* 25% 37.5% 37.5% (Maybe) */</code></pre>
     </div>
@@ -1244,7 +1247,7 @@
     <h4><a href="assets/css-training/Example 31.html" target="css-training">
       <code>minmax()</code>
     </a></h4>
-    <pre class="language-css" style="font-size: 1em"><code class="language-css">display: grid;
+    <pre class="language-css" ><code class="language-css">display: grid;
 grid-gap: 10px;
 grid-template-columns:
   minmax(200px, 1fr) 200px 200px;
@@ -1255,7 +1258,7 @@ grid-template-columns:
     <h4><a href="assets/css-training/grid-repeat-example.html" target="css-training">
       <code>repeat(number, size)</code>
     </a></h4>
-    <pre class="language-css" style="font-size: 1em"><code class="language-css">display: grid;
+    <pre class="language-css" ><code class="language-css">display: grid;
 grid-gap: 10px;
 grid-template-columns: repeat(4, 100px);
 grid-template-rows: repeat(3, auto);
@@ -1267,9 +1270,9 @@ grid-template-rows: repeat(3, auto);
     <h4 style="text-align: center"><a href="assets/css-training/grid-auto-fit-vs-fill.html" target="css-training">
       <code>auto-fit</code> and <code>auto-fill</code>
     </a></h4>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">grid-template-columns: repeat(auto-fit, 150px)</code></pre>
+    <pre class="language-css" ><code class="language-css">grid-template-columns: repeat(auto-fit, 150px)</code></pre>
     <div style="margin: 0 0 1em;">Will make columns fit available space.</div>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">grid-template-columns: repeat(auto-fill, 150px)</code></pre>
+    <pre class="language-css" ><code class="language-css">grid-template-columns: repeat(auto-fill, 150px)</code></pre>
     <div style="margin: 0 0 1em;">Will add columns as it has room for more.</div>
     <aside class="notes">
       This behavior is when there aren't enough grid items to fill available area
@@ -1279,7 +1282,7 @@ grid-template-rows: repeat(3, auto);
 
   <section>
     <h4><a href="http://labs.jensimmons.com/2017/01-009K.html" target="css-training">Masonry like layout</a></h4>
-    <pre class="language-css" style="font-size: 1em"><code class="language-css">display: grid;
+    <pre class="language-css" ><code class="language-css">display: grid;
 grid-template-columns:
   repeat(auto-fit, minmax(180px, 1fr));
 grid-gap: 1rem;
@@ -1412,7 +1415,7 @@ grid-gap: 1rem;
 
   <section>
     <h3 style="font-size: 1.2em"><code>@supports (...) {}</code> Grid's bestie!</h3>
-    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.grid-container { /* Fallback styles */ }
+    <pre class="language-css" ><code class="language-css">.grid-container { /* Fallback styles */ }
 
 @supports (display: grid) {
   .grid-container {
@@ -1657,7 +1660,7 @@ grid-gap: 1rem;
   </section>
   <section>
     <h4>Basic syntax</h4>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+    <pre class="language-css" ><code class="language-css">.flex-container {
   display: flex; /* All you need */
   /* flex-direction: row; (Default) */
   /* flex-wrap: nowrap;   (Default) */
@@ -1688,7 +1691,7 @@ grid-gap: 1rem;
   </section>
   <section>
     <h4><code>flex-wrap</code></h4>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+    <pre class="language-css" ><code class="language-css">.flex-container {
   display: flex;
   /* flex-direction: row; (Default) */
   flex-wrap: wrap;
@@ -1730,7 +1733,7 @@ grid-gap: 1rem;
   <section>
     <h4><code>justify-content</code></h4>
     <p>How extra space is distributed along the <strong>main&nbsp;axis</strong></p>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+    <pre class="language-css" ><code class="language-css">.flex-container {
   display: flex;
   justify-content: center;
 }
@@ -1787,7 +1790,7 @@ grid-gap: 1rem;
   <section>
     <h4><code>align-items</code></h4>
     <p>How extra space is distributed along the <strong>cross&nbsp;axis</strong></p>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-container {
+    <pre class="language-css" ><code class="language-css">.flex-container {
   display: flex;
   align-items: center;
 }</code></pre>
@@ -1899,7 +1902,7 @@ grid-gap: 1rem;
       Does not effect tab order or source order
     </aside>
 
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 {
+    <pre class="language-css" ><code class="language-css">.flex-item-3 {
   order: 1;
 }
 </code></pre>
@@ -1923,7 +1926,7 @@ grid-gap: 1rem;
   </section>
   <section>
     <p><code>order</code> is calculated like <code>weight</code> in Drupal, heavier goes to the end, lighter goes to the top.</p>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-1 { /* Not set */ }
+    <pre class="language-css" ><code class="language-css">.flex-item-1 { /* Not set */ }
 .flex-item-2 { order: -999; }
 .flex-item-3 { order: 100; }
 .flex-item-4 { order: 10; }
@@ -1939,7 +1942,7 @@ grid-gap: 1rem;
   <section>
     <h4><code>flex-basis</code></h4>
     <p>Sets initial size of flex item</p>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 { flex-basis: 4em; }
+    <pre class="language-css" ><code class="language-css">.flex-item-3 { flex-basis: 4em; }
 .flex-item-4 { flex-basis: 2em; }</code></pre>
     <div class="flex-container" style="font-size: 0.8em;">
       <div><div>1</div></div>
@@ -1952,7 +1955,7 @@ grid-gap: 1rem;
   <section>
     <h4><code>flex-grow</code></h4>
     <p>Distributes extra space to items that have a value</p>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 { flex-grow: 2; }
+    <pre class="language-css" ><code class="language-css">.flex-item-3 { flex-grow: 2; }
 .flex-item-4 { flex-grow: 1; }</code></pre>
     <div class="flex-container" style="font-size: 0.8em;">
       <div><div>1</div></div>
@@ -1966,7 +1969,7 @@ grid-gap: 1rem;
   <section>
     <h4><code>flex-shrink</code></h4>
     <p>When there isn't enough space items will shrink to fit</p>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 { flex-shrink: 2; }
+    <pre class="language-css" ><code class="language-css">.flex-item-3 { flex-shrink: 2; }
 .flex-item-4 { flex-shrink: 1; }</code></pre>
     <div class="flex-container" style="font-size: 0.8em;">
       <div><div>1</div></div>
@@ -1989,7 +1992,7 @@ grid-gap: 1rem;
       SHALL NOT PASS!
     </aside>
 
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.flex-item-3 {
+    <pre class="language-css" ><code class="language-css">.flex-item-3 {
   margin: auto;
 }</code></pre>
     <div class="flex-container" style="font-size: 0.4em; height: 15em;">
@@ -2047,7 +2050,7 @@ grid-gap: 1rem;
   </section>
   <section>
     <h4>Basic syntax</h4>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.column-container {
+    <pre class="language-css" ><code class="language-css">.column-container {
   column-count: 3;
 }</code></pre>
     <p style="
@@ -2063,7 +2066,7 @@ grid-gap: 1rem;
   </section>
   <section>
     <h4>Or Specify <code>column-width</code></h4>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.column-container {
+    <pre class="language-css" ><code class="language-css">.column-container {
   column-width: 9em;
 }</code></pre>
     <p style="
@@ -2079,7 +2082,7 @@ grid-gap: 1rem;
   </section>
   <section>
     <h4><code>column-gap</code></h4>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.column-container {
+    <pre class="language-css" ><code class="language-css">.column-container {
   column-count: 3;
   column-gap: 2em;
 }</code></pre>
@@ -2098,7 +2101,7 @@ grid-gap: 1rem;
   <section>
     <h4><code>break-inside</code></h4>
     <style>.children-break-inside-avoid > * { break-inside: avoid; }</style>
-    <pre class="language-css" style="font-size: 0.8em"><code class="language-css">.column-children {
+    <pre class="language-css" ><code class="language-css">.column-children {
   break-inside: avoid;
 }</code></pre>
     <ul class="children-break-inside-avoid" style="
@@ -2260,7 +2263,7 @@ grid-gap: 1rem;
     <h4>❓<code style="margin-left: 0;">margin</code> and flex items❓</h4>
     <p><code>margin</code> does not collapse inside of a flex container</p>
 
-    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.flex-item-3 {
+    <pre class="language-css" ><code class="language-css">.flex-item-3 {
   margin-left: 2em;
   margin-right: 2em;
 }
@@ -2285,7 +2288,7 @@ grid-gap: 1rem;
   <section>
     <h4 style="font-size: 1.4em"><code>box-sizing: content-box;</code></h4>
     <img src="assets/css-training/box-sizing-content-box.png" alt="" width="40%" style="display: block; margin: 0 auto;" />
-    <pre class="language-css" style="font-size: 0.75em"><code class="language-css">.element {           /* Space taken up in layout */
+    <pre class="language-css" ><code class="language-css">.element {           /* Space taken up in layout */
   padding: 5px 10px; /* 10px + 10px = 20px */
   border-width: 2px; /* 20px + 2px + 2px = 24px */
   width: 100px;      /* 24px + 100px */
@@ -2294,7 +2297,7 @@ grid-gap: 1rem;
   <section>
     <h4 style="font-size: 1.4em"><code>box-sizing: border-box;</code></h4>
     <img src="assets/css-training/box-sizing-border-box.png" alt="" width="40%" style="display: block; margin: 0 auto;" />
-    <pre class="language-css" style="font-size: 0.75em"><code class="language-css">.element {           /* Space taken up in layout */
+    <pre class="language-css" ><code class="language-css">.element {           /* Space taken up in layout */
   padding: 5px 10px; /* 10px + 10px = 20px */
   border-width: 2px; /* 20px + 2px + 2px = 24px */
   width: 100px;      /* 100px */
@@ -2304,7 +2307,7 @@ grid-gap: 1rem;
     <h4 style="font-size: 1.3em;">Where it goes wrong</h4>
     <div class="column-wrapper">
       <div>
-    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.wrapper {
+    <pre class="language-css" ><code class="language-css">.wrapper {
   display: flex;
   flex-wrap: wrap;
 }
@@ -2325,7 +2328,7 @@ grid-gap: 1rem;
     <h4 style="font-size: 1.3em;"><code>border-box</code> saves the day!</h4>
     <div class="column-wrapper">
       <div>
-    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.wrapper {
+    <pre class="language-css" ><code class="language-css">.wrapper {
   display: flex;
   flex-wrap: wrap;
 }
@@ -2346,7 +2349,7 @@ grid-gap: 1rem;
   <section>
     <h4>Editorial:</h4>
     <p>BORDER BOX ALL THE THINGS!</p>
-    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">* {
+    <pre class="language-css" ><code class="language-css">* {
   box-sizing: border-box;
 }</code></pre>
     <aside class="notes">
@@ -2411,7 +2414,7 @@ grid-gap: 1rem;
       <div class="position-item" style="position: static; top: 25px; left: 50px;"></div>
       This is some example text
     </div>
-    <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.element {
+    <pre class="language-css" ><code class="language-css">.element {
   position: static;
   top: 100px; /* Ignored, because position: static */
   left: 50px; /* Static isn't considered "positioned" */
@@ -2451,7 +2454,7 @@ grid-gap: 1rem;
         <div class="position-item" style="position: absolute; top: 0; left: 0;"></div>
         This is some example text
       </div>
-      <pre class="language-css" style="font-size: 0.7em"><code class="language-css">.element {
+      <pre class="language-css" ><code class="language-css">.element {
   position: absolute;
   top: 0;
   left: 0;
